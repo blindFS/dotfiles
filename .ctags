@@ -1,0 +1,36 @@
+--langdef=latex
+--langmap=latex:.tex,latex:.sty,latex:.cls
+--regex-latex=/^[ \t]*\\label\{([^}]*)\}/\1/l,label/
+--regex-latex=/^[ \t]*\\[sub]{0,2}section\{([^}]*)\}/\1/s,section/
+--regex-latex=/^[ \t]*\\[re]{0,1}newcommand\{\\([^}]*)\}/\1/d,definition/
+--regex-latex=/^[ \t]*\\[re]{0,1}newenvironment\{([^}]*)\}/\1/d,definition/
+--regex-latex=/^[ \t]*\\DeclareRobustCommand\{\\([^}]*)\}/\1/d,definition/
+--regex-latex=/^[ \t]*\\begin\{([^}]*)\}/\1/e,environment/
+
+--langdef=wiki
+--langmap=wiki:.wiki
+--regex-wiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header/
+--regex-wiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header/
+--regex-wiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
+--regex-wiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
+--regex-wiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
+--regex-wiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header/
+
+--langdef=md
+--langmap=md:.md
+--regex-md=/^#[ \t]+(.*)/\. \1/h,heading1/
+--regex-md=/^##[ \t]+(.*)/\.\. \1/h,heading2/
+--regex-md=/^###[ \t]+(.*)/\.\.\. \1/h,heading3/
+--regex-md=/^####[ \t]+(.*)/\.\.\. \1/h,heading4/
+
+--langdef=css
+--langmap=css:.css
+--regex-css=/^[ \t]*\.([ .:#A-Za-z0-9_-]+)[,{][ \t]*$/.\1/c,class/
+--regex-css=/^[ \t]*#([ .:#A-Za-z0-9_-]+)[,{][ \t]*$/#\1/i,id/
+--regex-css=/^[ \t]*([:A-Za-z0-9_-][ :#A-Za-z0-9_-]*)[,{][ \t]*$/\1/t,tag/
+--regex-css=/^[ \t]*@media\s+(.+)[,{][ \t]*$/\1/m,media/
+--regex-css=/^[ \t]*@font-face[ \t]*[,{][ \t]*$/font-face/f,font/
+--regex-css=/^[ \t]*@(-o-|-moz-|-webkit-){0,1}keyframes[ \t]*([A-Za-z0-9_-]+)[ \t]*[,{][ \t]*$/\1keyframes \2/k,keyframe/
+
+--regex-html=/<[ \t]*[A-Za-z]+[^\/>]*class=['"]([^'"]*)['"][^\/>]*>/.\1/c,class/
+--regex-html=/<[ \t]*[A-Za-z]+[^\/>]*id=['"]([^'"]*)['"][^\/>]*>/#\1/i,id/

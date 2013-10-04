@@ -1,0 +1,110 @@
+#! perl
+
+# Google translate plugin for urxvt
+# http://code.google.com/p/urxvt-gt/
+# 
+# urxvt-gt v0.3
+#
+# How to use (Debian/Ubuntu):
+#    1. Copy this file to ~/.urxvt/perl/gt
+#    2. Add to the ~/.Xresources
+#        URxvt.keysym.M-e: perl:gt:en-ru    # Select words and press Alt+e
+#        URxvt.keysym.M-r: perl:gt:ru-en    # Select words and press Alt+r
+#        URxvt.gt_button.close: 1           # Left mouse button
+#    3. xrdb -override < ~/.Xresources
+#    4. Restart urxvt
+#
+#
+# Dependencies (Debian/Ubuntu):
+#    JSON 2.0 () - libjson-perl 
+#    HTML::Entities - libhtml-parser-perl
+#    Text::Format - libtext-format-perl
+#
+# LICENSE:
+#    Copyright (C) 2010 Yaroslav [lip]at[lip.net.ua]
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+use HTML::Entities;
+use Browser::Open qw( open_browser );
+
+sub msg {
+    my ($self, $msg) = @_;
+
+    require Text::Format;
+   
+    my $text = new Text::Format;
+    $text->rightFill(1);
+    $text->columns(35);
+    $text->tabstop(4);
+    $msg = $self->locale_decode ($msg);
+    $msg = $text->format($msg);
+    $msg = decode_entities($msg);
+    my @char = split("", $msg );
+    $msg = join(" ",@char);
+    $self->{overlay} = $self->overlay_simple(0, 0, $msg);
+    # my $translateurl = 'http://translate.google.cn/?hl=en#auto/zh-TW/'.$self->selection;
+    # open_browser($translateurl);
+
+}
+
+sub gt_upload {
+    my ($self, $src, $dst) = @_;
+
+    if ($self->{overlay}) {
+        delete $self->{overlay};
+        return 0
+    }
+
+    require LWP::UserAgent;
+    use JSON qw(from_json);
+
+    my $ua = LWP::UserAgent->new;
+    $ua->agent('Mozilla/5.0');
+    $ua->default_header('Referer' => "http://translate.google.com");
+    my $url =  'http://translate.google.com/translate_a/t?client=x&text='.$self->selection.'&sl='.$src.'&tl='.$dst;
+    my $response = $ua->get( $url );
+    die "Error: ", $response->status_line unless $response->is_success;
+    my $result = from_json($response->content);
+    $self->msg( $result->{'sentences'}[0]{'trans'});
+}
+
+sub on_button_press {
+    my ($self, $event) = @_;
+    if ($event->{button} == $self->{gt_button_close}){
+        delete $self->{overlay};
+    }
+    return 0
+}
+
+sub on_start {
+    my ($self) = @_;
+    $self->{gt_button_close} = $self->x_resource ("gt_button.close") || "1";
+    push @{ $self->{term}{selection_popup_hook} }, sub {
+        ("gt upload" => sub { $self->gt_upload })
+    };
+    ()
+}
+
+sub on_user_command {
+    my ($self, $cmd) = @_;
+    my @cmd = split (/:/,$cmd);
+    my @lang = split (/-/,$cmd[1]);
+    if ($cmd[0] eq "gt") {
+        $self->gt_upload($lang[0],$lang[1]);
+    }
+    ()
+}
+

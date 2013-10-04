@@ -1,0 +1,40 @@
+[user]
+    name = farseer90718
+    email = farseer90718@gmail.com
+[http]
+  proxy = 127.0.0.1:8087
+  sslVerify = false
+[alias]
+    st = status
+    ca = commit -ma
+    all = add --all
+    au = add -u
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    url =! bash -c 'git config --get remote.origin.url'
+[push]
+    default = matching
+[core]
+    excludesfile = /home/farseer/.gitignore
+    editor = vim
+[web]
+    browser = chromium-browser
+[github]
+    user = farseer90718
+[color]
+    branch      = auto
+    diff        = auto
+    interactive = auto
+    status      = auto
+    ui          = auto
+[color "diff"]
+    frag       = 104
+    func       = 74
+    meta       = 137 bold
+    new        = 114
+    old        = 167
+    plain      = 240
+    whitespace = 24 24
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false

@@ -1,0 +1,8 @@
+gtk-icon-theme-name = "malys-uniblue"
+gtk-theme-name = "Faience"
+gtk-font-name = "Comic Sans MS 10"
+style "no-resize-handle" { 
+    GtkWindow::resize-grip-height = 0
+    GtkWindow::resize-grip-width = 0 
+    } 
+class "GtkWidget" style "no-resize-handle"

@@ -1,0 +1,94 @@
+# An example configuration file for ncmcpp
+# ------------------------------------------------------
+# vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=config:
+# ------------------------------------------------------
+
+# ---
+# MPD
+# ---
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "~/Music"
+mpd_connection_timeout = "5"
+mpd_crossfade_time = "5"
+execute_on_song_change = "/home/farseer/bin/mpdnotify"
+
+# ----
+# Bars 
+# ----
+statusbar_visibility = "yes"
+header_visibility = "no"
+
+# ------
+# Delays  
+# ------
+playlist_disable_highlight_delay = "1"
+message_delay_time = "1"
+
+# ------
+# Format 
+# ------
+song_columns_list_format = "(7f)[green]{l} (25)[blue]{a} (40)[cyan]{t|f} (30)[magenta]{b}"
+song_list_format = "{$5%a } {$4%b } {$7%t } {$1%f }$R {$3 %l} {$2 %n}"
+#song_window_title_format = "{%a - }{%t}|{%f}" 
+song_window_title_format = "{%f}" 
+song_status_format = "{$3%a } {$5♫ %t }"
+now_playing_prefix = "$3♫ $6>$5>$4> "
+now_playing_suffix = ""
+
+# ------
+# Colors 
+# ------
+colors_enabled = "yes"
+color1 = "red"
+color2 = "black"
+empty_tag_color = "green"
+main_window_color = "cyan"
+main_window_highlight_color = "blue"
+active_column_color = "green"
+active_window_border = "black"
+window_border_color = "red"
+statusbar_color = "yellow"
+header_window_color = "magenta"
+
+# ------------
+# Progress bar 
+# ------------
+progressbar_color = "cyan"
+progressbar_look = "◾◾◽"
+
+# ----
+# Misc 
+# ----
+playlist_separate_albums = "no"
+cyclic_scrolling = "yes"
+fancy_scrolling = "yes"
+display_screens_numbers_on_start = "no"
+regular_expressions = "extended"
+external_editor = "/usr/bin/vim"
+ignore_leading_the = "no"
+lyrics_directory = "/home/farseer/tmp/.lyrics"
+follow_now_playing_lyrics = "yes"
+store_lyrics_in_song_dir = "yes"
+clock_display_seconds = "yes"
+autocenter_mode = "yes"
+display_bitrate = "yes"
+state_line_color = "red"
+state_flags_color = "blue"
+state_window_color ="blue"
+empty_tag_marker = "<empty>"
+jump_to_now_playing_song_at_start = "yes"
+ask_before_clearing_main_playlist = "no"
+enable_window_title = "yes"
+display_remaining_time = "no"
+display_volume_level = "yes"
+volume_color = "red"
+
+# ----------
+# Visualizer
+# ----------
+visualizer_fifo_path = "/home/farseer/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "1"
+visualizer_type = "wave" (spectrum/wave)
+#visualizer_type = "spectrum" (spectrum/wave)

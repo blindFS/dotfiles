@@ -1,0 +1,7 @@
+nnoremap j 3j
+nnoremap k 3k
+nnoremap B :back<CR>
+nnoremap F :forward<CR>
+nnoremap H :tabprevious<CR>
+nnoremap L :tabnext<CR>
+nnoremap D :tabclose!<CR>

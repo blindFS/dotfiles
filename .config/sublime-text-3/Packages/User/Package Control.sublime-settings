@@ -1,0 +1,22 @@
+{
+	"installed_packages":
+	[
+		"Alignment",
+		"BracketHighlighter",
+		"ColorPicker",
+		"CSS Snippets",
+		"Emmet",
+		"GitGutter",
+		"HighlightWords",
+		"jQuery",
+		"LaTeXTools",
+		"LESS",
+		"Liquid",
+		"lispindent",
+		"paredit",
+		"Python Auto-Complete",
+		"Surround",
+		"Tomorrow Color Schemes",
+		"TrailingSpaces"
+	]
+}

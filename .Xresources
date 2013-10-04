@@ -1,0 +1,99 @@
+! Solarized color scheme for the X Window System
+!
+! http://ethanschoonover.com/solarized
+
+
+! Common
+
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+
+! Dark
+
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+
+
+! Light
+
+! #define S_base03        #fdf6e3
+! #define S_base02        #eee8d5
+! #define S_base01        #93a1a1
+! #define S_base00        #839496
+! #define S_base0         #657b83
+! #define S_base1         #586e75
+! #define S_base2         #073642
+! #define S_base3         #002b36
+
+*background:              S_base03
+*foreground:              S_base0
+*fading:                  40
+*fadeColor:               S_base03
+*cursorColor:             S_base1
+*pointerColorBackground:  S_base01
+*pointerColorForeground:  S_base1
+
+*color0:                  S_base02
+*color1:                  S_red
+*color2:                  S_green
+*color3:                  S_yellow
+*color4:                  S_blue
+*color5:                  S_magenta
+*color6:                  S_cyan
+*color7:                  S_base2
+*color9:                  S_orange
+*color8:                  S_base03
+*color10:                 S_base01
+*color11:                 S_base00
+*color12:                 S_base0
+*color13:                 S_violet
+*color14:                 S_base1
+*color15:                 S_base3
+
+XTerm*background:         #000b10
+UXTerm*background:        #000b10
+URxvt*background:         #000b10
+
+XTerm*faceName:    monaco for powerline
+UXTerm*faceName:   Ubuntu Mono derivative Powerline
+XTerm*faceSize:    10
+UXTerm*faceSize:   10
+
+URxvt.font:        xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=10:style=Regular:antialias=true
+URxvt.boldfont:    xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=10:style=Bold:antialias=true
+URxvt.scrollBar:   false
+URxvt.urgentOnBell: false
+
+URxvt.perl-lib:    /home/farseer/.URxvt/
+
+URxvt.perl-ext-common:        default,matcher,vim-scrollback,url-select,clipboard,gt,font-size
+URxvt.keysym.M-Escape:        perl:vim-scrollback
+URxvt.vim-scrollback-paste:   none
+URxvt.keysym.M-u:             perl:url-select:select_next
+URxvt.url-select.underline:   true
+URxvt.url-select.button:      3
+URxvt.colorUL:                #86f2fe
+URxvt.underlineColor:         #24b5f4
+URxvt.keysym.M-c:             perl:clipboard:copy
+URxvt.keysym.M-v:             perl:clipboard:paste
+URxvt.keysym.M-C-v:           perl:clipboard:paste_escaped
+URxvt.keysym.M-e:             perl:gt:en-zh
+URxvt.keysym.M-r:             perl:gt:zh-en
+URxvt.gt_button.close:        1
+URxvt.keysym.C-Up:            perl:font-size:increase
+URxvt.keysym.C-Down:          perl:font-size:decrease
+URxvt.keysym.C-S-Up:          perl:font-size:incglobal
+URxvt.keysym.C-S-Down:        perl:font-size:decglobal

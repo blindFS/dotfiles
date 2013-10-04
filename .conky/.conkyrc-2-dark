@@ -1,0 +1,91 @@
+# Conky Google Now style #
+
+# Conky settings #
+background no
+update_interval 1
+double_buffer yes
+no_buffers yes
+
+# Window specifications #
+own_window yes
+own_window_type override
+# own_window_hints ,below,sticky,skip_taskbar,skip_pager
+own_window_title 
+own_window_colour 2D2D2D
+
+minimum_size 250
+
+# Alignment #
+alignment tr
+gap_x 100
+gap_y 100
+
+border_inner_margin 15
+border_outer_margin 0
+
+# Graphics settings #
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+# Text settings #
+use_xft yes
+xftalpha 0
+xftfont Open Sans Light:size=10
+
+override_utf8_locale yes
+
+imlib_cache_size 0
+
+# Color scheme #
+default_color DCDCDC
+
+color1 0099CC
+color2 9933CC
+color3 669900
+color4 FF8800
+color5 CC0000
+color6 AAAAAA
+color7 484848
+
+TEXT
+${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=2127866&u=c" -o ~/.cache/weather.xml}${font Open Sans Light:size=15}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
+${font Open Sans Light:size=60}${alignr}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${voffset -20}
+${execi 300 cp -f ~/.conky/.conky-google-now/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}${image ~/.cache/weather.png -p 0,45 -s 60x60}
+${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | tr '[a-z]' '[A-Z]'}
+${image ~/.conky/.conky-google-now/wind.png -p 0,135 -s 15x15}${goto 35}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+${image ~/.conky/.conky-google-now/humidity.png -p 0,155 -s 15x15}${goto 35}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
+${execi 300 cp -f ~/.conky/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather-today.png}${image ~/.cache/weather-today.png -p 0,185 -s 30x30}${execi 300 cp -f ~/.conky/.conky-google-now/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2').png ~/.cache/weather-tomorrow.png}${image ~/.cache/weather-tomorrow.png -p 130,185 -s 30x30}${voffset -10}
+${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1' | tr '[a-z]' '[A-Z]'}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "day=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2' | tr '[a-z]' '[A-Z]'}
+${goto 60}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1'}°${color}${goto 190}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "high=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}° ${color6}${execi 300 grep "yweather:forecast" ~/.cache/weather.xml | grep -o "low=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==2'}°${color}${voffset 15}
+${color7}${hr}${color}
+${if_existing /proc/net/route wlan0}
+${color1}Up:${color} ${color3}${upspeed wlan0}${color}${alignr}${color1}Down:${color} ${color3}${downspeed wlan0}${color}
+${upspeedgraph wlan0 50,120 FF8800 FF8800}${alignr}${downspeedgraph wlan0 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup wlan0}${color}${alignr}${color1}Received:${color} ${color2}${totaldown wlan0}${color}
+${else}${if_existing /proc/net/route wlan1}
+${color1}Up:${color} ${color3}${upspeed wlan1}${color}${alignr}${color1}Down:${color} ${color3}${downspeed wlan1}${color}
+${upspeedgraph wlan1 50,120 FF8800 FF8800}${alignr}${downspeedgraph wlan1 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup wlan1}${color}${alignr}${color1}Received:${color} ${color2}${totaldown wlan1}${color}
+${else}${if_existing /proc/net/route eth0}
+${color1}Up:${color} ${color3}${upspeed eth0}${color}${alignr}${color1}Down:${color} ${color3}${downspeed eth0}${color}
+${upspeedgraph eth0 50,120 FF8800 FF8800}${alignr}${downspeedgraph eth0 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup eth0}${color}${alignr}${color1}Received:${color} ${color2}${totaldown eth0}${color}
+${else}${if_existing /proc/net/route eth1}
+${color1}Up:${color} ${color3}${upspeed eth1}${color}${alignr}${color1}Down:${color} ${color3}${downspeed eth1}${color}
+${upspeedgraph eth1 50,120 FF8800 FF8800}${alignr}${downspeedgraph eth1 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup eth1}${color}${alignr}${color1}Received:${color} ${color2}${totaldown eth1}${color}
+${else}${if_existing /proc/net/route ppp0}
+${color1}Up:${color} ${color3}${upspeed ppp0}${color}${alignr}${color1}Down:${color} ${color3}${downspeed ppp0}${color}
+${upspeedgraph ppp0 50,120 FF8800 FF8800}${alignr}${downspeedgraph ppp0 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup ppp0}${color}${alignr}${color1}Received:${color} ${color2}${totaldown ppp0}${color}
+${else}${if_existing /proc/net/route ppp1}
+${color1}Up:${color} ${color3}${upspeed ppp1}${color}${alignr}${color1}Down:${color} ${color3}${downspeed ppp1}${color}
+${upspeedgraph ppp1 50,120 FF8800 FF8800}${alignr}${downspeedgraph ppp1 50,120 FF8800 FF8800}
+${color1}Sent:${color} ${color2}${totalup ppp1}${color}${alignr}${color1}Received:${color} ${color2}${totaldown ppp1}${color}
+${else}
+Network disconnected
+${color6}Connect to a network to see statistics${color}
+${voffset 50}
+${endif}${endif}${endif}${endif}${endif}${endif}${voffset -30}
