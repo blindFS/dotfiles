@@ -83,6 +83,7 @@
         NeoBundleFetch 'Shougo/neobundle.vim'
         NeoBundle 'farseer90718/vim-translator'
         NeoBundle 'farseer90718/vim-taskwarrior'
+        NeoBundle 'chrisbra/NrrwRgn'
         NeoBundle 'rking/ag.vim'
         NeoBundle 'tpope/vim-afterimage'
         NeoBundle 'tpope/vim-fugitive'

@@ -124,8 +124,8 @@
 
         function! s:add_commont(line)
             let line = a:line
-            if line =~? '^\s*NeoBundle\s*.*$'
-                let arg = substitute(matchstr(line, "'.*'").matchstr(line,'".*"'),"['".'"]\+','','g')
+            if line =~? '^\s*NeoBundle.*$'
+                let arg = matchstr(line, "'".'\zs[^'."'".']*\ze'."'").matchstr(line,'"\zs[^"]*\ze"')
                 call s:parse_name(arg)
                 global/====/nohlsearch
                 exec 'call append('.line('.').",'".'"--------------------------------------------------------------------------------------------------------------'."')"
