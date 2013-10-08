@@ -43,7 +43,7 @@
     set foldenable                                         " enable code fold
     set foldmethod=indent                                  " fold method
     set foldcolumn=0                                       " folded code take up no column
-    set foldlevelstart=5                                   " no fold on start
+    set foldlevelstart=10                                  " no fold on start
     set scroll=15                                          " C-u,C-d scroll 15 lines each time
     set scrolloff=10                                       " scroll remain the cursor 10 lines off the edge
     set completeopt=longest,menuone                        " complete option
@@ -138,6 +138,7 @@
         NeoBundle 'mhinz/vim-signify'
         NeoBundle 'sjl/gundo.vim'
         NeoBundle 'tomasr/molokai'
+        NeoBundle 'junegunn/seoul256.vim'
         NeoBundle 'chriskempson/vim-tomorrow-theme'
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'farseer90718/vim-regionsyntax'
@@ -175,15 +176,20 @@
         NeoBundleLazy 'xuhdev/vim-latex-live-preview', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'vim-perl/vim-perl', {'autoload':{'filetypes':['perl']}}
         NeoBundleLazy 'klen/python-mode', {'autoload':{'filetypes':['python']}}
-        NeoBundleLazy 'plasticboy/vim-markdown', {'autoload':{'filetypes':['mkd']}}
+        NeoBundleLazy 'farseer90718/vim-markdown', {'autoload':{'filetypes':['markdown']}}
+        NeoBundleLazy 'farseer90718/vim-reveal', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'https://bitbucket.org/kovisoft/slimv', {'autoload':{'filetypes':['lisp']}}
         NeoBundleCheck
 
     filetype plugin indent on     " required!
-    if &term =~ 'linux'
-        colorscheme darkblue
+    if has('gui_running')
+        colorscheme seoul256
     else
-        colorscheme solarized
+        if &term =~ 'linux'
+            colorscheme darkblue
+        else
+            colorscheme solarized
+        endif
     endif
 
 "------------------------------------------------------------------------------------------------------------------------------------

@@ -102,6 +102,7 @@
     command! -complete=file -nargs=1 Rjpg :read !jp2a <q-args>
     command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
     command! AppendModeLine :call AppendModeline()
+    command! Xopen :!xdg-open %
     command! VShell :set noautochdir | VimShell
         function! AppendModeline()
             let l:ml= " vim:ts=".&tabstop.":sw=".&shiftwidth.":tw=".&textwidth.":ft=".&filetype.":fdm=".&foldmethod.":fdl=".&foldlevel

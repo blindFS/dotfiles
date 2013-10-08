@@ -60,6 +60,12 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - vim-reveal
+" https://github.com/farseer90718/vim-reveal.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:reveal_root_path = $HOME.'/workspace/html/demo/reveal.js'
+    let g:reveal_default_config = {'author':'"farseer"'}
+"--------------------------------------------------------------------------------------------------------------
 " plugin - NrrwRgn
 " https://github.com/chrisbra/NrrwRgn.git
 "--------------------------------------------------------------------------------------------------------------
@@ -157,7 +163,7 @@
 " plugin - vim-airline
 " https://github.com/bling/vim-airline.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:airline_theme                               = 'serene'
+    let g:airline_theme                               = 'simple'
     let g:airline_left_sep                            = '⮀'
     let g:airline_left_alt_sep                        = '⮁'
     let g:airline_right_sep                           = '⮂'
@@ -304,7 +310,7 @@
     \   [ 'lisp' , [] ],
     \   [ 'html' , [] ],
     \   [ 'css' , [] ],
-    \   [ 'mkd', [] ],
+    \   [ 'markdown', [] ],
     \   [ 'vimwiki', [] ],
     \   ]
     let g:lisp_rainbow            = 1
@@ -363,7 +369,7 @@
                 \ 'ctagstype' : 'wiki',
                 \ 'kinds'     : ['h:headers']
                 \ }
-    let g:tagbar_type_mkd = {
+    let g:tagbar_type_markdown = {
                 \ 'ctagstype' : 'md',
                 \ 'kinds' : ['h:headings'],
                 \ 'sort' : 0,
