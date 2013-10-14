@@ -18,6 +18,7 @@
     set autoindent                                         " autoindent
     set autochdir                                          " auto change directory to current file's
     set nowrap                                             " do not wrap long lines
+    set showbreak="↪ "                                     " prefix of wrapped line
     set backupcopy=yes                                     " overwrite backup files
     set ignorecase                                         " search and command complete ignorecase
     " set smartcase                                          " smart case
@@ -47,7 +48,6 @@
     set scroll=15                                          " C-u,C-d scroll 15 lines each time
     set scrolloff=10                                       " scroll remain the cursor 10 lines off the edge
     set completeopt=longest,menuone                        " complete option
-    set showbreak="↪ "                                     " prefix of wrapped line
     set viminfo='10,\"100,:20,%,!                          " save viminfo with upto 10 marks 100-line registers and 20 lines of commands and global variables
     set cscopequickfix=s-,c-,d-,i-,t-,e-                   " use quickfix to show cscope results
     set updatetime=6000                                    " update intervals
@@ -56,7 +56,8 @@
     set background=dark                                    " Colorscheme
     set guioptions=Ac                                      " simple GUI without toolbar menubar scrollbar messagebox
     set pastetoggle=<F4>                                   " toggle pastemode
-    set splitright
+    set splitright                                         " split on the right side
+    set tags+=~/.vim/tags-3.11
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
@@ -147,7 +148,7 @@
             NeoBundle 'mattn/vimtweak'
         endif
     " navigate
-        NeoBundle 'farseer90718/bclose.vim'
+        NeoBundle 'farseer90718/miscellaneous'
         NeoBundle 'Lokaltog/vim-easymotion'
         NeoBundle 'majutsushi/tagbar'
         NeoBundle 'tsaleh/vim-matchit'

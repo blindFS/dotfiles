@@ -41,7 +41,7 @@ source /etc/zsh_command_not_found
 unsetopt correct_all
 autoload -U compinit
 autoload -U colors && colors
-compinit -C
+compinit
 # ls color solarized
 eval `dircolors ~/.dircolors`
 eval "$(fasd --init auto)"
