@@ -2,6 +2,8 @@
 " variables setting
 "-----------------------------------------------------------------
     syntax on                                              " highlight
+    set undodir=~/tmp/.undo                                " directory of undo files
+    set undofile                                           " enable undo file
     set backupdir=~/tmp/                                   " ~ file directory
     set directory=~/tmp/                                   " swap file directory
     set shell=bash                                         " default shell
