@@ -17,7 +17,7 @@ data.location=/home/farseer/tmp/.task
 #include /usr/share/doc/task/rc/light-16.theme
 #include /usr/share/doc/task/rc/light-256.theme
 #include /usr/share/doc/task/rc/dark-16.theme
-include /usr/share/doc/task/rc/dark-256.theme
+#include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/dark-red-256.theme
 #include /usr/share/doc/task/rc/dark-green-256.theme
 #include /usr/share/doc/task/rc/dark-blue-256.theme
@@ -25,13 +25,13 @@ include /usr/share/doc/task/rc/dark-256.theme
 #include /usr/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/share/doc/task/rc/dark-gray-256.theme
 
-report.all.labels=ID,Project,Status,Age,Pri,Due,Complete,Description,Depends,Tags,UUID
-report.all.columns=id,project,status,entry.age,priority,due,end,description,depends,tags,uuid
-report.all.sort=status+,project+,due+,priority-,description+,id+
+# report.all.labels=ID,Project,Status,Age,Pri,Due,Complete,Description,Depends,Tags,UUID
+# report.all.columns=id,project,status,entry.age,priority,due,end,description,depends,tags,uuid
+# report.all.sort=status+,project+,due+,priority-,description+,id+
 
 defaultwidth=999
 editor=vim
 
-merge.default.uri=ftp://orcking@home.ustc.edu.cn/
-pull.default.uri=ftp://orcking@home.ustc.edu.cn/
-push.default.uri=ftp://orcking@home.ustc.edu.cn/
+# merge.default.uri=ftp://orcking@home.ustc.edu.cn/
+# pull.default.uri=ftp://orcking@home.ustc.edu.cn/
+# push.default.uri=ftp://orcking@home.ustc.edu.cn/

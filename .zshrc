@@ -12,7 +12,7 @@ antigen bundle git-extras
 antigen bundle npm
 antigen bundle cpanm
 antigen bundle per-directory-history
-antigen bundle taskwarrior
+# antigen bundle taskwarrior
 antigen bundle themes
 
 antigen bundle alert

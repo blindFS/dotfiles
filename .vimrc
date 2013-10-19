@@ -59,7 +59,7 @@
     set guioptions=Ac                                      " simple GUI without toolbar menubar scrollbar messagebox
     set pastetoggle=<F4>                                   " toggle pastemode
     set splitright                                         " split on the right side
-    set tags+=~/.vim/tags-3.11
+    set tags+=~/.vim/tags-2.6
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow

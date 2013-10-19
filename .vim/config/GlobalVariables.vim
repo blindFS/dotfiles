@@ -214,6 +214,7 @@
     nnoremap <leader><space>b :Unite buffer<CR>
     nnoremap <leader><space>c :Unite command<CR>
     nnoremap <leader><space>f :Unite file<CR>
+    nnoremap <leader><space>j :Unite jump<CR>
     nnoremap <leader><space>l :Unite locate<CR>
     nnoremap <leader><space>m :Unite mark<CR>
     nnoremap <leader><space>t :Unite tag<CR>
