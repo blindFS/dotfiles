@@ -1,6 +1,6 @@
 [Hotkey]
 # Trigger Input Method
-TriggerKey=ALT_SPACE ALT_SPACE
+#TriggerKey=CTRL_SPACE
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
@@ -37,7 +37,7 @@ TriggerKey=ALT_SPACE ALT_SPACE
 # Enable Hotkey to scroll Between Input Method
 # Available Value:
 # True False
-IMSwitchKey=False
+#IMSwitchKey=True
 # Include Inactivate when scrolling between Input Method
 # Available Value:
 # True False
@@ -119,7 +119,7 @@ IMSwitchKey=False
 # Show Input Method Hint After Input method changed
 # Available Value:
 # True False
-ShowInputWindowAfterTriggering=False
+#ShowInputWindowAfterTriggering=True
 # Show Input Method Hint After Input method changed and Focus in
 # Available Value:
 # True False
@@ -131,7 +131,7 @@ ShowInputWindowAfterTriggering=False
 # Show Input Speed
 # Available Value:
 # True False
-ShowInputSpeed=True
+#ShowInputSpeed=False
 # Show Version
 # Available Value:
 # True False
@@ -139,9 +139,9 @@ ShowInputSpeed=True
 # Do not show input window if there is only preedit string
 # Available Value:
 # True False
-HideInputWindowWhenOnlyPreeditString=True
+#HideInputWindowWhenOnlyPreeditString=False
 # Do not show input window if there is only one candidate and preedit
 # Available Value:
 # True False
-HideInputWindowWhenOnlyOneCandidate=True
+#HideInputWindowWhenOnlyOneCandidate=False
 

@@ -17,6 +17,7 @@
     set softtabstop=4                                      " backspace delete 4 spaces a time
     set tabstop=4                                          " tab take 4 spaces
     set smarttab                                           " a <Tab> in front of a line inserts blanks according to 'shiftwidth'
+    set autoread                                           " auto read changed file
     set autoindent                                         " autoindent
     set autochdir                                          " auto change directory to current file's
     set nowrap                                             " do not wrap long lines
@@ -96,7 +97,7 @@
         NeoBundle 'yuratomo/w3m.vim'
         NeoBundle 'arecarn/crunch'
         NeoBundle 'benmills/vimux'
-        NeoBundle 'vimim/vimim'
+        " NeoBundle 'vimim/vimim'
         NeoBundle 'mattn/webapi-vim'
         NeoBundle 'mattn/gist-vim'
         NeoBundle 'LnL7/vim-mark'

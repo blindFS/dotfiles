@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.15 for farseer on Tue Jun  4 20:15:34 2013.
+# Written by xscreensaver-demo 5.22 for farseer on Sun Oct 20 12:25:35 2013.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:30:00
@@ -32,14 +32,14 @@ dpmsOff:	4:00:00
 grabDesktopImages:  True
 grabVideoFrames:    False
 chooseRandomImages: False
-imageDirectory:
+imageDirectory:	
 
 mode:		one
 selected:	141
 
 textMode:	url
 textLiteral:	XScreenSaver
-textFile:
+textFile:	
 textProgram:	fortune
 textURL:	http://fridge.ubuntu.com/node/feed
 
@@ -244,6 +244,12 @@ programs:								      \
 - GL: 				hilbert -root				    \n\
 - GL: 				tronbit -root				    \n\
 				unicode -root				    \n\
+				electricsheep --root 1			    \n\
+- GL: 				dnalogo -root				    \n\
+				hexadrop -root				    \n\
+  GL: 				kaleidocycle -root			    \n\
+  GL: 				quasicrystal -root			    \n\
+  GL: 				unknownpleasures -root			    \n\
 
 
 pointerPollTime:    0:00:05

@@ -135,11 +135,11 @@
 " https://github.com/mattn/calendar-vim.git
 "--------------------------------------------------------------------------------------------------------------
     let g:vimwiki_CJK_length      = 1
-    let g:calendar_diary          = $HOME.'/vimwiki/diary'
-    let g:vimwiki_list            = [{'path': $HOME.'/vimwiki/',
-                \ 'path_html': $HOME.'/vimwiki/html/',
+    let g:calendar_diary          = $HOME.'/Dropbox/vimwiki/diary'
+    let g:vimwiki_list            = [{'path': $HOME.'/Dropbox/vimwiki/',
+                \ 'path_html': $HOME.'/Dropbox/vimwiki/html/',
                 \ 'css_name': 'assets/css/style.css',
-                \ 'template_path': $HOME.'/vimwiki/templates',
+                \ 'template_path': $HOME.'/Dropbox/vimwiki/templates',
                 \ 'template_default': 'def_template',
                 \ 'template_ext': '.html'}]
     let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr,table,tr,th,td,p,span'
@@ -176,18 +176,18 @@
 " https://github.com/bling/vim-airline.git
 "--------------------------------------------------------------------------------------------------------------
     let g:airline_theme                               = has('gui_running')? 'bubblegum' : 'solarized'
-    let g:airline_left_sep                            = '⮀'
-    let g:airline_left_alt_sep                        = '⮁'
-    let g:airline_right_sep                           = '⮂'
-    let g:airline_right_alt_sep                       = '⮃'
-    let g:airline#extensions#tabline#left_sep         = '⮀'
-    let g:airline#extensions#tabline#left_alt_sep     = '⮁'
-    let g:airline#extensions#tabline#right_sep        = '⮂'
-    let g:airline#extensions#tabline#right_alt_sep    = '⮃'
-    let g:airline_branch_prefix                       = '⭠ '
-    let g:airline_readonly_symbol                     = ' ⭤ '
-    let g:airline_linecolumn_prefix                   = '⮃ ⭡ '
-    let g:airline_paste_symbol                        = '⮁ ✍  PASTE'
+    let g:airline_left_sep                            = ''
+    let g:airline_left_alt_sep                        = ''
+    let g:airline_right_sep                           = ''
+    let g:airline_right_alt_sep                       = ''
+    let g:airline#extensions#tabline#left_sep         = ''
+    let g:airline#extensions#tabline#left_alt_sep     = ''
+    let g:airline#extensions#tabline#right_sep        = ''
+    let g:airline#extensions#tabline#right_alt_sep    = ''
+    let g:airline_branch_prefix                       = '  '
+    let g:airline_readonly_symbol                     = '  '
+    let g:airline_linecolumn_prefix                   = '  '
+    let g:airline_paste_symbol                        = ' ✍  PASTE'
     let g:airline#extensions#whitespace#symbol        = '✷'
     let g:airline#extensions#whitespace#show_message  = 0
     let g:airline#extensions#eclim#enabled            = 0
@@ -248,7 +248,7 @@
 " https://github.com/mhinz/vim-startify
 "--------------------------------------------------------------------------------------------------------------
     let g:startify_bookmarks     = [ '~/.vimrc','~/.zshrc','~/.vim/config','~/vimwiki/' ]
-    let g:startify_custom_header = map(split(system("toilet -f pagga vim7.4 | cowsay -d -f cowfee"), '\n'), '"   ". v:val') + ['','']
+    let g:startify_custom_header = map(split(system("toilet -f pagga 42 | cowsay -d -f cowfee"), '\n'), '"   ". v:val') + ['','']
     let g:startify_skiplist      = [
         \ 'COMMIT_EDITMSG',
         \ $VIMRUNTIME .'/doc',

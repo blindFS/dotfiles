@@ -20,5 +20,10 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH=$HOME/bin:$PATH
+    PATH=$HOME/.gem/ruby/2.0.0/bin:$PATH
     PATH=$HOME/bin/cpm/bin:$PATH
 fi
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"

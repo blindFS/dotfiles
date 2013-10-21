@@ -1,21 +1,17 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
-source ~/.zsh/antigen/antigen.zsh
+source /usr/share/zsh/scripts/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen bundle apt-list-packages
 antigen bundle autojump
 antigen bundle colored-man
-antigen bundle config-purge
 antigen bundle dircycle
 antigen bundle git-extras
 antigen bundle npm
 antigen bundle cpanm
 antigen bundle per-directory-history
-# antigen bundle taskwarrior
 antigen bundle themes
 
-antigen bundle alert
 antigen bundle fbterm
 antigen bundle urltools
 antigen bundle goagent
@@ -31,20 +27,17 @@ antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 antigen apply
 
-fpath=(~/.zsh/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions.git/src/ $fpath)
+fpath=(~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions.git/src/ $fpath)
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------options-------------------------------------------------------------------------{
 
-export PATH="/usr/local/heroku/bin:$PATH"
-source /etc/zsh_command_not_found
 unsetopt correct_all
 autoload -U compinit
 autoload -U colors && colors
 compinit
 # ls color solarized
 eval `dircolors ~/.dircolors`
-eval "$(fasd --init auto)"
 
 setopt inc_append_history
 setopt hist_ignore_dups
@@ -176,13 +169,22 @@ bindkey "^r" sudo-command-line
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
 
+### package manager specific
+alias yapurge='yaourt -Rnucs'
+alias yaupdate='yaourt -Syua'
+alias yaclear='yaourt -Scc'
+alias yasearch='yaourt -Ss'
+
+### universal
 alias cp='cp -i'
 alias mv='mv -i'
+alias mkdir='mkdir -p'
 alias rm='rm -i'
 alias vims='vim --servername VIM'
+alias wget='wget --no-check-certificate'
 alias vimr='vim --remote'
 alias aria2-rpc='cd ~/Downloads && aria2c --enable-rpc --rpc-listen-all&'
-alias less='/usr/local/share/vim/vim74/macros/less.sh'
+alias less='/usr/share/vim/vim74/macros/less.sh'
 alias von='sudo vbetool dpms on'
 alias voff='sudo vbetool dpms off'
 alias kbon='sudo $HOME/src/pyalienfx/kbtoggle.py on'
@@ -193,26 +195,17 @@ alias ll='ls -alF --color=auto'
 alias ls='ls --color=auto'
 alias pl='ls++'
 alias pll='ls++ -a'
-alias pipupgrade='sudo pip-review --interactive'
 alias du='du --max-depth=1 -h'
 alias xopen='xdg-open'
 alias imu='imgur upload'
 alias ack-grep='ack-grep --color-lineno green --color-filename magenta'
 alias dirchmod='sudo chmod -R u+rwX,go+rX,go-w'
-alias aptupdate='sudo apt-get update'
-alias aptpurge='sudo apt-get purge'
-alias aptclean='sudo apt-get clean'
-alias aptautoclean='sudo apt-get autoclean'
-alias aptinstall='sudo apt-get install'
-alias aptupgrade='sudo apt-get upgrade'
-alias aptautoremove='sudo apt-get autoremove'
-alias aptsearch='sudo apt-cache search'
 alias cl='clear'
 alias ccat='pygmentize -g'
 alias telnet='luit -encoding gbk telnet'
 alias externalip='curl icanhazip.com'
 alias reboot='sudo reboot'
-alias service='sudo service'
+alias systemctl='sudo systemctl'
 alias halt='sudo halt'
 alias untarg='tar -xzvf'
 alias untarb='tar -xjvf'
@@ -232,6 +225,7 @@ elif [[ $TERM == "vt100" ]] ; then
 else
     # powerline
     source ~/src/powerline/powerline/bindings/zsh/powerline.zsh
+    # theme candy
 fi
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}

@@ -99,7 +99,6 @@
 "-----------------------------------------------------------------
 " commands
 "-----------------------------------------------------------------
-    command! -complete=file -nargs=1 Rpdf :read !pdftotext -nopgbrk <q-args> - |fmt -csw78
     command! -complete=file -nargs=1 Rjpg :read !jp2a <q-args>
     command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
     command! AppendModeLine :call AppendModeline()
