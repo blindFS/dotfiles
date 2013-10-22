@@ -27,3 +27,5 @@ fi
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+
+python2 $HOME/src/goagent/local/proxy.py &

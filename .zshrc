@@ -171,6 +171,7 @@ bindkey "^r" sudo-command-line
 
 ### package manager specific
 alias yapurge='yaourt -Rnucs'
+alias yainstall='yaourt -S'
 alias yaupdate='yaourt -Syua'
 alias yaclear='yaourt -Scc'
 alias yasearch='yaourt -Ss'
@@ -181,7 +182,6 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias rm='rm -i'
 alias vims='vim --servername VIM'
-alias wget='wget --no-check-certificate'
 alias vimr='vim --remote'
 alias aria2-rpc='cd ~/Downloads && aria2c --enable-rpc --rpc-listen-all&'
 alias less='/usr/share/vim/vim74/macros/less.sh'
