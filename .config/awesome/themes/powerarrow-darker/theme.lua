@@ -1,17 +1,20 @@
 --[[
-                                             
-     Powerarrow Darker Awesome WM config 2.0 
-     github.com/copycat-killer               
-                                             
+
+     Powerarrow Darker Awesome WM config 2.0
+     github.com/copycat-killer
+
 --]]
 
 theme                               = {}
 
 themes_dir                          = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker"
-theme.wallpaper                     = themes_dir .. "/wall.png"
+theme.wallpaper                     = themes_dir .. "/42.jpg"
 
 theme.font                          = "hooge 05_53 9"
 theme.taglist_font                  = "DejaVu Sans Yuan Ti Condensed 9"
+theme.notify_font_color_1           = "#99AAFF"
+theme.notify_font_color_2           = "#AAFF99"
+theme.notify_font_color_3           = "#FF99AA"
 theme.fg_normal                     = "#DDDDFF"
 theme.fg_focus                      = "#F0DFAF"
 theme.fg_urgent                     = "#CC9393"
@@ -77,6 +80,11 @@ theme.widget_vol_no                 = themes_dir .. "/icons/vol_no.png"
 theme.widget_vol_mute               = themes_dir .. "/icons/vol_mute.png"
 theme.widget_mail                   = themes_dir .. "/icons/mail.png"
 theme.widget_mail_on                = themes_dir .. "/icons/mail_on.png"
+theme.task_icon                     = themes_dir .. "/icons/task.png"
+theme.task_done_icon                = themes_dir .. "/icons/task_done.png"
+theme.project_icon                  = themes_dir .. "/icons/project.png"
+theme.usb                           = themes_dir .. "/icons/usb.png"
+theme.cdrom                         = themes_dir .. "/icons/disc.png"
 
 theme.tasklist_disable_icon         = true
 theme.tasklist_floating             = ""
