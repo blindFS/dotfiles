@@ -10,6 +10,8 @@ local blingbling = require("blingbling")
 require("awful.autofocus")
 require("eminent")
 require("revelation")
+require('couth.couth')
+require('couth.alsa')
 -- }}}
 
 -- {{{ Error handling
@@ -17,6 +19,7 @@ naughty.config.presets.normal.opacity      = 0.7
 naughty.config.presets.low.opacity         = 0.7
 naughty.config.presets.critical.opacity    = 0.7
 naughty.config.defaults.font               = 'Monaco for powerline 9'
+couth.CONFIG.NOTIFIER_FONT                 = 'Monaco for powerline 10'
 
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
@@ -215,7 +218,10 @@ mailwidget = wibox.widget.background(lain.widgets.imap({
 
 -- MPD
 mpdicon = wibox.widget.imagebox(beautiful.widget_music)
-mpdicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end)))
+mpdicon:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end),
+    awful.button({ }, 3, function () awful.util.spawn_with_shell("mpc toggle") end)
+))
 mpdwidget = lain.widgets.mpd({
     settings = function()
         if mpd_now.state == "play" then
@@ -288,8 +294,7 @@ blingbling.popups.cpusensors(tempwidget,
 })
 
 -- / fs
---fsicon = wibox.widget.imagebox(beautiful.widget_hdd)
-fsicon = blingbling.udisks_glue.new({
+udisks_glue = blingbling.udisks_glue.new({
     menu_icon   = beautiful.widget_hdd,
     Cdrom_icon  = beautiful.cdrom,
     Usb_icon    = beautiful.usb,
@@ -332,6 +337,10 @@ batwidget = lain.widgets.bat({
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
+volicon:buttons(awful.util.table.join(
+    awful.button({ }, 4, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
+    awful.button({ }, 5, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end)
+))
 volumewidget = lain.widgets.alsa({
     settings = function()
         if volume_now.status == "off" then
@@ -480,7 +489,7 @@ for s = 1, screen.count() do
     right_layout:add(tempicon)
     right_layout:add(tempwidget)
     right_layout:add(arrl_ld)
-    right_layout:add(fsicon)
+    right_layout:add(udisks_glue)
     right_layout:add(fswidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(baticon)
@@ -579,8 +588,8 @@ globalkeys = awful.util.table.join(
     -- }}
 
     -- {{ ALSA volume control
-    awful.key({ modkey }, "F9", function () awful.util.spawn("amixer -q set Master 1%+")             volumewidget.update() end),
-    awful.key({ modkey }, "F8", function () awful.util.spawn("amixer -q set Master 1%-")             volumewidget.update() end),
+    awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
+    awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end),
     awful.key({ modkey }, "F7", function () awful.util.spawn("amixer -q set Master playback toggle") volumewidget.update() end),
     -- }}
 

@@ -164,6 +164,16 @@
             %s/\s\+$//gec
             normal ``
         endfunction
+    command! OpenUrl call OpenUrlUnderCursor()
+        function! OpenUrlUnderCursor()
+            execute "normal BvEy"
+            let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
+            if url != ""
+                silent exec "!xdg-open ".url | redraw! 
+            else
+                echo "No URL under cursor."
+            endif
+        endfunction
 "-----------------------------------------------------------------
 " alias
 "-----------------------------------------------------------------

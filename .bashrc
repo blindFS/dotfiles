@@ -98,20 +98,11 @@ alias du='du --max-depth=1 -h'
 alias xopen='xdg-open'
 alias ack-grep='ack-grep --color-lineno green --color-filename magenta'
 alias dirchmod='sudo chmod -R u+rwX,go+rX,go-w'
-alias aptupdate='sudo apt-get update'
-alias aptpurge='sudo apt-get purge'
-alias aptclean='sudo apt-get clean'
-alias aptautoclean='sudo apt-get autoclean'
-alias aptinstall='sudo apt-get install'
-alias aptupgrade='sudo apt-get upgrade'
-alias aptautoremove='sudo apt-get autoremove'
-alias aptsearch='sudo apt-cache search'
 alias cl='clear'
 alias ccat='pygmentize -g'
 alias telnet='luit -encoding gbk telnet'
 alias externalip='curl icanhazip.com'
 alias reboot='sudo reboot'
-alias service='sudo service'
 alias halt='sudo halt'
 alias untarg='tar -xzvf'
 alias untarb='tar -xjvf'
@@ -141,5 +132,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

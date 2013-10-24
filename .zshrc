@@ -1,4 +1,5 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
+source ~/.profile
 source /usr/share/zsh/scripts/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -171,10 +172,12 @@ bindkey "^r" sudo-command-line
 
 ### package manager specific
 alias yapurge='yaourt -Rnucs'
+alias yaremove='yaourt -Rns'
 alias yainstall='yaourt -S'
 alias yaupdate='yaourt -Syua'
 alias yaclear='yaourt -Scc'
 alias yasearch='yaourt -Ss'
+alias yalist='yaourt -Qe'
 
 ### universal
 alias cp='cp -i'
