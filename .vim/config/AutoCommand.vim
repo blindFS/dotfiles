@@ -22,17 +22,9 @@
     autocmd Filetype perl,c,cpp,java,javascript,css,zsh,lua  setlocal foldmarker={,}
 
 " complete
-    autocmd FileType html                                    setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType ruby,eruby                              setlocal omnifunc=rubycomplete#Complete
-    autocmd FileType javascript                              setlocal omnifunc=javascriptcomplete#CompleteJS
     autocmd FileType java                                    setlocal omnifunc=eclim#java#complete#CodeComplete
     autocmd FileType java                                    let g:SuperTabDefaultCompletionType="<C-x><C-o>"
-    autocmd FileType css                                     setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType xml                                     setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType asp                                     setlocal omnifunc=aspcomplete#Complete
-    autocmd FileType php                                     setlocal omnifunc=phpcomplete#CompletePHP
     autocmd FileType python                                  setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType htmldjango                              setlocal omnifunc=htmldjangocomplete#CompleteDjango
 
 " restore
     function! ResCur()

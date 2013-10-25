@@ -4,20 +4,21 @@ source /usr/share/zsh/scripts/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
+
+# antigen bundle delimit
 antigen bundle autojump
 antigen bundle colored-man
-antigen bundle dircycle
-antigen bundle git-extras
-antigen bundle npm
 antigen bundle cpanm
-antigen bundle per-directory-history
-antigen bundle themes
-
+antigen bundle dircycle
 antigen bundle fbterm
-antigen bundle urltools
+antigen bundle git-extras
 antigen bundle goagent
+antigen bundle npm
+antigen bundle per-directory-history
 antigen bundle repo-update
-# antigen bundle delimit
+antigen bundle taskwarrior
+antigen bundle themes
+antigen bundle urltools
 
 antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions

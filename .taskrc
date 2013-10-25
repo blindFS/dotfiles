@@ -27,11 +27,11 @@ data.location=/home/farseer/tmp/.task
 
 report.all.labels=ID,Project,Status,Age,Pri,Due,Complete,Description,Depends,Tags,UUID
 report.all.columns=id,project,status,entry.age,priority,due,end,description,depends,tags,uuid
+# report.all.labels=ID,Status,Age,Description,UUID
+# report.all.columns=id,status,entry.age,description,uuid
 report.all.sort=status+,project+,due+,priority-,description+,id+
 
 defaultwidth=999
 editor=vim
 
-merge.default.uri=ftp://orcking@home.ustc.edu.cn/
-pull.default.uri=ftp://orcking@home.ustc.edu.cn/
-push.default.uri=ftp://orcking@home.ustc.edu.cn/
+# taskd.server=ftp://orcking@home.ustc.edu.cn/

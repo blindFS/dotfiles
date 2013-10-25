@@ -590,7 +590,7 @@ globalkeys = awful.util.table.join(
     -- {{ ALSA volume control
     awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
     awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end),
-    awful.key({ modkey }, "F7", function () awful.util.spawn("amixer -q set Master playback toggle") volumewidget.update() end),
+    awful.key({ modkey }, "F7", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
     -- }}
 
     -- {{ MPD control
