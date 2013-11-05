@@ -9,7 +9,8 @@
     autocmd FileType html                                    setlocal foldmethod=manual
     autocmd FileType lisp                                    setlocal tabstop=2 shiftwidth=2
     autocmd FileType lisp                                    let b:delimitMate_autoclose = 0
-    autocmd FileType vim                                     nnoremap <buffer> K :execute "help ".expand('<cword>')<CR>
+    autocmd FileType vim                                     nnoremap <buffer> K :help <cword><CR>
+    autocmd FileType vim                                     vnoremap <buffer> K <ESC>:execute "help ".GetVisualSelection()<CR>
     autocmd Syntax man                                       setlocal nomodifiable
 
 " number/relativenumber

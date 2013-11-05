@@ -60,7 +60,7 @@
     set guioptions=Ac                                      " simple GUI without toolbar menubar scrollbar messagebox
     set pastetoggle=<F4>                                   " toggle pastemode
     set splitright                                         " split on the right side
-    set tags+=~/.vim/tags-2.6
+    " set tags+=~/.vim/tags-3.11
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
@@ -80,7 +80,7 @@
 " Plugin Bundles
 "-----------------------------------------------------------------
     filetype off                   " required!
-    set runtimepath+=~/.vim/exbundle/eclim/eclim/
+    " set runtimepath+=~/.vim/exbundle/eclim/eclim/
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#rc(expand('~/.vim/bundle/'))
     " utilities
@@ -97,9 +97,10 @@
         NeoBundle 'yuratomo/w3m.vim'
         NeoBundle 'arecarn/crunch'
         NeoBundle 'benmills/vimux'
-        " NeoBundle 'vimim/vimim'
+        NeoBundle 'vimim/vimim'
         NeoBundle 'mattn/webapi-vim'
         NeoBundle 'mattn/gist-vim'
+        NeoBundle 'junegunn/vim-github-dashboard'
         NeoBundle 'LnL7/vim-mark'
         NeoBundle 'zoom.vim'
         NeoBundle 'DrawIt'
@@ -127,12 +128,14 @@
         NeoBundle 'Shougo/neosnippet'
         NeoBundle 'Shougo/vimshell.vim'
         NeoBundle 'tpope/vim-dispatch'
+        NeoBundle 'tpope/vim-endwise'
         NeoBundle 'marijnh/tern_for_vim'
         NeoBundle 'xolox/vim-misc'
         NeoBundle 'xolox/vim-easytags'
+        NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
-        NeoBundle 'clang'
-        NeoBundle 'clang-complete'
+        " NeoBundle 'clang'
+        " NeoBundle 'clang-complete'
     " appearance
         NeoBundle 'bling/vim-airline'
         NeoBundle 'koron/minimap-vim'
@@ -162,9 +165,9 @@
         NeoBundle 'tpope/vim-abolish'
         NeoBundle 'terryma/vim-multiple-cursors'
         NeoBundle 'Raimondi/delimitMate'
+        NeoBundle 'junegunn/vim-easy-align'
         NeoBundle 'renumber.vim'
         NeoBundle 'Figlet.vim'
-        NeoBundle 'Align'
         NeoBundle 'tComment'
     " textobj
         NeoBundle 'coderifous/textobj-word-column.vim'

@@ -38,7 +38,7 @@
 ! #define S_base2         #073642
 ! #define S_base3         #002b36
 
-*background:              S_base03
+*background:              #000b10
 *foreground:              S_base0
 *fading:                  40
 *fadeColor:               S_base03
@@ -62,10 +62,6 @@
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
-
-XTerm*background:         #000b10
-UXTerm*background:        #000b10
-URxvt*background:         #000b10
 
 XTerm*faceName:    monaco for powerline
 UXTerm*faceName:   Ubuntu Mono derivative Powerline
@@ -97,4 +93,4 @@ URxvt.keysym.C-Down:          perl:font-size:decrease
 URxvt.keysym.C-S-Up:          perl:font-size:incglobal
 URxvt.keysym.C-S-Down:        perl:font-size:decglobal
 
-Xcursor.theme:                RingC
+! Xcursor.theme:                RingC

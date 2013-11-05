@@ -3,10 +3,6 @@
 " https://github.com/kana/vim-textobj-user.git
 "--------------------------------------------------------------------------------------------------------------
 "--------------------------------------------------------------------------------------------------------------
-" plugin - echofunc              function parameter
-" https://github.com/mbbill/echofunc.git
-"--------------------------------------------------------------------------------------------------------------
-"--------------------------------------------------------------------------------------------------------------
 " plugin - vim-dispatch          fast build
 " https://github.com/tpope/vim-dispatch.git
 "--------------------------------------------------------------------------------------------------------------
@@ -17,10 +13,6 @@
 "--------------------------------------------------------------------------------------------------------------
 " plugin - delimitMate           auto pair
 " https://github.com/Raimondi/delimitMate
-"--------------------------------------------------------------------------------------------------------------
-"--------------------------------------------------------------------------------------------------------------
-" plugin - align                 line up text
-" https://github.com/vim-scripts/align
 "--------------------------------------------------------------------------------------------------------------
 "--------------------------------------------------------------------------------------------------------------
 " plugin - abolish               sustitution enhance
@@ -60,10 +52,41 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - vim-easy-align
+" https://github.com/junegunn/vim-easy-align.git
+"--------------------------------------------------------------------------------------------------------------
+    vnoremap <silent> <Enter> :EasyAlign<Enter>
+    let g:easy_align_delimiters = {
+                \ '>': { 'pattern': '>>\|=>\|>' },
+                \ '/': { 'pattern': '//\+\|/\*\|\*/', 'ignore_groups': ['String'] },
+                \ '#': { 'pattern': '#\+', 'ignore_groups': ['String'], 'delimiter_align': 'l' },
+                \ ']': {
+                \     'pattern':       '[[\]]',
+                \     'left_margin':   0,
+                \     'right_margin':  0,
+                \     'stick_to_left': 0
+                \   },
+                \ ')': {
+                \     'pattern':       '[()]',
+                \     'left_margin':   0,
+                \     'right_margin':  0,
+                \     'stick_to_left': 0
+                \   },
+                \ 'd': {
+                \     'pattern': ' \(\S\+\s*[;=]\)\@=',
+                \     'left_margin': 0,
+                \     'right_margin': 0
+                \   }
+                \ }
+"--------------------------------------------------------------------------------------------------------------
 " plugin - vim-taskwarrior
 " https://github.com/farseer90718/vim-taskwarrior.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:task_report_name = 'all'
+    let g:task_report_name              = 'long'
+    let g:task_highlight_field          = 1
+    let g:task_field_highlight_advanced = ''
+    let g:task_default_prompt           = ['description', 'area']
+    " let g:task_rc_override              = 'rc.report.all.columns:id rc.report.all.labels:id rc.report.all.sort:id+'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - bclose.vim
 " https://github.com/farseer90718/bclose.vim.git
@@ -105,6 +128,15 @@
     let g:slimv_impl     = 'sbcl'
     let g:paredit_leader = ','
 "--------------------------------------------------------------------------------------------------------------
+" plugin - vim-github-dashboard
+" https://github.com/junegunn/vim-github-dashboard.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:github_dashboard = {
+                \ 'username': 'farseer90718',
+                \ 'api_open_timeout': 10,
+                \ 'api_read_timeout': 20,
+                \ 'statusline': 0}
+"--------------------------------------------------------------------------------------------------------------
 " plugin - gist-vim
 " https://github.com/mattn/gist-vim.git
 "--------------------------------------------------------------------------------------------------------------
@@ -130,6 +162,13 @@
     let g:syntastic_enable_signs   = 1
     let g:syntastic_error_symbol   = '✗'
     let g:syntastic_warning_symbol = '!'
+"--------------------------------------------------------------------------------------------------------------
+" plugin - YouCompleteMe
+" https://github.com/Valloric/YouCompleteMe.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:ycm_allow_changing_updatetime = 0
+    let g:ycm_confirm_extra_conf        = 1
+    let g:ycm_global_ycm_extra_conf     = '~/tmp/.ycm_extra_conf.py'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimim
 " https://github.com/vimim/vimim.git
@@ -372,7 +411,7 @@
     let g:indent_guides_start_level           = 1
     let g:indent_guides_guide_size            = 1
     let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_exclude_filetypes     = ['w3m', 'help', 'tagbar', 'unite', 'vimfiler', 'startify', 'taskwarrior']
+    let g:indent_guides_exclude_filetypes     = ['w3m', 'help', 'tagbar', 'unite', 'vimfiler', 'startify', 'taskreport']
 "--------------------------------------------------------------------------------------------------------------
 " plugin - taghighlight          highlight ctags
 " http://www.cgtk.co.uk/vim-scripts/taghighlight

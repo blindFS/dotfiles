@@ -63,8 +63,8 @@
             let &spell = s:oldspell
             unlet s:oldspell
         endfunction
-    nmap K :Man <cword><CR>
-    vmap K <ESC>:execute "Man ".GetVisualSelection()<CR>
+    nnoremap K :Man <cword><CR>
+    vnoremap K <ESC>:execute "Man ".GetVisualSelection()<CR>
         function! GetVisualSelection()
             let [s:lnum1, s:col1] = getpos("'<")[1:2]
             let [s:lnum2, s:col2] = getpos("'>")[1:2]
@@ -219,3 +219,4 @@
     "           ...............
 "-------------------------------------------------------------------------------------------------------------------------------------
 " vim:ts=4:sw=4:tw=78:ft=vim:fdm=indent:fdl=1
+nnoremap <F8> :execute 'TW '.(exists('b:filter') ? b:filter : '').' long'<CR> 

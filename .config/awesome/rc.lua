@@ -6,6 +6,7 @@ local wibox      = require("wibox")
 local beautiful  = require("beautiful")
 local naughty    = require("naughty")
 local lain       = require("lain")
+local vicious    = require("vicious")
 local blingbling = require("blingbling")
 require("awful.autofocus")
 require("eminent")
@@ -14,13 +15,20 @@ require('couth.couth')
 require('couth.alsa')
 -- }}}
 
--- {{{ Error handling
-naughty.config.presets.normal.opacity      = 0.7
-naughty.config.presets.low.opacity         = 0.7
-naughty.config.presets.critical.opacity    = 0.7
-naughty.config.defaults.font               = 'Monaco for powerline 9'
-couth.CONFIG.NOTIFIER_FONT                 = 'Monaco for powerline 10'
+-- {{{ Move away cursor
+local safeCoords = {x=1600, y=900}
+local moveMouseOnStartup = true
 
+local function moveMouse(x_co, y_co)
+    mouse.coords({ x=x_co, y=y_co })
+end
+
+if moveMouseOnStartup then
+    moveMouse(safeCoords.x, safeCoords.y)
+end
+-- }}}
+
+-- {{{ Error handling
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
@@ -53,7 +61,7 @@ end
 
 awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
 
---run_once("~/.xinitrc")
+-- run_once("~/.xinitrc")
 --run_once("autokey-gtk")
 run_once("fcitx")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
@@ -112,6 +120,12 @@ end
 -- }}}
 
 -- {{{ Variable definitions
+naughty.config.presets.normal.opacity      = 0.7
+naughty.config.presets.low.opacity         = 0.7
+naughty.config.presets.critical.opacity    = 0.7
+naughty.config.defaults.font               = 'Monaco for powerline 9'
+couth.CONFIG.NOTIFIER_FONT                 = 'Monaco for powerline 10'
+
 -- localization
 os.setlocale(os.getenv("LANG"))
 
@@ -130,7 +144,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser   = "chromium"
-mail      = terminal .. " -e vmail"
+mail      = terminal .. " -e mutt"
 fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
 musicplr  = terminal .. " -e ncmpcpp"
@@ -189,49 +203,51 @@ markup = lain.util.markup
 red    = "#EA6F81"
 
 -- Textclock
-clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 mytextclock = awful.widget.textclock(" %a %d %b  %H:%M")
 
 -- calendar
+--calendar = blingbling.calendar()
+--calendar:set_link_to_external_calendar(true)
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Mail IMAP check
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
 mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
---[[ commented because it needs to be set before use
-mailwidget = wibox.widget.background(lain.widgets.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        if mailcount > 0 then
-            widget:set_text(" " .. mailcount .. " ")
-            mailicon:set_image(beautiful.widget_mail_on)
-        else
-            widget:set_text("")
-            mailicon:set_image(beautiful.widget_mail)
-        end
-    end
-}), "#313131")
-]]
+--mailwidget = wibox.widget.background(lain.widgets.imap({
+--    timeout  = 180,
+--    server   = "stmp.gmail.com",
+--    mail     = "",
+--    password = "",
+--    settings = function()
+--        if mailcount > 0 then
+--            widget:set_text(" " .. mailcount .. " ")
+--            mailicon:set_image(beautiful.widget_mail_on)
+--        else
+--            widget:set_text("")
+--            mailicon:set_image(beautiful.widget_mail)
+--        end
+--    end
+--}), "#313131")
 
 -- MPD
+artist = ""
+title  = ""
 mpdicon = wibox.widget.imagebox(beautiful.widget_music)
 mpdicon:buttons(awful.util.table.join(
     awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end),
     awful.button({ }, 3, function () awful.util.spawn_with_shell("mpc toggle") end)
 ))
+
 mpdwidget = lain.widgets.mpd({
     settings = function()
-        if mpd_now.state == "play" then
+        if mpd_now.state == "play" and mpd_now.artist ~= "N/A" then
             artist = " " .. mpd_now.artist .. " "
             title  = mpd_now.title  .. " "
             mpdicon:set_image(beautiful.widget_music_on)
         elseif mpd_now.state == "pause" then
             artist = " mpd "
             title  = "paused "
-        else
+        elseif mpd_now.state == "stop" then
             artist = ""
             title  = ""
             mpdicon:set_image(beautiful.widget_music)
@@ -524,6 +540,7 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- {{ Transparency
+    awful.key({ modkey, "Control" }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
     awful.key({ modkey }, "=",  function() awful.util.spawn_with_shell("transset-df -a --inc 0.05") end),
     awful.key({ modkey }, "-",  function() awful.util.spawn_with_shell("transset-df -a --dec 0.05") end),
     -- }}
@@ -604,13 +621,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p",   function () awful.util.spawn_with_shell("gnome-screenshot")   end),
 
     -- User programs
-    awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)     end),
-    awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)       end),
-    awful.key({ modkey }, "Return", function () awful.util.spawn(terminalp)           end),
-    awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr) end),
-    awful.key({ modkey }, "n",      function () run_or_raise(browser,  { name = "Chromium" }) end),
-    awful.key({ modkey }, "v",      function () run_or_raise(geditor,  { name = "GVIM"     }) end),
-    awful.key({ modkey }, "g",      function () run_or_raise(graphics, { name = "Gimp"     }) end),
+    awful.key({ modkey }, "Return", function () awful.util.spawn(terminalp)                        end),
+    awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-command -activate") end),
+    awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                  end),
+    awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                    end),
+    awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)              end),
+    awful.key({ modkey }, "n",      function () run_or_raise(browser,  { name = "Chromium" })      end),
+    awful.key({ modkey }, "v",      function () run_or_raise(geditor,  { name = "GVIM"     })      end),
+    awful.key({ modkey }, "g",      function () run_or_raise(graphics, { name = "Gimp"     })      end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
