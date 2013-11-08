@@ -76,7 +76,7 @@
   <mediawiki enabled="0" url="http://pt.wiktionary.org/w" id="ed4c3929196afdd93cc08b9a903aad6a" name="Portuguese Wiktionary"/>
  </mediawikis>
  <websites>
-  <website enabled="0" url="http://www.google.com/dictionary?aq=f&amp;langpair=en|en&amp;q=%GDWORD%&amp;hl=en" id="b88cb2898e634c6638df618528284c2d" name="Google En-En (Oxford)"/>
+  <website enabled="1" url="http://www.google.com/dictionary?aq=f&amp;langpair=en|en&amp;q=%GDWORD%&amp;hl=en" id="b88cb2898e634c6638df618528284c2d" name="Google En-En (Oxford)"/>
   <website enabled="0" url="http://www.urbandictionary.com/define.php?term=%GDWORD%" id="f376365a0de651fd7505e7e5e683aa45" name="Urban Dictionary"/>
   <website enabled="0" url="http://multitran.ru/c/m.exe?CL=1&amp;l1=1&amp;s=%GD1251%" id="324ca0306187df7511b26d3847f4b07c" name="Multitran (En)"/>
   <website enabled="0" url="http://lingvopro.abbyyonline.com/en/Search/en-ru/%GDWORD%" id="924db471b105299c82892067c0f10787" name="Lingvo (En-Ru)"/>
@@ -142,9 +142,9 @@
  <lastPopupGroupId>4294967294</lastPopupGroupId>
  <popupWindowState>AAAA/wAAAAH9AAAAAAAAAisAAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
  <popupWindowGeometry>AdnQywABAAAAAAIRAAABFQAABFkAAAKnAAACEQAAARUAAARZAAACpwAAAAAAAA==</popupWindowGeometry>
- <mainWindowState>AAAA/wAAAAH9AAAAAgAAAAAAAADMAAADKvwCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUBAAAANgAAAyoAAAB5AP///wAAAAEAAACnAAADSvwCAAAAAvsAAAASAGQAaQBjAHQAcwBQAGEAbgBlAQAAACgAAAKPAAAAAAAAAAD7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUBAAACvQAAALUAAAAAAAAAAAAABXAAAAMqAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAE9/////wAAAAAAAAAA</mainWindowState>
- <mainWindowGeometry>AdnQywABAAAAAAAAAAAAEgAABkEAAAOFAAAAAAAAABIAAAZBAAADhQAAAAAAAA==</mainWindowGeometry>
- <timeForNewReleaseCheck>2013-10-26T12:32:42</timeForNewReleaseCheck>
+ <mainWindowState>AAAA/wAAAAH9AAAAAgAAAAAAAADMAAADGfwCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUBAAAAQwAAAxkAAACaAP///wAAAAEAAACnAAADSvwCAAAAAvsAAAASAGQAaQBjAHQAcwBQAGEAbgBlAQAAACgAAAKPAAAAAAAAAAD7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUBAAACvQAAALUAAAAAAAAAAAAABXIAAAMZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAF9/////wAAAAAAAAAA</mainWindowState>
+ <mainWindowGeometry>AdnQywABAAAAAAAAAAAAEgAABkMAAAOHAAAAAAAAABIAAAZDAAADhwAAAAAAAA==</mainWindowGeometry>
+ <timeForNewReleaseCheck>2013-11-08T08:56:27</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>0</showingDictBarNames>
 </config>

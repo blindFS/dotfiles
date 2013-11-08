@@ -5,7 +5,7 @@ source /usr/share/zsh/scripts/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 
-# antigen bundle delimit
+antigen bundle delimit
 antigen bundle autojump
 antigen bundle colored-man
 antigen bundle cpanm
@@ -16,9 +16,9 @@ antigen bundle goagent
 antigen bundle npm
 antigen bundle per-directory-history
 antigen bundle repo-update
-antigen bundle taskwarrior
 antigen bundle themes
 antigen bundle urltools
+antigen bundle archlinux
 
 antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions
@@ -172,13 +172,6 @@ bindkey "^r" sudo-command-line
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
 
 ### package manager specific
-alias yapurge='yaourt -Rnucs'
-alias yaremove='yaourt -Rns'
-alias yainstall='yaourt -S'
-alias yaupdate='yaourt -Syua'
-alias yaclear='yaourt -Scc'
-alias yasearch='yaourt -Ss'
-alias yalist='yaourt -Qe'
 
 ### universal
 alias cp='cp -i'
@@ -202,7 +195,7 @@ alias imu='imgur upload'
 alias dirchmod='sudo chmod -R u+rwX,go+rX,go-w'
 alias cl='clear'
 alias ccat='pygmentize -g'
-alias telnet='luit -encoding gbk telnet'
+alias bbs='luit -encoding gbk telnet bbs.ustc.edu.cn'
 alias externalip='curl icanhazip.com'
 alias reboot='sudo reboot'
 alias systemctl='sudo systemctl'

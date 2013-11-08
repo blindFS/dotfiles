@@ -2,30 +2,30 @@
 " Autocommands
 "-----------------------------------------------------------------
 " miscellaneous
-    autocmd BufWinEnter *                                    set formatoptions-=o " disable new line autocomment
-    autocmd BufRead,BufNewFile *.json                        setlocal filetype=json
-    autocmd BufRead,BufNewFile *.less                        setlocal filetype=css
-    autocmd Filetype w3m,tagbar,unite,startify               setlocal nocursorcolumn
-    autocmd FileType html                                    setlocal foldmethod=manual
-    autocmd FileType lisp                                    setlocal tabstop=2 shiftwidth=2
-    autocmd FileType lisp                                    let b:delimitMate_autoclose = 0
-    autocmd FileType vim                                     nnoremap <buffer> K :help <cword><CR>
-    autocmd FileType vim                                     vnoremap <buffer> K <ESC>:execute "help ".GetVisualSelection()<CR>
-    autocmd Syntax man                                       setlocal nomodifiable
+    autocmd BufWinEnter *                      set formatoptions-=o " disable new line autocomment
+    autocmd BufRead,BufNewFile *.json          setlocal filetype=json
+    autocmd BufRead,BufNewFile *.less          setlocal filetype=css
+    autocmd Filetype w3m,tagbar,unite,startify setlocal nocursorcolumn
+    autocmd FileType lisp                      setlocal tabstop=2 shiftwidth=2
+    autocmd FileType lisp                      let b:delimitMate_autoclose = 0
+    autocmd FileType vim                       nnoremap <buffer> K :help <cword><CR>
+    autocmd FileType vim                       vnoremap <buffer> K <ESC>:execute "help ".GetVisualSelection()<CR>
+    autocmd Syntax man                         setlocal nomodifiable
 
 " number/relativenumber
-    autocmd InsertLeave *                                    if &number|setlocal relativenumber|endif
-    autocmd InsertEnter *                                    setlocal norelativenumber
+    autocmd InsertLeave * if &number|setlocal relativenumber|endif
+    autocmd InsertEnter * setlocal norelativenumber
 
-" mark
-    autocmd Filetype xml                                     setlocal foldmethod=syntax
-    autocmd Filetype perl,c,cpp,java,javascript,css,zsh,lua  setlocal foldmethod=marker " html folding using indent
-    autocmd Filetype perl,c,cpp,java,javascript,css,zsh,lua  setlocal foldmarker={,}
+" folding
+    autocmd FileType html                                           setlocal foldmethod=manual
+    autocmd Filetype xml                                            setlocal foldmethod=syntax
+    autocmd Filetype vimwiki,perl,c,cpp,java,javascript,css,zsh,lua setlocal foldmethod=marker " html folding using indent
+    autocmd Filetype vimwiki,perl,c,cpp,java,javascript,css,zsh,lua setlocal foldmarker={,}
 
 " complete
-    autocmd FileType java                                    setlocal omnifunc=eclim#java#complete#CodeComplete
-    autocmd FileType java                                    let g:SuperTabDefaultCompletionType="<C-x><C-o>"
-    autocmd FileType python                                  setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType java   setlocal omnifunc=eclim#java#complete#CodeComplete
+    autocmd FileType java   let g:SuperTabDefaultCompletionType="<C-x><C-o>"
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " restore
     function! ResCur()

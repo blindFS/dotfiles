@@ -59,10 +59,9 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
-
+-- awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
 -- run_once("~/.xinitrc")
---run_once("autokey-gtk")
+-- run_once("autokey-gtk")
 run_once("fcitx")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
 run_once("compton --config ~/.compton.conf -b")
@@ -147,6 +146,7 @@ browser   = "chromium"
 mail      = terminal .. " -e mutt"
 fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
+mixer     = terminal .. " -e alsamixer"
 musicplr  = terminal .. " -e ncmpcpp"
 processes = terminal .. " -e htop"
 
@@ -354,6 +354,7 @@ batwidget = lain.widgets.bat({
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volicon:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () awful.util.spawn_with_shell(mixer) end),
     awful.button({ }, 4, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
     awful.button({ }, 5, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end)
 ))

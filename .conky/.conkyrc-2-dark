@@ -10,7 +10,7 @@ no_buffers yes
 own_window yes
 own_window_type override
 # own_window_hints ,below,sticky,skip_taskbar,skip_pager
-own_window_title 
+own_window_title
 own_window_colour 2D2D2D
 
 minimum_size 250
