@@ -60,7 +60,7 @@
     set guioptions=Ac                                      " simple GUI without toolbar menubar scrollbar messagebox
     set pastetoggle=<F4>                                   " toggle pastemode
     set splitright                                         " split on the right side
-    set tags+=~/.vim/tags-3.11
+    " set tags+=~/.vim/tags-3.11
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
@@ -132,7 +132,7 @@
         NeoBundle 'marijnh/tern_for_vim'
         NeoBundle 'xolox/vim-misc'
         NeoBundle 'xolox/vim-easytags'
-        NeoBundle 'Valloric/YouCompleteMe'
+        " NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
     " appearance
         NeoBundle 'bling/vim-airline'
@@ -147,7 +147,8 @@
         NeoBundle 'chriskempson/vim-tomorrow-theme'
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'farseer90718/vim-regionsyntax'
-        NeoBundle 'https://bitbucket.org/abudden/taghighlight'
+        NeoBundle 'osyo-manga/vim-over'
+        " NeoBundle 'https://bitbucket.org/abudden/taghighlight'
         if MySys() == "windows"
             NeoBundle 'mattn/vimtweak'
         endif

@@ -24,6 +24,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 PATH=$HOME/.gem/ruby/2.0.0/bin:$PATH
+PATH=$HOME/src/arm-2013.05/bin:$PATH
+PATH=/usr/local/share/arm-gdb/bin:$PATH
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx

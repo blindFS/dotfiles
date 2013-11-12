@@ -1,5 +1,20 @@
 [Added Associations]
 text/html=chromium.desktop
+text/english=gvim.desktop
+text/plain=gvim.desktop
+text/x-makefile=gvim.desktop
+text/x-c++hdr=gvim.desktop
+text/x-c++src=gvim.desktop
+text/x-chdr=gvim.desktop
+text/x-csrc=gvim.desktop
+text/x-java=gvim.desktop
+text/x-moc=gvim.desktop
+text/x-pascal=gvim.desktop
+text/x-tcl=gvim.desktop
+text/x-tex=gvim.desktop
+text/x-c=gvim.desktop
+text/x-c++=gvim.desktop
+application/x-shellscript=gvim.desktop
 video/3gp=totem.desktop;
 video/3gpp=totem.desktop;
 video/dv=totem.desktop;

@@ -169,7 +169,7 @@
             execute "normal BvEy"
             let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
             if url != ""
-                silent exec "!xdg-open ".url | redraw! 
+                silent exec "!xdg-open ".url | redraw!
             else
                 echo "No URL under cursor."
             endif
@@ -219,4 +219,4 @@
     "           ...............
 "-------------------------------------------------------------------------------------------------------------------------------------
 " vim:ts=4:sw=4:tw=78:ft=vim:fdm=indent:fdl=1
-nnoremap <F8> :execute 'TW '.(exists('b:filter') ? b:filter : '').' long'<CR> 
+nnoremap <F8> :execute 'TW '.(exists('b:filter') ? b:filter : '').' long'<CR>
