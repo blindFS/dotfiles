@@ -52,10 +52,23 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - miscellaneous
+" https://github.com/farseer90718/miscellaneous.git
+"--------------------------------------------------------------------------------------------------------------
+    vmap  <expr>  <LEFT>   DVB_Drag('left')
+    vmap  <expr>  <RIGHT>  DVB_Drag('right')
+    vmap  <expr>  <DOWN>   DVB_Drag('down')
+    vmap  <expr>  <UP>     DVB_Drag('up')
+"--------------------------------------------------------------------------------------------------------------
+" plugin - crunch
+" https://github.com/arecarn/crunch.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:crunch_calc_prompt = '➤  '
+"--------------------------------------------------------------------------------------------------------------
 " plugin - vim-over
 " https://github.com/osyo-manga/vim-over.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:over_command_line_prompt = "➤ "
+    let g:over_command_line_prompt = '➤  '
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vim-easy-align
 " https://github.com/junegunn/vim-easy-align.git
@@ -91,7 +104,7 @@
     let g:task_highlight_field          = 1
     let g:task_field_highlight_advanced = ''
     let g:task_default_prompt           = ['description']
-    let g:task_rc_override              = 'rc.report.ls.columns:id rc.report.ls.labels:id rc.report.ls.sort:id+'
+    " let g:task_rc_override              = 'rc.report.ls.columns:id rc.report.ls.labels:id rc.report.ls.sort:id+'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - bclose.vim
 " https://github.com/farseer90718/bclose.vim.git

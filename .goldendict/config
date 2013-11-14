@@ -5,46 +5,26 @@
  </paths>
  <sounddirs/>
  <dictionaryOrder id="0" name="">
-  <dictionary name="朗道英汉字典5.0">3de2cf3401405225a67bfe62fec4dc5c</dictionary>
-  <dictionary name="dictd_www.dict.org_gcide">3e1a4818e967c45633d64e1e580923e5</dictionary>
-  <dictionary name="jmdict-en-ja">10053081f7f2d0bfa75d420eb639e3af</dictionary>
+  <dictionary name="简明英汉词典">b3bad9eee1b90858bfaaf503f91b1886</dictionary>
   <dictionary name="jmdict-ja-en">3fb001d4bb0216bef05fac83ccee36d9</dictionary>
   <dictionary name="Forvo (En)">13f0f5243c943ec5826f25d35b4f7477</dictionary>
   <dictionary name="Forvo (Ja)">c3f14ec30c4d3a96e14f41ed8bfee9d3</dictionary>
   <dictionary name="English Wikipedia">ae6f89aac7151829681b85f035d54e48</dictionary>
-  <dictionary name="WordNet 3.0 (En-En)">26e2e9425b256c950dd9d6d63c54e044</dictionary>
-  <dictionary name="man">e0c51c52e6327d8a406554da30dc078b</dictionary>
-  <dictionary name="sgoogle">98f7f6f5fb77441773b13e9780c16800</dictionary>
-  <dictionary name="en">c7caaab9615d1bc8c57403401aee1824</dictionary>
-  <dictionary name="ja">433a32d802271cb4e76dc220adb8b619</dictionary>
-  <dictionary name="go trans to zh">5bf467cdff4c07b2803bef80bd982a6a</dictionary>
-  <dictionary name="go trans to ja">abd57fedbaf678bd49b95d3977450c84</dictionary>
-  <dictionary name="go trans to en">8075d7fb1b7e79c13817080a7f3e893b</dictionary>
+  <dictionary name="Google En-En (Oxford)">b88cb2898e634c6638df618528284c2d</dictionary>
  </dictionaryOrder>
  <inactiveDictionaries id="0" name=""/>
  <groups nextId="5">
   <group id="1" name="Pronunciation">
    <dictionary name="Forvo (En)">13f0f5243c943ec5826f25d35b4f7477</dictionary>
    <dictionary name="Forvo (Ja)">c3f14ec30c4d3a96e14f41ed8bfee9d3</dictionary>
-   <dictionary name="en">c7caaab9615d1bc8c57403401aee1824</dictionary>
-   <dictionary name="ja">433a32d802271cb4e76dc220adb8b619</dictionary>
   </group>
   <group id="2" name="Documents">
    <dictionary name="English Wikipedia">ae6f89aac7151829681b85f035d54e48</dictionary>
-   <dictionary name="man">e0c51c52e6327d8a406554da30dc078b</dictionary>
   </group>
   <group id="3" name="Dictionary">
-   <dictionary name="朗道英汉字典5.0">3de2cf3401405225a67bfe62fec4dc5c</dictionary>
-   <dictionary name="dictd_www.dict.org_gcide">3e1a4818e967c45633d64e1e580923e5</dictionary>
-   <dictionary name="jmdict-en-ja">10053081f7f2d0bfa75d420eb639e3af</dictionary>
    <dictionary name="jmdict-ja-en">3fb001d4bb0216bef05fac83ccee36d9</dictionary>
-   <dictionary name="WordNet 3.0 (En-En)">26e2e9425b256c950dd9d6d63c54e044</dictionary>
   </group>
-  <group id="4" name="translate">
-   <dictionary name="go trans to zh">5bf467cdff4c07b2803bef80bd982a6a</dictionary>
-   <dictionary name="go trans to ja">abd57fedbaf678bd49b95d3977450c84</dictionary>
-   <dictionary name="go trans to en">8075d7fb1b7e79c13817080a7f3e893b</dictionary>
-  </group>
+  <group id="4" name="translate"/>
  </groups>
  <hunspell dictionariesPath="/usr/share/myspell/dicts"/>
  <transliteration>
@@ -94,7 +74,6 @@
   <mutedDictionary>c7caaab9615d1bc8c57403401aee1824</mutedDictionary>
  </mutedDictionaries>
  <popupMutedDictionaries>
-  <mutedDictionary>ae6f89aac7151829681b85f035d54e48</mutedDictionary>
   <mutedDictionary>26e2e9425b256c950dd9d6d63c54e044</mutedDictionary>
   <mutedDictionary>433a32d802271cb4e76dc220adb8b619</mutedDictionary>
   <mutedDictionary>e0c51c52e6327d8a406554da30dc078b</mutedDictionary>
@@ -140,11 +119,11 @@
  </preferences>
  <lastMainGroupId>0</lastMainGroupId>
  <lastPopupGroupId>4294967294</lastPopupGroupId>
- <popupWindowState>AAAA/wAAAAH9AAAAAAAAAisAAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
- <popupWindowGeometry>AdnQywABAAAAAAIRAAABFQAABFkAAAKnAAACEQAAARUAAARZAAACpwAAAAAAAA==</popupWindowGeometry>
+ <popupWindowState>AAAA/wAAAAH9AAAAAAAAAiQAAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
+ <popupWindowGeometry>AdnQywABAAAAAAKWAAAA9gAABN4AAAKIAAAClgAAAPYAAATeAAACiAAAAAAAAA==</popupWindowGeometry>
  <mainWindowState>AAAA/wAAAAH9AAAAAgAAAAAAAADMAAADGfwCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUBAAAAQwAAAxkAAACaAP///wAAAAEAAACnAAADSvwCAAAAAvsAAAASAGQAaQBjAHQAcwBQAGEAbgBlAQAAACgAAAKPAAAAAAAAAAD7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUBAAACvQAAALUAAAAAAAAAAAAABXIAAAMZAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAF9/////wAAAAAAAAAA</mainWindowState>
  <mainWindowGeometry>AdnQywABAAAAAAAAAAAAEgAABkMAAAOHAAAAAAAAABIAAAZDAAADhwAAAAAAAA==</mainWindowGeometry>
- <timeForNewReleaseCheck>2013-11-08T08:56:27</timeForNewReleaseCheck>
+ <timeForNewReleaseCheck>2013-11-16T16:53:20</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>0</showingDictBarNames>
 </config>
