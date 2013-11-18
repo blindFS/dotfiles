@@ -60,13 +60,14 @@
     set guioptions=Ac                                      " simple GUI without toolbar menubar scrollbar messagebox
     set pastetoggle=<F4>                                   " toggle pastemode
     set splitright                                         " split on the right side
-    " set tags+=~/.vim/tags-3.11
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
         set grepformat=%f:%l:%c:%m
     endif
 
+    cscope add ~/.vim/cscope.out
+    " set tags+=~/.vim/tags-3.11
 "-----------------------------------------------------------------
 " load configurations
 "-----------------------------------------------------------------
@@ -132,7 +133,7 @@
         NeoBundle 'marijnh/tern_for_vim'
         NeoBundle 'xolox/vim-misc'
         NeoBundle 'xolox/vim-easytags'
-        " NeoBundle 'Valloric/YouCompleteMe'
+        NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
     " appearance
         NeoBundle 'bling/vim-airline'

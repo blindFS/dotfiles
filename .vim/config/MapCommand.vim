@@ -185,6 +185,10 @@
     \ ((getcmdtype() == ':' && getcmdpos() <= 3)? 'Unite neobundle/install'  : 'bi')
     cnoreabbrev <expr> bc
     \ ((getcmdtype() == ':' && getcmdpos() <= 3)? 'NeoBundleClean'    : 'bc')
+    cnoreabbrev <expr> cg
+    \ ((getcmdtype() == ':' && getcmdpos() <= 3)? 'cscope find g'    : 'cg')
+    cnoreabbrev <expr> cs
+    \ ((getcmdtype() == ':' && getcmdpos() <= 3)? 'cscope find s'    : 'cs')
     cnoreabbrev <expr> was
     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'w\|so %'        : 'was')
 

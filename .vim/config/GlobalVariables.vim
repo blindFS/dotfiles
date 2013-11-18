@@ -104,7 +104,7 @@
     let g:task_highlight_field          = 1
     let g:task_field_highlight_advanced = ''
     let g:task_default_prompt           = ['description']
-    " let g:task_rc_override              = 'rc.report.ls.columns:id rc.report.ls.labels:id rc.report.ls.sort:id+'
+    let g:task_rc_override              = 'rc.report.ls.columns:id,project,due rc.report.ls.labels:你大爷,他大爷alksfdj,呵呵 rc.report.ls.sort:id+'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - bclose.vim
 " https://github.com/farseer90718/bclose.vim.git
@@ -138,7 +138,7 @@
 " plugin - vim-regionsyntax
 " https://github.com/farseer90718/vim-regionsyntax.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:regionsyntax_ft_trans = {'ini' : 'dosini', 'js' : 'javascript'}
+    let g:regionsyntax_ft_trans = {'ini' : 'dosini', 'js' : 'javascript', 'basemake' : 'make'}
 "--------------------------------------------------------------------------------------------------------------
 " plugin - slimv
 " https://bitbucket.org/kovisoft/slimv
