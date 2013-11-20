@@ -1,4 +1,19 @@
 "-----------------------------------------------------------------
+" cscope
+"-----------------------------------------------------------------
+    nnoremap <leader>cg :execute 'cscope find g '.expand('<cword>')<CR>
+    nnoremap <leader>cs :execute 'cscope find s '.expand('<cword>')<CR>
+    nnoremap <leader>cc :execute 'cscope find c '.expand('<cword>')<CR>
+    nnoremap <leader>ct :execute 'cscope find t '.expand('<cword>')<CR>
+    nnoremap <leader>cf :execute 'cscope find f '.expand('<cword>')<CR>
+    nnoremap <leader>ci :execute 'cscope find i '.expand('<cword>')<CR>
+    vnoremap <leader>cg <ESC>:execute 'cscope find g '.GetVisualSelection()<CR>
+    vnoremap <leader>cs <ESC>:execute 'cscope find s '.GetVisualSelection()<CR>
+    vnoremap <leader>cc <ESC>:execute 'cscope find c '.GetVisualSelection()<CR>
+    vnoremap <leader>ct <ESC>:execute 'cscope find t '.GetVisualSelection()<CR>
+    vnoremap <leader>cf <ESC>:execute 'cscope find f '.GetVisualSelection()<CR>
+    vnoremap <leader>ci <ESC>:execute 'cscope find i '.GetVisualSelection()<CR>
+"-----------------------------------------------------------------
 " go head or end of line
 "-----------------------------------------------------------------
     nnoremap gh ^
@@ -39,7 +54,6 @@
 "-----------------------------------------------------------------
 " miscellaneous
 "-----------------------------------------------------------------
-    vnoremap <Leader>c "+y
     nnoremap gw "ddiWdwEa<space><esc>"dp
     nnoremap vp :exec "w !vpaste ft=".&ft<CR>
     vnoremap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
@@ -64,14 +78,14 @@
             unlet s:oldspell
         endfunction
     nnoremap K :Man <cword><CR>
-    vnoremap K <ESC>:execute "Man ".GetVisualSelection()<CR>
+    vnoremap K <ESC>:execute 'Man '.GetVisualSelection()<CR>
         function! GetVisualSelection()
             let [s:lnum1, s:col1] = getpos("'<")[1:2]
             let [s:lnum2, s:col2] = getpos("'>")[1:2]
             let s:lines = getline(s:lnum1, s:lnum2)
             let s:lines[-1] = s:lines[-1][: s:col2 - (&selection == 'inclusive' ? 1 : 2)]
             let s:lines[0] = s:lines[0][s:col1 - 1:]
-            return join(s:lines, " ")
+            return join(s:lines, ' ')
         endfunction
 "-----------------------------------------------------------------
 " movement
@@ -100,7 +114,7 @@
 " commands
 "-----------------------------------------------------------------
     command! -complete=file -nargs=1 Rjpg :read !jp2a <q-args>
-    command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
+    command! SourceBeautify :execute 'normal! Gma:read\ !js-beautify\ %\<CR>`adgg'
     command! AppendModeLine :call AppendModeline()
     command! Xopen :!xdg-open %
     command! VShell :set noautochdir | VimShell
