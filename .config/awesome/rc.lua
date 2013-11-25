@@ -6,7 +6,6 @@ local wibox      = require("wibox")
 local beautiful  = require("beautiful")
 local naughty    = require("naughty")
 local lain       = require("lain")
-local vicious    = require("vicious")
 local blingbling = require("blingbling")
 require("awful.autofocus")
 require("eminent")
@@ -60,8 +59,7 @@ function run_once(cmd)
 end
 
 -- awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
--- run_once("~/.xinitrc")
--- run_once("autokey-gtk")
+run_once("goldendict")
 run_once("fcitx")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
 run_once("compton --config ~/.compton.conf -b")
@@ -293,6 +291,12 @@ blingbling.popups.htop(cpuwidget,
     root_color  = beautiful.notify_font_color_3,
     sort_order  = 'cpu'
 })
+blingbling.popups.cpufreq(cpuicon,
+{
+    title_color = beautiful.notify_font_color_1,
+    low_color   = beautiful.notify_font_color_2,
+    high_color  = beautiful.notify_font_color_3,
+})
 
 -- Coretemp
 tempicon = wibox.widget.imagebox(beautiful.widget_temp)
@@ -322,13 +326,13 @@ fswidget = lain.widgets.fs({
         widget:set_text(" " .. fs_now.used .. "% ")
     end
 })
-blingbling.popups.fstat(fswidget,
-{
-    title_color      = "#9fcfff",
-    total_color      = beautiful.notify_font_color_1,
-    percentage_color = beautiful.notify_font_color_2,
-    tmp_color        = beautiful.notify_font_color_3
-})
+-- blingbling.popups.fstat(fswidget,
+-- {
+--     title_color      = "#9fcfff",
+--     total_color      = beautiful.notify_font_color_1,
+--     percentage_color = beautiful.notify_font_color_2,
+--     tmp_color        = beautiful.notify_font_color_3
+-- })
 
 fswidgetbg = wibox.widget.background(fswidget, "#313131")
 

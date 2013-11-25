@@ -71,3 +71,4 @@ set followlinks
 
 set fastrun
 set norunexec
+" vim:ft=vim

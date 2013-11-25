@@ -89,7 +89,6 @@
         NeoBundle 'farseer90718/vim-translator'
         NeoBundle 'farseer90718/vim-taskwarrior'
         NeoBundle 'chrisbra/NrrwRgn'
-        NeoBundle 'rking/ag.vim'
         NeoBundle 'tpope/vim-afterimage'
         NeoBundle 'tpope/vim-fugitive'
         NeoBundle 'tpope/vim-eunuch'
@@ -124,7 +123,6 @@
         NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
     " IDE functions
         NeoBundle 'scrooloose/syntastic'
-        NeoBundle 'ervandew/supertab'
         NeoBundle 'Shougo/neocomplete.vim'
         NeoBundle 'Shougo/neosnippet'
         NeoBundle 'Shougo/vimshell.vim'
@@ -149,7 +147,7 @@
         NeoBundle 'altercation/vim-colors-solarized'
         NeoBundle 'farseer90718/vim-regionsyntax'
         NeoBundle 'osyo-manga/vim-over'
-        " NeoBundle 'https://bitbucket.org/abudden/taghighlight'
+        NeoBundle 'https://bitbucket.org/abudden/taghighlight'
         if MySys() == "windows"
             NeoBundle 'mattn/vimtweak'
         endif
@@ -162,7 +160,7 @@
         NeoBundle 'kien/ctrlp.vim'
     " fast edit
         NeoBundle 'tpope/vim-surround'
-        NeoBundle 'tpope/vim-abolish'
+        NeoBundle 'tpope/vim-speeddating'
         NeoBundle 'terryma/vim-multiple-cursors'
         NeoBundle 'Raimondi/delimitMate'
         NeoBundle 'junegunn/vim-easy-align'

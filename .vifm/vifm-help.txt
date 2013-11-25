@@ -2766,3 +2766,4 @@ AUTHOR
 
 
                                  May 06, 2013                          vifm(1)
+vim:ft=man
