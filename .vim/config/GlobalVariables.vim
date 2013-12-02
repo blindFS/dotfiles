@@ -52,6 +52,11 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - unite-gtags
+" https://github.com/hewes/unite-gtags.git
+"--------------------------------------------------------------------------------------------------------------
+    highlight default link uniteSource__Gtags_LineNr String
+"--------------------------------------------------------------------------------------------------------------
 " plugin - miscellaneous
 " https://github.com/farseer90718/miscellaneous.git
 "--------------------------------------------------------------------------------------------------------------
@@ -271,7 +276,6 @@
     let g:unite_cursor_line_highlight      = 'Statusline'
     let g:unite_prompt                     = '➤ '
     let g:unite_data_directory             = $HOME.'/tmp/unite'
-    command!  Mru :Unite file_mru
     command!  Uhelp :Unite help
     nnoremap <leader><space>b :Unite buffer<CR>
     nnoremap <leader><space>c :Unite command<CR>
@@ -352,9 +356,20 @@
         \}
 "--------------------------------------------------------------------------------------------------------------
 " plugin - easymotion            cursor fast movement
-" \\w
 "--------------------------------------------------------------------------------------------------------------
-    let g:EasyMotion_leader_key = '<Leader><leader>'
+    let g:EasyMotion_leader_key = '.'
+    nnoremap f :call EasyMotion#F(0, 0)<CR>
+    onoremap f :call EasyMotion#F(0, 0)<CR>
+    vnoremap f :<C-U>call EasyMotion#F(1, 0)<CR>
+    nnoremap F :call EasyMotion#F(0, 1)<CR>
+    onoremap F :call EasyMotion#F(0, 1)<CR>
+    vnoremap F :<C-U>call EasyMotion#F(1, 1)<CR>
+    nnoremap t :call EasyMotion#T(0, 0)<CR>
+    onoremap t :call EasyMotion#T(0, 0)<CR>
+    vnoremap t :<C-U>call EasyMotion#T(1, 0)<CR>
+    nnoremap T :call EasyMotion#T(0, 1)<CR>
+    onoremap T :call EasyMotion#T(0, 1)<CR>
+    vnoremap T :<C-U>call EasyMotion#T(1, 1)<CR>
 "--------------------------------------------------------------------------------------------------------------
 " plugin - evervim               evernote
 "--------------------------------------------------------------------------------------------------------------
@@ -371,6 +386,7 @@
     let g:ctrlp_use_caching         = 1
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_cache_dir           = $HOME.'/tmp/ctrlp'
+    command!  Mru :CtrlPMRUFiles
     set wildignore+=*/.cache/*,*/tmp/*,*/.git/*,*/.neocon/*,*.log,*.so,*.swp,*.zip,*.gz,*.bz2,*.bmp,*.ppt
     set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.dll
 "--------------------------------------------------------------------------------------------------------------

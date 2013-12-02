@@ -49,7 +49,7 @@
     set foldcolumn=0                                       " folded code take up no column
     set foldlevelstart=10                                  " no fold on start
     set scroll=15                                          " C-u,C-d scroll 15 lines each time
-    set scrolloff=10                                       " scroll remain the cursor 10 lines off the edge
+    set scrolloff=5                                        " scroll remain the cursor n lines off the edge
     set completeopt=longest,menuone                        " complete option
     set viminfo='10,\"100,:20,%,!                          " save viminfo with upto 10 marks 100-line registers and 20 lines of commands and global variables
     set cscopequickfix=s-,c-,d-,i-,t-,e-                   " use quickfix to show cscope results
@@ -66,8 +66,9 @@
         set grepformat=%f:%l:%c:%m
     endif
 
-    cscope add ~/.vim/cscope.out
-    " set tags+=~/.vim/tags-3.11
+    " set csprg=gtags-cscope
+    " cscope add ~/src/linux-3.11.6/GTAGS
+    cscope add ~/src/linux-3.11.6/cscope.out
 "-----------------------------------------------------------------
 " load configurations
 "-----------------------------------------------------------------
@@ -114,6 +115,7 @@
         NeoBundle 'Shougo/unite.vim'
         NeoBundle 'Shougo/vimfiler.vim'
         NeoBundle 'farseer90718/unite-character'
+        NeoBundle 'hewes/unite-gtags'
         NeoBundleLazy 'Shougo/unite-help', {'autoload':{'unite_sources':'help'}}
         NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
         NeoBundleLazy 'ujihisa/unite-colorscheme', {'autoload':{'unite_sources':'colorscheme'}}
@@ -133,6 +135,7 @@
         NeoBundle 'xolox/vim-easytags'
         NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
+        NeoBundle 'gtags.vim'
     " appearance
         NeoBundle 'bling/vim-airline'
         NeoBundle 'koron/minimap-vim'
@@ -228,3 +231,4 @@
     "           ...............
 "-------------------------------------------------------------------------------------------------------------------------------------
 " vim:ts=4:sw=4:tw=78:ft=vim:fdm=indent:fdl=1
+

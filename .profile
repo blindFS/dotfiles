@@ -30,3 +30,4 @@ PATH=/usr/local/share/arm-gdb/bin:$PATH
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
+export GTAGSROOT=/home/farseer/src/linux-3.11.6

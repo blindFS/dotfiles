@@ -13,6 +13,11 @@
     vnoremap <leader>ct <ESC>:execute 'cscope find t '.GetVisualSelection()<CR>
     vnoremap <leader>cf <ESC>:execute 'cscope find f '.GetVisualSelection()<CR>
     vnoremap <leader>ci <ESC>:execute 'cscope find i '.GetVisualSelection()<CR>
+    nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+    nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
+    nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
+    nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
+    vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
 "-----------------------------------------------------------------
 " go head or end of line
 "-----------------------------------------------------------------
@@ -59,7 +64,6 @@
     vnoremap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
     nnoremap <silent><space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
     nnoremap <expr> gpv '`['.strpart(getregtype(), 0, 1).'`]'
-    nnoremap <leader>gc :cex ''<CR>
     nmap <F12> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files ;<CR>
       \:!cscope -b -i cscope.files -f cscope.out<CR>
       \:cs kill -1<CR>:cs add cscope.out<CR>
