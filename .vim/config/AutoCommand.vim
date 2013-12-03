@@ -23,9 +23,7 @@
     autocmd Filetype vimwiki,perl,c,cpp,java,javascript,css,zsh,lua setlocal foldmarker={,}
 
 " complete
-    autocmd FileType java   setlocal omnifunc=eclim#java#complete#CodeComplete
-    autocmd FileType java   let g:SuperTabDefaultCompletionType="<C-x><C-o>"
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    " autocmd FileType java   setlocal omnifunc=eclim#java#complete#CodeComplete
 
 " restore
     function! ResCur()

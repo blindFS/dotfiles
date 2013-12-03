@@ -52,6 +52,12 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - wmgraphviz.vim
+" https://github.com/wannesm/wmgraphviz.vim.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:WMGraphviz_output = 'png'
+    let g:WMGraphviz_viewer = 'xdg-open'
+"--------------------------------------------------------------------------------------------------------------
 " plugin - unite-gtags
 " https://github.com/hewes/unite-gtags.git
 "--------------------------------------------------------------------------------------------------------------
@@ -526,6 +532,7 @@
 " plugin - neocomplete.vim
 " https://github.com/Shougo/neocomplete.vim.git
 "--------------------------------------------------------------------------------------------------------------
+    noremap <F11> :NeoCompleteToggle<CR>
     let g:neocomplete#disable_auto_complete               = 0
     let g:neocomplete#force_overwrite_completefunc        = 1
     let g:neocomplete#enable_at_startup                   = 1
@@ -535,6 +542,7 @@
     if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns       = {}
     endif
+	let g:neocomplete#force_omni_input_patterns.python    = '\%([^. \t]\.\|^\s*@\)\w*'
     let g:neocomplete#force_omni_input_patterns.c         = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
     let g:neocomplete#force_omni_input_patterns.cpp       = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
     let g:neocomplete#force_omni_input_patterns.objc      = '[^.[:digit:] *\t]\%(\.\|->\)\w*'

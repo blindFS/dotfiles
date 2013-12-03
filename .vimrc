@@ -125,6 +125,7 @@
         NeoBundleLazy 'tacroe/unite-mark', {'autoload':{'unite_sources':'mark'}}
     " IDE functions
         NeoBundle 'scrooloose/syntastic'
+        NeoBundle 'Shougo/context_filetype.vim'
         NeoBundle 'Shougo/neocomplete.vim'
         NeoBundle 'Shougo/neosnippet'
         NeoBundle 'Shougo/vimshell.vim'
@@ -167,6 +168,7 @@
         NeoBundle 'terryma/vim-multiple-cursors'
         NeoBundle 'Raimondi/delimitMate'
         NeoBundle 'junegunn/vim-easy-align'
+        NeoBundle 'swap-parameters'
         NeoBundle 'renumber.vim'
         NeoBundle 'Figlet.vim'
         NeoBundle 'tComment'
@@ -183,9 +185,9 @@
         NeoBundleLazy 'gerw/vim-latex-suite', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'xuhdev/vim-latex-live-preview', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'vim-perl/vim-perl', {'autoload':{'filetypes':['perl']}}
-        NeoBundleLazy 'klen/python-mode', {'autoload':{'filetypes':['python']}}
         NeoBundleLazy 'farseer90718/vim-markdown', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'farseer90718/vim-reveal', {'autoload':{'filetypes':['markdown']}}
+        NeoBundleLazy 'wannesm/wmgraphviz.vim', {'autoload':{'filetypes':['dot']}}
         NeoBundleLazy 'https://bitbucket.org/kovisoft/slimv', {'autoload':{'filetypes':['lisp']}}
         NeoBundleCheck
 
