@@ -354,10 +354,10 @@
 " plugin - vim-translator        google translator
 "--------------------------------------------------------------------------------------------------------------
     let g:goog_user_conf = {
-        \'langpair': 'en|zh',
+        \'langpair': '|zh',
         \'cmd': 'node',
         \'v_key': 'T',
-        \'r_key': 'L',
+        \'r_key': 'R',
         \'s_key': 'O'
         \}
 "--------------------------------------------------------------------------------------------------------------
@@ -542,7 +542,8 @@
     if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns       = {}
     endif
-	let g:neocomplete#force_omni_input_patterns.python    = '\%([^. \t]\.\|^\s*@\)\w*'
+    let g:neocomplete#force_omni_input_patterns.python    = '\%([^. \t]\.\|^\s*@\)\w*'
+    let g:neocomplete#force_omni_input_patterns.dot       = '\[.*'
     let g:neocomplete#force_omni_input_patterns.c         = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
     let g:neocomplete#force_omni_input_patterns.cpp       = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
     let g:neocomplete#force_omni_input_patterns.objc      = '[^.[:digit:] *\t]\%(\.\|->\)\w*'

@@ -19,6 +19,7 @@ antigen bundle repo-update
 antigen bundle themes
 antigen bundle urltools
 antigen bundle archlinux
+antigen bundle vagrant
 
 antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions
