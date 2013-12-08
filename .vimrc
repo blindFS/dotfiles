@@ -69,6 +69,7 @@
     " set csprg=gtags-cscope
     " cscope add ~/src/linux-3.11.6/GTAGS
     cscope add ~/src/linux-3.11.6/cscope.out
+    set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
 "-----------------------------------------------------------------
 " load configurations
 "-----------------------------------------------------------------
@@ -132,8 +133,8 @@
         NeoBundle 'tpope/vim-dispatch'
         NeoBundle 'tpope/vim-endwise'
         NeoBundle 'marijnh/tern_for_vim'
-        NeoBundle 'xolox/vim-misc'
-        NeoBundle 'xolox/vim-easytags'
+        " NeoBundle 'xolox/vim-misc'
+        " NeoBundle 'xolox/vim-easytags'
         NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
         NeoBundle 'gtags.vim'

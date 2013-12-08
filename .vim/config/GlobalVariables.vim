@@ -267,8 +267,8 @@
     let g:airline#extensions#hunks#non_zero_only      = 1
     let g:airline#extensions#tabline#enabled          = 1
     let g:airline#extensions#tabline#show_buffers     = 1
-    let g:airline#extensions#tabline#fnamemod         = ':t'
     let g:airline#extensions#tabline#buffer_min_count = 2
+    let g:airline#extensions#tabline#fnamemod         = ':t'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - unite                 search for information from arbitrary sources
 " https://github.com/Shougo/unite.vim
@@ -283,16 +283,23 @@
     let g:unite_prompt                     = '➤ '
     let g:unite_data_directory             = $HOME.'/tmp/unite'
     command!  Uhelp :Unite help
-    nnoremap <leader><space>b :Unite buffer<CR>
+    nnoremap <Leader><space>b :Unite buffer_tab<CR>
+    nnoremap <leader><space>B :Unite buffer<CR>
     nnoremap <leader><space>c :Unite command<CR>
     nnoremap <leader><space>f :Unite file<CR>
     nnoremap <leader><space>j :Unite jump<CR>
-    nnoremap <leader><space>l :Unite locate<CR>
+    nnoremap <leader><space>l :Unite buffer_tab<CR>
     nnoremap <leader><space>m :Unite mark<CR>
+    nnoremap <leader><space>o :Unite outline<CR>
     nnoremap <leader><space>t :Unite tag<CR>
-    nnoremap <leader><space>u :Unite source<CR>
+    nnoremap <leader><space>s :Unite source<CR>
     nnoremap <leader><space>y :Unite history/yank<CR>
     nnoremap <leader><space>/ :Unite grep:.<CR>
+    nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+    nnoremap <leader>gc :Unite gtags/context<CR>
+    nnoremap <leader>gr :Unite gtags/ref<CR>
+    nnoremap <leader>ge :Unite gtags/grep<CR>
+    vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimfiler.vim
 " https://github.com/Shougo/vimfiler.vim.git
@@ -345,11 +352,6 @@
 " https://github.com/junegunn/seoul256.vim.git
 "--------------------------------------------------------------------------------------------------------------
     let g:seoul256_background = 233
-"--------------------------------------------------------------------------------------------------------------
-" plugin - python-mode           python IDE
-" https://github.com/klen/python-mode
-"--------------------------------------------------------------------------------------------------------------
-    let g:pymode_lint = 0 " disable pymode_lint syntax check because I have syntastic installed
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vim-translator        google translator
 "--------------------------------------------------------------------------------------------------------------

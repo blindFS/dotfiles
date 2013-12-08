@@ -13,11 +13,6 @@
     vnoremap <leader>ct <ESC>:execute 'cscope find t '.GetVisualSelection()<CR>
     vnoremap <leader>cf <ESC>:execute 'cscope find f '.GetVisualSelection()<CR>
     vnoremap <leader>ci <ESC>:execute 'cscope find i '.GetVisualSelection()<CR>
-    nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
-    nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
-    nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
-    nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
-    vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
 "-----------------------------------------------------------------
 " go head or end of line
 "-----------------------------------------------------------------
