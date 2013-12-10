@@ -132,9 +132,6 @@
         NeoBundle 'Shougo/vimshell.vim'
         NeoBundle 'tpope/vim-dispatch'
         NeoBundle 'tpope/vim-endwise'
-        NeoBundle 'marijnh/tern_for_vim'
-        " NeoBundle 'xolox/vim-misc'
-        " NeoBundle 'xolox/vim-easytags'
         NeoBundle 'Valloric/YouCompleteMe'
         NeoBundle 'cmdline-completion'
         NeoBundle 'gtags.vim'
@@ -183,12 +180,15 @@
         NeoBundle 'mattn/vim-textobj-url'
     " languages support
         NeoBundle 'vimwiki/vimwiki'
+        NeoBundle 'moll/vim-node'
         NeoBundleLazy 'gerw/vim-latex-suite', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'xuhdev/vim-latex-live-preview', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'vim-perl/vim-perl', {'autoload':{'filetypes':['perl']}}
         NeoBundleLazy 'farseer90718/vim-markdown', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'farseer90718/vim-reveal', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'wannesm/wmgraphviz.vim', {'autoload':{'filetypes':['dot']}}
+        " NeoBundleLazy 'marijnh/tern_for_vim', {'autoload':{'filetypes':['javascript']}}
+        NeoBundleLazy 'ahayman/vim-nodejs-complete', {'autoload':{'filetypes':['javascript']}}
         NeoBundleLazy 'https://bitbucket.org/kovisoft/slimv', {'autoload':{'filetypes':['lisp']}}
         NeoBundleCheck
 

@@ -319,3 +319,6 @@ _xmsgs/
 
 # neobundle
 .neobundle/
+
+# taghightlight
+types_c.taghl

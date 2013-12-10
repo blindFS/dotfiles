@@ -52,6 +52,13 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - vim-nodejs-complete
+" https://github.com/ahayman/vim-nodejs-complete.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:nodejs_complete_config = {
+                \  'max_node_compl_len': 15,
+                \}
+"--------------------------------------------------------------------------------------------------------------
 " plugin - wmgraphviz.vim
 " https://github.com/wannesm/wmgraphviz.vim.git
 "--------------------------------------------------------------------------------------------------------------
@@ -463,6 +470,17 @@
         \ ['Extension', 'FileType']
     let g:TagHighlightSettings['FileTypeLanguageOverrides'] =
         \ {'tagbar': 'c'}
+    hi default link Class          String
+    hi default link DefinedName    keyword
+    hi default link Function       Identifier
+    hi default link Enumerator     tag
+    hi default link Member         Title
+    hi default link Structure      String
+    hi default link Type           Todo
+    hi default link Union          String
+    hi default link GlobalConstant Constant
+    hi default link GlobalConstant Variable
+    hi default link LocalVariable  Variable
 "--------------------------------------------------------------------------------------------------------------
 " plugin - Tagbar                taglist alternative
 " https://github.com/majutsushi/tagbar
