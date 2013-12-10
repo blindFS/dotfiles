@@ -562,12 +562,13 @@
     if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns       = {}
     endif
-    let g:neocomplete#force_omni_input_patterns.python    = '\%([^. \t]\.\|^\s*@\)\w*'
-    let g:neocomplete#force_omni_input_patterns.dot       = '\[.*'
-    let g:neocomplete#force_omni_input_patterns.c         = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-    let g:neocomplete#force_omni_input_patterns.cpp       = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-    let g:neocomplete#force_omni_input_patterns.objc      = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-    let g:neocomplete#force_omni_input_patterns.objcpp    = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+    let g:neocomplete#force_omni_input_patterns.python     = '\%([^. \t]\.\|^\s*@\)\w*'
+    let g:neocomplete#force_omni_input_patterns.javascript = '[require(\|\.]\S*'
+    let g:neocomplete#force_omni_input_patterns.dot        = '\[.*'
+    let g:neocomplete#force_omni_input_patterns.c          = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+    let g:neocomplete#force_omni_input_patterns.cpp        = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+    let g:neocomplete#force_omni_input_patterns.objc       = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+    let g:neocomplete#force_omni_input_patterns.objcpp     = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - neosnippet.vim        snippets
 " https://github.com/shougo/neosnippet.vim

@@ -123,7 +123,7 @@
             call append(line("$"), l:ml)
         endfunction
     command! -range PluginAddRangeComment :call PluginAddComment(1)
-    command! CtagsUpdate :!ctags -R .
+    command! CtagsUpdate :cd ~/.vim | execute '!ctags -R '.$PWD
     command! PluginAddlineComment :call PluginAddComment(0)
         function! PluginAddComment(mode)
             if a:mode == 0

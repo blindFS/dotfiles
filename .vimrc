@@ -70,6 +70,7 @@
     " cscope add ~/src/linux-3.11.6/GTAGS
     cscope add ~/src/linux-3.11.6/cscope.out
     set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+    set tags+=~/.vim/tags
 "-----------------------------------------------------------------
 " load configurations
 "-----------------------------------------------------------------
