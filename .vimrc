@@ -188,8 +188,7 @@
         NeoBundleLazy 'farseer90718/vim-markdown', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'farseer90718/vim-reveal', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'wannesm/wmgraphviz.vim', {'autoload':{'filetypes':['dot']}}
-        " NeoBundleLazy 'marijnh/tern_for_vim', {'autoload':{'filetypes':['javascript']}}
-        NeoBundleLazy 'ahayman/vim-nodejs-complete', {'autoload':{'filetypes':['javascript']}}
+        NeoBundleLazy 'marijnh/tern_for_vim', {'autoload':{'filetypes':['javascript']}}
         NeoBundleLazy 'https://bitbucket.org/kovisoft/slimv', {'autoload':{'filetypes':['lisp']}}
         NeoBundleCheck
 

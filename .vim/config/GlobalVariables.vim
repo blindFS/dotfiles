@@ -52,13 +52,6 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
-" plugin - vim-nodejs-complete
-" https://github.com/ahayman/vim-nodejs-complete.git
-"--------------------------------------------------------------------------------------------------------------
-    let g:nodejs_complete_config = {
-                \  'max_node_compl_len': 15,
-                \}
-"--------------------------------------------------------------------------------------------------------------
 " plugin - wmgraphviz.vim
 " https://github.com/wannesm/wmgraphviz.vim.git
 "--------------------------------------------------------------------------------------------------------------
@@ -196,7 +189,7 @@
 " https://github.com/scrooloose/syntastic.git
 "--------------------------------------------------------------------------------------------------------------
     let g:syntastic_enable_signs   = 1
-    let g:syntastic_error_symbol   = '✗'
+    let g:syntastic_error_symbol   = 'x'
     let g:syntastic_warning_symbol = '!'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - YouCompleteMe
@@ -204,6 +197,7 @@
 "--------------------------------------------------------------------------------------------------------------
     let g:ycm_allow_changing_updatetime = 0
     let g:ycm_confirm_extra_conf        = 1
+    let g:ycm_filetype_whitelist        = { 'python': '1', 'cpp': '1'}
     let g:ycm_global_ycm_extra_conf     = '~/tmp/.ycm_extra_conf.py'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimim
@@ -240,10 +234,10 @@
     let g:signify_mapping_toggle_highlight = '<leader><F9>'
     let g:signify_mapping_toggle           = '<F9>'
     let g:signify_disable_by_default       = 0
-    let g:signify_sign_add                 = '✚'
-    let g:signify_sign_change              = '✶'
-    let g:signify_sign_delete              = '✖'
-    let g:signify_sign_delete_first_line   = '✕'
+    let g:signify_sign_add                 = '+'
+    let g:signify_sign_change              = '*'
+    let g:signify_sign_delete              = 'x'
+    let g:signify_sign_delete_first_line   = 'X'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vim-easytags
 " https://github.com/xolox/vim-easytags.git
@@ -521,6 +515,19 @@
                 \ 'e:environments'
                 \ ]
                 \ }
+    let g:tagbar_type_javascript = {
+                \ 'ctagstype' : 'javascript',
+                \ 'kinds' : [
+                \ 'o:object',
+                \ 'f:function',
+                \ 'a:array',
+                \ 's:string',
+                \ 'b:boolean',
+                \ 'n:number',
+                \ 'v:variable',
+                \ 'm:member'
+                \ ]
+                \ }
     let g:tagbar_type_vhdl = {
                 \ 'ctagstype': 'vhdl',
                 \ 'kinds' : [
@@ -563,7 +570,6 @@
         let g:neocomplete#force_omni_input_patterns       = {}
     endif
     let g:neocomplete#force_omni_input_patterns.python     = '\%([^. \t]\.\|^\s*@\)\w*'
-    let g:neocomplete#force_omni_input_patterns.javascript = '[require(\|\.]\S*'
     let g:neocomplete#force_omni_input_patterns.dot        = '\[.*'
     let g:neocomplete#force_omni_input_patterns.c          = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
     let g:neocomplete#force_omni_input_patterns.cpp        = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
