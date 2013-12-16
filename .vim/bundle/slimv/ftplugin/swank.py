@@ -4,8 +4,8 @@
 #
 # SWANK client for Slimv
 # swank.py:     SWANK client code for slimv.vim plugin
-# Version:      0.9.10
-# Last Change:  11 Nov 2013
+# Version:      0.9.12
+# Last Change:  14 Dec 2013
 # Maintainer:   Tamas Kovacs <kovisoft at gmail dot com>
 # License:      This file is placed in the public domain.
 #               No warranty, express or implied.
@@ -149,6 +149,10 @@ def parse_sub_sexpr( sexpr, opening, closing ):
             elif not literal and sexpr[pos] == ';':
                 # Skip coment
                 pos = pos + parse_comment( sexpr[pos:] ) - 1
+            elif not literal and sexpr[pos] in "#'`@~,^":
+                # Skip prefix characters
+                while pos+1 < l and sexpr[pos+1] not in string.whitespace + '([':
+                    pos = pos + 1
             elif not sexpr[pos] in string.whitespace + '\\':
                 # Parse keyword but ignore dot in dotted notation (a . b)
                 klen = parse_keyword( sexpr[pos:] )
@@ -388,9 +392,9 @@ def swank_parse_inspect_content(pcont):
         newline = False
         if type(el) == list:
             if el[0] == ':action':
-                text = '{<' + unquote(el[2]) + '>' + unquote(el[1]) + '<>}'
+                text = '{<' + unquote(el[2]) + '> ' + unquote(el[1]) + ' <>}'
             else:
-                text = '{[' + unquote(el[2]) + ']' + unquote(el[1]) + '[]}'
+                text = '{[' + unquote(el[2]) + '] ' + unquote(el[1]) + ' []}'
             lst.append(text)
         else:
             text = unquote(el)

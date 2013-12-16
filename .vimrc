@@ -185,6 +185,7 @@
         NeoBundleLazy 'gerw/vim-latex-suite', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'xuhdev/vim-latex-live-preview', {'autoload':{'filetypes':['tex']}}
         NeoBundleLazy 'vim-perl/vim-perl', {'autoload':{'filetypes':['perl']}}
+        " NeoBundleLazy 'davidhalter/jedi-vim', {'autoload':{'filetypes':['python']}}
         NeoBundleLazy 'farseer90718/vim-markdown', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'farseer90718/vim-reveal', {'autoload':{'filetypes':['markdown']}}
         NeoBundleLazy 'wannesm/wmgraphviz.vim', {'autoload':{'filetypes':['dot']}}

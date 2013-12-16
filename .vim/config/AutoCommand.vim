@@ -6,7 +6,7 @@
     autocmd BufRead,BufNewFile *.json          setlocal filetype=json
     autocmd BufRead,BufNewFile *.less          setlocal filetype=css
     autocmd Filetype w3m,tagbar,unite,startify setlocal nocursorcolumn
-    autocmd FileType lisp                      setlocal tabstop=2 shiftwidth=2
+    autocmd FileType lisp,javascript           setlocal tabstop=2 shiftwidth=2
     autocmd FileType lisp                      let b:delimitMate_autoclose = 0
     autocmd FileType vim                       nnoremap <buffer> K :help <CR>
     autocmd FileType vim                       vnoremap <buffer> K <ESC>:execute "help ".GetVisualSelection()<CR>
