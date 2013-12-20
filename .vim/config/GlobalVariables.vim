@@ -114,7 +114,7 @@
     let g:task_report_name              = 'long'
     let g:task_highlight_field          = 1
     let g:task_field_highlight_advanced = ''
-    let g:task_default_prompt           = ['description']
+    let g:task_default_prompt           = ['description', 'due', 'priority', 'tag', 'depend']
     " let g:task_rc_override              = ''
 "--------------------------------------------------------------------------------------------------------------
 " plugin - bclose.vim
@@ -195,11 +195,11 @@
 " plugin - YouCompleteMe
 " https://github.com/Valloric/YouCompleteMe.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:ycm_allow_changing_updatetime  = 0
-    let g:ycm_confirm_extra_conf         = 1
-    let g:ycm_filetype_whitelist         = { 'python': 1, 'cpp': 1, 'c': 1}
-    let g:ycm_global_ycm_extra_conf      = '~/tmp/.ycm_extra_conf.py'
-    let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+    let g:ycm_allow_changing_updatetime     = 0
+    let g:ycm_register_as_syntastic_checker = 1
+    let g:ycm_confirm_extra_conf            = 1
+    let g:ycm_filetype_whitelist            = { 'python': 1, 'cpp': 1, 'c': 1}
+    let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_c.py'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimim
 " https://github.com/vimim/vimim.git
@@ -314,7 +314,7 @@
     let g:vimfiler_marked_file_icon    = '*'
     let g:vimfiler_ignore_pattern      = '^\%(.git\|.DS_Store\)$'
     let g:vimfiler_data_directory      = $HOME.'/tmp/vimfiler'
-    nnoremap <F2> :VimFilerExplorer<CR>
+    nnoremap <F1> :VimFilerExplorer<CR>
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimshell.vim
 " https://github.com/Shougo/vimshell.vim.git
@@ -480,8 +480,7 @@
 " plugin - Tagbar                taglist alternative
 " https://github.com/majutsushi/tagbar
 "--------------------------------------------------------------------------------------------------------------
-    noremap <F1> :TagbarToggle<CR>
-    inoremap <F1> <ESC>:TagbarToggle<CR>
+    noremap <F2> :TagbarToggle<CR>
     let g:tagbar_type_vimwiki = {
                 \ 'ctagstype' : 'wiki',
                 \ 'kinds'     : ['h:headers']

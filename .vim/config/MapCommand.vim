@@ -113,7 +113,7 @@
 " commands
 "-----------------------------------------------------------------
     command! -complete=file -nargs=1 Rjpg :read !jp2a <q-args>
-    command! SourceBeautify :execute 'normal! Gma:read\ !js-beautify\ %\<CR>`adgg'
+    command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
     command! AppendModeLine :call AppendModeline()
     command! Xopen :!xdg-open %
     command! VShell :set noautochdir | VimShell

@@ -47,7 +47,7 @@
     set foldenable                                         " enable code fold
     set foldmethod=indent                                  " fold method
     set foldcolumn=0                                       " folded code take up no column
-    set foldlevelstart=10                                  " no fold on start
+    set foldlevelstart=99                                  " no fold on start
     set scroll=15                                          " C-u,C-d scroll 15 lines each time
     set scrolloff=5                                        " scroll remain the cursor n lines off the edge
     set completeopt=longest,menuone                        " complete option

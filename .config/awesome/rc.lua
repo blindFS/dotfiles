@@ -542,6 +542,137 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+-- {{{ Multiple screens
+-- Get active outputs
+local function outputs()
+   local outputs = {}
+   local xrandr = io.popen("xrandr -q")
+   if xrandr then
+      for line in xrandr:lines() do
+     output = line:match("^([%w-]+) connected ")
+     if output then
+        outputs[#outputs + 1] = output
+     end
+      end
+      xrandr:close()
+   end
+
+   return outputs
+end
+
+local function arrange(out)
+   -- We need to enumerate all the way to combinate output. We assume
+   -- we want only an horizontal layout.
+   local choices  = {}
+   local previous = { {} }
+   for i = 1, #out do
+      -- Find all permutation of length `i`: we take the permutation
+      -- of length `i-1` and for each of them, we create new
+      -- permutations by adding each output at the end of it if it is
+      -- not already present.
+      local new = {}
+      for _, p in pairs(previous) do
+     for _, o in pairs(out) do
+        if not awful.util.table.hasitem(p, o) then
+           new[#new + 1] = awful.util.table.join(p, {o})
+        end
+     end
+      end
+      choices = awful.util.table.join(choices, new)
+      previous = new
+   end
+
+   return choices
+end
+
+-- Build available choices
+local function menu()
+   local menu = {}
+   local out = outputs()
+   local choices = arrange(out)
+
+   for _, choice in pairs(choices) do
+      local cmd = "xrandr"
+      -- Enabled outputs
+      for i, o in pairs(choice) do
+     cmd = cmd .. " --output " .. o .. " --auto"
+     if i > 1 then
+        cmd = cmd .. " --right-of " .. choice[i-1]
+     end
+      end
+      -- Disabled outputs
+      for _, o in pairs(out) do
+     if not awful.util.table.hasitem(choice, o) then
+        cmd = cmd .. " --output " .. o .. " --off"
+     end
+      end
+
+      local label = ""
+      if #choice == 1 then
+     label = 'Only <span weight="bold">' .. choice[1] .. '</span>'
+      else
+     for i, o in pairs(choice) do
+        if i > 1 then label = label .. " + " end
+        label = label .. '<span weight="bold">' .. o .. '</span>'
+     end
+      end
+
+      menu[#menu + 1] = { label,
+              cmd,
+                          "/usr/share/icons/Tango/32x32/devices/display.png"}
+   end
+
+   return menu
+end
+
+-- Display xrandr notifications from choices
+local state = { iterator = nil,
+        timer = nil,
+        cid = nil }
+local function xrandr()
+   -- Stop any previous timer
+   if state.timer then
+      state.timer:stop()
+      state.timer = nil
+   end
+
+   -- Build the list of choices
+   if not state.iterator then
+      state.iterator = awful.util.table.iterate(menu(),
+                    function() return true end)
+   end
+
+   -- Select one and display the appropriate notification
+   local next  = state.iterator()
+   local label, action, icon
+   if not next then
+      label, icon = "Keep the current configuration", "/usr/share/icons/Tango/32x32/devices/display.png"
+      state.iterator = nil
+   else
+      label, action, icon = unpack(next)
+   end
+   state.cid = naughty.notify({ text = label,
+                icon = icon,
+                timeout = 4,
+                screen = mouse.screen, -- Important, not all screens may be visible
+                font = "Free Sans 18",
+                replaces_id = state.cid }).id
+
+   -- Setup the timer
+   state.timer = timer { timeout = 4 }
+   state.timer:connect_signal("timeout",
+              function()
+                 state.timer:stop()
+                 state.timer = nil
+                 state.iterator = nil
+                 if action then
+                awful.util.spawn(action, false)
+                 end
+              end)
+   state.timer:start()
+end
+-- }}}
+
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
     -- {{ Transparency
@@ -551,7 +682,6 @@ globalkeys = awful.util.table.join(
     -- }}
 
     -- {{ Navigate
-    --awful.key({ modkey }, "w",      revelation               ),
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey }, "Escape", awful.tag.history.restore),
@@ -562,6 +692,7 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "w",     function () mymainmenu:show({ keygrabber = true }) end),
     awful.key({ altkey }, "Left",  function () lain.util.tag_view_nonempty(-1)        end),
     awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1)         end),
+    awful.key({ modkey, "Shift"}, "s", xrandr), -- Multiple screens
     -- }}
 
     -- {{ Default client focus
@@ -621,6 +752,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "F12", function () awful.util.spawn_with_shell("mpc next")   end),
     -- }}
 
+    -- {{ XF86keys
+    awful.key({}, "XF86AudioRaiseVolume", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
+    awful.key({}, "XF86AudioLowerVolume", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end),
+    awful.key({}, "XF86AudioMute", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
+    awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell("mpc toggle") end),
+    awful.key({}, "XF86AudioPrev", function () awful.util.spawn_with_shell("mpc prev")   end),
+    awful.key({}, "XF86AudioNext", function () awful.util.spawn_with_shell("mpc next")   end),
+    awful.key({}, "XF86Display", xrandr),
+    -- }}
+
     -- System
     awful.key({ modkey }, "c",   function () os.execute("xsel -p -o | xsel -i -b") end),
     awful.key({ modkey }, "p",   function () awful.util.spawn_with_shell("gnome-screenshot")   end),
@@ -653,15 +794,15 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey,           }, "z",
+    awful.key({ modkey, "Shift"   }, "z",
         function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
         end),
-    awful.key({ modkey,           }, "m",
+    awful.key({ modkey, "Shift"   }, "m",
         function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
+           c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
         end)
 )
@@ -725,10 +866,10 @@ awful.rules.rules = {
           size_hints_honor = false } },
 
     { rule = { class = "URxvt" },
-          properties = { opacity = 0.80 } },
+          properties = { opacity = 0.90 } },
 
     { rule = { class = "Gvim" },
-          properties = { opacity = 0.80, } },
+          properties = { opacity = 0.90, } },
 
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
@@ -750,3 +891,4 @@ awful.rules.rules = {
         maximized_vertical = true } },
 }
 -- }}}
+-- vim:ts=4:sw=4:tw=0:ft=lua:fdm=marker:fdls=0
