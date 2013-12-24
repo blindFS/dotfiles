@@ -5,6 +5,7 @@
     autocmd BufWinEnter *                      set formatoptions-=o " disable new line autocomment
     autocmd BufRead,BufNewFile *.json          setlocal filetype=json
     autocmd BufRead,BufNewFile *.less          setlocal filetype=css
+    autocmd BufRead,BufNewFile *.ejs           setlocal filetype=html
     autocmd Filetype w3m,tagbar,unite,startify setlocal nocursorcolumn
     autocmd FileType lisp,javascript           setlocal tabstop=2 shiftwidth=2
     autocmd FileType lisp                      let b:delimitMate_autoclose = 0
