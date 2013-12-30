@@ -113,24 +113,19 @@
 " commands
 "-----------------------------------------------------------------
     command! -complete=file -nargs=1 Rjpg :read !jp2a <q-args>
-    command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
-    command! AppendModeLine :call AppendModeline()
     command! Xopen :!xdg-open %
     command! VShell :set noautochdir | VimShell
+    command! CtagsUpdate :cd ~/.vim | execute '!ctags -R '.$PWD
+    command! SourceBeautify :execute "normal! Gma:read\ !js-beautify\ %\<CR>`adgg"
+    command! AppendModeLine :call AppendModeline()
         function! AppendModeline()
             let l:ml= " vim:ts=".&tabstop.":sw=".&shiftwidth.":tw=".&textwidth.":ft=".&filetype.":fdm=".&foldmethod.":fdl=".&foldlevel
             let l:ml= substitute(&commentstring, "%s", l:ml, "")
             call append(line("$"), l:ml)
         endfunction
-    command! -range PluginAddRangeComment :call PluginAddComment(1)
-    command! CtagsUpdate :cd ~/.vim | execute '!ctags -R '.$PWD
-    command! PluginAddlineComment :call PluginAddComment(0)
-        function! PluginAddComment(mode)
-            if a:mode == 0
-                let lines = getline(line('.'),line('.'))
-            elseif a:mode == 1
-                let lines = getline("'<","'>")
-            endif
+    command! -range PluginConfig :'<,'>call PluginAddComment()
+        function! PluginAddComment() range
+            let lines = getline(a:firstline, a:lastline)
             exec 'e ~/.vim/config/GlobalVariables.vim'
             for line in lines
                 call s:add_commont(line)
@@ -153,7 +148,6 @@
         function! s:parse_name(arg)
             let arg = a:arg
             let git_proto = exists('g:vundle_default_git_proto') ? g:vundle_default_git_proto : 'https'
-
             if    arg =~? '^\s*\(gh\|github\):\S\+'
             \  || arg =~? '^[a-z0-9][a-z0-9-]*/[^/]\+$'
                 let uri = git_proto.'://github.com/'.split(arg, ':')[-1]
@@ -237,4 +231,3 @@
     "           ...............
 "-------------------------------------------------------------------------------------------------------------------------------------
 " vim:ts=4:sw=4:tw=78:ft=vim:fdm=indent:fdl=1
-nnoremap <F8> :execute 'TW '.(exists('b:filter') ? b:filter : '').' long'<CR>

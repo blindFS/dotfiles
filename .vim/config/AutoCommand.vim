@@ -11,6 +11,7 @@
     autocmd FileType lisp                      let b:delimitMate_autoclose = 0
     autocmd FileType vim                       nnoremap <buffer> K :help <CR>
     autocmd FileType vim                       vnoremap <buffer> K <ESC>:execute "help ".GetVisualSelection()<CR>
+    autocmd FileType tex                       setlocal noswapfile
     autocmd Syntax man                         setlocal nomodifiable
 
 " number/relativenumber

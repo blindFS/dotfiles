@@ -779,14 +779,14 @@ awful.key({ modkey }, "c",   function () os.execute("xsel -p -o | xsel -i -b") e
 awful.key({ modkey }, "p",   function () awful.util.spawn_with_shell("gnome-screenshot")   end),
 
 -- User programs
-awful.key({ modkey }, "Return", function () awful.util.spawn(terminalp)                        end),
 awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-command -activate") end),
 awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                  end),
 awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                    end),
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)              end),
-awful.key({ modkey }, "n",      function () run_or_raise(browser,  { name = "Chromium" })      end),
-awful.key({ modkey }, "v",      function () run_or_raise(geditor,  { name = "GVIM"     })      end),
-awful.key({ modkey }, "g",      function () run_or_raise(graphics, { name = "Gimp"     })      end),
+awful.key({ modkey }, "n",      function () run_or_raise(browser,   { name  = "Chromium" })    end),
+awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"     })    end),
+awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"     })    end),
+awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"    })    end),
 
 -- Prompt
 awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -876,31 +876,27 @@ awful.rules.rules = {
         keys = clientkeys,
         buttons = clientbuttons,
         size_hints_honor = false } },
-
         { rule = { class = "URxvt" },
         properties = { opacity = 0.90 } },
-
         { rule = { class = "Gvim" },
         properties = { opacity = 0.90, } },
-
         { rule = { class = "MPlayer" },
         properties = { floating = true } },
-
         { rule = { class = "Chromium" },
         properties = { tag = tags[1][2] } },
-
-        { rule = { instance = "exe" },
-        properties = { floating = true } },
-
-        { rule = { instance = "plugin-container" },
-        properties = { floating = true } },
-
         { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
-
+        { rule = { class = "Eclipse" },
+        properties = { tag = tags[1][4] } },
+        { rule = { class = "Steam" },
+        properties = { tag = tags[1][5] } },
+        { rule = { instance = "exe" },
+        properties = { floating = true } },
+        { rule = { instance = "plugin-container" },
+        properties = { floating = true } },
         { rule = { class = "Gimp", role = "gimp-image-window" },
         properties = { maximized_horizontal = true,
         maximized_vertical = true } },
     }
     -- }}}
-    -- vim:ts=4:sw=4:tw=0:ft=lua:fdm=marker:fdls=0
+-- vim:ts=4:sw=4:tw=0:ft=lua:fdm=marker:fdls=0
