@@ -12,34 +12,24 @@
     NeoBundle 'LnL7/vim-mark'
     NeoBundle 'zoom.vim'
     NeoBundle 'DrawIt'
-    if executable('git')
-        NeoBundle 'tpope/vim-fugitive'
-    endif
-    if executable('figlet')
-        NeoBundle 'Figlet.vim'
-    endif
-    if executable('task')
-        NeoBundle 'farseer90718/vim-taskwarrior'
-    endif
+    NeoBundle 'tpope/vim-fugitive',           {'disabled': (!executable('git'))}
+    NeoBundle 'Figlet.vim',                   {'disabled': (!executable('figlet'))}
+    NeoBundle 'farseer90718/vim-taskwarrior', {'disabled': (!executable('task'))}
 "-----------------------------------------------------------------
 " network
 "-----------------------------------------------------------------
     NeoBundle 'kakkyz81/evervim'
     NeoBundle 'junegunn/vim-github-dashboard'
     NeoBundle 'farseer90718/vim-translator'
-    NeoBundle 'mattn/gist-vim', {'depends': ['mattn/webapi-vim']}
-    if executable('w3m')
-        NeoBundle 'yuratomo/w3m.vim'
-    endif
+    NeoBundle 'mattn/gist-vim',   {'depends': ['mattn/webapi-vim']}
+    NeoBundle 'yuratomo/w3m.vim', {'disabled': (!executable('w3m'))}
 "-----------------------------------------------------------------
 " frontend
 "-----------------------------------------------------------------
     NeoBundle 'mattn/emmet-vim'
     NeoBundle 'greyblake/vim-preview'
     NeoBundle 'lilydjwg/colorizer'
-    if has('python')
-        NeoBundle 'farseer90718/vim-colorpicker'
-    endif
+    NeoBundle 'farseer90718/vim-colorpicker', {'disabled': (!has('python'))}
 "-----------------------------------------------------------------
 " Unite.vim
 "-----------------------------------------------------------------
@@ -61,15 +51,11 @@
     NeoBundle 'tpope/vim-endwise'
     NeoBundle 'cmdline-completion'
     NeoBundle 'gtags.vim'
-    NeoBundle 'Shougo/vimshell.vim',             {'depends': 'Shougo/vimproc'}
-    if has('lua')
-        NeoBundle 'Shougo/neocomplete.vim'
-        NeoBundle 'Shougo/neosnippet',           {'depends': 'Shougo/neocomplete.vim'}
-        NeoBundle 'Shougo/context_filetype.vim', {'depends': 'Shougo/neocomplete.vim'}
-    endif
-    if has('python')
-        NeoBundleLazy 'Valloric/YouCompleteMe',  {'autoload':{'filetypes':['c', 'cpp', 'python']}}
-    endif
+    NeoBundle 'Shougo/vimshell.vim',         {'depends': 'Shougo/vimproc'}
+    NeoBundle 'Shougo/neocomplete.vim',      {'disabled': (!has('lua'))}
+    NeoBundle 'Shougo/neosnippet',           {'depends': 'Shougo/neocomplete.vim'}
+    NeoBundle 'Shougo/context_filetype.vim', {'depends': 'Shougo/neocomplete.vim'}
+    NeoBundleLazy 'Valloric/YouCompleteMe',  {'autoload': {'filetypes':['c', 'cpp', 'python']}, 'disabled': (!has('python'))}
 "-----------------------------------------------------------------
 " appearance
 "-----------------------------------------------------------------
@@ -86,10 +72,8 @@
     NeoBundle 'junegunn/seoul256.vim',                      {'script_type': 'colors'}
     NeoBundle 'chriskempson/vim-tomorrow-theme',            {'script_type': 'colors'}
     NeoBundle 'altercation/vim-colors-solarized',           {'script_type': 'colors'}
+    NeoBundle 'mattn/vimtweak',                             {'disabled': has('unix')}
     NeoBundle 'https://bitbucket.org/abudden/taghighlight', {'type': 'hg' }
-    if !has('unix')
-        NeoBundle 'mattn/vimtweak'
-    endif
 "-----------------------------------------------------------------
 " navigate
 "-----------------------------------------------------------------
