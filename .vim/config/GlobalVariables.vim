@@ -15,14 +15,6 @@
 " https://github.com/Raimondi/delimitMate
 "--------------------------------------------------------------------------------------------------------------
 "--------------------------------------------------------------------------------------------------------------
-" plugin - abolish               sustitution enhance
-" https://github.com/tpope/vim-abolish
-"--------------------------------------------------------------------------------------------------------------
-"--------------------------------------------------------------------------------------------------------------
-" plugin - vim-multiple-cursors  multiple cursors edit like sublime
-" https://github.com/terryma/vim-multiple-cursors
-"--------------------------------------------------------------------------------------------------------------
-"--------------------------------------------------------------------------------------------------------------
 " plugin - vimux                 interact with tmux from vim
 " https://github.com/benmills/vimux
 "--------------------------------------------------------------------------------------------------------------
@@ -48,6 +40,11 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - vim-multiple-cursors  multiple cursors edit like sublime
+" https://github.com/terryma/vim-multiple-cursors
+"--------------------------------------------------------------------------------------------------------------
+    highlight link multiple_cursors_visual IncSearch
+"--------------------------------------------------------------------------------------------------------------
 " plugin - eclim                 eclipse port
 " http://eclim.org/gettingstarted.html
 "--------------------------------------------------------------------------------------------------------------
@@ -58,11 +55,6 @@
 "--------------------------------------------------------------------------------------------------------------
     let g:WMGraphviz_output = 'png'
     let g:WMGraphviz_viewer = 'xdg-open'
-"--------------------------------------------------------------------------------------------------------------
-" plugin - unite-gtags
-" https://github.com/hewes/unite-gtags.git
-"--------------------------------------------------------------------------------------------------------------
-    highlight default link uniteSource__Gtags_LineNr String
 "--------------------------------------------------------------------------------------------------------------
 " plugin - miscellaneous
 " https://github.com/farseer90718/miscellaneous.git
@@ -294,8 +286,9 @@
     nnoremap <leader><space>l :Unite buffer_tab<CR>
     nnoremap <leader><space>m :Unite mark<CR>
     nnoremap <leader><space>o :Unite outline<CR>
-    nnoremap <leader><space>t :Unite tag<CR>
+    nnoremap <leader><space>p :Unite mapping<CR>
     nnoremap <leader><space>s :Unite source<CR>
+    nnoremap <leader><space>t :Unite tag<CR>
     nnoremap <leader><space>y :Unite history/yank<CR>
     nnoremap <leader><space>/ :Unite grep:.<CR>
     nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
@@ -303,6 +296,7 @@
     nnoremap <leader>gr :Unite gtags/ref<CR>
     nnoremap <leader>ge :Unite gtags/grep<CR>
     vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
+    highlight default link uniteSource__Gtags_LineNr String
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimfiler.vim
 " https://github.com/Shougo/vimfiler.vim.git
@@ -389,7 +383,6 @@
 "--------------------------------------------------------------------------------------------------------------
 " plugin - CtrlP                 file searching
 " https://github.com/kien/ctrlp.vim
-" ? for mapping help
 "--------------------------------------------------------------------------------------------------------------
     let g:ctrlp_map                 = '<C-space>'
     let g:ctrlp_cmd                 = 'CtrlP'
