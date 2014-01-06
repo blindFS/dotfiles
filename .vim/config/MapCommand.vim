@@ -55,8 +55,6 @@
 " miscellaneous
 "-----------------------------------------------------------------
     nnoremap gw "ddiWdwEa<space><esc>"dp
-    nnoremap vp :exec "w !vpaste ft=".&ft<CR>
-    vnoremap vp <ESC>:exec "'<,'>w !vpaste ft=".&ft<CR>
     nnoremap <silent><space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
     nnoremap <expr> gpv '`['.strpart(getregtype(), 0, 1).'`]'
     nmap <F12> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files ;<CR>

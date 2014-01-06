@@ -40,6 +40,13 @@
 "--------------------------------------------------------------------------------------------------------------
 "==============================================================================================================
 "--------------------------------------------------------------------------------------------------------------
+" plugin - calendar.vim
+" https://github.com/itchyny/calendar.vim.git
+"--------------------------------------------------------------------------------------------------------------
+    let g:calendar_google_calendar = 1
+    let g:calendar_google_task     = 1
+    let g:calendar_cache_directory = $HOME.'/tmp/calendar_vim/'
+"--------------------------------------------------------------------------------------------------------------
 " plugin - vim-multiple-cursors  multiple cursors edit like sublime
 " https://github.com/terryma/vim-multiple-cursors
 "--------------------------------------------------------------------------------------------------------------
@@ -199,8 +206,8 @@
 "--------------------------------------------------------------------------------------------------------------
     let g:vimim_toggle = "baidu"
 "--------------------------------------------------------------------------------------------------------------
-" plugin - calendar-vim
-" https://github.com/mattn/calendar-vim.git
+" plugin - vimwiki
+" https://github.com/vimwiki/vimwiki
 "--------------------------------------------------------------------------------------------------------------
     let g:vimwiki_CJK_length      = 1
     let g:calendar_diary          = $HOME.'/Dropbox/vimwiki/diary'
@@ -378,8 +385,8 @@
 "--------------------------------------------------------------------------------------------------------------
 " plugin - evervim               evernote
 "--------------------------------------------------------------------------------------------------------------
-    let g:evervim_devtoken  = 'S=s60:U=69ad3c:E=145034d793a:C=13dab9c4d3a:P=1cd:A=en-devtoken:V=2:H=978aa1dba36a45ef7e881a08891ff63f'
-    let g:evervim_xmlindent = $HOME.'/tmp/.evervim'
+    let g:evervim_devtoken = 'S=s60:U=69ad3c:E=145034d793a:C=13dab9c4d3a:P=1cd:A=en-devtoken:V=2:H=978aa1dba36a45ef7e881a08891ff63f'
+    let g:evervim_workdir  = $HOME.'/tmp/.evervim'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - CtrlP                 file searching
 " https://github.com/kien/ctrlp.vim
@@ -449,7 +456,7 @@
     let g:indent_guides_start_level           = 1
     let g:indent_guides_guide_size            = 1
     let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_exclude_filetypes     = ['w3m', 'help', 'tagbar', 'unite', 'vimfiler', 'startify', 'taskreport']
+    let g:indent_guides_exclude_filetypes     = ['w3m', 'help', 'tagbar', 'unite', 'vimfiler', 'startify', 'taskreport', 'calendar']
 "--------------------------------------------------------------------------------------------------------------
 " plugin - taghighlight          highlight ctags
 " http://www.cgtk.co.uk/vim-scripts/taghighlight
