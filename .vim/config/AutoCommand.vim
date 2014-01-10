@@ -24,9 +24,6 @@
     autocmd Filetype vimwiki,perl,c,cpp,java,javascript,css,zsh,lua setlocal foldmethod=marker " html folding using indent
     autocmd Filetype vimwiki,perl,c,cpp,java,javascript,css,zsh,lua setlocal foldmarker={,}
 
-" complete
-    " autocmd FileType java   setlocal omnifunc=eclim#java#complete#CodeComplete
-
 " restore
     function! ResCur()
         if line("'\"") <= line("$")

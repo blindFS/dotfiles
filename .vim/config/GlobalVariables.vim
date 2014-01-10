@@ -55,7 +55,8 @@
 " plugin - eclim                 eclipse port
 " http://eclim.org/gettingstarted.html
 "--------------------------------------------------------------------------------------------------------------
-    let g:EclimCompletionMethod = 'omnifunc'
+    let g:EclimJavaCompleteCaseSensitive = 0
+    let g:EclimCompletionMethod          = 'omnifunc'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - wmgraphviz.vim
 " https://github.com/wannesm/wmgraphviz.vim.git
@@ -265,7 +266,7 @@
     let g:airline_paste_symbol                        = ' ✍  PASTE'
     let g:airline#extensions#whitespace#symbol        = '✷'
     let g:airline#extensions#whitespace#show_message  = 0
-    let g:airline#extensions#eclim#enabled            = 0
+    let g:airline#extensions#eclim#enabled            = 1
     let g:airline#extensions#hunks#non_zero_only      = 1
     let g:airline#extensions#tabline#enabled          = 1
     let g:airline#extensions#tabline#show_buffers     = 1
