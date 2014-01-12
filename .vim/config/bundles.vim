@@ -54,8 +54,9 @@
     NeoBundle 'gtags.vim'
     NeoBundle 'Shougo/vimshell.vim',         {'depends': 'Shougo/vimproc'}
     NeoBundle 'Shougo/neocomplete.vim',      {'disabled': (!has('lua'))}
-    NeoBundle 'Shougo/neosnippet',           {'depends': 'Shougo/neocomplete.vim'}
     NeoBundle 'Shougo/context_filetype.vim', {'depends': 'Shougo/neocomplete.vim'}
+    NeoBundle 'Shougo/neosnippet',           {'depends': 'Shougo/neocomplete.vim'}
+    NeoBundle 'Shougo/neosnippet-snippets',  {'depends': 'Shougo/neosnippet'}
     NeoBundleLazy 'Valloric/YouCompleteMe',  {'autoload': {'filetypes':['c', 'cpp', 'python']}, 'disabled': (!has('python'))}
 "-----------------------------------------------------------------
 " appearance

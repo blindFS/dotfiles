@@ -1,0 +1,318 @@
+snippet :f
+options head
+  ${1:#:method_name}: function(${2:#:attribute}) {
+    ${0:TARGET}
+  }
+
+snippet function
+abbr    func
+options word
+  function ${1:#:function_name}(${2:#:argument}) {
+    ${0:TARGET}
+  }
+
+snippet function2
+abbr    func2
+options head
+  function ${1:function_name}(${2:argument}) {
+    ${0:TARGET}
+  }
+
+snippet proto
+options head
+  ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
+    ${0:TARGET}
+  };
+
+
+snippet f
+options word
+  function(${1}) { ${0:TARGET} };
+
+snippet if
+options head
+  if (${1:true}) {
+    ${0:TARGET}
+  }
+
+snippet if-else
+abbr ife
+options head
+  if (${1:#:condition}) {
+    ${0:TARGET}
+  } else {
+  }
+
+snippet for
+options head
+  for (var ${1:i}=0; $1 < ${2:#:Things}.length; ++$1) {
+    ${0:TARGET}
+  }
+
+snippet forin
+options head
+  for (var ${1:i} in ${2:#:Things}) {
+    ${0:TARGET}
+  }
+
+snippet key-value
+abbr :,
+options word
+  ${1:#:value_name}: ${0:#:value},
+
+#snippet key
+#options word
+#  ${1:#:key}: "${2:#:value}"}${3:, }
+
+snippet setTimeout-function
+options head
+  setTimeout(function() { ${0} }, ${1:10});
+
+snippet console-log
+alias cl
+options head
+  console.log(${0:TARGET});
+
+snippet addLis
+    addListener('${1:event}', function(${2:}){
+    ${3:}
+    });
+
+
+snippet app-get
+    app.get('${1:path}', function(req, res, next){
+        ${2:}
+    });
+
+
+snippet app-listen
+    app.listen(${1:3000}, ${2:function(){
+    console.log("App server listening on port %d", app.address().port);
+    }});
+
+
+snippet app-post
+    app.post('${1:path}', function(req, res, next){
+        ${2:}
+    });
+
+
+snippet assertdeep
+    assert.deepEqual(${1:actual}, ${2:expected});
+
+
+snippet asserteq
+    assert.equal(${1:actual}, ${2:expected});
+
+
+snippet assert-notE
+    assert.notEqual(${1:actual}, ${2:expected});
+
+
+snippet crypto-createCred
+    crypto.createCredentials({key:${1:key}, cert:${2:cert}${3:, ca:[]});
+
+
+snippet env
+    process.env.${1:VARIABLE}
+
+
+snippet express
+    var app = express.createServer();
+
+    app.configure(function(){
+    app.set('views', __dirname + '${1:/../views}');
+    ${2:app.use(connect.bodyDecoder());}
+    ${3:app.use(connect.methodOverride());}
+    app.use(connect.compiler({ src: __dirname + '/../public', enable: ['less'] }));
+    app.use(app.router);
+    app.use(connect.staticProvider(__dirname + '${4:/../public'}));
+    });
+
+    app.configure('development', function(){
+    app.use(connect.errorHandler({ dumpExceptions: true, showStack: true }));
+    });
+
+    app.configure('production', function(){
+        app.use(connect.errorHandler());
+    });
+
+
+snippet filt
+    filter(function(item){
+    return ${1:false};
+    });
+
+
+snippet foreEach
+    forEach(function(${1:item},${2:index}){
+        ${3:}
+    });
+
+
+snippet fs-readFile
+    fs.readFile('${1:filename}', function(err, data){
+    ${2: }
+    });
+
+
+snippet fs-unlink
+    fs.unlink('${1:location}', function(err){
+    ${2: }
+    });
+
+
+snippet fs-watchFile
+    fs.watchFile('${1:filename}', function(current, previous){
+    });
+
+
+snippet fs-writeFile
+    fs.writeFile('${1:filename}', ${2:data}, ${3:'utf8'}, function(err){
+    ${4: }
+    });
+
+
+snippet func
+    function(${1:}){${2:}}
+
+
+snippet http-createClient
+    http.createClient(${1:80}, '${2:www.google.com}');
+
+
+snippet http-createServer
+    http.createServer(function(${1:request}, ${2:response}){
+    ${3:}
+    }).listen(${4:8124});
+
+
+snippet json-pa
+    JSON.parse(${1:'{"string":"of json"}});
+
+
+snippet json-st
+    JSON.stringify(${1:{some:'object'}});
+
+
+snippet log
+    console.log('${1:message}')
+
+
+snippet mongoose-connect
+    mongoose.connect('mongodb://${1:localhost}/${2:collection}');
+
+
+snippet mongoose-find
+    ${1:Model}.find({ ${2:} }).all(function(${3:results}){
+        ${4:}
+    });
+
+
+snippet mongoose-model
+    mongoose.model('${1:Model}', {
+        properties: [
+            ${2:'name'}
+        ],
+        indexes: [ ${3:'name'} ],
+        cast: { ${4:} }
+    });
+
+
+snippet net-createServer
+    net.createServer(function(${1:socket}){
+    $1.setEncoding("${2:utf8}");
+    $1.on('data', function(data){
+    });
+    $1.on('end', function(){
+
+    });
+    }).listen(${3:8124}, '${4:127.0.0.1}');
+
+
+snippet on
+    on('${1:eventname}', function(${2:err, res}){
+    ${3:}
+    });
+
+
+snippet reqfs
+    var fs = require('fs');
+
+
+
+snippet reqhttp
+    var http = require('http');
+
+
+
+snippet reqio
+    var io = require('socketio');
+
+
+snippet reqmongoose
+    var mongoose = require('mongoose').Mongoose;
+
+
+snippet reqpath
+    require.paths.unshift(${1:__dirname}${2:+'/lib/'});
+
+
+snippet req
+    var $1 = require ('${1:sys}');
+
+
+
+snippet reqsys
+    var sys = require('sys');
+
+
+snippet reqvows
+    var vows = require('vows');
+    var assert = require('assert');
+
+    vows.describe('${1:something}').addBatch({
+    '${2:firstthing}':{
+        topic:function(){
+        }
+    }
+    }).export(module);
+
+
+snippet res-render
+    res.render('${1:template}', {
+    locals:{
+        ${2:templatevars}
+    }
+    });
+
+
+snippet setinterv
+    setInterval(${1:callback}, ${2:delay})
+
+
+snippet settime
+    setTimeout(${1:operation}, ${2:miliseconds})
+
+
+snippet sysi
+    sys.inspect(${1:object})
+
+
+snippet websocket
+    var ${1:socket} = ${2:io}.listen(${3:app});
+
+    $1.on('connection', function(client){
+    client.on('message', function(${4:msg}){
+        ${5:}
+    });
+    client.on('disconnect', function(){
+        ${6:}
+    });
+    });
+
+
+snippet writeHead
+    writeHead(${1:200}, ${2:{'Content-Type':'text/plain'}});
+
+
