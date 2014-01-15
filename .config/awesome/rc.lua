@@ -382,9 +382,10 @@ volumewidget = lain.widgets.alsa({
 neticon = wibox.widget.imagebox(beautiful.widget_net)
 netwidget = wibox.widget.background(lain.widgets.net({
     settings = function()
-        widget:set_markup(markup("#7AC82E", " " .. net_now.received)
+        widget:set_markup(markup.font("Monofur 12",
+        markup("#7AC82E", " " .. string.format("%05.1f", net_now.received))
         .. " " ..
-        markup("#46A8C3", " " .. net_now.sent .. " "))
+        markup("#46A8C3", " " .. string.format("%05.1f", net_now.sent) .. " ")))
     end
 }), "#313131")
 blingbling.popups.ipstat(neticon,
