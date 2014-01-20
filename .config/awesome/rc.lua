@@ -14,16 +14,13 @@ require('couth.couth')
 require('couth.alsa')
 -- }}}
 
--- {{{ Move away cursor
-local safeCoords = {x=1600, y=900}
-local moveMouseOnStartup = true
-
-local function moveMouse(x_co, y_co)
-    mouse.coords({ x=x_co, y=y_co })
-end
-
+-- {{{ Move the cursor
+local safeCoords               = {x=1600, y=900}
+local chromiumCloseDownloadBar = {x=3180, y=876}
+local mouseMoveInterval        = 15
+local moveMouseOnStartup       = true
 if moveMouseOnStartup then
-    moveMouse(safeCoords.x, safeCoords.y)
+    awful.util.spawn("xdotool mousemove " .. safeCoords.x .. " " .. safeCoords.y)
 end
 -- }}}
 
@@ -58,7 +55,6 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
--- awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
 run_once("goldendict")
 run_once("fcitx")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
@@ -688,10 +684,19 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
+
+-- {{ mouse control
+awful.key({ modkey, altkey }, "m", function() awful.util.spawn("xdotool mousemove " .. safeCoords.x .. " " .. safeCoords.y) end),
+awful.key({ modkey, altkey }, "d", function() awful.util.spawn("xdotool mousemove " .. chromiumCloseDownloadBar.x .. " " .. chromiumCloseDownloadBar.y .. " click 1") end),
+awful.key({ modkey, altkey }, "j", function() awful.util.spawn("xdotool mousemove_relative 0 " .. mouseMoveInterval) end),
+awful.key({ modkey, altkey }, "k", function() awful.util.spawn("xdotool mousemove_relative 0 -" .. mouseMoveInterval) end),
+awful.key({ modkey, altkey }, "h", function() awful.util.spawn("xdotool mousemove_relative -- -" .. mouseMoveInterval .. " 0") end),
+awful.key({ modkey, altkey }, "l", function() awful.util.spawn("xdotool mousemove_relative " .. mouseMoveInterval .. " 0") end),
+-- }}
+
 -- {{ Transparency
-awful.key({ modkey, "Control" }, "m", function() moveMouse(safeCoords.x, safeCoords.y) end),
-awful.key({ modkey }, "=",  function() awful.util.spawn_with_shell("transset-df -a --inc 0.05") end),
-awful.key({ modkey }, "-",  function() awful.util.spawn_with_shell("transset-df -a --dec 0.05") end),
+awful.key({ modkey }, "=",  function() awful.util.spawn("transset-df -a --inc 0.05") end),
+awful.key({ modkey }, "-",  function() awful.util.spawn("transset-df -a --dec 0.05") end),
 -- }}
 
 -- {{ Navigate
@@ -880,11 +885,22 @@ awful.rules.rules = {
         { rule = { class = "URxvt" },
         properties = { opacity = 0.90 } },
         { rule = { class = "Gvim" },
-        properties = { opacity = 0.90, } },
+        properties = { opacity = 0.90 } },
+        { rule = { class = "Screenkey" },
+        properties   = {
+            opacity  = 0.50,
+            floating = true,
+            ontop    = true,
+            focus    = false },
+        callback = function( c )
+            c:geometry( { x = 0, width = 3200, y = 700, height = 120 } )
+        end },
         { rule = { class = "MPlayer" },
         properties = { floating = true } },
+        { rule = { class = "vbam" },
+        properties = { floating = true } },
         { rule = { class = "Chromium" },
-        properties = { tag = tags[1][2] } },
+        properties = { tag = tags[2][2] } },
         { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
         { rule = { class = "Eclipse" },
@@ -892,12 +908,14 @@ awful.rules.rules = {
         { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
         { rule = { instance = "exe" },
-        properties = { floating = true, focus = yes } },
+        properties = { floating = true,
+        fullscreen = true } },
         { rule = { instance = "plugin-container" },
-        properties = { floating = true, focus = yes } },
+        properties = { floating = true,
+        fullscreen = true } },
         { rule = { class = "Gimp", role = "gimp-image-window" },
         properties = { maximized_horizontal = true,
         maximized_vertical = true } },
     }
-    -- }}}
+-- }}}
 -- vim:ts=4:sw=4:tw=0:ft=lua:fdm=marker:fdls=0

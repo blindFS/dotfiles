@@ -86,8 +86,8 @@ theme.project_icon                  = themes_dir .. "/icons/project.png"
 theme.usb                           = themes_dir .. "/icons/usb.png"
 theme.cdrom                         = themes_dir .. "/icons/disc.png"
 
-theme.tasklist_disable_icon         = true
-theme.tasklist_floating             = ""
+theme.tasklist_disable_icon         = false
+theme.tasklist_floating             = "⇱ "
 theme.tasklist_maximized_horizontal = ""
 theme.tasklist_maximized_vertical   = ""
 
