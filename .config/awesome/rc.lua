@@ -900,7 +900,7 @@ awful.rules.rules = {
         { rule = { class = "vbam" },
         properties = { floating = true } },
         { rule = { class = "Chromium" },
-        properties = { tag = tags[2][2] } },
+        properties = { tag = tags[1][2] } },
         { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
         { rule = { class = "Eclipse" },

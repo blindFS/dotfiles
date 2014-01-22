@@ -23,9 +23,9 @@ pause_when_inactive=1
 show_speed=1
 
 [Display]
-scale=1
+scale=2
 filter2x=0
-filterIB=0
+filterIB=1
 output=1
 
 [Sound]
