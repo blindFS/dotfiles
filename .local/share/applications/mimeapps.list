@@ -1,5 +1,5 @@
 [Added Associations]
-text/html=chromium.desktop
+text/html=google-chrome.desktop
 text/english=gvim.desktop
 text/plain=gvim.desktop
 text/x-makefile=gvim.desktop
@@ -77,7 +77,7 @@ image/svg+xml-compressed=eog.desktop;
 image/vnd.wap.wbmp=eog.desktop;
 
 [Default Applications]
-text/html=chromium.desktop
+text/html=google-chrome.desktop
 video/x-ogm+ogg=totem.desktop
 video/3gp=totem.desktop
 video/3gpp=totem.desktop
@@ -141,4 +141,4 @@ image/svg+xml=eog.desktop
 image/svg+xml-compressed=eog.desktop
 image/vnd.wap.wbmp=eog.desktop
 application/pdf=evince.desktop
-x-scheme-handler/mailto=chromium.desktop
+x-scheme-handler/mailto=google-chrome.desktop

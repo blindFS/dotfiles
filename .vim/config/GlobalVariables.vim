@@ -177,7 +177,7 @@
 " plugin - vim-preview           preview markdown,html,rdoc in browser
 " https://github.com/greyblake/vim-preview
 "--------------------------------------------------------------------------------------------------------------
-    let g:PreviewBrowsers = 'chromium-browser,firefox'
+    let g:PreviewBrowsers = 'google-chrome-stable, firefox'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - sexy_scroller.vim
 " https://github.com/joeytwiddle/sexy_scroller.vim.git

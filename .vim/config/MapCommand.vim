@@ -176,7 +176,7 @@
             execute "normal BvEy"
             let url=matchstr(@0, '[a-z]*:\/\/[^ >,;]*')
             if url != ""
-                silent exec "!chromium ".url | redraw!
+                silent exec "!xdg-open ".url | redraw!
             else
                 echo "No URL under cursor."
             endif

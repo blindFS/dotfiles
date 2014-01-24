@@ -16,7 +16,7 @@ require('couth.alsa')
 
 -- {{{ Move the cursor
 local safeCoords               = {x=1600, y=900}
-local chromiumCloseDownloadBar = {x=3180, y=876}
+local chromeCloseDownloadBar = {x=3180, y=876}
 local mouseMoveInterval        = 15
 local moveMouseOnStartup       = true
 if moveMouseOnStartup then
@@ -136,7 +136,7 @@ graphics   = "gimp"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser   = "chromium"
+browser   = "google-chrome-stable"
 mail      = terminal .. " -e mutt"
 fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
@@ -687,7 +687,7 @@ globalkeys = awful.util.table.join(
 
 -- {{ mouse control
 awful.key({ modkey, altkey }, "m", function() awful.util.spawn("xdotool mousemove " .. safeCoords.x .. " " .. safeCoords.y) end),
-awful.key({ modkey, altkey }, "d", function() awful.util.spawn("xdotool mousemove " .. chromiumCloseDownloadBar.x .. " " .. chromiumCloseDownloadBar.y .. " click 1") end),
+awful.key({ modkey, altkey }, "d", function() awful.util.spawn("xdotool mousemove " .. chromeCloseDownloadBar.x .. " " .. chromeCloseDownloadBar.y .. " click 1") end),
 awful.key({ modkey, altkey }, "j", function() awful.util.spawn("xdotool mousemove_relative 0 " .. mouseMoveInterval) end),
 awful.key({ modkey, altkey }, "k", function() awful.util.spawn("xdotool mousemove_relative 0 -" .. mouseMoveInterval) end),
 awful.key({ modkey, altkey }, "h", function() awful.util.spawn("xdotool mousemove_relative -- -" .. mouseMoveInterval .. " 0") end),
@@ -785,14 +785,14 @@ awful.key({ modkey }, "c",   function () os.execute("xsel -p -o | xsel -i -b") e
 awful.key({ modkey }, "p",   function () awful.util.spawn_with_shell("gnome-screenshot")   end),
 
 -- User programs
-awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-command -activate") end),
-awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                  end),
-awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                    end),
-awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)              end),
-awful.key({ modkey }, "n",      function () run_or_raise(browser,   { name  = "Chromium" })    end),
-awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"     })    end),
-awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"     })    end),
-awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"    })    end),
+awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-command -activate")          end ),
+awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                           end ),
+awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                             end ),
+awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
+awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"     })             end ),
+awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"     })             end ),
+awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Google-chrome-stable" }) end ),
+awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"    })             end ),
 
 -- Prompt
 awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -899,7 +899,7 @@ awful.rules.rules = {
         properties = { floating = true } },
         { rule = { class = "vbam" },
         properties = { floating = true } },
-        { rule = { class = "Chromium" },
+        { rule = { class = "Google-chrome-stable" },
         properties = { tag = tags[1][2] } },
         { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
