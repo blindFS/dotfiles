@@ -277,7 +277,7 @@ blingbling.popups.htop(memwidget,
 cpuicon = wibox.widget.imagebox(beautiful.widget_cpu)
 cpuwidget = wibox.widget.background(lain.widgets.cpu({
     settings = function()
-        widget:set_text(" " .. cpu_now.usage .. "% ")
+        widget:set_markup(markup("#9abcde", string.format(" %02d%% ", cpu_now.usage)))
     end
 }), "#313131")
 blingbling.popups.htop(cpuwidget,
@@ -789,10 +789,10 @@ awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-comma
 awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                           end ),
 awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                             end ),
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
-awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"     })             end ),
-awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"     })             end ),
-awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Google-chrome-stable" }) end ),
-awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"    })             end ),
+awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
+awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
+awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Google-chrome" })        end ),
+awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"         })        end ),
 
 -- Prompt
 awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -899,8 +899,8 @@ awful.rules.rules = {
         properties = { floating = true } },
         { rule = { class = "vbam" },
         properties = { floating = true } },
-        { rule = { class = "Google-chrome-stable" },
-        properties = { tag = tags[1][2] } },
+        -- { rule = { class = "Google-chrome-stable" },
+        -- properties = { tag = tags[1][2] } },
         { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
         { rule = { class = "Eclipse" },
