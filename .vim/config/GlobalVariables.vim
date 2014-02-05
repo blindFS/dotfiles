@@ -373,18 +373,6 @@
 " plugin - easymotion            cursor fast movement
 "--------------------------------------------------------------------------------------------------------------
     let g:EasyMotion_leader_key = '.'
-    nnoremap f :call EasyMotion#F(0, 0)<CR>
-    onoremap f :call EasyMotion#F(0, 0)<CR>
-    vnoremap f :<C-U>call EasyMotion#F(1, 0)<CR>
-    nnoremap F :call EasyMotion#F(0, 1)<CR>
-    onoremap F :call EasyMotion#F(0, 1)<CR>
-    vnoremap F :<C-U>call EasyMotion#F(1, 1)<CR>
-    nnoremap t :call EasyMotion#T(0, 0)<CR>
-    onoremap t :call EasyMotion#T(0, 0)<CR>
-    vnoremap t :<C-U>call EasyMotion#T(1, 0)<CR>
-    nnoremap T :call EasyMotion#T(0, 1)<CR>
-    onoremap T :call EasyMotion#T(0, 1)<CR>
-    vnoremap T :<C-U>call EasyMotion#T(1, 1)<CR>
 "--------------------------------------------------------------------------------------------------------------
 " plugin - evervim               evernote
 "--------------------------------------------------------------------------------------------------------------

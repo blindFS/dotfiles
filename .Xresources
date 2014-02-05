@@ -82,7 +82,7 @@ URxvt.keysym.M-Escape:        perl:vim-scrollback
 URxvt.vim-scrollback-paste:   none
 URxvt.keysym.M-u:             perl:url-select:select_next
 URxvt.url-select.underline:   true
-URxvt.url-select.launcher:    chromium
+URxvt.url-select.launcher:    google-chrome-stable
 URxvt.colorUL:                #86f2fe
 URxvt.underlineColor:         #24b5f4
 URxvt.keysym.M-c:             perl:clipboard:copy
