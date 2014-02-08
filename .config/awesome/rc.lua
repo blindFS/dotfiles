@@ -788,6 +788,7 @@ awful.key({ modkey }, "p",   function () awful.util.spawn_with_shell("gnome-scre
 awful.key({ modkey }, "s",      function () awful.util.spawn("xscreensaver-command -activate")          end ),
 awful.key({ modkey }, "i",      function () awful.util.spawn_with_shell(chat)                           end ),
 awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)                             end ),
+awful.key({ modkey }, "a",      function () awful.util.spawn_with_shell("mess")                         end ),
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
 awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
 awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
