@@ -23,7 +23,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH=$HOME/bin/cpm/bin:$PATH
 fi
 
-PATH=$HOME/.gem/ruby/2.0.0/bin:$PATH
+PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
 PATH=$HOME/src/arm-2013.05/bin:$PATH
 PATH=/usr/local/share/arm-gdb/bin:$PATH
 PATH=/opt/sublime_text_3:$PATH

@@ -89,6 +89,7 @@
 "-----------------------------------------------------------------
     NeoBundle 'tpope/vim-surround'
     NeoBundle 'tpope/vim-speeddating'
+    NeoBundle 'tpope/vim-repeat'
     NeoBundle 'terryma/vim-multiple-cursors'
     NeoBundle 'Raimondi/delimitMate'
     NeoBundle 'junegunn/vim-easy-align'
