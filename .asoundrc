@@ -1,12 +1,4 @@
 # Use PulseAudio by default
-pcm.pulse {
-    type pulse
-}
-
-ctl.pulse {
-    type pulse
-}
-
 pcm.!default {
   type pulse
   fallback "sysdefault"
@@ -20,5 +12,7 @@ ctl.!default {
   type pulse
   fallback "sysdefault"
 }
+
+defaults.pcm.rate_converter "samplerate_best"
 
 # vim:set ft=alsaconf:
