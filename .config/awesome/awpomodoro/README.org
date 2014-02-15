@@ -1,0 +1,107 @@
+#+TITLE: awpomodoro - a very simple Pomodoro widget for awesome window manager
+#+AUTHOR: Piotr F. Mieszkowski
+
+* Introduction
+
+  Pomodoro is a time management technique.  It's really simple and I
+  encourage you to visit [[http://pomodorotechnique.com/][pomodorotechnique.com]] later.  At this moment
+  all you need to know is that Pomodoro helps you stay productive by
+  dividing your time into 30 minute slices, each of which is made of
+  25 minutes of work and concentration and 5 minutes of relaxing
+  (doing anything but what you actually /have/ to do).
+
+  This little piece of software called awpomodoro is a Lua script
+  providing a widget that you can add to your [[http://awesome.naquadah.org/][awesome]] status bar and
+  is provided under the MIT license (for more information, see the
+  LICENSE file).
+
+* Installation
+
+  To install and use awpomodoro, clone this Github repository or use
+  any of the available methods to download the code.  Place the
+  =awpomodoro.lua= file in your =$XDG_CONFIG_HOME/awesome/= directory
+  and you're at home.
+
+  Please note that only awesome 3.5 is currently supported and no 3.4
+  support is planned for the nearest future.
+
+  To run it, you'll have to add the following lines to your =rc.lua=
+  file.
+  : # load and instantiate it:
+  : awpomodoro = require "awpomodoro"
+  : pmdr = awpomodoro ()
+  : 
+  : # if your rc.lua didn't evolve much, you'll probably have right_layout
+  : # close to the end of the Wibox section of the configuration file;
+  : # add it there:
+  : right_layout:add (pmdr)
+
+  Save the file, reload configuration (by default it is bound to
+  =Mod4 + Ctrl + R=) and you should see it.  At the beginning,
+  awpomodoro will show up as a simple textbox containing the word
+  =Pomodoro=.
+
+* Usage
+
+** Controlling awpomodoro
+
+   To start awpomodoro clock, click it with the left button of your
+   mouse.  It'll change to something like =work:0= and keep updating
+   every minute.  After some time it'll notify you that it's time to
+   relax and how long the break should be (short breaks display as
+   =break:= and long ones as =break+:=).
+
+   You can pause the clock at any time by clicking it with the left
+   mouse button again (it'll change from something like =work:17= to
+   =work|17=), or you can reset it by right-clicking it.  When the
+   break is over, awpomodoro will wait for you (in case you were away
+   from your computer) and you'll have to click it to start the clock
+   again (unless you've set =awpomodoro.settings.stop_after_break= to
+   =false=, in which case another Pomodoro will start automatically).
+
+   To make awpomodoro forget how many Pomodoros you've completed
+   before, right-click it holding Shift key.
+
+** Configuration
+
+*** Variables
+
+    You can use one of the following variables to customize
+    awpomodoro's behaviour.  All of them are exposed as keys of the
+    awpomodoro module, so you should set them with
+    =awpomodoro.NAME=value=.
+
+    + /work\_minutes/,
+    + /break\_minutes/,
+    + /longbreak\_minutes/\\
+      Length of the respective period.
+    + /work\_tag/,
+    + /break\_tag/,
+    + /longbreak\_tag/\\
+      Labels displayed when respective periods are activated.
+    + /active\_separator/\\
+      Text displayed between the label and the number of minutes of
+      work elapsed.
+    + /inactive\_separator/\\
+      Text displayed between the label and the number of minutes of
+      break elapsed.
+    + /naughty\_preset/\\
+      A table containing settings for the naughty notifications.  See
+      [[http://awesome.naquadah.org/doc/api/modules/naughty.html][Module naughty]] in the awesome Lua API documentation.
+    + /stop\_after\_break/\\
+      A boolean value controlling whether awpomodoro stops after
+      break.  If set to =false=, awpomodoro will automatically start a
+      new Pomodoro.
+
+*** Signals
+
+    There are three signals you can use to customize awpomodoro.  All
+    of them should accept one argument, being the awpomodoro widget
+    object.
+
+    + /awpomodoro::work\_end/\\
+      Emitted when a work period ends.
+    + /awpomodoro::break\_end/\\
+      Emitted when a break ends.
+    + /awpomodoro::toggle/\\
+      Emitted when the timer is paused or started again.

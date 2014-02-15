@@ -86,7 +86,7 @@
     filetype off
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#rc(expand('~/.vim/bundle/'))
-    source ~/.vim/config/bundles.vim
+    source ~/.vim/config/Bundles.vim
     filetype plugin indent on
     if has('gui_running')
         colorscheme seoul256
