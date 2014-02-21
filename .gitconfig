@@ -2,8 +2,8 @@
     name = farseer90718
     email = farseer90718@gmail.com
 [http]
-    ; proxy = 127.0.0.1:8087
-    ; sslVerify = false
+    proxy = 127.0.0.1:8087
+    sslVerify = false
 [alias]
     st = status
     co = commit -m

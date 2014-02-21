@@ -61,6 +61,7 @@
     set pastetoggle=<F4>                                   " toggle pastemode
     set splitright                                         " split on the right side
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store
+    set path+=./include,../include,/opt/cuda/include
     if executable('ag')
         set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
         set grepformat=%f:%l:%c:%m
