@@ -9,12 +9,12 @@
 
 --langdef=wiki
 --langmap=wiki:.wiki
---regex-wiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header/
---regex-wiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header/
---regex-wiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header/
---regex-wiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header/
---regex-wiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header/
---regex-wiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header/
+--regex-wiki=/^=[ \t]+(.+)[ \t]+=$/\1/h,header1/
+--regex-wiki=/^==[ \t]+(.+)[ \t]+==$/. \1/h,header2/
+--regex-wiki=/^===[ \t]+(.+)[ \t]+===$/.   \1/h,header3/
+--regex-wiki=/^====[ \t]+(.+)[ \t]+====$/.     \1/h,header4/
+--regex-wiki=/^=====[ \t]+(.+)[ \t]+=====$/.       \1/h,header5/
+--regex-wiki=/^======[ \t]+(.+)[ \t]+======$/.         \1/h,header6/
 
 --langdef=md
 --langmap=md:.md
@@ -52,3 +52,5 @@
 --regex-javascript=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*(true|false)/\2/b,boolean/
 --regex-javascript=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[0-9]+/\2/n,number/
 --regex-javascript=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[^=]+([,;]|$)/\2/v,variable/
+
+--langmap=c++:+.cu

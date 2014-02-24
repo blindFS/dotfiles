@@ -5,8 +5,6 @@ source /usr/share/zsh/scripts/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 
-antigen bundle delimit
-antigen bundle autojump
 antigen bundle colored-man
 antigen bundle cpanm
 antigen bundle dircycle
@@ -17,7 +15,6 @@ antigen bundle npm
 antigen bundle per-directory-history
 antigen bundle repo-update
 antigen bundle themes
-antigen bundle urltools
 antigen bundle archlinux
 antigen bundle vagrant
 
