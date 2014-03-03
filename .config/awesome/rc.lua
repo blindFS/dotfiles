@@ -130,6 +130,7 @@ beautiful.init(awful.util.getdir("config") .. "/themes/powerarrow-darker/theme.l
 modkey     = "Mod4"
 altkey     = "Mod1"
 terminal   = "urxvt"
+power      = "power.sh"
 terminalp  = "urxvt -e tmux -2"
 editor     = "vim"
 geditor    = "gvim"
@@ -181,6 +182,7 @@ myawesomemenu = {
 }
 table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 table.insert(menu_items, { "open terminal", terminal})
+table.insert(menu_items, { "power", power})
 
 mymainmenu = awful.menu.new({ items = menu_items, width = 150 })
 -- }}}
