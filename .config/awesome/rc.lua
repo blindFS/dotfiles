@@ -902,6 +902,13 @@ awful.rules.rules = {
         callback = function( c )
             c:geometry( { x = 0, width = 3200, y = 700, height = 120 } )
         end },
+        { rule = { class = "Wine" },
+        properties   = {
+            floating = true,
+        },
+        callback = function( c )
+            c:geometry( { x = 1200, width = 400, y = 50, height = 800 } )
+        end },
         { rule = { class = "MPlayer" },
         properties = { floating = true } },
         { rule = { class = "vbam" },
