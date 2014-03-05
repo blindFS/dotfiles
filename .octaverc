@@ -1,0 +1,3 @@
+PS1('>> ');
+graphics_toolkit ("gnuplot")
+setenv ("GNUTERM", "qt") 
