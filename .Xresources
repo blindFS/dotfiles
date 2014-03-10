@@ -40,9 +40,9 @@
 
 *background:              #000b10
 *foreground:              S_base0
+*cursorColor:             S_base1
 *fading:                  40
 *fadeColor:               S_base03
-*cursorColor:             S_base1
 *pointerColorBackground:  S_base01
 *pointerColorForeground:  S_base1
 
@@ -68,14 +68,14 @@ UXTerm*faceName:   Ubuntu Mono derivative Powerline
 XTerm*faceSize:    10
 UXTerm*faceSize:   10
 
-URxvt.depth: 32
-URxvt.background: rgba:0000/0b00/1000/dddd
-URxvt.font:        xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Regular:antialias=true
-URxvt.boldfont:    xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Bold:antialias=true
-URxvt.scrollBar:   false
+URxvt.depth:        32
+URxvt.background:   rgba:0000/0b00/1000/dddd
+URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Regular:antialias=true
+URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Bold:antialias=true
+URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
 
-URxvt.perl-lib:    /usr/lib/urxvt/perl
+URxvt.perl-lib:     /usr/lib/urxvt/perl
 
 URxvt.perl-ext-common:        default,matcher,url-select,clipboard,font-size,vim-scrollback
 URxvt.keysym.M-Escape:        perl:vim-scrollback

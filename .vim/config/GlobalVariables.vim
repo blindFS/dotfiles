@@ -171,7 +171,10 @@
 " plugin - vim-regionsyntax
 " https://github.com/farseer90718/vim-regionsyntax.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:regionsyntax_ft_trans = {'ini' : 'dosini', 'js' : 'javascript', 'basemake' : 'make'}
+    let g:regionsyntax_ft_trans = {
+                \ 'ini' : 'dosini',
+                \ 'js' : 'javascript',
+                \ 'basemake' : 'make'}
 "--------------------------------------------------------------------------------------------------------------
 " plugin - slimv
 " https://bitbucket.org/kovisoft/slimv
@@ -241,7 +244,9 @@
                 \ 'template_default': 'def_template',
                 \ 'template_ext': '.html'}]
     let g:vimwiki_valid_html_tags = 'b,i,s,u,sub,sup,kbd,br,hr,table,tr,th,td,p,span'
-    let g:vimwiki_code_syntax_map = {'lisp': 'cl'}
+    let g:vimwiki_code_syntax_map = {
+                \ 'lisp' : 'cl',
+                \ 'charmpp' : 'c'}
 "--------------------------------------------------------------------------------------------------------------
 " plugin - colorizer             color highlight
 " https://github.com/lilydjwg/colorizer.git

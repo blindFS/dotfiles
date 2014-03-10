@@ -388,11 +388,11 @@ netwidget = wibox.widget.background(lain.widgets.net({
         markup("#46A8C3", " " .. string.format("%05.1f", net_now.sent) .. " ")))
     end
 }), "#313131")
-blingbling.popups.ipstat(neticon,
-{
-    title_color = beautiful.notify_font_color_1,
-    ip_color    = beautiful.notify_font_color_2
-})
+-- blingbling.popups.ipstat(neticon,
+-- {
+--     title_color = beautiful.notify_font_color_1,
+--     ip_color    = beautiful.notify_font_color_2
+-- })
 blingbling.popups.netstat(netwidget,
 {
     title_color       = beautiful.notify_font_color_1,
@@ -902,7 +902,7 @@ awful.rules.rules = {
         callback = function( c )
             c:geometry( { x = 0, width = 3200, y = 700, height = 120 } )
         end },
-        { rule = { class = "Wine" },
+        { rule = { name = "QQ International" },
         properties   = {
             floating = true,
         },
