@@ -1,0 +1,7 @@
+set selection-clipboard clipboard
+set window-title-basename true
+set adjust-open width
+set font "monaco 9"
+
+map s toggle_statusbar
+map b jumplist backward
