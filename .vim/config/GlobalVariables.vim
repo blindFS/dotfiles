@@ -224,8 +224,8 @@
     let g:ycm_register_as_syntastic_checker = 1
     let g:ycm_confirm_extra_conf            = 1
     " let g:ycm_filetype_whitelist            = { 'python': 1, 'cpp': 1, 'c': 1}
-    let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_cpp.py'
-    " let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_c.py'
+    " let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_cpp.py'
+    let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_c.py'
     command! YCMSwitchConf let g:ycm_global_ycm_extra_conf = g:ycm_global_ycm_extra_conf =~ 'cpp' ? '~/tmp/.ycm_extra_conf_c.py' : '~/tmp/.ycm_extra_conf_cpp.py'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimim

@@ -1,7 +1,12 @@
-set selection-clipboard clipboard
+set selection-clipboard   clipboard
 set window-title-basename true
-set adjust-open width
-set font "monaco 9"
+set adjust-open           width
+set font                  "monaco 9"
+set n-completion-items    100
+set first-page-column     2
+set recolor               true
 
-map s toggle_statusbar
-map b jumplist backward
+map b toggle_statusbar
+map <C-t> jumplist backward
+
+# vim:ft=config
