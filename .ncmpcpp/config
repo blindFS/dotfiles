@@ -87,7 +87,7 @@ volume_color = "red"
 # ----------
 # Visualizer
 # ----------
-visualizer_fifo_path = "/home/farseer/tmp/mpd.fifo"
+visualizer_fifo_path = "/home/farseer/.config/mpd/fifo"
 visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "1"
 visualizer_type = "wave" (spectrum/wave)

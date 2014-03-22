@@ -85,6 +85,7 @@
   <program enabled="1" commandLine="man -a --html=/bin/cat %GDWORD%" icon="" type="1" id="4f898f7582596cea518c6b0bfdceb8b3" name="Manpages"/>
   <program enabled="1" commandLine="translate {=zh+ja} %GDWORD%" icon="" type="1" id="cc964e0027e5ed27983080636dc5d83c" name="translate"/>
   <program enabled="1" commandLine="speak ja %GDWORD%" icon="" type="0" id="bb6601eeb50235add02e670f6d80dc07" name="Jspeak"/>
+  <program enabled="1" commandLine="ydcv %GDWORD%" icon="" type="1" id="71668711a01e364c81c40701aeb02e55" name="ydcv"/>
  </programs>
  <voiceEngines/>
  <mutedDictionaries>
@@ -170,13 +171,13 @@
  <lastMainGroupId>0</lastMainGroupId>
  <lastPopupGroupId>4294967294</lastPopupGroupId>
  <popupWindowState>AAAA/wAAAAH9AAAAAAAAAiQAAAGTAAAABAAAAAQAAAAIAAAACPwAAAADAAAAAQAAAAAAAAABAAAAAQAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgMAAAAA/////wAAAAAAAAAAAAAAAgAAAAA=</popupWindowState>
- <popupWindowGeometry>AdnQywABAAAAAAFbAAAA8QAAA6MAAAKDAAABWwAAAPEAAAOjAAACgwAAAAAAAA==</popupWindowGeometry>
+ <popupWindowGeometry>AdnQywABAAAAAAH9AAABhgAABEUAAAMYAAAB/QAAAYYAAARFAAADGAAAAAAAAA==</popupWindowGeometry>
  <pinPopupWindow>0</pinPopupWindow>
  <mainWindowState>AAAA/wAAAAH9AAAAAgAAAAAAAADMAAADE/wCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUAAAAAQwAAAxMAAACXAP///wAAAAEAAACnAAADSvwCAAAAAvsAAAASAGQAaQBjAHQAcwBQAGEAbgBlAQAAACgAAAKPAAAAaQD////7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUBAAACvQAAALUAAABpAP///wAABWwAAAMTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAF9/////wAAAAAAAAAA</mainWindowState>
  <mainWindowGeometry>AdnQywABAAAAAAABAAAAEwAABj4AAAOCAAAAAQAAABMAAAY+AAADggAAAAAAAA==</mainWindowGeometry>
  <dictInfoGeometry></dictInfoGeometry>
  <inspectorGeometry></inspectorGeometry>
- <timeForNewReleaseCheck>2014-03-18T11:39:34</timeForNewReleaseCheck>
+ <timeForNewReleaseCheck>2014-03-24T22:13:20</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>0</showingDictBarNames>
  <usingSmallIconsInToolbars>0</usingSmallIconsInToolbars>
