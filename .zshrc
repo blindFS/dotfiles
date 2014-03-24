@@ -17,6 +17,7 @@ antigen bundle repo-update
 antigen bundle themes
 antigen bundle archlinux
 antigen bundle vagrant
+# antigen bundle vim-interaction
 
 antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions

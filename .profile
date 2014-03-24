@@ -33,4 +33,3 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export GTAGSROOT=/home/farseer/src/linux-3.11.6
 [ ! -s ~/.config/mpd/pid ] && mpd
-[ -s ~/.xmodmap ] && xmodmap ~/.xmodmap
