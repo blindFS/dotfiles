@@ -15,6 +15,7 @@ antigen bundle npm
 antigen bundle per-directory-history
 antigen bundle repo-update
 antigen bundle themes
+antigen bundle dirpersist
 antigen bundle archlinux
 antigen bundle vagrant
 # antigen bundle vim-interaction

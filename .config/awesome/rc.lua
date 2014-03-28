@@ -801,8 +801,7 @@ awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "G
 awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"         })        end ),
 
 -- Prompt
--- awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
-awful.key({ modkey }, "r", function () awful.util.spawn("gmrun") end),
+awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
 awful.key({ modkey }, "x",
 function ()
     awful.prompt.run({ prompt = "Run Lua code: " },
