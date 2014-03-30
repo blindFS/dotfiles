@@ -216,6 +216,7 @@
     let g:syntastic_enable_signs   = 1
     let g:syntastic_error_symbol   = 'x'
     let g:syntastic_warning_symbol = '!'
+    let g:syntastic_tex_checkers   = ['lacheck']
 "--------------------------------------------------------------------------------------------------------------
 " plugin - YouCompleteMe
 " https://github.com/Valloric/YouCompleteMe.git
@@ -461,7 +462,7 @@
 " https://github.com/gerw/vim-latex-suite.git
 "--------------------------------------------------------------------------------------------------------------
     let g:tex_flavor              = 'latex'
-    let g:Tex_DefaultTargetFormat = "pdf"
+    let g:Tex_DefaultTargetFormat = 'pdf'
     let g:Tex_AutoFolding         = 0
 "--------------------------------------------------------------------------------------------------------------
 " plugin - indentGuides          visualize indent
