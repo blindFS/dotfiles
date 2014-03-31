@@ -9,6 +9,7 @@ antigen bundle colored-man
 antigen bundle cpanm
 antigen bundle dircycle
 antigen bundle fbterm
+antigen bundle fzf
 antigen bundle git-extras
 antigen bundle goagent
 antigen bundle npm
@@ -121,9 +122,9 @@ zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m'
-zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
-zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found --\e[0m'
+zstyle ':completion:*:descriptions' format $' \e[30;42m %d \e[0m\e[32m\e[0m'
+zstyle ':completion:*:messages' format $' \e[30;45m %d \e[0m\e[35m\e[0m'
+zstyle ':completion:*:warnings' format $' \e[30;41m No Match Found \e[0m\e[31m\e[0m'
 
 my_accounts=(
     git@github.com
