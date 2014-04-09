@@ -234,11 +234,6 @@
     let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_c.py'
     command! YCMSwitchConf let g:ycm_global_ycm_extra_conf = g:ycm_global_ycm_extra_conf =~ 'cpp' ? '~/tmp/.ycm_extra_conf_c.py' : '~/tmp/.ycm_extra_conf_cpp.py'
 "--------------------------------------------------------------------------------------------------------------
-" plugin - vimim
-" https://github.com/vimim/vimim.git
-"--------------------------------------------------------------------------------------------------------------
-    let g:vimim_toggle = "baidu"
-"--------------------------------------------------------------------------------------------------------------
 " plugin - vimwiki
 " https://github.com/vimwiki/vimwiki
 "--------------------------------------------------------------------------------------------------------------
