@@ -40,6 +40,7 @@
 " https://github.com/thinca/vim-ref.git
 "--------------------------------------------------------------------------------------------------------------
     let g:ref_cache_dir = $HOME.'/tmp/.vim_ref_cache'
+    let g:ref_pydoc_cmd = 'pydoc2'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - wildfire.vim
 " https://github.com/gcmt/wildfire.vim.git
