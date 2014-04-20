@@ -1,4 +1,10 @@
 -- {{{ Required libraries
+require("awful.autofocus")
+require("awful.remote")
+require("eminent")
+require("revelation")
+require('couth.couth')
+require('couth.alsa')
 local awful      = require("awful")
 awful.rules      = require("awful.rules")
 local gears      = require("gears")
@@ -8,11 +14,6 @@ local naughty    = require("naughty")
 local lain       = require("lain")
 local blingbling = require("blingbling")
 local awpomodoro = require("awpomodoro")
-require("awful.autofocus")
-require("eminent")
-require("revelation")
-require('couth.couth')
-require('couth.alsa')
 -- }}}
 
 -- {{{ Move the cursor

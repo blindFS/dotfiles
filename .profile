@@ -31,5 +31,6 @@ PATH=/opt/cuda/bin:$PATH
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+export QT_STYLE_OVERRIDE=gtk
 export XMODIFIERS="@im=fcitx"
 export GTAGSROOT=/home/farseer/src/linux-3.11.6

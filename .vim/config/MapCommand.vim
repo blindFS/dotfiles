@@ -20,6 +20,8 @@
     nnoremap gl $
     vnoremap gh ^
     vnoremap gl $
+    vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+    vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
 "-----------------------------------------------------------------
 " add sth to end of line
 "-----------------------------------------------------------------
