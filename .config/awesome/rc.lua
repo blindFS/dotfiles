@@ -919,6 +919,8 @@ awful.rules.rules = {
         properties = { tag = tags[1][3] } },
         { rule = { class = "Eclipse" },
         properties = { tag = tags[1][4] } },
+        { rule = { name = "SMPlayer" },
+        properties = { tag = tags[1][4] } },
         { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
         { rule = { instance = "exe" },
