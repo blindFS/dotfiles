@@ -15,8 +15,8 @@
         set guifont=Monaco:h12:cANSI
     endif
     if MySys() == "linux"
-        " set guifont=monofur\ for\ powerline\ 12
-        set guifont=monofur\ 12
+        " set guifont=monofur\ 12
+        set guifont=novamono\ 11
     endif
     " multi font coding support
     if has("multi_byte")

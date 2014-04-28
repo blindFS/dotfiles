@@ -913,6 +913,8 @@ awful.rules.rules = {
         properties = { floating = true } },
         { rule = { class = "vbam" },
         properties = { floating = true } },
+        { rule = { class = "rdesktop" },
+        properties = { floating = false} },
         -- { rule = { class = "Google-chrome-stable" },
         -- properties = { tag = tags[1][2] } },
         { rule = { class = "Gimp" },
