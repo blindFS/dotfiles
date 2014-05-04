@@ -1408,10 +1408,10 @@ qt-privacy-ask=0
 [skins2] # Skinnable Interface
 
 # Skin to use (string)
-skins2-last=/usr/share/vlc/skins2/MetroX_VLC_v2.1.2.vlt
+skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["MainWindow" "MainFrame" 0 18 1280 602 1]["color" "color_cyan" 0 0 1 1 0]["customplaylist" "customplaylist_on" 0 0 1 1 0]["fullscreenController" "fswindow" 489 832 600 68 0]["icon" "icon_pl" 0 0 1 1 0]["menu" "menu_nomenu" 0 0 1 1 0]["posbar" "posbar_10px" 0 0 1 1 0]["topbar" "topbar_off" 0 0 568 382 0]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 550 743 500 130 0]["main" "normal" 551 276 500 350 1]["plwin" "plwin-normal" 630 320 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0

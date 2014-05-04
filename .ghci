@@ -1,0 +1,1 @@
+:set prompt "\SOH\ESC[30;42m λ \SOH\ESC[0m\SOH\ESC[32m\SOH\ESC[0m "

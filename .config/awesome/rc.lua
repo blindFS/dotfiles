@@ -893,6 +893,8 @@ awful.rules.rules = {
         properties = { opacity = 0.90 } },
         { rule = { class = "Gvim" },
         properties = { opacity = 0.90 } },
+        { rule = { class = "Emacs" },
+        properties = { opacity = 0.90 } },
         { rule = { class = "Screenkey" },
         properties   = {
             opacity  = 0.50,
