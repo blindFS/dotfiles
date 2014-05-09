@@ -1,7 +1,7 @@
 " paredit.vim:
 "               Paredit mode for Slimv
 " Version:      0.9.13
-" Last Change:  19 Mar 2014
+" Last Change:  05 May 2014
 " Maintainer:   Tamas Kovacs <kovisoft at gmail dot com>
 " License:      This file is placed in the public domain.
 "               No warranty, express or implied.
@@ -357,7 +357,6 @@ endfunction
 
 " General change operator handling
 function! PareditChange( type, ... )
-    let startcol = col('.')
     let ve_save = &virtualedit
     set virtualedit=all
     call PareditOpfunc( 'c', a:type, a:0 )
@@ -369,8 +368,8 @@ function! PareditChange( type, ... )
             let expr = 'lispindent(v:lnum)'
         endif
         execute "call setline( v:lnum, repeat( ' ', " . expr . " ) )"
-        normal! $l
-    elseif startcol > 1
+        call cursor(v:lnum, len(getline(v:lnum))+1)
+    else
         normal! l
     endif
     startinsert
@@ -1361,6 +1360,16 @@ function! s:FindParenNearby()
     endif
 endfunction
 
+" Reindent current form
+function! PareditReindentForm()
+    let l = line('.')
+    let c = col('.')
+    let old_indent = len(matchstr(getline(l), '^\s*'))
+    normal! =ib
+    let new_indent = len(matchstr(getline(l), '^\s*'))
+    call cursor( l, c + new_indent - old_indent )
+endfunction
+
 " Move delimiter one atom or s-expression to the left
 function! PareditMoveLeft()
     call s:FindParenNearby()
@@ -1414,6 +1423,7 @@ function! PareditMoveLeft()
             normal! l
         endif
     endif
+    call PareditReindentForm()
 endfunction
 
 " Move delimiter one atom or s-expression to the right
@@ -1470,6 +1480,7 @@ function! PareditMoveRight()
         execute "normal! a "
         normal! h
     endif
+    call PareditReindentForm()
 endfunction
 
 " Find closing of the innermost structure: (...) or [...] or {...}
@@ -1628,6 +1639,11 @@ endfunction
 " Keep visual mode
 function! PareditWrapSelection( open, close )
     call s:WrapSelection( a:open, a:close )
+    " Always leave the cursor to the opening char's pos after
+    " wrapping selection.
+    if getline('.')[col('.')-1] =~ b:any_closing_char
+        normal! %
+    endif
 endfunction
 
 " Wrap current symbol in parens of the given kind
@@ -1720,14 +1736,35 @@ endfunction
 " Raise: replace containing form with the current symbol or sub-form
 function! PareditRaise()
     let isk_save = s:SetKeyword()
-    if getline('.')[col('.')-1] =~ b:any_openclose_char
-        " Raise sub-form and re-indent
-        normal! y%d%dab
-        normal! "0P=%
+    let ch = getline('.')[col('.')-1]
+    if ch =~ b:any_openclose_char
+        " Jump to the closing char in order to find the outer
+        " closing char.
+        if ch =~ b:any_opening_char
+            normal! %
+        endif
+
+        let [p, l, c] = s:FindClosing()
+        if p =~ b:any_closing_char
+            " Raise sub-form and re-indent
+            exe "normal! y%d%da" . p
+            if getline('.')[col('.')-1] == ' '
+              normal! "0p=%
+            else
+              normal! "0P=%
+            endif
+        elseif ch =~ b:any_opening_char
+            " Restore position if there is no appropriate
+            " closing char.
+            normal! %
+        endif
     else
-        " Raise symbol
-        normal! yiwdab
-        normal! "0Pb
+        let [p, l, c] = s:FindClosing()
+        if p =~ b:any_closing_char
+            " Raise symbol
+            exe "normal! yiwda" . p
+            normal! "0Pb
+        endif
     endif
     let &iskeyword = isk_save
 endfunction
