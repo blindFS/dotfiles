@@ -5,3 +5,5 @@ nnoremap F :forward<CR>
 nnoremap H :tabprevious<CR>
 nnoremap L :tabnext<CR>
 nnoremap D :tabclose!<CR>
+set hintchars=abcdefghijklmnopqrstuvwxyz
+set focuscontent

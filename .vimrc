@@ -49,7 +49,7 @@
     set foldcolumn=0                                       " folded code take up no column
     set foldlevelstart=99                                  " no fold on start
     set scroll=15                                          " C-u,C-d scroll 15 lines each time
-    set scrolloff=5                                        " scroll remain the cursor n lines off the edge
+    " set scrolloff=5                                        " scroll remain the cursor n lines off the edge
     set completeopt=longest,menuone                        " complete option
     set viminfo='10,\"100,:20,%,!                          " save viminfo with upto 10 marks 100-line registers and 20 lines of commands and global variables
     set cscopequickfix=s-,c-,d-,i-,t-,e-                   " use quickfix to show cscope results

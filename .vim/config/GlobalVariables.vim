@@ -40,6 +40,7 @@
 " https://github.com/dag/vim2hs.git
 "--------------------------------------------------------------------------------------------------------------
     let g:haskell_conceal_wide         = 1
+    let g:haskell_conceal_bad          = 1
     let g:haskell_conceal_enumerations = 1
 "--------------------------------------------------------------------------------------------------------------
 " plugin - ghcmod-vim
@@ -248,7 +249,10 @@
     " let g:ycm_filetype_whitelist            = { 'python': 1, 'cpp': 1, 'c': 1}
     " let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_cpp.py'
     let g:ycm_global_ycm_extra_conf         = '~/tmp/.ycm_extra_conf_c.py'
-    command! YCMSwitchConf let g:ycm_global_ycm_extra_conf = g:ycm_global_ycm_extra_conf =~ 'cpp' ? '~/tmp/.ycm_extra_conf_c.py' : '~/tmp/.ycm_extra_conf_cpp.py'
+    command! YCMSwitchConf
+                \ let g:ycm_global_ycm_extra_conf =
+                \ g:ycm_global_ycm_extra_conf =~ 'cpp' ?
+                \ '~/tmp/.ycm_extra_conf_c.py' : '~/tmp/.ycm_extra_conf_cpp.py'
 "--------------------------------------------------------------------------------------------------------------
 " plugin - vimwiki
 " https://github.com/vimwiki/vimwiki
@@ -296,7 +300,7 @@
 " plugin - vim-airline
 " https://github.com/bling/vim-airline.git
 "--------------------------------------------------------------------------------------------------------------
-    let g:airline_theme                               = 'lucius'
+    let g:airline_theme                               = 'luna'
     let g:airline_left_sep                            = ''
     let g:airline_left_alt_sep                        = ''
     let g:airline_right_sep                           = ''
