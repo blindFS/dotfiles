@@ -7,3 +7,9 @@ nnoremap L :tabnext<CR>
 nnoremap D :tabclose!<CR>
 set hintchars=abcdefghijklmnopqrstuvwxyz
 set focuscontent
+colorscheme indigo
+
+source /home/farseer/.vimperator/plugins/_libly.js
+source /home/farseer/.vimperator/plugins/feedSomeKeys_3.js
+
+fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga
