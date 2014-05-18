@@ -13,12 +13,13 @@ antigen bundle fzf
 antigen bundle git-extras
 antigen bundle goagent
 antigen bundle npm
+antigen bundle rsync
 antigen bundle per-directory-history
 antigen bundle repo-update
 antigen bundle themes
+antigen bundle extract
 antigen bundle dirpersist
 antigen bundle archlinux
-antigen bundle vagrant
 # antigen bundle vim-interaction
 
 antigen bundle zsh-users/zaw

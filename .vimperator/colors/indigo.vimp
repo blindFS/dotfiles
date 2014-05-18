@@ -17,10 +17,10 @@ hi Key                  font-weight: bold;
 hi Enabled              color: #d0ffd0;
 hi Disabled             color: red;
 
-hi Normal               color: #d0d0d0; background: #1c1c1c; font-size: 12px;
-hi ErrorMsg             color: #ffffff; background: #440000; font-size: 12px;
+hi Normal               color: #FDBA7D; background: #1c1c1c; font-size: 12px;
+hi ErrorMsg             color: #ffffff; background: #955E5E; font-size: 12px;
 hi InfoMsg              color: #d0d0d0; background: #1c1c1c; font-size: 12px;
-hi ModeMsg              color: #d0d0d0; background: #1c1c1c; font-size: 12px;
+hi ModeMsg              color: #1c1c1c; background: #83FF67; font-size: 12px;
 hi MoreMsg              color: #d0ffd0; background: #1c1c1c; font-size: 12px;
 hi WarningMsg           color: #ff0000; background: #1c1c1c; font-size: 12px;
 hi Message              white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block; font-size: 12px;
@@ -99,4 +99,4 @@ style -name indigo-sbmcommentsviewer chrome://* <<EOM
 EOM
 " }}}1
 
-" vim: ft=vimperator
+" vim: ft=vim
