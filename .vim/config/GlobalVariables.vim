@@ -345,7 +345,8 @@
     nnoremap <leader><space>o :Unite outline<CR>
     nnoremap <leader><space>p :Unite mapping<CR>
     nnoremap <leader><space>s :Unite source<CR>
-    nnoremap <leader><space>t :Unite tag<CR>
+    nnoremap <leader><space>t :Unite tab<CR>
+    nnoremap <leader><space>T :Unite tag<CR>
     nnoremap <leader><space>y :Unite history/yank<CR>
     nnoremap <leader><space>/ :Unite grep:.<CR>
     nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
