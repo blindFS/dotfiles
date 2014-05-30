@@ -14,7 +14,7 @@ session = /media/virtual/Downloads/.rtorrent/session
 
 schedule = bind_collapse,0,0,"ui.bind_key=download_list,c,view.collapsed.toggle="
 schedule = low_diskspace,5,60,close_low_diskspace=100M
-schedule = torrent,10,10,"load.start=/media/virtual/Downloads/*.torrent,d.set_directory=/media/virtual/Downloads"
+schedule = torrent,10,10,"load.start=/media/virtual/Downloads/*.torrent"
 
 # Notify-send
 method.set_key = event.download.finished,notify_me,"execute=notify-send,$d.get_name="
