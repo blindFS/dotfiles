@@ -1,1 +1,1 @@
-:set prompt "\SOH\ESC[30;42m λ \SOH\ESC[0m\SOH\ESC[32m\SOH\ESC[0m "
+:set prompt "\SOH\ESC[30;42m λ \SOH\ESC[0m\SOH\ESC[32;46m\SOH\ESC[30m%s\SOH\ESC[0m\SOH\ESC[36m\SOH\ESC[0m"
