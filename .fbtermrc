@@ -28,7 +28,7 @@ text-encodings=utf-8
 
 # cursor shape: 0 = underline, 1 = block
 # cursor flash interval in milliseconds, 0 means disable flashing
-cursor-shape=0
+cursor-shape=1
 cursor-interval=0
 
 # additional ascii chars considered as part of a word while auto-selecting text, except ' ', 0-9, a-z, A-Z
