@@ -45,8 +45,7 @@
     NeoBundleLazy 'tacroe/unite-mark',            {'autoload': {'unite_sources': 'mark'}}
     NeoBundleLazy 'farseer90718/unite-apropos',   {'autoload': {'unite_sources': 'apropos'}}
     NeoBundleLazy 'farseer90718/unite-character', {'autoload': {'commands': ['SearchUnicode', 'HTMLUnicode'], 'unite_sources': 'character'}}
-    call unite#custom#source('file,file/new,buffer,file_rec,command',
-                \ 'matchers', 'matcher_fuzzy')
+    call unite#custom#source('file, file/new, buffer, file_rec, command, function', 'matchers', 'matcher_fuzzy')
 "-----------------------------------------------------------------
 " IDE features
 "-----------------------------------------------------------------
@@ -55,7 +54,7 @@
     NeoBundle 'tpope/vim-endwise'
     NeoBundle 'cmdline-completion'
     NeoBundle 'gtags.vim'
-    NeoBundle 'Shougo/vimshell.vim',         {'depends': 'Shougo/vimproc'}
+    NeoBundle 'Shougo/vimshell.vim',         {'depends': ['Shougo/vimproc', 'vim-jp/vital.vim']}
     NeoBundle 'Shougo/neocomplete.vim',      {'disabled': (!has('lua'))}
     NeoBundle 'Shougo/context_filetype.vim', {'depends': 'Shougo/neocomplete.vim'}
     NeoBundle 'Shougo/neosnippet',           {'depends': 'Shougo/neocomplete.vim'}
@@ -67,10 +66,10 @@
     NeoBundle 'bling/vim-airline'
     " NeoBundle 'joeytwiddle/sexy_scroller.vim'
     NeoBundle 'farseer90718/Rainbow-Parentheses-Improved-and2'
+    NeoBundle 'farseer90718/vim-regionsyntax'
     NeoBundle 'nathanaelkane/vim-indent-guides'
     NeoBundle 'mhinz/vim-signify'
     NeoBundle 'sjl/gundo.vim'
-    NeoBundle 'farseer90718/vim-regionsyntax'
     NeoBundle 'osyo-manga/vim-over'
     NeoBundle 'tomasr/molokai',                             {'script_type': 'colors'}
     NeoBundle 'junegunn/seoul256.vim',                      {'script_type': 'colors'}
@@ -95,6 +94,7 @@
     NeoBundle 'terryma/vim-multiple-cursors'
     NeoBundle 'Raimondi/delimitMate'
     NeoBundle 'junegunn/vim-easy-align'
+    NeoBundle 'tommcdo/vim-exchange'
     NeoBundle 'swap-parameters'
     NeoBundle 'renumber.vim'
     NeoBundle 'tComment'

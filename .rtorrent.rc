@@ -17,7 +17,7 @@ schedule = low_diskspace,5,60,close_low_diskspace=100M
 schedule = torrent,10,10,"load.start=/media/virtual/Downloads/*.torrent"
 
 # Notify-send
-method.set_key = event.download.finished,notify_me,"execute=notify-send,$d.get_name="
+# method.set_key = event.download.finished,notify_me,"execute=notify-send,$d.get_name="
 
 port_range = 49164-49164
 port_random = yes

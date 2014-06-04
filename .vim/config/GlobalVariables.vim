@@ -413,7 +413,7 @@
     let g:vimshell_prompt              = '➤  '
     let g:vimshell_user_prompt         = 'fnamemodify(getcwd(), ":~")'
     let g:vimshell_right_prompt        = 'system("date")'
-    let g:vimshell_temporary_directory = $HOME."/tmp/vimshell"
+    let g:vimshell_data_directory = $HOME."/tmp/vimshell"
 "--------------------------------------------------------------------------------------------------------------
 " plugin - startify              customize vim startup buffer
 " https://github.com/mhinz/vim-startify
@@ -478,7 +478,7 @@
     let g:ctrlp_clear_cache_on_exit = 0
     let g:ctrlp_cache_dir           = $HOME.'/tmp/ctrlp'
     command!  Mru :CtrlPMRUFiles
-    set wildignore+=*/.cache/*,*/tmp/*,*/.git/*,*/.neocon/*,*.log,*.so,*.swp,*.zip,*.gz,*.bz2,*.bmp,*.ppt
+    set wildignore+=*/.cache/*,*/.git/*,*/.neocon/*,*.log,*.so,*.swp,*.zip,*.gz,*.bz2,*.bmp,*.ppt
     set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.dll
 "--------------------------------------------------------------------------------------------------------------
 " plugin - Gundo                 graphic undo tree
