@@ -1411,7 +1411,7 @@ qt-privacy-ask=0
 skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 550 743 500 130 0]["main" "normal" 55 42 1024 702 1]["plwin" "plwin-normal" 630 320 500 350 1]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 550 743 500 130 0]["main" "normal" 55 42 848 602 1]["plwin" "plwin-normal" 688 265 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0
@@ -2719,7 +2719,7 @@ sout-x264-tune=film
 #subsdec-align=0
 
 # Subtitle text encoding (string)
-subsdec-encoding=UTF-8
+subsdec-encoding=system
 
 # UTF-8 subtitle autodetection (boolean)
 #subsdec-autodetect-utf8=1
