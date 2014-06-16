@@ -60,6 +60,7 @@ end
 run_once("goldendict")
 run_once("fcitx")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
+run_once("xmodmap ~/.Xmodmap")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
 run_once("udisks-glue")
