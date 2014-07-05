@@ -91,4 +91,4 @@ visualizer_fifo_path = "/home/farseer/.config/mpd/fifo"
 visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "1"
 visualizer_type = "wave" (spectrum/wave)
-#visualizer_type = "spectrum" (spectrum/wave)
+# visualizer_type = "spectrum" (spectrum/wave)
