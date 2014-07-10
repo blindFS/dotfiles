@@ -1,5 +1,4 @@
 [Added Associations]
-text/html=firefox.desktop
 text/english=gvim.desktop
 text/plain=gvim.desktop
 text/x-makefile=gvim.desktop
@@ -77,6 +76,16 @@ image/svg+xml-compressed=eog.desktop;
 image/vnd.wap.wbmp=eog.desktop;
 application/vnd.rn-realmedia=smplayer.desktop;
 application/octet-stream=gvim.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/ftp=firefox.desktop;
+x-scheme-handler/chrome=firefox.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/xhtml+xml=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
 
 [Default Applications]
 text/html=firefox.desktop
@@ -144,3 +153,13 @@ image/svg+xml-compressed=eog.desktop
 image/vnd.wap.wbmp=eog.desktop
 application/pdf=evince.desktop
 x-scheme-handler/mailto=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
