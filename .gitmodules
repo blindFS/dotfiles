@@ -7,3 +7,6 @@
 [submodule ".config/awesome/blingbling"]
 	path = .config/awesome/blingbling
 	url = https://github.com/farseer90718/blingbling
+[submodule ".config/dotgdb"]
+	path = .config/dotgdb
+	url = https://github.com/dholm/dotgdb
