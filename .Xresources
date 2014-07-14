@@ -70,8 +70,8 @@ UXTerm*faceSize:   10
 
 URxvt.depth:        32
 URxvt.background:   rgba:0000/0b00/1000/dddd
-URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Regular:antialias=true
-URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:DejaVu Sans YuanTi Mono:size=10:style=Bold:antialias=true
+URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:WenQuanYi Zen Hei:size=10:style=Regular:antialias=true
+URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:WenQuanYi Zen Hei:size=10:style=Bold:antialias=true
 URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
 
@@ -82,7 +82,7 @@ URxvt.keysym.M-Escape:        perl:vim-scrollback
 URxvt.vim-scrollback-paste:   none
 URxvt.keysym.M-u:             perl:url-select:select_next
 URxvt.url-select.underline:   true
-URxvt.url-select.launcher:    google-chrome-stable
+URxvt.url-select.launcher:    xdg-open
 URxvt.colorUL:                #86f2fe
 URxvt.underlineColor:         #24b5f4
 URxvt.keysym.M-c:             perl:clipboard:copy

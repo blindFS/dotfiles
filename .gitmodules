@@ -1,3 +1,9 @@
 [submodule ".vimperator/vimperator-plugins"]
 	path = .vimperator/vimperator-plugins
 	url = https://github.com/vimpr/vimperator-plugins
+[submodule ".config/awesome/revelation"]
+	path = .config/awesome/revelation
+	url = https://github.com/bioe007/awesome-revelation
+[submodule ".config/awesome/blingbling"]
+	path = .config/awesome/blingbling
+	url = https://github.com/farseer90718/blingbling

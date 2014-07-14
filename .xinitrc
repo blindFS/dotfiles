@@ -1,5 +1,5 @@
 #!/bin/bash
-amixer set Master mute
+amixer set Master unmute
 xscreensaver -nosplash &
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
