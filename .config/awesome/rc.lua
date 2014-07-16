@@ -882,20 +882,22 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-    properties = {
-        border_width = beautiful.border_width,
-        border_color = beautiful.border_normal,
-        focus = awful.client.focus.filter,
-        keys = clientkeys,
-        buttons = clientbuttons,
-        size_hints_honor = false } },
-        { rule = { class = "URxvt" },
+        properties = {
+            border_width = beautiful.border_width,
+            border_color = beautiful.border_normal,
+            focus = awful.client.focus.filter,
+            keys = clientkeys,
+            buttons = clientbuttons,
+            size_hints_honor = false
+        }
+    },
+    { rule = { class = "URxvt" },
         properties = { opacity = 0.90 } },
-        { rule = { class = "Gvim" },
+    { rule = { class = "Gvim" },
         properties = { opacity = 0.90 } },
-        { rule = { class = "Emacs" },
+    { rule = { class = "Emacs" },
         properties = { opacity = 0.90 } },
-        { rule = { class = "Screenkey" },
+    { rule = { class = "Screenkey" },
         properties   = {
             opacity  = 0.50,
             floating = true,
@@ -903,39 +905,35 @@ awful.rules.rules = {
             focus    = false },
         callback = function( c )
             c:geometry( { x = 0, width = 3200, y = 700, height = 120 } )
-        end },
-        { rule = { name = "QQ International" },
-        properties   = {
-            floating = true,
-        },
-        callback = function( c )
-            c:geometry( { x = 1200, width = 400, y = 50, height = 800 } )
-        end },
-        { rule = { class = "MPlayer" },
+        end
+    },
+    { rule = { class = "feh" },
         properties = { floating = true } },
-        { rule = { class = "vbam" },
+    { rule = { class = "MPlayer" },
         properties = { floating = true } },
-        { rule = { class = "rdesktop" },
+    { rule = { class = "vbam" },
+        properties = { floating = true } },
+    { rule = { class = "rdesktop" },
         properties = { floating = false} },
-        -- { rule = { class = "Google-chrome-stable" },
+    -- { rule = { class = "Google-chrome-stable" },
         -- properties = { tag = tags[1][2] } },
-        { rule = { class = "Gimp" },
+    { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
-        { rule = { class = "Eclipse" },
+    { rule = { class = "Eclipse" },
         properties = { tag = tags[1][4] } },
-        { rule = { name = "SMPlayer" },
+    { rule = { name = "SMPlayer" },
         properties = { tag = tags[1][4] } },
-        { rule = { class = "Steam" },
+    { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
-        { rule = { instance = "exe" },
+    { rule = { instance = "exe" },
         properties = { floating = true,
         fullscreen = true } },
-        { rule = { instance = "plugin-container" },
+    { rule = { instance = "plugin-container" },
         properties = { floating = true,
         fullscreen = true } },
-        { rule = { class = "Gimp", role = "gimp-image-window" },
+    { rule = { class = "Gimp", role = "gimp-image-window" },
         properties = { maximized_horizontal = true,
         maximized_vertical = true } },
-    }
+}
 -- }}}
 -- vim:ts=4:sw=4:tw=0:ft=lua:fdm=marker:fdls=0

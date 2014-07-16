@@ -176,6 +176,9 @@ bindkey "^r" sudo-command-line
 ### package manager specific
 
 ### universal
+alias ubuntu='cd /media/ubuntu/home/farseer'
+alias archlinux='cd /media/arch/home/farseer'
+alias ve2='source ~/.virtualenv/py2/bin/activate'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
@@ -193,8 +196,6 @@ alias pl='ls++ --potsf'
 alias pla='ls++ --potsf -a'
 alias du='du --max-depth=1 -h'
 alias xopen='xdg-open'
-alias imu='imgur upload'
-alias dirchmod='sudo chmod -R u+rwX,go+rX,go-w'
 alias cl='clear'
 alias ccat='pygmentize -g'
 alias bbs='luit -encoding gbk telnet bbs.ustc.edu.cn'
@@ -202,8 +203,6 @@ alias externalip='curl icanhazip.com'
 alias reboot='sudo reboot'
 alias systemctl='sudo systemctl'
 alias halt='sudo halt'
-alias untarg='tar -xzvf'
-alias untarb='tar -xjvf'
 alias tcpdump='sudo tcpdump -i any'
 alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
