@@ -58,9 +58,9 @@ XTerm*faceSize:    10
 UXTerm*faceSize:   10
 
 URxvt.depth:        32
-URxvt.background:   rgba:0000/0b00/1000/dddd
-URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:WenQuanYi Zen Hei:size=10:style=Regular:antialias=true
-URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:WenQuanYi Zen Hei:size=10:style=Bold:antialias=true
+! URxvt.background:   rgba:0000/0b00/1000/dddd
+URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:Source Han Sans Medium:size=10:style=Regular:antialias=true
+URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:Source Han Sans Medium:size=10:style=Bold:antialias=true
 URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
 
