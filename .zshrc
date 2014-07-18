@@ -1,27 +1,21 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
-source ~/.profile
-source /usr/share/zsh/scripts/antigen/antigen.zsh
+source $HOME/.profile
+source $HOME/.antigen/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
-
-antigen bundle colored-man
 antigen bundle cpanm
 antigen bundle dircycle
 antigen bundle fbterm
-antigen bundle fzf
 antigen bundle git-extras
-antigen bundle goagent
 antigen bundle npm
 antigen bundle rsync
-antigen bundle per-directory-history
-antigen bundle repo-update
 antigen bundle themes
 antigen bundle extract
 antigen bundle dirpersist
 antigen bundle archlinux
-# antigen bundle vim-interaction
 
+antigen bundle farseer90718/zsh-funcs
 antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search

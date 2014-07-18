@@ -10,3 +10,9 @@
 [submodule ".config/dotgdb"]
 	path = .config/dotgdb
 	url = https://github.com/dholm/dotgdb
+[submodule ".antigen/antigen"]
+	path = .antigen/antigen
+	url = https://github.com/zsh-users/antigen
+[submodule ".vim"]
+	path = .vim
+	url = https://github.com/farseer90718/dotvim
