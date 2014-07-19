@@ -1,8 +1,9 @@
-source ~/src/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+source $HOME/.mutt/.solarized_mutt
+source $HOME/.mutt/.gpgrc
+source "gpg2 -dq $HOME/.mutt/.gmail.gpg |"
 set imap_user = "farseer90718@gmail.com"
-set imap_pass = ""
 set smtp_url = "smtp://farseer90718@smtp.gmail.com:587/"
-set smtp_pass = ""
+# set from = "admin@farseer.cn"
 set from = "farseer90718@gmail.com"
 set realname = "Farseer He"
 
