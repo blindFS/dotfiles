@@ -170,8 +170,8 @@ bindkey "^r" sudo-command-line
 ### package manager specific
 
 ### universal
-alias ubuntu='cd /media/ubuntu/home/farseer'
-alias archlinux='cd /media/arch/home/farseer'
+alias ubuntu='sudo chroot /media/ubuntu /bin/su farseer'
+alias archlinux='sudo chroot /media/arch /bin/su farseer'
 alias ve2='source ~/.virtualenv/py2/bin/activate'
 alias cp='cp -i'
 alias mv='mv -i'

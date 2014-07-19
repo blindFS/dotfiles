@@ -16,3 +16,6 @@
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/farseer90718/dotvim
+[submodule ".config/awesome/couth-src"]
+	path = .config/awesome/couth-src
+	url = https://github.com/gorlowski/couth
