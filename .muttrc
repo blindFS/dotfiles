@@ -3,8 +3,8 @@ source $HOME/.mutt/.gpgrc
 source "gpg2 -dq $HOME/.mutt/.gmail.gpg |"
 set imap_user = "farseer90718@gmail.com"
 set smtp_url = "smtp://farseer90718@smtp.gmail.com:587/"
-# set from = "admin@farseer.cn"
-set from = "farseer90718@gmail.com"
+set from = "admin@farseer.cn"
+# set from = "farseer90718@gmail.com"
 set realname = "Farseer He"
 
 set folder = "imaps://imap.gmail.com:993"

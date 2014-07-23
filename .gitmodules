@@ -19,3 +19,6 @@
 [submodule ".config/awesome/couth-src"]
 	path = .config/awesome/couth-src
 	url = https://github.com/gorlowski/couth
+[submodule ".config/awesome/awesome"]
+	path = .config/awesome/awesome
+	url = git://git.naquadah.org/awesome.git

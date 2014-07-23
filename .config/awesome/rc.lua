@@ -904,7 +904,7 @@ awful.rules.rules = {
             ontop    = true,
             focus    = false },
         callback = function( c )
-            c:geometry( { x = 0, width = 3200, y = 700, height = 120 } )
+            c:geometry( { x = 0, width = 800, y = 800, height = 120 } )
         end
     },
     { rule = { class = "feh" },

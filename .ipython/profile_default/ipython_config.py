@@ -1,9 +1,21 @@
 # Configuration file for ipython.
+# -*- coding: utf-8 -*-
 
 c = get_config()
-c.InteractiveShellApp.extensions = [
-        'powerline.bindings.ipython.post_0_11'
-]
+
+### prompt
+c.InteractiveShell.colors = 'LightBG'
+c.PromptManager.in_template = u'\033[30;46m \Y1 \033[36;47m\033[47m \#\033[47m \033[37;40m\033[0m '
+c.PromptManager.in2_template = u'\033[30;46m \D \033[36;40m\033[0m '
+c.PromptManager.out_template = u'\033[46m \#\033[46m \033[36;40m\033[0m '
+# c.InteractiveShellApp.extensions = [
+#         'powerline.bindings.ipython.post_0_11'
+# ]
+
+### auto reload
+c.InteractiveShellApp.exec_lines = []
+c.InteractiveShellApp.exec_lines.append('%load_ext autoreload')
+c.InteractiveShellApp.exec_lines.append('%autoreload 2')
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp configuration
