@@ -13,7 +13,6 @@ local beautiful  = require("beautiful")
 local naughty    = require("naughty")
 local lain       = require("lain")
 local blingbling = require("blingbling")
-local awpomodoro = require("awpomodoro")
 -- }}}
 
 -- {{{ Move the cursor
@@ -202,7 +201,6 @@ red    = "#EA6F81"
 
 -- Textclock
 mytextclock = awful.widget.textclock(" %a %d %b  %H:%M  ")
-pmdr = awpomodoro()
 
 -- calendar
 --calendar = blingbling.calendar()
@@ -521,7 +519,6 @@ for s = 1, screen.count() do
     right_layout:add(netwidget)
     right_layout:add(arrl_dl)
     right_layout:add(mytextclock)
-    right_layout:add(pmdr)
     right_layout:add(spr)
     right_layout:add(arrl_ld)
     right_layout:add(mylayoutbox[s])

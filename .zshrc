@@ -210,10 +210,6 @@ if [[ $TERM == "linux" ]]; then
     eval `dircolors ~/.dircolors-fbterm`
 elif [[ $TERM == "vt100" ]] ; then
     antigen theme nanotech
-else
-    # powerline
-    source ~/src/powerline/powerline/bindings/zsh/powerline.zsh
-    # theme candy
 fi
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
