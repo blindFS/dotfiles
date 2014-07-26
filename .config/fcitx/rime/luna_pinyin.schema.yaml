@@ -4,7 +4,7 @@
 schema:
   schema_id: luna_pinyin
   name: 朙月拼音
-  version: "0.19"
+  version: "0.21"
   author:
     - 佛振 <chen.sst@gmail.com>
   description: |
@@ -25,6 +25,8 @@ switches:
     states: [ 半角, 全角 ]
   - name: simplification
     states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
 
 engine:
   processors:
@@ -68,8 +70,6 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
-    - derive/([ei])n$/$1ng/
-    - derive/([ei])ng$/$1n/
 
 translator:
   dictionary: luna_pinyin

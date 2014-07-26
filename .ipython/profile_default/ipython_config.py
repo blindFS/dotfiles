@@ -5,9 +5,9 @@ c = get_config()
 
 ### prompt
 c.InteractiveShell.colors = 'LightBG'
-c.PromptManager.in_template = u'\033[30;46m \Y1 \033[36;47m\033[47m \#\033[47m \033[37;40m\033[0m '
-c.PromptManager.in2_template = u'\033[30;46m \D \033[36;40m\033[0m '
-c.PromptManager.out_template = u'\033[46m \#\033[46m \033[36;40m\033[0m '
+c.PromptManager.in_template = u'\033[30;46m \Y1 \033[36;40m\n\033[47m \#\033[47m \033[37;40m\033[0m'
+c.PromptManager.in2_template = u'\033[30;46m \D \033[36;40m\033[0m  '
+c.PromptManager.out_template = u'\033[46m \#\033[46m \033[36;40m\033[0m'
 # c.InteractiveShellApp.extensions = [
 #         'powerline.bindings.ipython.post_0_11'
 # ]
