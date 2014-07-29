@@ -1411,7 +1411,7 @@ qt-privacy-ask=0
 skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2470 743 500 130 0]["main" "normal" 2232 74 960 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2310 918 500 130 0]["main" "normal" 2232 74 960 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0
@@ -3903,25 +3903,25 @@ control=srpos
 #global-key-jump-short=
 
 # Short backwards jump (string)
-#key-jump-short=Alt+Left
+key-jump-short=Left
 
 # Short forward jump (string)
 #global-key-jump+short=
 
 # Short forward jump (string)
-#key-jump+short=Alt+Right
+key-jump+short=Right
 
 # Medium backwards jump (string)
 #global-key-jump-medium=
 
 # Medium backwards jump (string)
-key-jump-medium=Left
+#key-jump-medium=Ctrl+Left
 
 # Medium forward jump (string)
 #global-key-jump+medium=
 
 # Medium forward jump (string)
-key-jump+medium=Right
+#key-jump+medium=Ctrl+Right
 
 # Long backwards jump (string)
 #global-key-jump-long=
