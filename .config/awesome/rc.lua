@@ -906,6 +906,8 @@ awful.rules.rules = {
     },
     { rule = { class = "feh" },
         properties = { floating = true } },
+    { rule = { class = "Synapse" },
+        properties = { border_width = 0 } },
     { rule = { class = "MPlayer" },
         properties = { floating = true } },
     { rule = { class = "vbam" },

@@ -4,6 +4,15 @@
  </paths>
  <sounddirs/>
  <dictionaryOrder id="0" name="">
+  <dictionary name="jmdict-en-ja">10053081f7f2d0bfa75d420eb639e3af</dictionary>
+  <dictionary name="朗道英汉字典5.0">3de2cf3401405225a67bfe62fec4dc5c</dictionary>
+  <dictionary name="jmdict-ja-en">3fb001d4bb0216bef05fac83ccee36d9</dictionary>
+  <dictionary name="朗道汉英字典5.0">6d751ab0dd87e4592c7949f9501e9dd4</dictionary>
+  <dictionary name="JA speak">455195f88c069489b26fdbc245ec89ac</dictionary>
+  <dictionary name="EN speak">4d8f6f3a3484ece273bdf00d1ce92420</dictionary>
+  <dictionary name="EN trans">59f2575d805e0d0e669e60182f90ee8e</dictionary>
+  <dictionary name="JA trans">0c85a6e396426b9ab0a6ed587dd106f2</dictionary>
+  <dictionary name="English Wikipedia">ae6f89aac7151829681b85f035d54e48</dictionary>
   <mutedDictionaries/>
  </dictionaryOrder>
  <inactiveDictionaries id="0" name="">
@@ -50,7 +59,12 @@
   <website enabled="0" url="http://michaelis.uol.com.br/moderno/ingles/index.php?lingua=portugues-ingles&amp;palavra=%GDISO1%" icon="" id="087a6d65615fb047f4c80eef0a9465db" name="Michaelis (Pt-En)"/>
  </websites>
  <dictservers/>
- <programs/>
+ <programs>
+  <program enabled="1" commandLine="speak ja %GDWORD%" icon="" type="0" id="455195f88c069489b26fdbc245ec89ac" name="JA speak"/>
+  <program enabled="1" commandLine="speak en %GDWORD%" icon="" type="0" id="4d8f6f3a3484ece273bdf00d1ce92420" name="EN speak"/>
+  <program enabled="1" commandLine=" translate {en=zh+ja} %GDWORD%" icon="" type="1" id="59f2575d805e0d0e669e60182f90ee8e" name="EN trans"/>
+  <program enabled="1" commandLine="translate {ja=zh+en} %GDWORD%" icon="" type="1" id="0c85a6e396426b9ab0a6ed587dd106f2" name="JA trans"/>
+ </programs>
  <voiceEngines/>
  <mutedDictionaries/>
  <popupMutedDictionaries/>
@@ -128,8 +142,8 @@
  </preferences>
  <lastMainGroupId>0</lastMainGroupId>
  <lastPopupGroupId>0</lastPopupGroupId>
- <popupWindowState>AAAA/wAAAAH9AAAAAAAAAAAAAAAAAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
- <popupWindowGeometry>AdnQywABAAAAAAAAAAAAAAAAAiwAAAGSAAAAAAAAAAAAAAIsAAABkgAAAAAAAA==</popupWindowGeometry>
+ <popupWindowState>AAAA/wAAAAH9AAAAAAAAAg0AAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
+ <popupWindowGeometry>AdnQywABAAAAAAI2AAABwAAABGIAAANSAAACNgAAAcAAAARiAAADUgAAAAAAAA==</popupWindowGeometry>
  <pinPopupWindow>0</pinPopupWindow>
  <mainWindowState></mainWindowState>
  <mainWindowGeometry></mainWindowGeometry>
