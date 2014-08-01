@@ -21,13 +21,10 @@ fi
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH=$HOME/bin:$PATH
-    PATH=$HOME/bin/cpm/bin:$PATH
 fi
 
 PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
-PATH=$HOME/src/arm-2013.05/bin:$PATH
-PATH=/opt/sublime_text_3:$PATH
 PATH=/opt/cuda/bin:$PATH
 
 export GTK_IM_MODULE=fcitx

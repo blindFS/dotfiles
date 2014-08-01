@@ -904,6 +904,16 @@ awful.rules.rules = {
             c:geometry( { x = 0, width = 800, y = 800, height = 120 } )
         end
     },
+    { rule = { name = "OSD Lyrics" },
+        properties       = {
+            border_width = 0,
+            floating     = true,
+            ontop        = true,
+            focus        = true },
+        callback         = function( c )
+            c:geometry( { x = 0, width = 1600, y = 845, height = 100 } )
+        end
+    },
     { rule = { class = "feh" },
         properties = { floating = true } },
     { rule = { class = "Synapse" },
