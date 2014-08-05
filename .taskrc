@@ -12,9 +12,9 @@
 
 # Files
 data.location=/home/farseer/tmp/.task
-include ~/tmp/.task/task.reports
 uda.area.type=string
 uda.area.label=Area
+color=no
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
@@ -32,7 +32,6 @@ report.all.labels=ID,Area,Project,Status,Age,Pri,Due,Complete,Description,Depend
 report.all.columns=id,area,project,status,entry.age,priority,due,end,description,depends,tags,uuid
 report.all.sort=status+,project+,due+,priority-,description+,id+
 
-# _forcecolor=true
 defaultwidth=999
 editor=vim
 
