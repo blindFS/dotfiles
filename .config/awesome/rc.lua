@@ -56,8 +56,7 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("goldendict")
-run_once("fcitx")
+run_once("xmodmap ~/.Xmodmap")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
@@ -619,7 +618,7 @@ local function menu()
 
         menu[#menu + 1] = { label,
         cmd,
-        "/usr/share/icons/Faenza/devices/96/display.png"}
+        "/usr/share/icons/Numix/128x128/devices/display.svg"}
     end
 
     dlabel = 'Duplicate'
@@ -632,7 +631,7 @@ local function menu()
     end
     menu[#menu + 1] = { dlabel,
     dcmd,
-    "/usr/share/icons/Faenza/devices/96/display.png"}
+    "/usr/share/icons/Numix/128x128/devices/display.svg"}
 
     return menu
 end
@@ -658,7 +657,7 @@ local function xrandr()
     local next  = state.iterator()
     local label, action, icon
     if not next then
-        label, icon = "Keep the current configuration", "/usr/share/icons/Faenza/devices/96/display.png"
+        label, icon = "Keep the current configuration", "/usr/share/icons/Numix/128x128/devices/display.svg"
         state.iterator = nil
     else
         label, action, icon = unpack(next)

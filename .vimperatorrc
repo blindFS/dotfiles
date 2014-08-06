@@ -5,9 +5,9 @@ nnoremap F :forward<CR>
 nnoremap H :tabprevious<CR>
 nnoremap L :tabnext<CR>
 nnoremap D :tabclose!<CR>
-nnoremap <silent> f :!fcitx-remote -c<cr>qf
-nnoremap <silent> F :!fcitx-remote -c<cr>qF
-nnoremap <silent> : :!fcitx-remote -c<cr>q:
+nnoremap <silent> f :silent !fcitx-remote -c<cr>f
+nnoremap <silent> F :silent !fcitx-remote -c<cr>F
+nnoremap <silent> : :silent !fcitx-remote -c<cr>:
 
 set hintchars=abcdefghijklmnopqrstuvwxyz
 set focuscontent
