@@ -56,7 +56,7 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("xmodmap ~/.Xmodmap")
+-- run_once("xmodmap ~/.Xmodmap")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
@@ -762,8 +762,8 @@ awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 -- }}
 
 -- {{ ALSA volume control
-awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
-awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end),
+awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volumewidget.update() end),
+awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volumewidget.update() end),
 awful.key({ modkey }, "F7", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
 -- }}
 
@@ -774,8 +774,8 @@ awful.key({ modkey }, "F12", function () awful.util.spawn_with_shell("mpc next")
 -- }}
 
 -- {{ XF86keys
-awful.key({}, "XF86AudioRaiseVolume", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
-awful.key({}, "XF86AudioLowerVolume", function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end),
+awful.key({}, "XF86AudioRaiseVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volumewidget.update() end),
+awful.key({}, "XF86AudioLowerVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volumewidget.update() end),
 awful.key({}, "XF86AudioMute", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
 awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell("mpc toggle") end),
 awful.key({}, "XF86AudioPrev", function () awful.util.spawn_with_shell("mpc prev")   end),

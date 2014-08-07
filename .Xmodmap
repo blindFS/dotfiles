@@ -1,3 +1,4 @@
+keycode  9  = Caps_Lock NoSymbol Caps_Lock
 keycode  25 = w W minus
 keycode  26 = e E equal
 keycode  30 = u U underscore
@@ -11,8 +12,6 @@ keycode  56 = b B BackSpace
 keycode  57 = n N parenleft
 keycode  58 = m M parenright
 keycode  64 = Mode_switch NoSymbol Mode_switch
+keycode  66 = Escape NoSymbol Escape
 
-remove Lock = Caps_Lock
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Escape
-add Lock = Caps_Lock
+clear Lock
