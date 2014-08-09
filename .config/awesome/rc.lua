@@ -56,7 +56,7 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
--- run_once("xmodmap ~/.Xmodmap")
+run_once("xmodmap ~/.Xmodmap")
 run_once("conky -c ~/.conky/.conkyrc-2-dark&")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
@@ -210,21 +210,21 @@ lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 -- Mail IMAP check
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
 mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
---mailwidget = wibox.widget.background(lain.widgets.imap({
---    timeout  = 180,
---    server   = "stmp.gmail.com",
---    mail     = "",
---    password = "",
---    settings = function()
---        if mailcount > 0 then
---            widget:set_text(" " .. mailcount .. " ")
---            mailicon:set_image(beautiful.widget_mail_on)
---        else
---            widget:set_text("")
---            mailicon:set_image(beautiful.widget_mail)
---        end
---    end
---}), "#313131")
+mailwidget = wibox.widget.background(lain.widgets.imap({
+   timeout  = 180,
+   server   = "imap.gmail.com",
+   mail     = "farseer90718@gmail.com",
+   password = 'python2 /home/farseer/bin/get_pass.py',
+   settings = function()
+       if mailcount > 0 then
+           widget:set_text(" " .. mailcount .. " ")
+           mailicon:set_image(beautiful.widget_mail_on)
+       else
+           widget:set_text("")
+           mailicon:set_image(beautiful.widget_mail)
+       end
+   end
+}), "#313131")
 
 -- MPD
 artist = ""
