@@ -1,8 +1,8 @@
 ---
 :backtrace: false
 :bulk_threshold: 1000
-:sources:
-- http://mirrors.ustc.edu.cn/rubygems/
+# :sources:
+# - http://mirrors.ustc.edu.cn/rubygems/
 :update_sources: true
 :verbose: true
 gem: "--user-install"

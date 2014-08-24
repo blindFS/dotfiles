@@ -14,7 +14,7 @@
 [freetype] # Freetype2 font renderer
 
 # Font (string)
-freetype-font=Comic Sans MS
+freetype-font=Source Han Sans J
 
 # Monospace Font (string)
 #freetype-monofont=Monospace
@@ -23,7 +23,7 @@ freetype-font=Comic Sans MS
 #freetype-fontsize=0
 
 # Relative font size (integer)
-#freetype-rel-fontsize=16
+freetype-rel-fontsize=12
 
 # Text opacity (integer)
 #freetype-opacity=255
@@ -1411,7 +1411,7 @@ qt-privacy-ask=0
 skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2150 743 500 130 0]["main" "normal" 2233 75 960 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2150 743 500 130 0]["main" "normal" 2236 76 960 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0

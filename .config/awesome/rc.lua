@@ -57,7 +57,7 @@ function run_once(cmd)
 end
 
 run_once("xmodmap ~/.Xmodmap")
-run_once("conky -c ~/.conky/.conkyrc-2-dark&")
+run_once("conky -c ~/.conky-weather/.conkyrc &")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
 run_once("goldendict")
@@ -138,7 +138,7 @@ graphics   = "gimp"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser   = "google-chrome-stable"
+browser   = "chromium"
 mail      = terminal .. " -e mutt"
 fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
@@ -795,7 +795,7 @@ awful.key({ modkey }, "a",      function () awful.util.spawn_with_shell("mess") 
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
 awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
 awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
-awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Google-chrome" })        end ),
+awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Chromium" })        end ),
 awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"         })        end ),
 
 -- Prompt
@@ -924,7 +924,7 @@ awful.rules.rules = {
         properties = { floating = true } },
     { rule = { class = "rdesktop" },
         properties = { floating = false} },
-    -- { rule = { class = "Google-chrome-stable" },
+    -- { rule = { class = "Chromium" },
         -- properties = { tag = tags[1][2] } },
     { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
