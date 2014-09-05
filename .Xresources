@@ -27,7 +27,7 @@
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
-*background:              S_base03
+*background:              #000b10
 *foreground:              S_base0
 *cursorColor:             S_base1
 *fading:                  40
@@ -53,14 +53,12 @@
 *color15:                 S_base3
 
 XTerm*faceName:    monaco for powerline
-UXTerm*faceName:   Ubuntu Mono derivative Powerline
 XTerm*faceSize:    10
-UXTerm*faceSize:   10
 
 URxvt.depth:        32
 ! URxvt.background:   rgba:0000/0b00/1000/dddd
-URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:Source Han Sans J Medium:size=10:style=Regular:antialias=true
-URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:Source Han Sans J Medium:size=10:style=Bold:antialias=true
+URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:Source Han Sans J Medium:size=10:style=Regular:antialias=true, xft:Symbola:pixelsize=10
+URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:Source Han Sans J Medium:size=10:style=Bold:antialias=true, xft:Symbola:pixelsize=10
 URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
 

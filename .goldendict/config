@@ -10,7 +10,7 @@
   <dictionary name="朗道汉英字典5.0">6d751ab0dd87e4592c7949f9501e9dd4</dictionary>
   <dictionary name="JA speak">455195f88c069489b26fdbc245ec89ac</dictionary>
   <dictionary name="EN speak">4d8f6f3a3484ece273bdf00d1ce92420</dictionary>
-  <dictionary name="EN trans">59f2575d805e0d0e669e60182f90ee8e</dictionary>
+  <dictionary name="google trans">59f2575d805e0d0e669e60182f90ee8e</dictionary>
   <dictionary name="JA trans">0c85a6e396426b9ab0a6ed587dd106f2</dictionary>
   <dictionary name="English Wikipedia">ae6f89aac7151829681b85f035d54e48</dictionary>
   <mutedDictionaries/>
@@ -62,8 +62,7 @@
  <programs>
   <program enabled="1" commandLine="speak ja %GDWORD%" icon="" type="0" id="455195f88c069489b26fdbc245ec89ac" name="JA speak"/>
   <program enabled="1" commandLine="speak en %GDWORD%" icon="" type="0" id="4d8f6f3a3484ece273bdf00d1ce92420" name="EN speak"/>
-  <program enabled="1" commandLine=" translate {en=zh+ja} %GDWORD%" icon="" type="1" id="59f2575d805e0d0e669e60182f90ee8e" name="EN trans"/>
-  <program enabled="1" commandLine="translate {ja=zh+en} %GDWORD%" icon="" type="1" id="0c85a6e396426b9ab0a6ed587dd106f2" name="JA trans"/>
+  <program enabled="1" commandLine=" trans {=zh+ja+@ja+en} %GDWORD%" icon="" type="1" id="59f2575d805e0d0e669e60182f90ee8e" name="google trans"/>
  </programs>
  <voiceEngines/>
  <mutedDictionaries/>
@@ -143,13 +142,13 @@
  <lastMainGroupId>0</lastMainGroupId>
  <lastPopupGroupId>0</lastPopupGroupId>
  <popupWindowState>AAAA/wAAAAH9AAAAAAAAAg0AAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
- <popupWindowGeometry>AdnQywABAAAAAAI2AAABwAAABGIAAANSAAACNgAAAcAAAARiAAADUgAAAAAAAA==</popupWindowGeometry>
+ <popupWindowGeometry>AdnQywABAAAAAAdoAAAA2QAACZQAAAJrAAAHaAAAANkAAAmUAAACawAAAAEAAA==</popupWindowGeometry>
  <pinPopupWindow>0</pinPopupWindow>
  <mainWindowState></mainWindowState>
  <mainWindowGeometry></mainWindowGeometry>
  <dictInfoGeometry></dictInfoGeometry>
  <inspectorGeometry></inspectorGeometry>
- <timeForNewReleaseCheck>2014-08-24T20:15:26</timeForNewReleaseCheck>
+ <timeForNewReleaseCheck>2014-09-05T22:15:31</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>1</showingDictBarNames>
  <usingSmallIconsInToolbars>1</usingSmallIconsInToolbars>
