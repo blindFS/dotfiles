@@ -31,4 +31,4 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export QT_STYLE_OVERRIDE=gtk
 export XMODIFIERS="@im=fcitx"
-export GTAGSROOT=/home/farseer/src/dmtcp-2.3.1
+export GTAGSROOT=/home/farseer/src/linux-3.16
