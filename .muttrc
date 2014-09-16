@@ -1,31 +1,31 @@
 source $HOME/.mutt/.solarized_mutt
 source $HOME/.mutt/.gpgrc
 source "gpg2 -dq $HOME/.mutt/.gmail.gpg |"
-set imap_user = "farseer90718@gmail.com"
-set smtp_url = "smtp://farseer90718@smtp.gmail.com:587/"
-set from = "admin@farseer.cn"
+set imap_user        = "farseer90718@gmail.com"
+set smtp_url         = "smtp://farseer90718@smtp.gmail.com:587/"
+set from             = "admin@farseer.cn"
 # set from = "farseer90718@gmail.com"
-set realname = "Farseer He"
+set realname         = "Farseer He"
 
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
+set folder           = "imaps://imap.gmail.com:993"
+set spoolfile        = "+INBOX"
 set imap_check_subscribed
-set hostname = gmail.com
-set mail_check = 120
-set timeout = 300
-set imap_keepalive = 300
-set postponed = "+[GMail]/Drafts"
-# set record = "+[GMail]/Sent Mail"
-set header_cache=~/tmp/.mutt/cache/headers
-set message_cachedir=~/tmp/.mutt/cache/bodies
-set certificate_file=~/tmp/.mutt/certificates
-set move = no
+set hostname         = gmail.com
+set mail_check       = 120
+set timeout          = 300
+set imap_keepalive   = 300
+set postponed        = "+[GMail]/Drafts"
+set record           = $HOME/.mutt/sent
+set header_cache     = $HOME/tmp/.mutt/cache/headers
+set message_cachedir = $HOME/tmp/.mutt/cache/bodies
+set certificate_file = $HOME/tmp/.mutt/certificates
+set move             = no
 set include
-set sort = 'threads'
-set sort_aux = 'reverse-last-date-received'
-set auto_tag = yes
-set status_format=" Mutt:  %f Msgs:%?M?%M/?%m%?n?  New:%n?%?o? Old:%o?%?d? Del:%d?%?F?   Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?  %>  %s/%S  %P "
-set pager_format=" %S  %C/%m: %n  %>  %s "
+set sort             = 'threads'
+set sort_aux         = 'reverse-last-date-received'
+set auto_tag         = yes
+set status_format    = " Mutt:  %f Msgs:%?M?%M/?%m%?n?  New:%n?%?o? Old:%o?%?d? Del:%d?%?F?   Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?  %>  %s/%S  %P "
+set pager_format     = " %S  %C/%m: %n  %>  %s "
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
