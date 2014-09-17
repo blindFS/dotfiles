@@ -1,7 +1,9 @@
 --langdef=latex
 --langmap=latex:.tex,latex:.sty,latex:.cls
 --regex-latex=/^[ \t]*\\label\{([^}]*)\}/\1/l,label/
---regex-latex=/^[ \t]*\\[sub]{0,2}section\{([^}]*)\}/\1/s,section/
+--regex-latex=/^[ \t]*\\section\{([^}]*)\}/\1/s,section1/
+--regex-latex=/^[ \t]*\\subsection\{([^}]*)\}/.  \1/s,section2/
+--regex-latex=/^[ \t]*\\subsubsection\{([^}]*)\}/.    \1/s,section3/
 --regex-latex=/^[ \t]*\\[re]{0,1}newcommand\{\\([^}]*)\}/\1/d,definition/
 --regex-latex=/^[ \t]*\\[re]{0,1}newenvironment\{([^}]*)\}/\1/d,definition/
 --regex-latex=/^[ \t]*\\DeclareRobustCommand\{\\([^}]*)\}/\1/d,definition/
