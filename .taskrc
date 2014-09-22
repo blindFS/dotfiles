@@ -14,7 +14,7 @@
 data.location=/home/farseer/tmp/.task
 uda.area.type=string
 uda.area.label=Area
-color=no
+#color=no
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
