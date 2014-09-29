@@ -78,7 +78,7 @@ set pgp_mime_signature_description="Digital signature"
 
 set pgp_use_gpg_agent = yes
 set pgp_autosign = yes
-set pgp_sign_as = farseer90718@gmail.com
+set pgp_sign_as = admin@farseer.cn
 set pgp_timeout = 3600
 set pgp_replyencrypt = yes
 # set pgp_autoencrypt = yes

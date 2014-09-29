@@ -69,6 +69,7 @@
  <popupMutedDictionaries/>
  <preferences>
   <interfaceLanguage></interfaceLanguage>
+  <helpLanguage></helpLanguage>
   <displayStyle>lingoes</displayStyle>
   <newTabsOpenAfterCurrentOne>0</newTabsOpenAfterCurrentOne>
   <newTabsOpenInBackground>1</newTabsOpenInBackground>
@@ -83,6 +84,7 @@
   <selectWordBySingleClick>0</selectWordBySingleClick>
   <escKeyHidesMainWindow>0</escKeyHidesMainWindow>
   <zoomFactor>1</zoomFactor>
+  <helpZoomFactor>1</helpZoomFactor>
   <wordsZoomLevel>0</wordsZoomLevel>
   <enableMainWindowHotkey>1</enableMainWindowHotkey>
   <mainWindowHotkey>Ctrl+F11, Ctrl+F11</mainWindowHotkey>
@@ -146,9 +148,11 @@
  <pinPopupWindow>0</pinPopupWindow>
  <mainWindowState></mainWindowState>
  <mainWindowGeometry></mainWindowGeometry>
+ <helpWindowGeometry></helpWindowGeometry>
+ <helpSplitterState></helpSplitterState>
  <dictInfoGeometry></dictInfoGeometry>
  <inspectorGeometry></inspectorGeometry>
- <timeForNewReleaseCheck>2014-09-24T00:15:37</timeForNewReleaseCheck>
+ <timeForNewReleaseCheck>2014-09-30T11:09:09</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>1</showingDictBarNames>
  <usingSmallIconsInToolbars>1</usingSmallIconsInToolbars>
