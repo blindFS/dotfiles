@@ -5,6 +5,7 @@ source $HOME/.antigen/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle cpanm
+antigen bundle pip
 antigen bundle dircycle
 antigen bundle fbterm
 antigen bundle git-extras
