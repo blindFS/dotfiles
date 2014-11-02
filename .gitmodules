@@ -22,3 +22,6 @@
 [submodule ".config/awesome/awesome"]
 	path = .config/awesome/awesome
 	url = git://git.naquadah.org/awesome.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/farseer90718/dotemacs

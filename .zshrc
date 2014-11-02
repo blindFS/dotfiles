@@ -1,7 +1,6 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
 source $HOME/.profile
 source $HOME/.antigen/antigen/antigen.zsh
-
 antigen use oh-my-zsh
 
 antigen bundle cpanm
