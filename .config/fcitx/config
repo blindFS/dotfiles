@@ -4,7 +4,7 @@
 # Use extra trigger key only after using it to inactivate
 # Available Value:
 # True False
-#UseExtraTriggerKeyOnlyWhenUseItToInactivate=True
+UseExtraTriggerKeyOnlyWhenUseItToInactivate=False
 # Extra key for trigger input method
 # Available Value:
 # R_CTRL
@@ -144,8 +144,4 @@ NextPageKey== .
 # Available Value:
 # True False
 #HideInputWindowWhenOnlyOneCandidate=False
-
-
-
-se
 

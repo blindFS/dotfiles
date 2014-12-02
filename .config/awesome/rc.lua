@@ -16,10 +16,10 @@ local blingbling = require("blingbling")
 -- }}}
 
 -- {{{ Move the cursor
-local safeCoords               = {x=1600, y=900}
+local safeCoords             = {x=1600, y=900}
 local chromeCloseDownloadBar = {x=3180, y=876}
-local mouseMoveInterval        = 15
-local moveMouseOnStartup       = true
+local mouseMoveInterval      = 15
+local moveMouseOnStartup     = true
 if moveMouseOnStartup then
     awful.util.spawn("xdotool mousemove " .. safeCoords.x .. " " .. safeCoords.y)
 end
@@ -207,24 +207,24 @@ mytextclock = awful.widget.textclock(" %a %d %b  %H:%M  ")
 --calendar:set_link_to_external_calendar(true)
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
--- Mail IMAP check
-mailicon = wibox.widget.imagebox(beautiful.widget_mail)
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
-mailwidget = wibox.widget.background(lain.widgets.imap({
-   timeout  = 180,
-   server   = "imap.gmail.com",
-   mail     = "farseer90718@gmail.com",
-   password = 'python2 /home/farseer/bin/get_pass.py',
-   settings = function()
-       if mailcount > 0 then
-           widget:set_text(" " .. mailcount .. " ")
-           mailicon:set_image(beautiful.widget_mail_on)
-       else
-           widget:set_text("")
-           mailicon:set_image(beautiful.widget_mail)
-       end
-   end
-}), "#313131")
+-- -- Mail IMAP check
+-- mailicon = wibox.widget.imagebox(beautiful.widget_mail)
+-- mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
+-- mailwidget = wibox.widget.background(lain.widgets.imap({
+--    timeout  = 180,
+--    server   = "imap.gmail.com",
+--    mail     = "farseer90718@gmail.com",
+--    password = 'python2 /home/farseer/bin/get_pass.py',
+--    settings = function()
+--        if mailcount > 0 then
+--            widget:set_text(" " .. mailcount .. " ")
+--            mailicon:set_image(beautiful.widget_mail_on)
+--        else
+--            widget:set_text("")
+--            mailicon:set_image(beautiful.widget_mail)
+--        end
+--    end
+-- }), "#313131")
 
 -- MPD
 artist = ""
@@ -497,8 +497,8 @@ for s = 1, screen.count() do
     right_layout:add(volicon)
     right_layout:add(volumewidget)
     right_layout:add(arrl_ld)
-    right_layout:add(mailicon)
-    --right_layout:add(mailwidget)
+    -- right_layout:add(mailicon)
+    -- --right_layout:add(mailwidget)
     right_layout:add(arrl_dl)
     right_layout:add(memicon)
     right_layout:add(memwidget)
