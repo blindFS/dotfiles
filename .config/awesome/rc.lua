@@ -667,7 +667,7 @@ local function xrandr()
     icon = icon,
     timeout = 4,
     screen = mouse.screen, -- Important, not all screens may be visible
-    font = "Monaco 18",
+    font = "Monaco for powerline 16",
     replaces_id = state.cid }).id
 
     -- Setup the timer
@@ -929,8 +929,6 @@ awful.rules.rules = {
     { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
     { rule = { class = "Eclipse" },
-        properties = { tag = tags[1][4] } },
-    { rule = { name = "SMPlayer" },
         properties = { tag = tags[1][4] } },
     { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
