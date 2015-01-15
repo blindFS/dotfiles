@@ -23,7 +23,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH=$HOME/bin:$PATH
 fi
 
-PATH=$HOME/.gem/ruby/2.1.0/bin:$PATH
+PATH=$HOME/.gem/ruby/2.2.0/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/opt/cuda/bin:$PATH
 
