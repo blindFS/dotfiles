@@ -1411,7 +1411,7 @@ qt-privacy-ask=0
 skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2310 918 500 130 0]["main" "normal" 0 0 960 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2310 918 500 130 0]["main" "normal" 0 0 1280 666 1]["plwin" "plwin-normal" 688 265 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0

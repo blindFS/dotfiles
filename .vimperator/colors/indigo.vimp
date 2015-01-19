@@ -97,6 +97,129 @@ style -name indigo-sbmcommentsviewer chrome://* <<EOM
         border: none !important;
     }
 EOM
+
+style -name hide-nav-bar chrome://* <<EOM
+    #nav-bar {
+        width: 0 !important; height: 0 !important;
+        position: fixed !important; left: -1px !important; top: -1px !important;
+        overflow: hidden !important; visibility: hidden !important;
+    }
+EOM
+
+style -name tab-bar-powerline chrome://* <<EOM
+    :root {
+        /* TAB VARIABLES */
+        --bg-light: #bdc3c7; --bg-dark: #7f8c8d;
+        --fg-light: #34495e; --fg-dark: #2c3e50;
+
+        --tab-triangle-correction: -1px;
+        --tab-height: 26px; --tab-icon-size: 12px; --tab-strip-margin: -11px; --tab-overlap: -5px;
+        --tab-font-size: 9pt;
+        --tab-triangle: block; /* block | none */
+    }
+
+
+    @-moz-document url(chrome://browser/content/browser.xul) {
+        /*#PanelUI-button, #bookmarks-menu-button, #downloads-button, #home-button, #stylish-toolbar-button, #abp-toolbarbutton,
+        #back-button, #forward-button, #identity-box, #urlbar-reload-button, #urlbar-stop-button, #urlbar-go-button,
+        #notification-popup-box, #new-tab-button, #private-browsing-indicator, #search-container, #nav-bar-overflow-button,*/
+        .tabs-newtab-button, .tab-close-button, .tab-close, .tab-throbber, .tab-background-start, .tab-background-end
+        /*, #alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
+
+        .tab-drop-indicator { margin-bottom: 0 !important; }
+
+        /* TABS */
+        .tabbrowser-tab[fadein]:not([pinned]) { min-width: 50px !important; max-width: /*180px*/ 100% !important; }
+        tab {
+            font-family: var(--tab-fonts) !important;
+            height: var(--tab-height) !important; min-height: var(--tab-height) !important;
+            background: var(--bg-dark) !important; color: var(--fg-dark) !important;
+            font-size: var(--tab-font-size); text-shadow: none !important; text-align: center /* center | left */ !important;
+        }
+
+        .tabbrowser-tab label { padding: 0 14px 0 14px !important; }
+
+        #tabbrowser-tabs .tabbrowser-tab[pinned]            { width: 38px !important; }
+        #tabbrowser-tabs .tabbrowser-tab[pinned] label      { display: none !important; }
+
+        #tabbrowser-tabs .tabbrowser-tab .tab-icon-image {
+            margin: 0 -10px 0 14px !important;
+            width: var(--tab-icon-size) !important;
+            height: var(--tab-icon-size) !important;
+        }
+
+        .tabbrowser-tab *, .tabs-newtab-button * {
+            background: none !important; list-style-image: none !important;
+            margin: 0 0 0 0 !important; padding: 0 0 0 0 !important;
+            -moz-appearance: none !important;
+        }
+
+        #tabbrowser-tabs .tabbrowser-tab[pinned] .tab-stack { height: var(--tab-height) !important; width: 100% !important; }
+        #tabbrowser-tabs .tabbrowser-arrowscrollbox .box-inherit.scrollbox-innerbox { max-height: var(--tab-height) !important; }
+        .scrollbutton-up, .scrollbutton-down { border: none !important; }
+
+        .tabbrowser-tab[selected="true"] .tab-stack {
+            background: var(--bg-light) !important; color: var(--fg-light) !important;
+            border-radius: 0px !important; position: relative !important;
+            /*border-top: 1px solid #dc52a5 !important;/**/
+        }
+        .tabbrowser-tab[selected="true"]:before { /* Left Triangle (of selected tab) */
+            content: '' !important; display: var(--tab-triangle);
+            position: absolute !important; top: 0 !important; left: var(--tab-overlap) !important;
+            width: 0 !important; height: 0 !important;
+            border: none !important; z-index: 2 !important;
+
+            border-left: calc(var(--tab-height)/2) solid var(--bg-dark) !important;
+            border-top: calc((var(--tab-height)/2) - var(--tab-triangle-correction)) solid var(--bg-light) !important;
+            border-bottom: calc((var(--tab-height)/2) + var(--tab-triangle-correction)) solid var(--bg-light) !important;
+            /*border-top: var(--tab-height) solid var(--bg-dark) !important;
+            border-right: calc(var(--tab-height)/2) solid var(--bg-light) !important;*/
+        }
+        .tabbrowser-tab[selected="true"]:after { /* Right Triangle (of selected tab) */
+            content: '' !important; display: var(--tab-triangle);
+            position: absolute !important; top: 0 !important; right: var(--tab-overlap) !important;
+            width: 0 !important; height: 0 !important;
+            border: none !important; z-index: 2 !important;
+
+            border-right: calc(var(--tab-height)/2) solid var(--bg-dark) !important;
+            border-top: calc((var(--tab-height)/2) - var(--tab-triangle-correction)) solid var(--bg-light) !important;
+            border-bottom: calc((var(--tab-height)/2) + var(--tab-triangle-correction)) solid var(--bg-light) !important;
+            /*border-top: var(--tab-height) solid var(--bg-dark) !important;
+            border-left: calc(var(--tab-height)/2) solid var(--bg-light) !important;*/
+        }
+
+        #TabsToolbar, #tabbrowser-tabs {
+            -moz-appearance: none !important;
+            height: var(--tab-height) !important; min-height: var(--tab-height)!important;
+            margin: 0 var(--tab-strip-margin) !important;
+            background: var(--bg-dark) !important;
+        }
+    }
+
+
+    /* background color around/behind pictures opened in firefox (require html namespace on top) */
+    @-moz-document regexp("(https?://|file:///)(.*)\\.(jpeg|jpg|gif|png|apng|svg|bmp|webm|webp)") {
+        body { background: var(--bg-light) !important; }
+        img.decoded { background-color: transparent !important; }
+    }
+
+
+    /* About:Blank background */
+    @-moz-document url(about:blank) {
+        html,body { background: var(--bg-light) !important; }
+    }
+
+    /* about:stylish-edit toolbar style */
+    @-moz-document regexp("about:stylish-edit.*") {
+        #main-area, textbox { background: var(--bg-light) !important; }
+        textbox, grid, columns, rows, separator { border: 0 !important; }
+
+        .devtools-toolbarbutton { background: var(--bg-dark) !important; color: var(--fg-light) !important; }
+    }
+
+    /*----- Fix for white flash on new tab -----*/
+    tabbrowser tabpanels, #appcontent > #content { background: var(--bg-light) !important; }
+EOM
 " }}}1
 
 " vim: ft=vim

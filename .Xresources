@@ -61,6 +61,7 @@ URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=tru
 URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:Source Han Sans:size=10:style=Bold:antialias=true, xft:Symbola:pixelsize=10
 URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
+! URxvt.letterSpace: -1
 
 URxvt.perl-lib:     /usr/lib/urxvt/perl
 

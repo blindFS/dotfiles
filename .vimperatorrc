@@ -5,19 +5,26 @@ nnoremap L :forward<CR>
 nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
 nnoremap D :tabclose!<CR>
-nnoremap <silent> f :silent !fcitx-remote -c<cr>f
-nnoremap <silent> F :silent !fcitx-remote -c<cr>F
-nnoremap <silent> : :silent !fcitx-remote -c<cr>:
+nnoremap <silent> f :silent !fcitx-remote -c<CR>f
+nnoremap <silent> F :silent !fcitx-remote -c<CR>F
+nnoremap <silent> : :silent !fcitx-remote -c<CR>:
+nnoremap <C-B> :styletoggle -name hide-nav-bar<CR>
 
 set hintchars=abcdefghijklmnopqrstuvwxyz
 set focuscontent
 set wildmode=list,full
 set noscrollbars
+set animations
 colorscheme indigo
 
 source /home/farseer/.vimperator/vimperator-plugins/_libly.js
 source /home/farseer/.vimperator/vimperator-plugins/feedSomeKeys_3.js
+source /home/farseer/.vimperator/vimperator-plugins/tabsort.js
+source /home/farseer/.vimperator/vimperator-plugins/goo.gl.js
+nnoremap Y :googleUrlShortener<CR>
 
+command! pin :set apptab
+command! unpin :set noapptab
 
 fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga
 " vim:ts=4:sw=4:tw=0:ft=vim
