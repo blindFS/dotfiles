@@ -98,14 +98,6 @@ style -name indigo-sbmcommentsviewer chrome://* <<EOM
     }
 EOM
 
-style -name hide-nav-bar chrome://* <<EOM
-    #nav-bar {
-        width: 0 !important; height: 0 !important;
-        position: fixed !important; left: -1px !important; top: -1px !important;
-        overflow: hidden !important; visibility: hidden !important;
-    }
-EOM
-
 style -name tab-bar-powerline chrome://* <<EOM
     :root {
         /* TAB VARIABLES */
@@ -113,7 +105,7 @@ style -name tab-bar-powerline chrome://* <<EOM
         --fg-light: #34495e; --fg-dark: #2c3e50;
 
         --tab-triangle-correction: -1px;
-        --tab-height: 26px; --tab-icon-size: 12px; --tab-strip-margin: -11px; --tab-overlap: -5px;
+        --tab-height: 26px; --tab-icon-size: 15px; --tab-strip-margin: -11px; --tab-overlap: -5px;
         --tab-font-size: 9pt;
         --tab-triangle: block; /* block | none */
     }
@@ -123,8 +115,8 @@ style -name tab-bar-powerline chrome://* <<EOM
         /*#PanelUI-button, #bookmarks-menu-button, #downloads-button, #home-button, #stylish-toolbar-button, #abp-toolbarbutton,
         #back-button, #forward-button, #identity-box, #urlbar-reload-button, #urlbar-stop-button, #urlbar-go-button,
         #notification-popup-box, #new-tab-button, #private-browsing-indicator, #search-container, #nav-bar-overflow-button,*/
-        .tabs-newtab-button, .tab-close-button, .tab-close, .tab-throbber, .tab-background-start, .tab-background-end
-        /*, #alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
+        .tabs-newtab-button, .tab-close-button, .tab-close, .tab-background-start, .tab-background-end
+        /*, #alltabs-button, #tabview-button, .tab-throbber, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
 
         .tab-drop-indicator { margin-bottom: 0 !important; }
 

@@ -8,7 +8,8 @@ nnoremap D :tabclose!<CR>
 nnoremap <silent> f :silent !fcitx-remote -c<CR>f
 nnoremap <silent> F :silent !fcitx-remote -c<CR>F
 nnoremap <silent> : :silent !fcitx-remote -c<CR>:
-nnoremap <C-B> :styletoggle -name hide-nav-bar<CR>
+nnoremap <C-L> :set gui=navigation<CR><C-L>
+nnoremap <Esc> <Esc>:set gui=nonavigation<CR>
 
 set hintchars=abcdefghijklmnopqrstuvwxyz
 set focuscontent
@@ -17,10 +18,10 @@ set noscrollbars
 set animations
 colorscheme indigo
 
-source /home/farseer/.vimperator/vimperator-plugins/_libly.js
-source /home/farseer/.vimperator/vimperator-plugins/feedSomeKeys_3.js
-source /home/farseer/.vimperator/vimperator-plugins/tabsort.js
-source /home/farseer/.vimperator/vimperator-plugins/goo.gl.js
+source ~/.vimperator/vimperator-plugins/_libly.js
+source ~/.vimperator/vimperator-plugins/feedSomeKeys_3.js
+source ~/.vimperator/vimperator-plugins/tabsort.js
+source ~/.vimperator/vimperator-plugins/goo.gl.js
 nnoremap Y :googleUrlShortener<CR>
 
 command! pin :set apptab
