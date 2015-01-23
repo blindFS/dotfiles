@@ -10,8 +10,11 @@ nnoremap <silent> F :silent !fcitx-remote -c<CR>F
 nnoremap <silent> : :silent !fcitx-remote -c<CR>:
 nnoremap <C-L> :set gui=navigation<CR><C-L>
 nnoremap <Esc> <Esc>:set gui=nonavigation<CR>
+nnoremap <C-Q> <C-W>
 
 set hintchars=abcdefghijklmnopqrstuvwxyz
+set suggestengines=''
+set gui=nonavigation
 set focuscontent
 set wildmode=list,full
 set noscrollbars
@@ -21,6 +24,7 @@ colorscheme indigo
 source ~/.vimperator/vimperator-plugins/_libly.js
 source ~/.vimperator/vimperator-plugins/feedSomeKeys_3.js
 source ~/.vimperator/vimperator-plugins/tabsort.js
+source ~/.vimperator/vimperator-plugins/stylish.js
 source ~/.vimperator/vimperator-plugins/goo.gl.js
 nnoremap Y :googleUrlShortener<CR>
 
