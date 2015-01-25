@@ -16,7 +16,6 @@ antigen bundle dirpersist
 antigen bundle archlinux
 
 antigen bundle farseer90718/zsh-funcs
-antigen bundle zsh-users/zaw
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -62,8 +61,6 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M viins '^K' insert-cycledleft
 bindkey -M viins '^J' insert-cycledright
-bindkey -M viins '^H' backward-char
-bindkey -M viins '^L' forward-char
 bindkey -M viins '^B' backward-word
 bindkey -M viins '^F' forward-word
 bindkey -M viins '^A' beginning-of-line
@@ -74,7 +71,9 @@ bindkey -M menuselect 'h' vi-backward-char                # left
 bindkey -M menuselect 'j' vi-down-line-or-history         # down
 bindkey -M menuselect 'k' vi-up-line-or-history           # up
 bindkey -M menuselect 'l' vi-forward-char                 # right
-bindkey '^X' zaw
+bindkey '^T' fzf-file-widget
+bindkey '^L' fzf-cd-widget
+bindkey '^H' fzf-history-widget
 bindkey '^n' history-search-forward
 bindkey '^p' history-search-backward
 bindkey "\e[3~" delete-char
