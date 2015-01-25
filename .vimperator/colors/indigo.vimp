@@ -3,6 +3,8 @@
 " author: mashiro
 " ==/VimperatorColorSchema==
 
+js document.getElementById("liberator-statusline").appendChild(document.getElementById("status-bar"))
+
 " Highlights {{{1
 hi Boolean              color: orchid;
 hi Function             color: skyblue;
@@ -110,6 +112,9 @@ style -name tab-bar-powerline chrome://* <<EOM
         --tab-triangle: block; /* block | none */
     }
 
+    #liberator-statusline {
+        height: 20px;
+    }
 
     @-moz-document url(chrome://browser/content/browser.xul) {
         /*#PanelUI-button, #bookmarks-menu-button, #downloads-button, #home-button, #stylish-toolbar-button, #abp-toolbarbutton,
@@ -214,4 +219,4 @@ style -name tab-bar-powerline chrome://* <<EOM
 EOM
 " }}}1
 
-" vim: ft=vim
+" vim: ft=vim:fdm=marker

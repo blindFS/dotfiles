@@ -23,6 +23,9 @@ set noscrollbars
 set animations
 colorscheme indigo
 
+autocmd LocationChange .* -javascript { options.resetPref('general.useragent.override'); options.setPref('security.csp.enable', true); }
+autocmd LocationChange inbox\\.google\\.com -javascript { options.setPref('general.useragent.override', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36'); options.setPref('security.csp.enable', false);}
+
 source ~/.vimperator/vimperator-plugins/open-with.js
 source ~/.vimperator/vimperator-plugins/_libly.js
 source ~/.vimperator/vimperator-plugins/feedSomeKeys_3.js
