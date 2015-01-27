@@ -23,10 +23,33 @@ set noscrollbars
 set animations
 colorscheme indigo
 
-autocmd LocationChange .* -javascript { options.resetPref('general.useragent.override'); options.setPref('security.csp.enable', true); }
-autocmd LocationChange inbox\\.google\\.com -javascript { options.setPref('general.useragent.override', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36'); options.setPref('security.csp.enable', false);}
-autocmd PageLoadPre v\\.youku\\.com youplayer
-autocmd PageLoadPre www\\.bilibili\\.com/video/av bilidan
+javascript <<EOM
+function toggle_flash() {
+  var oldvar = options.getPref('plugin.state.flash');
+  if (oldvar > 0)
+    liberator.echo('flash-plugin disabled.');
+  else
+    liberator.echo('flash-plugin enabled.');
+  options.setPref('plugin.state.flash', 2-oldvar);
+}
+
+function inbox_enable() {
+  options.setPref('general.useragent.override',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 ' +
+    '(KHTML, like Gecko) Chrome/39.0.2171.99 Safari/537.36');
+  options.setPref('security.csp.enable', false);
+}
+
+function restore_from_inbox() {
+ options.resetPref('general.useragent.override');
+ options.setPref('security.csp.enable', true);
+}
+EOM
+
+autocmd LocationChange .* -javascript restore_from_inbox()
+autocmd LocationChange inbox\\.google\\.com -javascript inbox_enable()
+autocmd PageLoad v\\.youku\\.com youplayer
+autocmd PageLoad www\\.bilibili\\.com/video/av bilidan
 
 source ~/.vimperator/vimperator-plugins/open-with.js
 source ~/.vimperator/vimperator-plugins/_libly.js
@@ -41,7 +64,7 @@ command! unpin :set noapptab
 command! youplayer :openwith youplayer
 command! bilidan :openwith bilidan
 command! chrome :openwith chromium
-command! flashtoggle :js options.setPref('plugin.state.flash', 2-options.getPref('plugin.state.flash'))
+command! flashtoggle :js toggle_flash()
 nnoremap <C-F> :flashtoggle<CR>
 
 fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga
