@@ -18,7 +18,7 @@ set hintchars=abcdefghijklmnopqrstuvwxyz
 set suggestengines=''
 set gui=nonavigation
 set focuscontent
-set wildmode=list,full
+set wildmode=list:full
 set noscrollbars
 set animations
 colorscheme indigo
@@ -44,12 +44,17 @@ function restore_from_inbox() {
  options.resetPref('general.useragent.override');
  options.setPref('security.csp.enable', true);
 }
+
+function execute_if_no_flash(command) {
+  if (options.getPref('plugin.state.flash') == 0)
+    liberator.execute(command);
+}
 EOM
 
-autocmd LocationChange .* -javascript restore_from_inbox()
-autocmd LocationChange inbox\\.google\\.com -javascript inbox_enable()
-autocmd PageLoad v\\.youku\\.com youplayer
-autocmd PageLoad www\\.bilibili\\.com/video/av bilidan
+autocmd LocationChange .* js restore_from_inbox()
+autocmd LocationChange inbox\\.google\\.com js inbox_enable()
+autocmd PageLoad v\\.youku\\.com js execute_if_no_flash('youplayer')
+autocmd PageLoad www\\.bilibili\\.com/video/av js execute_if_no_flash('bilidan')
 
 source ~/.vimperator/vimperator-plugins/open-with.js
 source ~/.vimperator/vimperator-plugins/_libly.js
