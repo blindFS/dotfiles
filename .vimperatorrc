@@ -8,6 +8,9 @@ nnoremap D :tabclose!<CR>
 nnoremap <silent> f :silent !fcitx-remote -c<CR>f
 nnoremap <silent> F :silent !fcitx-remote -c<CR>F
 nnoremap <silent> : :silent !fcitx-remote -c<CR>:
+nnoremap <silent> b :silent !fcitx-remote -c<CR>b
+nnoremap <silent> t :silent !fcitx-remote -c<CR>t
+nnoremap <silent> o :silent !fcitx-remote -c<CR>o
 nnoremap <C-L> :set gui=navigation<CR><C-L>
 nnoremap <Esc> <Esc>:set gui=nonavigation<CR>
 nnoremap <C-Q> <C-W>
@@ -51,18 +54,20 @@ function execute_if_no_flash(command) {
 }
 EOM
 
+autocmd!
 autocmd LocationChange .* js restore_from_inbox()
 autocmd LocationChange inbox\\.google\\.com js inbox_enable()
 autocmd PageLoad v\\.youku\\.com js execute_if_no_flash('youplayer')
 autocmd PageLoad www\\.bilibili\\.com/video/av js execute_if_no_flash('bilidan')
 
-source ~/.vimperator/vimperator-plugins/open-with.js
+let g:smooziee_scroll_interval='20'
+let g:plugin_loader_roots = '~/.vimperator/vimperator-plugins'
+let g:plugin_loader_plugins = 'open-with,feedSomeKeys_3,tabsort,stylish,'
+let g:plugin_loader_plugins .= 'goo.gl,_smooziee,caret-hint'
 source ~/.vimperator/vimperator-plugins/_libly.js
-source ~/.vimperator/vimperator-plugins/feedSomeKeys_3.js
-source ~/.vimperator/vimperator-plugins/tabsort.js
-source ~/.vimperator/vimperator-plugins/stylish.js
-source ~/.vimperator/vimperator-plugins/goo.gl.js
+source ~/.vimperator/vimperator-plugins/plugin_loader.js
 nnoremap Y :googleUrlShortener<CR>
+nnoremap v :caret select head<CR>
 
 command! pin :set apptab
 command! unpin :set noapptab
