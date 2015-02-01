@@ -585,6 +585,8 @@ local function arrange(out)
     return choices
 end
 
+local xicon = "/usr/share/icons/Flattr/devices/scalable/video-display.svg"
+
 -- Build available choices
 local function menu()
     local menu = {}
@@ -619,7 +621,7 @@ local function menu()
 
         menu[#menu + 1] = { label,
         cmd,
-        "/usr/share/icons/Numix/128x128/devices/display.svg"}
+        xicon}
     end
 
     dlabel = 'Duplicate'
@@ -632,7 +634,7 @@ local function menu()
     end
     menu[#menu + 1] = { dlabel,
     dcmd,
-    "/usr/share/icons/Numix/128x128/devices/display.svg"}
+    xicon}
 
     return menu
 end
@@ -658,7 +660,7 @@ local function xrandr()
     local next  = state.iterator()
     local label, action, icon
     if not next then
-        label, icon = "Keep the current configuration", "/usr/share/icons/Numix/128x128/devices/display.svg"
+        label, icon = "Keep current config", xicon
         state.iterator = nil
     else
         label, action, icon = unpack(next)
