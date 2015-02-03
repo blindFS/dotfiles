@@ -52,9 +52,53 @@ function execute_if_no_flash(command) {
   if (options.getPref('plugin.state.flash') == 0)
     liberator.execute(command);
 }
+
+function proxy_status() {
+  var stat_bar = document.getElementById('liberator-statusline');
+  var proxy_st = document.createElement('toolbaritem');
+  proxy_st.setAttribute('id', 'liberator-statusline-proxy');
+  stat_bar.appendChild(proxy_st);
+  proxy_status_set_text();
+}
+
+function proxy_status_set_text() {
+  var tbitem = document.getElementById('liberator-statusline-proxy');
+  if (!tbitem)
+    return;
+  var pxtype = options.getPref('network.proxy.type');
+  switch (pxtype) {
+    case 0:
+      tbitem.textContent = 'Ⓓ';
+      break;
+    case 1:
+      tbitem.textContent = 'Ⓜ';
+      break;
+    case 2:
+      tbitem.textContent = 'Ⓟ';
+      break;
+    case 4:
+      tbitem.textContent = 'Ⓐ';
+      break;
+    case 5:
+      tbitem.textContent = 'Ⓢ';
+      break;
+    default:
+      tbitem.textContent = 'Ⓤ';
+  }
+}
+
+function toggle_proxy() {
+  var pxtype = options.getPref('network.proxy.type');
+  if (pxtype == 0)
+    liberator.execute('proxy pac -reload file:///home/farseer/.proxy.pac');
+  else
+    liberator.execute('proxy direct');
+  proxy_status_set_text();
+}
 EOM
 
 autocmd!
+autocmd VimperatorEnter .* js proxy_status()
 autocmd LocationChange .* js restore_from_inbox()
 autocmd LocationChange inbox\\.google\\.com js inbox_enable()
 autocmd PageLoad v\\.youku\\.com js execute_if_no_flash('youplayer')
@@ -63,7 +107,8 @@ autocmd PageLoad www\\.bilibili\\.com/video/av js execute_if_no_flash('bilidan')
 let g:smooziee_scroll_interval='20'
 let g:plugin_loader_roots = '~/.vimperator/vimperator-plugins'
 let g:plugin_loader_plugins = 'open-with,feedSomeKeys_3,tabsort,stylish,'
-let g:plugin_loader_plugins .= 'goo.gl,_smooziee,caret-hint'
+let g:plugin_loader_plugins .= 'goo.gl,_smooziee,caret-hint,imageextender,'
+let g:plugin_loader_plugins .= 'proxy_command'
 source ~/.vimperator/vimperator-plugins/_libly.js
 source ~/.vimperator/vimperator-plugins/plugin_loader.js
 nnoremap Y :googleUrlShortener<CR>
@@ -75,6 +120,7 @@ command! youplayer :openwith youplayer
 command! bilidan :openwith bilidan
 command! chrome :openwith chromium
 command! flashtoggle :js toggle_flash()
+command! ss :js toggle_proxy()
 nnoremap <C-F> :flashtoggle<CR>
 
 fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga

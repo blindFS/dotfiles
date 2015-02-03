@@ -3,7 +3,7 @@
 " author: mashiro
 " ==/VimperatorColorSchema==
 
-js document.getElementById("liberator-statusline").appendChild(document.getElementById("status-bar"))
+" js document.getElementById("liberator-statusline").appendChild(document.getElementById("status-bar"))
 
 " Highlights {{{1
 hi Boolean              color: orchid;
@@ -110,10 +110,6 @@ style -name tab-bar-powerline chrome://* <<EOM
         --tab-height: 26px; --tab-icon-size: 15px; --tab-strip-margin: -11px; --tab-overlap: -5px;
         --tab-font-size: 9pt;
         --tab-triangle: block; /* block | none */
-    }
-
-    #liberator-statusline {
-        height: 20px;
     }
 
     @-moz-document url(chrome://browser/content/browser.xul) {
