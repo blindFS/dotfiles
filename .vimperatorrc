@@ -1,5 +1,17 @@
-nnoremap j 3j
-nnoremap k 3k
+let g:smooziee_scroll_interval='20'
+let g:plugin_loader_roots = '~/.vimperator/vimperator-plugins'
+let g:plugin_loader_plugins = 'open-with,feedSomeKeys_3,tabsort,stylish,'
+let g:plugin_loader_plugins .= 'goo.gl,_smooziee,caret-hint,imageextender,'
+let g:plugin_loader_plugins .= 'proxy_command'
+let g:powerline_seps = 'bookmark,tabcount,position,proxy'
+let g:powerline_back_colors = '#2980b9,#e67e22,#1abc9c,#000000'
+let g:powerline_fore_colors = '#000000,#000000,#000000,default'
+
+source ~/.vimperator/vimperator-plugins/_libly.js
+source ~/.vimperator/vimperator-plugins/plugin_loader.js
+
+nnoremap Y :googleUrlShortener<CR>
+nnoremap v :caret select head<CR>
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
 nnoremap [t :tabprevious<CR>
@@ -14,8 +26,10 @@ nnoremap <silent> o :silent !fcitx-remote -c<CR>o
 nnoremap <C-L> :set gui=navigation<CR><C-L>
 nnoremap <Esc> <Esc>:set gui=nonavigation<CR>
 nnoremap <C-Q> <C-W>
+nnoremap <C-Y> :js markdown_url()<CR>
 cnoremap <C-N> <Down>
 cnoremap <C-P> <Up>
+cnoremap <C-Q> <Esc>
 
 set hintchars=abcdefghijklmnopqrstuvwxyz
 set suggestengines=''
@@ -27,6 +41,12 @@ set animations
 colorscheme indigo
 
 javascript <<EOM
+function markdown_url() {
+  var mdurl = '[' + buffer.title + '](' + buffer.URL + ')';
+  util.copyToClipboard(mdurl);
+  liberator.echo('copied:' + mdurl);
+}
+
 function toggle_flash() {
   var oldvar = options.getPref('plugin.state.flash');
   if (oldvar > 0)
@@ -53,66 +73,106 @@ function execute_if_no_flash(command) {
     liberator.execute(command);
 }
 
-function proxy_status() {
-  var stat_bar = document.getElementById('liberator-statusline');
-  var proxy_st = document.createElement('toolbaritem');
-  proxy_st.setAttribute('id', 'liberator-statusline-proxy');
-  stat_bar.appendChild(proxy_st);
-  proxy_status_set_text();
-}
-
-function proxy_status_set_text() {
-  var tbitem = document.getElementById('liberator-statusline-proxy');
-  if (!tbitem)
-    return;
-  var pxtype = options.getPref('network.proxy.type');
-  switch (pxtype) {
-    case 0:
-      tbitem.textContent = 'Ⓓ';
-      break;
-    case 1:
-      tbitem.textContent = 'Ⓜ';
-      break;
-    case 2:
-      tbitem.textContent = 'Ⓟ';
-      break;
-    case 4:
-      tbitem.textContent = 'Ⓐ';
-      break;
-    case 5:
-      tbitem.textContent = 'Ⓢ';
-      break;
-    default:
-      tbitem.textContent = 'Ⓤ';
-  }
-}
-
 function toggle_proxy() {
   var pxtype = options.getPref('network.proxy.type');
   if (pxtype == 0)
     liberator.execute('proxy pac -reload file:///home/farseer/.proxy.pac');
   else
     liberator.execute('proxy direct');
-  proxy_status_set_text();
+}
+
+function proxy_status() {
+  if (!document.getElementById('liberator-status-proxy')) {
+    var proxy_st = document.createElement('toolbaritem');
+    proxy_st.setAttribute('id', 'liberator-status-proxy');
+    statusline._statuslineWidget.appendChild(proxy_st);
+  }
+
+  var pxObserver = {
+    observe: function(subject, topic, data) {
+      statusline.updateField('proxy');
+    }
+  }
+
+  Services.prefs.addObserver('network.proxy.type', pxObserver, false);
+  statusline.addField('proxy', 'proxy state', 'liberator-status-proxy',
+    function updateProxy (node) {
+      var pxtype = options.getPref('network.proxy.type');
+      switch (pxtype) {
+        case 0:
+          node.textContent = '✘';
+          node.style.color = '#d35400';
+          break;
+        case 1:
+          node.textContent = 'M';
+          node.style.color = '#95a5a6';
+          break;
+        case 2:
+          node.textContent = '✔';
+          node.style.color = '#2ecc71';
+          break;
+        case 4:
+          node.textContent = 'A';
+          break;
+        case 5:
+          node.textContent = 'S';
+          break;
+        default:
+          node.textContent = 'U';
+      }
+    });
+  statusline.updateField('proxy');
+}
+
+function power_arrow(id, right, full) {
+  var pa = document.createElement('toolbaritem');
+  pa.setAttribute('id', 'liberator-status-pa-'+id);
+  if (right) {
+    pa.textContent = (full ? '' : '');
+    pa.style.marginRight = '-1px';
+  }
+  else
+    pa.textContent = (full ? '' : '');
+  return pa;
+}
+
+function power_status() {
+  var seperators = liberator.globalVariables.powerline_seps.split(',');
+  var bcolors = liberator.globalVariables.powerline_back_colors.split(',');
+  var fcolors = liberator.globalVariables.powerline_fore_colors.split(',');
+  var widgets = options.get('status').value.split(',');
+  var fields = statusline._statusfields;
+  var cur = -1;
+  for (var i=0; i < widgets.length; i++) {
+    if (widgets[i] == seperators[cur+1]) {
+      cur++;
+      old_pa = document.getElementById('liberator-status-pa-'+widgets[i]);
+      if (old_pa)
+        statusline._statuslineWidget.removeChild(old_pa);
+      var pa = power_arrow(widgets[i], 1, 1);
+      pa.style.color = bcolors[cur];
+      if (cur > 0)
+        pa.style.background = bcolors[cur-1];
+      statusline._statuslineWidget.insertBefore(pa, fields[widgets[i]].node);
+    }
+    if (cur > -1) {
+      fields[widgets[i]].node.style.background = bcolors[cur];
+      if (fcolors[cur] != 'default')
+        fields[widgets[i]].node.style.color = fcolors[cur];
+    }
+  }
 }
 EOM
 
+js proxy_status()
+set status=location,ssl,bookmark,history,input,tabcount,position,proxy
+js power_status()
+
 autocmd!
-autocmd VimperatorEnter .* js proxy_status()
 autocmd LocationChange .* js restore_from_inbox()
 autocmd LocationChange inbox\\.google\\.com js inbox_enable()
 autocmd PageLoad v\\.youku\\.com js execute_if_no_flash('youplayer')
 autocmd PageLoad www\\.bilibili\\.com/video/av js execute_if_no_flash('bilidan')
-
-let g:smooziee_scroll_interval='20'
-let g:plugin_loader_roots = '~/.vimperator/vimperator-plugins'
-let g:plugin_loader_plugins = 'open-with,feedSomeKeys_3,tabsort,stylish,'
-let g:plugin_loader_plugins .= 'goo.gl,_smooziee,caret-hint,imageextender,'
-let g:plugin_loader_plugins .= 'proxy_command'
-source ~/.vimperator/vimperator-plugins/_libly.js
-source ~/.vimperator/vimperator-plugins/plugin_loader.js
-nnoremap Y :googleUrlShortener<CR>
-nnoremap v :caret select head<CR>
 
 command! pin :set apptab
 command! unpin :set noapptab
@@ -124,4 +184,6 @@ command! ss :js toggle_proxy()
 nnoremap <C-F> :flashtoggle<CR>
 
 fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga
-" vim:ts=4:sw=4:tw=0:ft=vim
+fmaps -urls='twitter.com' gh gn ga gr gd gp gf gl gm gs gu
+fmaps -urls='inbox.google.com' j k ? c / i t n p o
+" vim:ts=4:sw=4:tw=0:ft=vim:fdm=marker:foldmarker={,}
