@@ -83,7 +83,7 @@ function toggle_proxy() {
 
 function proxy_status() {
   if (!document.getElementById('liberator-status-proxy')) {
-    var proxy_st = document.createElement('toolbaritem');
+    var proxy_st = document.createElement('label');
     proxy_st.setAttribute('id', 'liberator-status-proxy');
     statusline._statuslineWidget.appendChild(proxy_st);
   }
@@ -100,32 +100,32 @@ function proxy_status() {
       var pxtype = options.getPref('network.proxy.type');
       switch (pxtype) {
         case 0:
-          node.textContent = '✘';
+          node.value = '✘';
           node.style.color = '#d35400';
           break;
         case 1:
-          node.textContent = 'M';
+          node.value = 'M';
           node.style.color = '#95a5a6';
           break;
         case 2:
-          node.textContent = '✔';
+          node.value = '✔';
           node.style.color = '#2ecc71';
           break;
         case 4:
-          node.textContent = 'A';
+          node.value = 'A';
           break;
         case 5:
-          node.textContent = 'S';
+          node.value = 'S';
           break;
         default:
-          node.textContent = 'U';
+          node.value = 'U';
       }
     });
   statusline.updateField('proxy');
 }
 
 function power_arrow(id, right, full) {
-  var pa = document.createElement('toolbaritem');
+  var pa = document.createElement('label');
   pa.setAttribute('id', 'liberator-status-pa-'+id);
   if (right) {
     pa.textContent = (full ? '' : '');

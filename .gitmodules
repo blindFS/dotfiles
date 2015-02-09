@@ -25,3 +25,6 @@
 [submodule ".emacs.d"]
 	path = .emacs.d
 	url = https://github.com/farseer90718/dotemacs
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
