@@ -135,11 +135,24 @@ style -name tab-bar-powerline chrome://* <<EOM
         #tabbrowser-tabs .tabbrowser-tab[pinned]            { width: 38px !important; }
         #tabbrowser-tabs .tabbrowser-tab[pinned] label      { display: none !important; }
 
-        #tabbrowser-tabs .tabbrowser-tab .tab-icon-image {
+        #tabbrowser-tabs .tabbrowser-tab .tab-icon-image, .tab-throbber[progress], .tab-throbber[busy] {
             margin: 0 -10px 0 14px !important;
             width: var(--tab-icon-size) !important;
             height: var(--tab-icon-size) !important;
         }
+
+        .tab-icon-image:not([src]) {
+            list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png") !important;
+        }
+
+        .tab-throbber[busy] {
+            list-style-image: url("chrome://browser/skin/tabbrowser/connecting.png") !important;
+        }
+
+        .tab-throbber[progress] {
+            list-style-image: url("chrome://browser/skin/tabbrowser/loading.png") !important;
+        }
+
 
         .tabbrowser-tab *, .tabs-newtab-button * {
             background: none !important; list-style-image: none !important;
