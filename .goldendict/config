@@ -70,7 +70,7 @@
  <preferences>
   <interfaceLanguage></interfaceLanguage>
   <helpLanguage></helpLanguage>
-  <displayStyle>lingoes</displayStyle>
+  <displayStyle>modern</displayStyle>
   <newTabsOpenAfterCurrentOne>0</newTabsOpenAfterCurrentOne>
   <newTabsOpenInBackground>1</newTabsOpenInBackground>
   <hideSingleTab>0</hideSingleTab>
@@ -108,10 +108,10 @@
   <alwaysOnTop>0</alwaysOnTop>
   <searchInDock>0</searchInDock>
   <historyStoreInterval>0</historyStoreInterval>
-  <proxyserver enabled="0" useSystemProxy="0">
+  <proxyserver enabled="1" useSystemProxy="0">
    <type>0</type>
-   <host></host>
-   <port>3128</port>
+   <host>127.0.0.1</host>
+   <port>6024</port>
    <user></user>
    <password></password>
    <systemProxyUser></systemProxyUser>
@@ -152,7 +152,7 @@
  <helpSplitterState></helpSplitterState>
  <dictInfoGeometry></dictInfoGeometry>
  <inspectorGeometry></inspectorGeometry>
- <timeForNewReleaseCheck>2015-02-09T11:32:55</timeForNewReleaseCheck>
+ <timeForNewReleaseCheck>2015-02-13T11:21:17</timeForNewReleaseCheck>
  <skippedRelease></skippedRelease>
  <showingDictBarNames>1</showingDictBarNames>
  <usingSmallIconsInToolbars>1</usingSmallIconsInToolbars>

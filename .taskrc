@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=/home/farseer/tmp/.task
+data.location=~/tmp/.task
 uda.area.type=string
 uda.area.label=Area
 color=no
@@ -32,7 +32,7 @@ report.all.labels=ID,Area,Project,Status,Age,Pri,Due,Complete,Description,Depend
 report.all.columns=id,area,project,status,entry.age,priority,due,end,description,depends,tags,uuid
 report.all.sort=status+,project+,due+,priority-,description+,id+
 
-defaultwidth=999
+defaultwidth=0
 editor=vim
 
 # taskd.server=ftp://orcking@home.ustc.edu.cn/
