@@ -15,12 +15,12 @@ antigen bundle extract
 antigen bundle dirpersist
 antigen bundle archlinux
 
-antigen bundle farseer90718/zsh-funcs
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+antigen bundle hchbaw/auto-fu.zsh
+antigen bundle farseer90718/zsh-funcs
+# antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 antigen apply
 
@@ -66,7 +66,7 @@ bindkey -M viins '^F' forward-word
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^E' end-of-line
 bindkey -M vicmd 'u'  undo
-bindkey -M vicmd '^r' redo
+bindkey -M vicmd '^R' redo
 bindkey -M menuselect 'h' vi-backward-char                # left
 bindkey -M menuselect 'j' vi-down-line-or-history         # down
 bindkey -M menuselect 'k' vi-up-line-or-history           # up
@@ -74,8 +74,8 @@ bindkey -M menuselect 'l' vi-forward-char                 # right
 bindkey '^T' fzf-file-widget
 bindkey '^L' fzf-cd-widget
 bindkey '^H' fzf-history-widget
-bindkey '^n' history-search-forward
-bindkey '^p' history-search-backward
+bindkey '^N' history-search-forward
+bindkey '^P' history-search-backward
 bindkey "\e[3~" delete-char
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
@@ -85,6 +85,7 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/tmp/.zcache
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+zstyle ':completion:*' completer _oldlist _complete
 zstyle ':completion:*:match:*' original only
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:predict:*' completer _complete
@@ -130,31 +131,6 @@ my_accounts=(
 
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
-user-complete(){
-    case $BUFFER in
-        "" )
-            BUFFER="cd "
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        "cd --" )
-            BUFFER="cd +"
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        "cd +-" )
-            BUFFER="cd -"
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        * )
-            zle expand-or-complete
-            ;;
-    esac
-}
-zle -N user-complete
-bindkey "\t" user-complete
-
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
@@ -162,6 +138,26 @@ sudo-command-line() {
 }
 zle -N sudo-command-line
 bindkey "^r" sudo-command-line
+
+zstyle ':auto-fu:highlight' input bold
+zstyle ':auto-fu:highlight' completion fg=black,bold
+zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
+zstyle ':auto-fu:var' postdisplay $''
+zstyle ':auto-fu:var' track-keymap-skip opp
+zle-line-init () {auto-fu-init;}; zle -N zle-line-init
+auto-fu-zle-keymap-select () {
+    afu-track-keymap "$@" afu-adjust-main-keymap
+    if [[ $KEYMAP = "vicmd" ]]; then
+        vimod="%{$bg[cyan]$fg[black]%}  Normal %{$reset_color$fg[cyan]%}"
+    else
+        vimod="%{$bg[yellow]$fg[black]%} ✎ Insert %{$reset_color$fg[yellow]%}"
+    fi
+    zle reset-prompt
+    zle -R
+
+}
+zle -N zle-keymap-select auto-fu-zle-keymap-select
+
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
