@@ -76,7 +76,6 @@ bindkey '^L' fzf-cd-widget
 bindkey '^H' fzf-history-widget
 bindkey '^N' history-search-forward
 bindkey '^P' history-search-backward
-bindkey "\e[3~" delete-char
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------complete------------------------------------------------------------------------{
@@ -139,51 +138,11 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey '^R' sudo-command-line
 
-zstyle ':auto-fu:highlight' input bold
-zstyle ':auto-fu:highlight' completion fg=black,bold
-zstyle ':auto-fu:highlight' completion/one fg=white,bold,underline
-zstyle ':auto-fu:var' postdisplay $''
-zstyle ':auto-fu:var' track-keymap-skip opp
-
-toggle-auto-fu() {
-    if (( $+enable_auto_fu )); then
-        zle -D zle-line-init
-        unset enable_auto_fu
-    else
-        zle-line-init () {
-            auto-fu-init
-        }
-        zle -N zle-line-init
-        enable_auto_fu=1
-    fi
-}
-zle -N toggle-auto-fu
-bindkey -M afu '^O' toggle-auto-fu
 bindkey '^O' toggle-auto-fu
-toggle-auto-fu
-
-bindkey -M afu '^T' fzf-file-widget
-bindkey -M afu '^L' fzf-cd-widget
-bindkey -M afu '^H' fzf-history-widget
-
-auto-fu-zle-keymap-select () {
-    afu-track-keymap "$@" afu-adjust-main-keymap
-    if [[ $KEYMAP = "vicmd" ]]; then
-        vimod="%{$bg[cyan]$fg[black]%}  Normal %{$reset_color$fg[cyan]%}"
-    else
-        vimod="%{$bg[yellow]$fg[black]%} ✎ Insert %{$reset_color$fg[yellow]%}"
-    fi
-    zle reset-prompt
-    zle -R
-
-}
-zle -N zle-keymap-select auto-fu-zle-keymap-select
-
+zle-line-init () {auto-fu-init;}
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
-
-### package manager specific
 
 ### universal
 alias ubuntu='sudo chroot /media/ubuntu /bin/su farseer'
