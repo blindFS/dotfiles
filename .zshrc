@@ -20,7 +20,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle hchbaw/auto-fu.zsh
 antigen bundle farseer90718/zsh-funcs
-# antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 antigen apply
 
@@ -137,9 +137,6 @@ sudo-command-line() {
 }
 zle -N sudo-command-line
 bindkey '^R' sudo-command-line
-
-bindkey '^O' toggle-auto-fu
-zle-line-init () {auto-fu-init;}
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
