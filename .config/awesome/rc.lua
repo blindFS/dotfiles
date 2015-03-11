@@ -585,7 +585,7 @@ local function arrange(out)
     return choices
 end
 
-local xicon = "/usr/share/icons/Flattr/devices/scalable/video-display.svg"
+local xicon = "/usr/share/icons/Numix/64x64/devices/video-display.svg"
 
 -- Build available choices
 local function menu()

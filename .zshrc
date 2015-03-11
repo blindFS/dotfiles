@@ -3,18 +3,19 @@ source $HOME/.profile
 source $HOME/.antigen/antigen/antigen.zsh
 antigen use oh-my-zsh
 
-antigen bundle cpanm
-antigen bundle pip
+antigen bundle archlinux
 antigen bundle dircycle
+antigen bundle dirpersist
+antigen bundle extract
 antigen bundle fbterm
 antigen bundle git-extras
+antigen bundle nmap
 antigen bundle npm
+antigen bundle pip
 antigen bundle rsync
 antigen bundle themes
-antigen bundle extract
-antigen bundle dirpersist
-antigen bundle archlinux
 
+antigen bundle supercrabtree/k
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting

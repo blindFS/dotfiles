@@ -27,7 +27,6 @@ PATH=$HOME/.gem/ruby/2.2.0/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/opt/cuda/bin:$PATH
 
-export CHEATCOLORS=true
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export QT_STYLE_OVERRIDE=gtk
