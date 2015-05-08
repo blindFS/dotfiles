@@ -7,7 +7,7 @@ antigen bundle archlinux
 antigen bundle dircycle
 antigen bundle dirpersist
 antigen bundle extract
-antigen bundle fbterm
+# antigen bundle fbterm
 antigen bundle git-extras
 antigen bundle nmap
 antigen bundle npm
@@ -19,7 +19,7 @@ antigen bundle supercrabtree/k
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle hchbaw/auto-fu.zsh
+# antigen bundle hchbaw/auto-fu.zsh
 antigen bundle farseer90718/zsh-funcs
 antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 

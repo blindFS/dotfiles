@@ -26,7 +26,7 @@ color=no
 #include /usr/share/doc/task/rc/dark-blue-256.theme
 #include /usr/share/doc/task/rc/dark-violets-256.theme
 #include /usr/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/share/doc/task/rc/dark-gray-256.theme
+include /usr/share/doc/task/rc/dark-gray-256.theme
 
 report.all.labels=ID,Area,Project,Status,Age,Pri,Due,Complete,Description,Depends,Tags,UUID
 report.all.columns=id,area,project,status,entry.age,priority,due,end,description,depends,tags,uuid
