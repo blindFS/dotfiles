@@ -18,16 +18,18 @@
      ;; --------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
-     (git :variables
-          git-gutter-use-fringe nil)
+     ;; (git :variables
+     ;;     git-gutter-use-fringe nil)
      ;; markdown
      ;; org
+     git
      syntax-checking
      fp
      orgme
      eyecandy
      company
      ido
+     web
      bindings
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -151,8 +153,14 @@ layers configuration."
                       charset
                       (font-spec :family "Source Han Sans")))
   (setq face-font-rescale-alist '(("Source Han Sans" . 1.15) ("Source Han Sans" . 1.15)))
+
   (global-flycheck-mode)
-  )
+
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-recentf-fuzzy-match t)
+  (setq helm-locate-fuzzy-match t)
+  (setq helm-file-cache-fuzzy-match t)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
