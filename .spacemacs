@@ -22,6 +22,8 @@
      ;;     git-gutter-use-fringe nil)
      ;; markdown
      ;; org
+     shell
+     emacs-lisp
      git
      syntax-checking
      fp
