@@ -26,6 +26,6 @@ emulate_middle = 0
 swap_buttons = 0
 
 [position]
-x = -1
-y = -1
+x = 1255
+y = 789
 

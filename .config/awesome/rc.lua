@@ -17,7 +17,6 @@ local blingbling = require("blingbling")
 
 -- {{{ Move the cursor
 local safeCoords             = {x=1600, y=900}
-local chromeCloseDownloadBar = {x=3180, y=876}
 local mouseMoveInterval      = 15
 local moveMouseOnStartup     = true
 if moveMouseOnStartup then
@@ -138,7 +137,7 @@ graphics   = "gimp"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser   = "chromium"
+browser   = "firefox"
 mail      = terminal .. " -e mutt"
 fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
@@ -209,7 +208,7 @@ lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Mail IMAP check
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
+mailicon:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn(mail) end)))
 mailwidget = wibox.widget.background(lain.widgets.imap({
    timeout  = 180,
    server   = "imap.gmail.com",
@@ -231,8 +230,10 @@ artist = ""
 title  = ""
 mpdicon = wibox.widget.imagebox(beautiful.widget_music)
 mpdicon:buttons(awful.util.table.join(
-awful.button({ }, 1, function () awful.util.spawn_with_shell(musicplr) end),
-awful.button({ }, 3, function () awful.util.spawn_with_shell("mpc toggle") end)
+awful.button({}, 1, function () awful.util.spawn_with_shell(musicplr) end),
+awful.button({}, 3, function () awful.util.spawn_with_shell("mpc toggle") end),
+awful.button({}, 4, function () awful.util.spawn_with_shell("mpc next") end),
+awful.button({}, 5, function () awful.util.spawn_with_shell("mpc prev") end)
 ))
 
 mpdwidget = lain.widgets.mpd({
@@ -357,9 +358,10 @@ batwidget = lain.widgets.bat({
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volicon:buttons(awful.util.table.join(
-awful.button({ }, 1, function () awful.util.spawn_with_shell(mixer) end),
-awful.button({ }, 4, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB+')) volumewidget.update() end),
-awful.button({ }, 5, function () couth.notifier:notify( couth.alsa:setVolume('Master','2dB-')) volumewidget.update() end)
+awful.button({}, 1, function () awful.util.spawn_with_shell(mixer) end),
+awful.button({}, 3, function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
+awful.button({}, 4, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB+')) volumewidget.update() end),
+awful.button({}, 5, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB-')) volumewidget.update() end)
 ))
 volumewidget = lain.widgets.alsa({
     settings = function()
@@ -415,16 +417,16 @@ mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
-awful.button({ }, 1, awful.tag.viewonly),
+awful.button({}, 1, awful.tag.viewonly),
 awful.button({ modkey }, 1, awful.client.movetotag),
-awful.button({ }, 3, awful.tag.viewtoggle),
+awful.button({}, 3, awful.tag.viewtoggle),
 awful.button({ modkey }, 3, awful.client.toggletag),
-awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
+awful.button({}, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
+awful.button({}, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
 )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
-awful.button({ }, 1, function (c)
+awful.button({}, 1, function (c)
     if c == client.focus then
         c.minimized = true
     else
@@ -440,7 +442,7 @@ awful.button({ }, 1, function (c)
         c:raise()
     end
 end),
-awful.button({ }, 3, function ()
+awful.button({}, 3, function ()
     if instance then
         instance:hide()
         instance = nil
@@ -448,11 +450,11 @@ awful.button({ }, 3, function ()
         instance = awful.menu.clients({ width=250 })
     end
 end),
-awful.button({ }, 4, function ()
+awful.button({}, 4, function ()
     awful.client.focus.byidx(1)
     if client.focus then client.focus:raise() end
 end),
-awful.button({ }, 5, function ()
+awful.button({}, 5, function ()
     awful.client.focus.byidx(-1)
     if client.focus then client.focus:raise() end
 end))
@@ -465,10 +467,10 @@ for s = 1, screen.count() do
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
-    awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
-    awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
-    awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
-    awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+    awful.button({}, 1, function () awful.layout.inc(layouts, 1) end),
+    awful.button({}, 3, function () awful.layout.inc(layouts, -1) end),
+    awful.button({}, 4, function () awful.layout.inc(layouts, 1) end),
+    awful.button({}, 5, function () awful.layout.inc(layouts, -1) end)))
 
     -- Create a taglist widget
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
@@ -536,9 +538,9 @@ end
 
 -- {{{ Mouse Bindings
 root.buttons(awful.util.table.join(
-awful.button({ }, 3, function () mymainmenu:toggle() end),
-awful.button({ }, 4, awful.tag.viewnext),
-awful.button({ }, 5, awful.tag.viewprev)
+awful.button({}, 3, function () mymainmenu:toggle() end),
+awful.button({}, 4, awful.tag.viewnext),
+awful.button({}, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -692,7 +694,6 @@ globalkeys = awful.util.table.join(
 
 -- {{ mouse control
 awful.key({ modkey, altkey }, "m", function() awful.util.spawn("xdotool mousemove " .. safeCoords.x .. " " .. safeCoords.y) end),
-awful.key({ modkey, altkey }, "d", function() awful.util.spawn("xdotool mousemove " .. chromeCloseDownloadBar.x .. " " .. chromeCloseDownloadBar.y .. " click 1") end),
 awful.key({ modkey, altkey }, "j", function() awful.util.spawn("xdotool mousemove_relative 0 " .. mouseMoveInterval) end),
 awful.key({ modkey, altkey }, "k", function() awful.util.spawn("xdotool mousemove_relative 0 -" .. mouseMoveInterval) end),
 awful.key({ modkey, altkey }, "h", function() awful.util.spawn("xdotool mousemove_relative -- -" .. mouseMoveInterval .. " 0") end),
@@ -797,7 +798,7 @@ awful.key({ modkey }, "a",      function () awful.util.spawn_with_shell("mess") 
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
 awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
 awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
-awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Chromium" })        end ),
+awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Firefox"       })        end ),
 awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"         })        end ),
 
 -- Prompt
@@ -869,7 +870,7 @@ for i = 1, 9 do
 end
 
 clientbuttons = awful.util.table.join(
-awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+awful.button({}, 1, function (c) client.focus = c; c:raise() end),
 awful.button({ modkey }, 1, awful.mouse.client.move),
 awful.button({ modkey }, 3, awful.mouse.client.resize))
 
@@ -880,7 +881,7 @@ root.keys(globalkeys)
 -- {{{ Rules
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
+    { rule = {},
         properties = {
             border_width = beautiful.border_width,
             border_color = beautiful.border_normal,
@@ -893,19 +894,9 @@ awful.rules.rules = {
     { rule = { class = "URxvt" },
         properties = { opacity = 0.90 } },
     { rule = { class = "Gvim" },
-        properties = { opacity = 0.90 } },
+        properties = { opacity = 0.85 } },
     { rule = { class = "Emacs" },
         properties = { opacity = 0.90 } },
-    { rule = { class = "Screenkey" },
-        properties   = {
-            opacity  = 0.50,
-            floating = true,
-            ontop    = true,
-            focus    = false },
-        callback = function( c )
-            c:geometry( { x = 0, width = 800, y = 800, height = 120 } )
-        end
-    },
     { rule = { name = "OSD Lyrics" },
         properties       = {
             border_width = 0,
@@ -920,14 +911,12 @@ awful.rules.rules = {
         properties = { floating = true } },
     { rule = { class = "Synapse" },
         properties = { border_width = 0 } },
-    { rule = { class = "MPlayer" },
-        properties = { floating = true } },
     { rule = { class = "vbam" },
         properties = { floating = true } },
     { rule = { class = "rdesktop" },
         properties = { floating = false} },
-    -- { rule = { class = "Chromium" },
-        -- properties = { tag = tags[1][2] } },
+    { rule = { class = "Firefox" },
+        properties = { tag = tags[1][2] } },
     { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
     { rule = { class = "Eclipse" },

@@ -1,5 +1,5 @@
 ﻿###
-###  vlc 2.2.0
+###  vlc 2.2.1
 ###
 
 ###
@@ -1340,7 +1340,7 @@ qt-privacy-ask=0
 skins2-last=/usr/share/vlc/skins2/default.vlt
 
 # Config of last used skin (string)
-skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2310 918 500 130 0]["main" "normal" 0 0 624 478 1]["plwin" "plwin-normal" 688 265 500 350 0]
+skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-main" 635 364 330 171 0]["fullscreenController" "fsc_normal" 2310 918 500 130 0]["main" "normal" 0 0 1280 846 1]["plwin" "plwin-normal" 688 265 500 350 0]
 
 # Enable transparency effects (boolean)
 #skins2-transparency=0
@@ -1497,11 +1497,6 @@ skins2-config=["aboutwin" "aboutwinwin-main" 635 364 330 171 0]["eqwin" "eqwin-m
 #gestures-button=left
 
 [motion] # motion control interface
-
-[lirc] # Infrared remote control interface
-
-# Change the lirc configuration file (string)
-#lirc-file=
 
 [netsync] # Network synchronization
 
@@ -3420,7 +3415,7 @@ subsdec-encoding=system
 #sout-avi-subject=
 
 # Encoder (string)
-#sout-avi-encoder=VLC Media Player - 2.2.0 Weatherwax
+#sout-avi-encoder=VLC Media Player - 2.2.1 Terry Pratchett (Weatherwax)
 
 # Keywords (string)
 #sout-avi-keywords=
@@ -3539,6 +3534,11 @@ subsdec-encoding=system
 
 # PES maximum size (integer)
 #sout-ps-pes-max-size=65500
+
+[notify] # LibNotify Notification Plugin
+
+# Timeout (ms) (integer)
+#notify-timeout=4000
 
 [logger] # File logging
 
@@ -4124,7 +4124,7 @@ playlist-tree=1
 #interact=1
 
 # Locally collect statistics (boolean)
-#stats=0
+#stats=1
 
 # Interface module (string)
 intf=skins2,any
