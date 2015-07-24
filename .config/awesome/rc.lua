@@ -56,7 +56,6 @@ function run_once(cmd)
 end
 
 run_once("xmodmap ~/.Xmodmap")
-run_once("conky -c ~/.conky-weather/.conkyrc &")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
 run_once("goldendict")

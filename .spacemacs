@@ -34,7 +34,6 @@
      syntax-checking
      fp
      orgme
-     lisp
      eyecandy
      company
      ido
@@ -150,7 +149,8 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq url-proxy-services '(("http" . "127.0.0.1:8123")))
+  (setq url-proxy-services '(("http" . "127.0.0.1:8123")
+                             ("https" . "127.0.0.1:8123")))
   )
 
 (defun dotspacemacs/config ()
