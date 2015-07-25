@@ -167,6 +167,7 @@ command! bilidan :openwith bilidan
 command! chrome :openwith chromium
 command! flashtoggle :js toggle_flash()
 command! ss :js toggle_proxy()
+command! sg :proxy manual -socks 127.0.0.1:6024
 nnoremap <C-F> :flashtoggle<CR>
 
 fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga

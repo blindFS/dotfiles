@@ -131,6 +131,19 @@ my_accounts=(
 
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
+# for wildcards
+setopt GLOB_COMPLETE
+zle -C complete-glob menu-complete compglob
+compglob () {
+    setopt localoptions globsubst
+    compset -P '*'
+    files=(${IPREFIX}*)
+    display=(${files/${IPREFIX}/${(q)IPREFIX}})
+    glob=(${files/${IPREFIX}/})
+    compadd -d display -- $glob
+}
+bindkey "^O" complete-glob
+
 sudo-command-line() {
     [[ -z $BUFFER ]] && zle up-history
     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
