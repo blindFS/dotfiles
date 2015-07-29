@@ -27,6 +27,9 @@ PATH=$HOME/.gem/ruby/2.2.0/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/opt/cuda/bin:$PATH
 
+export JAVA_HOME=/opt/oracle/jdk1.7.0_79
+export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export QT_STYLE_OVERRIDE=gtk

@@ -27,6 +27,7 @@
      slime
      racket
      haskell
+     scala
      python
      ess
      rust

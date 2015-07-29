@@ -12,6 +12,7 @@ antigen bundle git-extras
 antigen bundle nmap
 antigen bundle npm
 antigen bundle pip
+antigen bundle sbt
 antigen bundle rsync
 antigen bundle themes
 
