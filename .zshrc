@@ -157,8 +157,7 @@ bindkey '^R' sudo-command-line
 #------------------------------------------------------------------alias---------------------------------------------------------------------------{
 
 ### universal
-alias ubuntu='sudo chroot /media/ubuntu /bin/su farseer'
-alias archlinux='sudo chroot /media/arch /bin/su farseer'
+alias java_proxy='JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=localhost -Dhttp.proxyPort=8123 "'
 alias ve2='source ~/.virtualenv/py2/bin/activate'
 alias cp='cp -i'
 alias mv='mv -i'
