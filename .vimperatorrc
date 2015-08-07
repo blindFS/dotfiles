@@ -117,7 +117,7 @@ function power_arrow(id, right, full) {
   pa.setAttribute('id', 'liberator-status-pa-'+id);
   if (right) {
     pa.textContent = (full ? '' : '');
-    pa.style.marginRight = '-1px';
+    pa.style.fontSize = '9px'
   }
   else
     pa.textContent = (full ? '' : '');

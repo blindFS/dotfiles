@@ -21,7 +21,7 @@
      ;; (git :variables
      ;;     git-gutter-use-fringe nil)
      ;; markdown
-     org
+     ;; org
      shell
      emacs-lisp
      slime
