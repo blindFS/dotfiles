@@ -59,7 +59,7 @@ run_once("xmodmap ~/.Xmodmap")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
 run_once("goldendict")
-run_once("udisks-glue")
+run_once("udiskie -s")
 
 function run_or_raise(cmd, properties)
     local clients = client.get()
@@ -313,13 +313,7 @@ blingbling.popups.cpusensors(tempwidget,
 })
 
 -- / fs
-udisks_glue = blingbling.udisks_glue.new({
-    menu_icon   = beautiful.widget_hdd,
-    Cdrom_icon  = beautiful.cdrom,
-    Usb_icon    = beautiful.usb,
-    mount_icon  = beautiful.accept,
-    umount_icon = beautiful.cancel
-})
+diskicon = wibox.widget.imagebox(beautiful.widget_hdd)
 fswidget = lain.widgets.fs({
     settings  = function()
         widget:set_text(" " .. fs_now.used .. "% ")
@@ -510,7 +504,7 @@ for s = 1, screen.count() do
     right_layout:add(tempicon)
     right_layout:add(tempwidget)
     right_layout:add(arrl_ld)
-    right_layout:add(udisks_glue)
+    right_layout:add(diskicon)
     right_layout:add(fswidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(baticon)
