@@ -6,7 +6,7 @@
 	url = https://github.com/bioe007/awesome-revelation
 [submodule ".config/awesome/blingbling"]
 	path = .config/awesome/blingbling
-	url = https://github.com/farseer90718/blingbling
+	url = https://github.com/blindFS/blingbling
 [submodule ".config/dotgdb"]
 	path = .config/dotgdb
 	url = https://github.com/dholm/dotgdb
@@ -15,7 +15,7 @@
 	url = https://github.com/zsh-users/antigen
 [submodule ".vim"]
 	path = .vim
-	url = https://github.com/farseer90718/dotvim
+	url = https://github.com/blindFS/dotvim
 [submodule ".config/awesome/couth-src"]
 	path = .config/awesome/couth-src
 	url = https://github.com/gorlowski/couth
@@ -24,7 +24,7 @@
 	url = git://git.naquadah.org/awesome.git
 [submodule ".emacs.d"]
 	path = .emacs.d
-	url = https://github.com/farseer90718/dotemacs
+	url = https://github.com/blindFS/dotemacs
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm

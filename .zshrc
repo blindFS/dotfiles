@@ -21,7 +21,7 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
 # antigen bundle hchbaw/auto-fu.zsh
-antigen bundle farseer90718/zsh-funcs
+antigen bundle blindFS/zsh-funcs
 antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 antigen apply

@@ -1,5 +1,5 @@
 [user]
-    name = farseer90718
+    name = blindFS
     email = farseer90718@gmail.com
 [alias]
     pb = pull --rebase
@@ -18,7 +18,7 @@
 [web]
     browser = chromium-browser
 [github]
-    user = farseer90718
+    user = blindFS
 [color]
     branch      = auto
     diff        = auto
