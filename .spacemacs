@@ -21,7 +21,7 @@
      ;; (git :variables
      ;;     git-gutter-use-fringe nil)
      ;; markdown
-     ;; org
+     org
      shell
      emacs-lisp
      slime
@@ -171,6 +171,8 @@ layers configuration."
   (setq helm-recentf-fuzzy-match t)
   (setq helm-locate-fuzzy-match t)
   (setq helm-file-cache-fuzzy-match t)
+
+  (setq neo-show-updir-line t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

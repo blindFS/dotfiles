@@ -24,5 +24,12 @@
     "global" : {
       "ui-type" : "doish"
     }
+  },
+  "data-sink" : {
+    "global" : {
+      "disabled-plugins" : [
+        "SynapseChromiumPlugin"
+      ]
+    }
   }
 }
