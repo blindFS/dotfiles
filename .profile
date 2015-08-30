@@ -27,13 +27,14 @@ PATH=$HOME/.gem/ruby/2.2.0/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=/opt/cuda/bin:$PATH
 
-export JAVA_HOME=/opt/oracle/jdk1.7.0_79
-# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+# export JAVA_HOME=/opt/oracle/jdk1.7.0_79
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export QT_STYLE_OVERRIDE=gtk
 export XMODIFIERS="@im=fcitx"
-export GTAGSROOT=/home/farseer/src/linux-3.16
-export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export GTAGSROOT=/home/farseer/src/linux
+# export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export _JAVA_OPTIONS='-Dswing.defaultlaf=javax.swing.plaf.nimbus.NimbusLookAndFeel'
