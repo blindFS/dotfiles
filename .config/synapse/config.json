@@ -22,7 +22,7 @@
       "exit" : "<Control>q"
     },
     "global" : {
-      "ui-type" : "doish"
+      "ui-type" : "essential"
     }
   },
   "data-sink" : {
