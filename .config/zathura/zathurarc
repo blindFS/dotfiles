@@ -1,10 +1,12 @@
 set selection-clipboard   clipboard
 set window-title-basename true
 set adjust-open           width
-set font                  "monaco for powerline 9"
+set font                  "NovaMono 10"
 set n-completion-items    100
 set first-page-column     2
 set recolor               true
+set recolor-keephue       true
+set smooth-scroll         true
 
 map b toggle_statusbar
 map <C-t> jumplist backward
