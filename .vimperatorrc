@@ -14,8 +14,8 @@ nnoremap Y :googleUrlShortener<CR>
 nnoremap v :caret select head<CR>
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
-nnoremap [t :tabprevious<CR>
-nnoremap ]t :tabnext<CR>
+nnoremap [t :js move_tab(1)<CR>
+nnoremap ]t :js move_tab(0)<CR>
 nnoremap D :tabclose!<CR>
 nnoremap <silent> f :silent !fcitx-remote -c<CR>f
 nnoremap <silent> F :silent !fcitx-remote -c<CR>F
@@ -117,7 +117,7 @@ function power_arrow(id, right, full) {
   pa.setAttribute('id', 'liberator-status-pa-'+id);
   if (right) {
     pa.textContent = (full ? '' : '');
-    pa.style.fontSize = '9px'
+    pa.style.fontSize = '9px';
   }
   else
     pa.textContent = (full ? '' : '');
@@ -131,7 +131,7 @@ function power_status() {
   var widgets = options.get('status').value.split(',');
   var fields = statusline._statusfields;
   var cur = -1;
-  for (var i=0; i < widgets.length; i++) {
+  for (var i = 0; i < widgets.length; i++) {
     if (widgets[i] == seperators[cur+1]) {
       cur++;
       old_pa = document.getElementById('liberator-status-pa-'+widgets[i]);
@@ -149,6 +149,22 @@ function power_status() {
         fields[widgets[i]].node.style.color = fcolors[cur];
     }
   }
+}
+
+function move_tab(direction) {
+  var tabb = config.tabbrowser
+  var curr = tabb.mCurrentTab
+  function current_index() {
+    for (var i = 0; i < tabb.tabs.length; i++) {
+      if (curr == tabb.tabs[i])
+        return i;
+    }
+  }
+  var curi = current_index()
+  if (direction)
+    tabb.moveTabTo(curr, curi - 1)
+  else
+    tabb.moveTabTo(curr, curi + 1)
 }
 EOM
 
