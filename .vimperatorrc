@@ -14,8 +14,6 @@ nnoremap Y :googleUrlShortener<CR>
 nnoremap v :caret select head<CR>
 nnoremap H :back<CR>
 nnoremap L :forward<CR>
-nnoremap [t :js move_tab(1)<CR>
-nnoremap ]t :js move_tab(0)<CR>
 nnoremap D :tabclose!<CR>
 nnoremap <silent> f :silent !fcitx-remote -c<CR>f
 nnoremap <silent> F :silent !fcitx-remote -c<CR>F
@@ -151,7 +149,7 @@ function power_status() {
   }
 }
 
-function move_tab(direction) {
+function move_tab(count, direction) {
   var tabb = config.tabbrowser
   var curr = tabb.mCurrentTab
   function current_index() {
@@ -162,10 +160,15 @@ function move_tab(direction) {
   }
   var curi = current_index()
   if (direction)
-    tabb.moveTabTo(curr, curi - 1)
+    tabb.moveTabTo(curr, curi - count)
   else
-    tabb.moveTabTo(curr, curi + 1)
+    tabb.moveTabTo(curr, curi + count)
 }
+
+mappings.addUserMap(modes.NORMAL, ['[t'], 'move tab left',
+  function(count)move_tab(count, 1), {count: true})
+mappings.addUserMap(modes.NORMAL, [']t'], 'move tab right',
+  function(count)move_tab(count, 0), {count: true})
 EOM
 
 js proxy_status()
