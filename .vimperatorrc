@@ -159,6 +159,7 @@ function move_tab(count, direction) {
     }
   }
   var curi = current_index()
+  if (!count) count = 1
   if (direction)
     tabb.moveTabTo(curr, curi - count)
   else

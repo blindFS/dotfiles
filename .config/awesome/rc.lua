@@ -142,7 +142,6 @@ fm        = terminal .. " -e vifm"
 chat      = terminal .. " -e weechat-curses"
 mixer     = terminal .. " -e alsamixer"
 musicplr  = terminal .. " -e ncmpcpp"
-processes = terminal .. " -e htop"
 
 local layouts = {
     awful.layout.suit.max,
