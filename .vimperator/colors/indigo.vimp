@@ -109,7 +109,7 @@ style -name tab-bar-powerline chrome://* <<EOM
         --tab-triangle-correction: -1px;
         --tab-height: 26px; --tab-icon-size: 15px; --tab-strip-margin: -11px; --tab-overlap: -5px;
         --tab-font-size: 9pt;
-        --tab-triangle: block; /* block | none */
+        --tab-triangle: none; /* block | none */
     }
 
     @-moz-document url(chrome://browser/content/browser.xul) {
@@ -167,7 +167,7 @@ style -name tab-bar-powerline chrome://* <<EOM
         .tabbrowser-tab[selected="true"] .tab-stack {
             background: var(--bg-light) !important; color: var(--fg-light) !important;
             border-radius: 0px !important; position: relative !important;
-            /*border-top: 1px solid #dc52a5 !important;/**/
+            border-top: 1px solid #dc52a5
         }
         .tabbrowser-tab[selected="true"]:before { /* Left Triangle (of selected tab) */
             content: '' !important; display: var(--tab-triangle);
