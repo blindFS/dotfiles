@@ -37,7 +37,7 @@
      orgme
      eyecandy
      company
-     ido
+     ;; ido
      web
      bindings
      )
@@ -154,7 +154,7 @@ before layers configuration."
                              ("https" . "127.0.0.1:8123")))
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
