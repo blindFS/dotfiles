@@ -84,6 +84,14 @@ hi -append HintActive   text-decoration: none; -moz-border-radius: 4px; -moz-box
 " }}}1
 
 " Styles {{{1
+style -name goodreader-submit-visible http://* <<EOM
+    @-moz-document regexp('http://192\\.168\\..*') {
+        input[type="submit"] {
+            visibility: visible !important;
+        }
+    }
+EOM
+
 style -name indigo-feed-button chrome://* <<EOM
     #feed-button {
         list-style-image: url("chrome://browser/skin/feeds/feedIcon16.png") !important;
@@ -100,7 +108,7 @@ style -name indigo-sbmcommentsviewer chrome://* <<EOM
     }
 EOM
 
-style -name tab-bar-powerline chrome://* <<EOM
+style -name tab-bar-powerline * <<EOM
     :root {
         /* TAB VARIABLES */
         --bg-light: #bdc3c7; --bg-dark: #7f8c8d;
