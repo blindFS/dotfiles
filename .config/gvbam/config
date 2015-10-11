@@ -21,6 +21,8 @@ gb_bios_file=
 emulator_type=0
 pause_when_inactive=1
 show_speed=1
+rewind_count_max=180
+rewind_interval=165
 
 [Display]
 scale=2

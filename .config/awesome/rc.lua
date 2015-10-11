@@ -898,6 +898,8 @@ awful.rules.rules = {
         properties = { floating = true } },
     { rule = { class = "Synapse" },
         properties = { border_width = 0 } },
+    { rule = { name = "Gnome-Pie" },
+        properties = { border_width = 0 } },
     { rule = { class = "vbam" },
         properties = { floating = true } },
     { rule = { class = "rdesktop" },
