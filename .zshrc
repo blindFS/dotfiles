@@ -28,6 +28,11 @@ antigen apply
 
 fpath=(~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions.git/src/ $fpath)
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------options-------------------------------------------------------------------------{
 
