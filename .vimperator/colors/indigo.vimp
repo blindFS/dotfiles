@@ -19,7 +19,7 @@ hi Key                  font-weight: bold;
 hi Enabled              color: #d0ffd0;
 hi Disabled             color: red;
 
-hi Normal               color: #FDBA7D; background: rgba(0, 0, 0, 0.86); font-size: 12px;
+hi Normal               color: #FDBA7D; background: rgba(0, 0, 0, 0.86); font-family: Novamono; font-size: 12px;
 hi ErrorMsg             color: #ffffff; background: #955E5E; font-size: 12px;
 hi InfoMsg              color: #d0d0d0; background: #1c1c1c; font-size: 12px;
 hi ModeMsg              color: #1c1c1c; background: #83FF67; font-size: 12px;
@@ -33,7 +33,7 @@ hi PromptText           color: #1c1c1c; background: #d0d0f0; font-size: 12px;
 
 hi CmdOutput            white-space: pre;
 hi CmdLine              font-size: 14px; background: black; color: #d0d0d0; -moz-transition: all 0.25s;
-hi CmdLine>*            font-family: monospace;
+hi CmdLine>*            font-family: Novamono;
 
 hi ContentSeparator     border: none; display: -moz-box;
 
@@ -59,7 +59,7 @@ hi Tag                  color: #a0a0d0;
 hi LineNr               color: #ffd0d0; background: #1c1c1c;
 hi Question             color: #a0a0d0; background: #1c1c1c; font-weight: bold;
 
-hi StatusLine           color: #7090d0; background: transparent; font-weight: normal; font-size: 12px;
+hi StatusLine           color: #7090d0; background: transparent; font-weight: normal; font-size: 14px; font-family: Monofur for Powerline;
 
 hi TabNumber            font-weight: bold; margin: 0px; padding-right: .3ex;
 
@@ -117,7 +117,7 @@ style -name tab-bar-powerline * <<EOM
         --tab-triangle-correction: -1px;
         --tab-height: 26px; --tab-icon-size: 15px; --tab-strip-margin: -11px; --tab-overlap: -5px;
         --tab-font-size: 9pt;
-        --tab-triangle: none; /* block | none */
+        --tab-triangle: block; /* block | none */
     }
 
     @-moz-document url(chrome://browser/content/browser.xul) {
