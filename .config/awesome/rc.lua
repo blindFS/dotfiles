@@ -182,16 +182,17 @@ mymainmenu = awful.menu.new({ items = menu_items, width = 150 })
 -- }}}
 
 -- {{{ Wallpaper
-if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+for s = 1, screen.count() do
+    local wp = beautiful.wallpaper
+    if screen[s].geometry.width < screen[s].geometry.height then
+        wp = beautiful.wallpaper_rotate
     end
+    gears.wallpaper.maximized(wp, s, true)
 end
 -- }}}
 
 -- {{{ Wibox
 markup = lain.util.markup
-red    = "#EA6F81"
 
 -- Textclock
 mytextclock = awful.widget.textclock(" %a %d %b  %H:%M  ")
@@ -246,7 +247,7 @@ mpdwidget = lain.widgets.mpd({
             mpdicon:set_image(beautiful.widget_music)
         end
 
-        widget:set_markup(markup(red, artist) .. title)
+        widget:set_markup(markup("#EA6F81", artist) .. title)
     end
 })
 mpdwidgetbg = wibox.widget.background(mpdwidget, "#313131")
