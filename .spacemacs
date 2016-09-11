@@ -55,6 +55,8 @@ before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   dotspacemacs-elpa-https nil
+   exec-path-from-shell-check-startup-files nil
    ;; Either `vim' or `emacs'. Evil is always enabled but if the variable
    ;; is `emacs' then the `holy-mode' is enabled at startup.
    dotspacemacs-editing-style 'vim
@@ -148,7 +150,7 @@ before layers configuration."
    )
   ;; User initialization goes here
   (setq url-proxy-services '(("http" . "127.0.0.1:8123")
-                           ("https" . "127.0.0.1:8123")))
+                            ("https" . "127.0.0.1:8123")))
   )
 
 (defun dotspacemacs/user-config ()
@@ -170,7 +172,7 @@ layers configuration."
   (setq helm-file-cache-fuzzy-match t)
 
   (setq neo-show-updir-line t)
-)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

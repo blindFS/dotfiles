@@ -152,13 +152,10 @@ local layouts = {
 -- }}}
 
 -- {{{ Tags
-tags = {
-    names = { 'あ ','い ','う ','え ','お ' },
-    layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
-}
-
+tags = {}
 for s = 1, screen.count() do
-    tags[s] = awful.tag(tags.names, s, tags.layout)
+    -- Each screen has its own tag table.
+    tags[s] = awful.tag({'⌨  ', '⌬  ', '⌘  ', '♬  ', '☺  ', '✉  ', '⏍  ', '⚙  '}, s, layouts[1])
 end
 -- }}}
 
@@ -579,7 +576,7 @@ local function arrange(out)
     return choices
 end
 
-local xicon = "/usr/share/icons/Numix/64x64/devices/video-display.svg"
+local xicon = "/usr/share/icons/Numix/64/devices/video-display.svg"
 
 -- Build available choices
 local function menu()
@@ -630,6 +627,14 @@ local function menu()
     dcmd,
     xicon}
 
+    if awful.util.table.hasitem(out, 'VGA1') then
+        for k, ori in pairs({'right', 'left', 'normal', 'inverted'}) do
+            menu[#menu + 1] = { 'VGA1 rotate ' .. ori,
+            dcmd .. ' --output VGA1 --rotate ' .. ori,
+            xicon}
+        end
+    end
+
     return menu
 end
 
@@ -663,7 +668,7 @@ local function xrandr()
     icon = icon,
     timeout = 4,
     screen = mouse.screen, -- Important, not all screens may be visible
-    font = "Monaco for powerline 16",
+    font = naughty.config.defaults.font,
     replaces_id = state.cid }).id
 
     -- Setup the timer
@@ -898,6 +903,8 @@ awful.rules.rules = {
         properties = { floating = true } },
     { rule = { class = "Synapse" },
         properties = { border_width = 0 } },
+    { rule = { class = "netease-cloud-music" },
+        properties = { border_width = 0} },
     { rule = { name = "Gnome-Pie" },
         properties = { border_width = 0 } },
     { rule = { class = "vbam" },
