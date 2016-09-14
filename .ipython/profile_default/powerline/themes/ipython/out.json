@@ -1,0 +1,11 @@
+{
+	"default_module": "powerline.segments.ipython",
+	"segments": {
+		"left": [
+			{
+				"function": "prompt_count",
+				"draw_soft_divider": false
+			}
+		]
+	}
+}
