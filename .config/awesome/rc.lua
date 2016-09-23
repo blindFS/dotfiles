@@ -332,6 +332,7 @@ batwidget = lain.widgets.bat({
     settings = function()
         if  bat_now.perc == "N/A" then
             bat_now.perc = "AC"
+        elseif  bat_now.perc == "AC" then
             baticon:set_image(beautiful.widget_ac)
         elseif tonumber(bat_now.perc) <= 5 then
             baticon:set_image(beautiful.widget_battery_empty)
@@ -577,7 +578,7 @@ local function arrange(out)
     return choices
 end
 
-local xicon = "/usr/share/icons/Numix/64/devices/video-display.svg"
+local xicon = "/usr/share/icons/gnome/scalable/devices/video-display-symbolic.svg"
 
 -- Build available choices
 local function menu()
@@ -616,24 +617,22 @@ local function menu()
         xicon}
     end
 
-    dlabel = 'Duplicate'
     dcmd = "xrandr"
-    for i, o in pairs(out) do
-        dcmd = dcmd .. " --output " .. o .. " --auto"
-        if i > 1 then
-            dcmd = dcmd .. " --same-as " .. out[1]
-        end
-    end
-    menu[#menu + 1] = { dlabel,
-    dcmd,
-    xicon}
-
     if awful.util.table.hasitem(out, 'VGA1') then
         for k, ori in pairs({'right', 'left', 'normal', 'inverted'}) do
             menu[#menu + 1] = { 'VGA1 rotate ' .. ori,
             dcmd .. ' --output VGA1 --rotate ' .. ori,
             xicon}
         end
+
+        dlabel = 'Duplicate'
+        for i, o in pairs(out) do
+            dcmd = dcmd .. " --output " .. o .. " --auto"
+            if i > 1 then
+                dcmd = dcmd .. " --same-as " .. out[1]
+            end
+        end
+        menu[#menu + 1] = {dlabel, dcmd, xicon}
     end
 
     return menu

@@ -33,7 +33,6 @@ export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
 export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
-export QT_STYLE_OVERRIDE=gtk
 export XMODIFIERS="@im=fcitx"
 export GTAGSROOT=/home/farseer/src/linux
 # export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'

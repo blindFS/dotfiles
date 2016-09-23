@@ -1,4 +1,6 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
+zmodload zsh/zprof
+
 source $HOME/.profile
 source $HOME/.antigen/antigen/antigen.zsh
 antigen use oh-my-zsh
@@ -17,16 +19,14 @@ antigen bundle rsync
 antigen bundle themes
 
 antigen bundle supercrabtree/k
-antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
 # antigen bundle hchbaw/auto-fu.zsh
 antigen bundle blindFS/zsh-funcs
 antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 
 antigen apply
-
-fpath=(~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-completions.git/src/ $fpath)
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue'
@@ -37,9 +37,7 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
 #------------------------------------------------------------------options-------------------------------------------------------------------------{
 
 unsetopt correct_all
-autoload -U compinit
 autoload -U colors && colors
-compinit
 # ls color solarized
 eval `dircolors ~/.dircolors`
 
@@ -163,7 +161,6 @@ bindkey '^R' sudo-command-line
 
 ### universal
 alias java_proxy='JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=localhost -Dhttp.proxyPort=8123 "'
-alias ve2='source ~/.virtualenv/py2/bin/activate'
 alias cp='cp -i'
 alias mv='mv -i'
 alias pcp='rsync -aP'

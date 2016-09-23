@@ -24,7 +24,6 @@
      org
      shell
      emacs-lisp
-     slime
      racket
      haskell
      scala
@@ -195,10 +194,16 @@ layers configuration."
      ("~" org-code verbatim)
      ("+"
       (:strike-through t)))))
- '(ring-bell-function (quote ignore) t))
+ '(package-selected-packages
+   (quote
+    (xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe use-package toml-mode toc-org spacemacs-theme spaceline smooth-scrolling sml-mode smeargle shm shell-pop scheme-complete restart-emacs rainbow-mode rainbow-delimiters racket-mode racer quelpa pyvenv pytest pyenv-mode py-yapf popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file noflet neotree multi-term move-text magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo hindent highlight-symbol highlight-quoted highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot-mode gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-paredit evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-prompt-extras esh-help ensime emmet-mode elisp-slime-nav define-word cython-mode company-statistics company-racer company-quickhelp company-ghc company-coq company-cabal company-anaconda color-identifiers-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dim-other-buffers auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(ring-bell-function (quote ignore)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(auto-dim-other-buffers-face ((t (:background "gray8"))))
+ '(button ((t (:foreground "#59b0f9"))))
+ '(org-list-dt ((t (:foreground "turquoise" :weight bold))))
+ '(region ((t (:foreground nil)))))

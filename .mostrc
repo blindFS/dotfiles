@@ -1,9 +1,0 @@
-color status green gray
-color underline blue default
-color overstrike red default
-
-setkey up k
-setkey down j
-
-setkey bob gg
-setkey eob G
