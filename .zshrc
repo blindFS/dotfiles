@@ -64,21 +64,26 @@ bindkey -M vicmd 'gh' vi-beginning-of-line
 bindkey -M vicmd 'gl' vi-end-of-line
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-bindkey -M viins '^K' insert-cycledleft
-bindkey -M viins '^J' insert-cycledright
+bindkey -M vicmd 'u'  undo
+bindkey -M vicmd '^R' redo
+bindkey -M viins '^K' kill-line
 bindkey -M viins '^B' backward-word
 bindkey -M viins '^F' forward-word
 bindkey -M viins '^A' beginning-of-line
 bindkey -M viins '^E' end-of-line
-bindkey -M vicmd 'u'  undo
-bindkey -M vicmd '^R' redo
-bindkey -M menuselect 'h' vi-backward-char                # left
-bindkey -M menuselect 'j' vi-down-line-or-history         # down
-bindkey -M menuselect 'k' vi-up-line-or-history           # up
-bindkey -M menuselect 'l' vi-forward-char                 # right
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
+FZF_TMUX=-1
 bindkey '^T' fzf-file-widget
-bindkey '^L' fzf-cd-widget
+bindkey '^S' fzf-cd-widget
 bindkey '^H' fzf-history-widget
+bindkey '^I' fzf-completion
+bindkey '"' autodoubq
+bindkey "'" autosingq
+bindkey "(" autoparen
 bindkey '^N' history-search-forward
 bindkey '^P' history-search-backward
 
@@ -108,14 +113,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:*:*:*:processes' force-list always
-zstyle ':completion:*:processes' command 'ps -u $USER'
+# zstyle ':completion:*:*:kill:*' menu yes select
+# zstyle ':completion:*:*:*:*:processes' force-list always
+# zstyle ':completion:*:processes' command 'ps -u $USER'
 
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*' group-name ''
@@ -127,7 +127,7 @@ zstyle ':completion:*:warnings' format $' \e[30;41m No Match Found \e[0m\e[31mî‚
 
 my_accounts=(
     git@github.com
-    farseer90718@github.com
+    blindFS@github.com
     orcking@home.ustc.edu.cn
     mobile@192.168.
     root@192.168.
