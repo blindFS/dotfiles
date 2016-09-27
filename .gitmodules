@@ -25,6 +25,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule ".antigen/antigen"]
-	path = .antigen/antigen
-	url = https://github.com/zsh-users/antigen
+[submodule ".zplug"]
+	path = .zplug
+	url = https://github.com/zplug/zplug

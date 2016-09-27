@@ -116,6 +116,7 @@ function power_arrow(id, right, full) {
   pa.setAttribute('id', 'liberator-status-pa-'+id);
   pa.style.fontSize = '14px';
   pa.style.marginRight = '-2px';
+  pa.style.marginTop = '-1px';
   if (right)
     pa.textContent = (full ? '\ue0be' : '');
   else
@@ -167,10 +168,10 @@ function move_tab(count, direction) {
     tabb.moveTabTo(curr, curi + count)
 }
 
-mappings.addUserMap(modes.NORMAL, ['[t'], 'move tab left',
-  function(count)move_tab(count, 1), {count: true})
-mappings.addUserMap(modes.NORMAL, [']t'], 'move tab right',
-  function(count)move_tab(count, 0), {count: true})
+mappings.addUserMap([modes.NORMAL], ['[t'], 'move tab left',
+  function(count) move_tab(count, 1), {count: true})
+mappings.addUserMap([modes.NORMAL], [']t'], 'move tab right',
+  function(count) move_tab(count, 0), {count: true})
 EOM
 
 js proxy_status()

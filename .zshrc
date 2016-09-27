@@ -1,32 +1,40 @@
 #------------------------------------------------------------------antigen-------------------------------------------------------------------------{
 zmodload zsh/zprof
+zmodload zsh/complist
 
 source $HOME/.profile
-source $HOME/.antigen/antigen/antigen.zsh
-antigen use oh-my-zsh
+source $HOME/.zplug/init.zsh
 
-antigen bundle archlinux
-antigen bundle dircycle
-antigen bundle dirpersist
-antigen bundle extract
-# antigen bundle fbterm
-antigen bundle git-extras
-antigen bundle nmap
-antigen bundle npm
-antigen bundle pip
-antigen bundle sbt
-antigen bundle rsync
-antigen bundle themes
+DIRSTACKSIZE=99
+HISTORY_BASE=$HOME/tmp/.directory_history/
 
-antigen bundle supercrabtree/k
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-# antigen bundle hchbaw/auto-fu.zsh
-antigen bundle blindFS/zsh-funcs
-antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+zplug "lib/directory", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
+zplug "plugins/archlinux", from:oh-my-zsh
+zplug "plugins/dirpersist", from:oh-my-zsh
+zplug "plugins/extract", from:oh-my-zsh
+zplug "plugins/fbterm", from:oh-my-zsh
+zplug "plugins/git-extras", from:oh-my-zsh
+zplug "plugins/nmap", from:oh-my-zsh
+zplug "plugins/pip", from:oh-my-zsh
+zplug "plugins/per-directory-history", from:oh-my-zsh
 
-antigen apply
+zplug "blindFS/zsh-funcs"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "trapd00r/zsh-syntax-highlighting-filetypes", nice:19
+zplug "zsh-users/zsh-history-substring-search", nice:19
+zplug "hlissner/zsh-autopair", nice:19
+# zplug "zsh-users/zsh-completions"
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+compinit
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue'
@@ -37,10 +45,8 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
 #------------------------------------------------------------------options-------------------------------------------------------------------------{
 
 unsetopt correct_all
-autoload -U colors && colors
-# ls color solarized
-eval `dircolors ~/.dircolors`
-
+unsetopt menu_complete
+unsetopt flowcontrol
 setopt inc_append_history
 setopt hist_ignore_dups
 setopt extended_history
@@ -52,7 +58,6 @@ setopt hist_ignore_space
 setopt interactive_comments
 setopt auto_cd
 setopt complete_in_word
-# setopt menu_complete
 
 limit coredumpsize 0
 
@@ -78,63 +83,14 @@ bindkey -M menuselect 'l' vi-forward-char
 
 FZF_TMUX=-1
 bindkey '^T' fzf-file-widget
-bindkey '^S' fzf-cd-widget
+bindkey '^Z' fzf-ds-widget
 bindkey '^H' fzf-history-widget
 bindkey '^I' fzf-completion
-bindkey '"' autodoubq
-bindkey "'" autosingq
-bindkey "(" autoparen
 bindkey '^N' history-search-forward
 bindkey '^P' history-search-backward
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
-#------------------------------------------------------------------complete------------------------------------------------------------------------{
-
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path ~/tmp/.zcache
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-zstyle ':completion:*' completer _oldlist _complete
-zstyle ':completion:*:match:*' original only
-zstyle ':completion::prefix-1:*' completer _complete
-zstyle ':completion:predict:*' completer _complete
-zstyle ':completion:incremental:*' completer _complete _correct
-zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
-
-zstyle ':completion:*' expand 'yes'
-zstyle ':completion:*' squeeze-shlashes 'yes'
-zstyle ':completion::complete:*' '\\'
-
-zstyle ':completion:*' menu select
-zstyle ':completion:*:*:default' force-list always
-
-zmodload zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
-
-# zstyle ':completion:*:*:kill:*' menu yes select
-# zstyle ':completion:*:*:*:*:processes' force-list always
-# zstyle ':completion:*:processes' command 'ps -u $USER'
-
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:descriptions' format $' \e[30;42m %d \e[0m\e[32m\e[0m'
-zstyle ':completion:*:messages' format $' \e[30;45m %d \e[0m\e[35m\e[0m'
-zstyle ':completion:*:warnings' format $' \e[30;41m No Match Found \e[0m\e[31m\e[0m'
-
-my_accounts=(
-    git@github.com
-    blindFS@github.com
-    orcking@home.ustc.edu.cn
-    mobile@192.168.
-    root@192.168.
-)
-
-zstyle ':completion:*:my-accounts' users-hosts $my_accounts
-
+#--------------------------------------------------------------------misc--------------------------------------------------------------------------{
 # for wildcards
 setopt GLOB_COMPLETE
 zle -C complete-glob menu-complete compglob
