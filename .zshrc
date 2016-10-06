@@ -8,22 +8,23 @@ source $HOME/.zplug/init.zsh
 DIRSTACKSIZE=99
 HISTORY_BASE=$HOME/tmp/.directory_history/
 
-zplug "lib/directory", from:oh-my-zsh
-zplug "lib/history", from:oh-my-zsh
-zplug "plugins/archlinux", from:oh-my-zsh
-zplug "plugins/dirpersist", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/fbterm", from:oh-my-zsh
-zplug "plugins/git-extras", from:oh-my-zsh
-zplug "plugins/nmap", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/per-directory-history", from:oh-my-zsh
+zplug "lib/directory",                          from:oh-my-zsh
+zplug "lib/history",                            from:oh-my-zsh
+zplug "plugins/archlinux",                      from:oh-my-zsh
+zplug "plugins/dirpersist",                     from:oh-my-zsh
+zplug "plugins/extract",                        from:oh-my-zsh
+zplug "plugins/fbterm",                         from:oh-my-zsh
+zplug "plugins/git-extras",                     from:oh-my-zsh
+zplug "plugins/nmap",                           from:oh-my-zsh
+zplug "plugins/pip",                            from:oh-my-zsh
+zplug "plugins/per-directory-history",          from:oh-my-zsh
 
 zplug "blindFS/zsh-funcs"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
-zplug "trapd00r/zsh-syntax-highlighting-filetypes", nice:19
+zplug "zsh-users/zsh-syntax-highlighting",      nice:10
 zplug "zsh-users/zsh-history-substring-search", nice:19
-zplug "hlissner/zsh-autopair", nice:19
+zplug "hlissner/zsh-autopair",                  nice:19
+zplug "b4b4r07/enhancd",                        use:init.sh
+zplug "jimmijj/chromatic-zsh",                  use:"{config.zsh,completion.zsh}", nice:19
 # zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then
@@ -33,14 +34,23 @@ if ! zplug check --verbose; then
     fi
 fi
 
+if zplug check b4b4r07/enhancd; then
+    ENHANCD_DIR=$HOME/tmp/.enhancd/
+    ENHANCD_FILTER=fzf
+    ENHANCD_DISABLE_HOME=1
+fi
+
+if zplug check zsh-users/zsh-syntax-highlighting; then
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+    ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=cyan'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
+    ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
+fi
+
 zplug load
 compinit
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
-ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=yellow'
 #--------------------------------------------------------------------------------------------------------------------------------------------------}
 #------------------------------------------------------------------options-------------------------------------------------------------------------{
 

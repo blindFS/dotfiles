@@ -358,6 +358,8 @@ volumewidget = lain.widgets.alsa({
     settings = function()
         if volume_now.status == "off" then
             volicon:set_image(beautiful.widget_vol_mute)
+        elseif not tonumber(volume_now.level) then
+            volicon:set_image(beautiful.widget_vol_mute)
         elseif tonumber(volume_now.level) == 0 then
             volicon:set_image(beautiful.widget_vol_no)
         elseif tonumber(volume_now.level) <= 50 then
@@ -366,7 +368,7 @@ volumewidget = lain.widgets.alsa({
             volicon:set_image(beautiful.widget_vol)
         end
 
-        widget:set_text(" " .. volume_now.level .. "% ")
+        widget:set_text(" " .. (volume_now.level or "??") .. "% ")
     end
 })
 

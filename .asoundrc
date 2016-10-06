@@ -1,17 +1,37 @@
-# Use PulseAudio by default
 pcm.!default {
-  type pulse
-  fallback "sysdefault"
-  hint {
-    show on
-    description "Default ALSA Output (currently PulseAudio Sound Server)"
-  }
+  type hw
+  card DA300USB
 }
 
+# pcm.!default {
+#   type hw
+#   card PCH
+# }
+
+# Use PulseAudio by default
+# pcm.!default {
+#   type pulse
+#   fallback "sysdefault"
+#   hint {
+#     show on
+#     description "Default ALSA Output (currently PulseAudio Sound Server)"
+#   }
+# }
+
 ctl.!default {
-  type pulse
-  fallback "sysdefault"
+  type hw
+  card DA300USB
 }
+
+# ctl.!default {
+#   type hw
+#   card PCH
+# }
+
+# ctl.!default {
+#   type pulse
+#   fallback "sysdefault"
+# }
 
 defaults.pcm.rate_converter "samplerate_best"
 
