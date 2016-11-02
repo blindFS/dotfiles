@@ -70,6 +70,8 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
+    - derive/([ei])n$/$1ng/
+    - derive/([ei])ng$/$1n/
 
 translator:
   dictionary: luna_pinyin

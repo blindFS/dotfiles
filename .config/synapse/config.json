@@ -22,7 +22,7 @@
       "exit" : "<Control>q"
     },
     "global" : {
-      "ui-type" : "essential"
+      "ui-type" : "virgilio"
     }
   },
   "data-sink" : {

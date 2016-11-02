@@ -1,4 +1,4 @@
-#------------------------------------------------------------------antigen-------------------------------------------------------------------------{
+#------------------------------------------------------------------zplug-------------------------------------------------------------------------{
 zmodload zsh/zprof
 zmodload zsh/complist
 
@@ -68,6 +68,8 @@ setopt hist_ignore_space
 setopt interactive_comments
 setopt auto_cd
 setopt complete_in_word
+setopt promptpercent
+setopt promptsubst
 
 limit coredumpsize 0
 
@@ -157,12 +159,9 @@ alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 #------------------------------------------------------------------prompt--------------------------------------------------------------------------{
 
 if [[ $TERM == "linux" ]]; then
-    antigen theme gozilla
     export DISPLAY=:0
     TERM=fbterm
     eval `dircolors ~/.dircolors-fbterm`
-elif [[ $TERM == "vt100" ]] ; then
-    antigen theme nanotech
 fi
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------}

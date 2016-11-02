@@ -42,6 +42,7 @@ values."
      git
      ;; markdown
      org
+     bibtex
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -318,15 +319,6 @@ you should place your code here."
                       charset
                       (font-spec :family "Source Han Sans")))
   (setq face-font-rescale-alist '(("Source Han Sans" . 1.05) ("Source Han Sans" . 1.05)))
-
-  (global-flycheck-mode)
-
-  (setq helm-buffers-fuzzy-matching t)
-  (setq helm-recentf-fuzzy-match t)
-  (setq helm-locate-fuzzy-match t)
-  (setq helm-file-cache-fuzzy-match t)
-
-  (setq neo-show-updir-line t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -336,11 +328,11 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(org-emphasis-alist
    (quote
     (("*" bold)
@@ -352,7 +344,7 @@ you should place your code here."
       (:strike-through t)))))
  '(package-selected-packages
    (quote
-    (org-ref yapfify py-isort org-projectile org-download live-py-mode intero hlint-refactor helm-hoogle git-link flyspell-correct-helm flyspell-correct eshell-z company-ghci cargo auto-dictionary uuidgen link-hint eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump column-enforce-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe use-package toml-mode toc-org spacemacs-theme spaceline smooth-scrolling sml-mode smeargle shm shell-pop scheme-complete restart-emacs rainbow-mode rainbow-delimiters racket-mode racer quelpa pyvenv pytest pyenv-mode py-yapf popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file noflet neotree multi-term move-text magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo hindent highlight-symbol highlight-quoted highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot-mode gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-paredit evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-prompt-extras esh-help ensime emmet-mode elisp-slime-nav define-word cython-mode company-statistics company-racer company-quickhelp company-ghc company-coq company-cabal company-anaconda color-identifiers-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dim-other-buffers auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (hide-comnt org-ref yapfify py-isort org-projectile org-download live-py-mode intero hlint-refactor helm-hoogle git-link flyspell-correct-helm flyspell-correct eshell-z company-ghci cargo auto-dictionary uuidgen link-hint eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff dumb-jump column-enforce-mode xterm-color ws-butler window-numbering which-key web-mode volatile-highlights vi-tilde-fringe use-package toml-mode toc-org spacemacs-theme spaceline smooth-scrolling sml-mode smeargle shm shell-pop scheme-complete restart-emacs rainbow-mode rainbow-delimiters racket-mode racer quelpa pyvenv pytest pyenv-mode py-yapf popwin pip-requirements persp-mode pcre2el paradox page-break-lines orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file noflet neotree multi-term move-text magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo hindent highlight-symbol highlight-quoted highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag haskell-snippets graphviz-dot-mode google-translate golden-ratio gnuplot-mode gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-paredit evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view eshell-prompt-extras esh-help ensime emmet-mode elisp-slime-nav define-word cython-mode company-statistics company-racer company-quickhelp company-ghc company-coq company-cabal company-anaconda color-identifiers-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dim-other-buffers auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

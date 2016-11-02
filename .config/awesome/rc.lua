@@ -5,7 +5,7 @@ require("eminent")
 require("revelation")
 require('couth.couth')
 require('couth.alsa')
-local awful      = require("awful")
+awful      = require("awful")
 awful.rules      = require("awful.rules")
 local gears      = require("gears")
 local wibox      = require("wibox")
@@ -55,7 +55,7 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("xmodmap ~/.Xmodmap")
+-- run_once("xmodmap ~/.Xmodmap")
 run_once("compton --config ~/.compton.conf -b")
 run_once("nm-applet")
 run_once("goldendict")
@@ -111,6 +111,22 @@ function match (table1, table2)
 end
 -- }}}
 
+-- {{{ Sloppy Focus
+local sloppyfocus_last = {c=nil}
+client.connect_signal("manage", function (c, startup)
+    client.connect_signal("mouse::enter", function(c)
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            -- Skip focusing the client if the mouse wasn't moved.
+            if c ~= sloppyfocus_last.c then
+                client.focus = c
+                sloppyfocus_last.c = c
+            end
+        end
+    end)
+end)
+-- }}}
+
 -- {{{ Variable definitions
 naughty.config.presets.normal.opacity      = 0.7
 naughty.config.presets.low.opacity         = 0.7
@@ -148,6 +164,7 @@ local layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.fair,
+    awful.layout.suit.magnifier,
 }
 -- }}}
 
@@ -580,7 +597,7 @@ local function arrange(out)
     return choices
 end
 
-local xicon = "/usr/share/icons/gnome/scalable/devices/video-display-symbolic.svg"
+local xicon = "/usr/share/icons/Numix/48/devices/video-display.svg"
 
 -- Build available choices
 local function menu()
@@ -891,24 +908,12 @@ awful.rules.rules = {
         properties = { opacity = 0.85 } },
     { rule = { class = "Emacs" },
         properties = { opacity = 0.90 } },
-    { rule = { name = "OSD Lyrics" },
-        properties       = {
-            border_width = 0,
-            floating     = true,
-            ontop        = true,
-            focus        = true },
-        callback         = function( c )
-            c:geometry( { x = 0, width = 1600, y = 800, height = 100 } )
-        end
-    },
     { rule = { class = "feh" },
         properties = { floating = true } },
     { rule = { class = "Synapse" },
         properties = { border_width = 0 } },
     { rule = { class = "netease-cloud-music" },
         properties = { border_width = 0} },
-    { rule = { name = "Gnome-Pie" },
-        properties = { border_width = 0 } },
     { rule = { class = "vbam" },
         properties = { floating = true } },
     { rule = { class = "rdesktop" },
@@ -917,8 +922,6 @@ awful.rules.rules = {
         properties = { tag = tags[1][2] } },
     { rule = { class = "Gimp" },
         properties = { tag = tags[1][3] } },
-    { rule = { class = "Eclipse" },
-        properties = { tag = tags[1][4] } },
     { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
     { rule = { instance = "exe" },

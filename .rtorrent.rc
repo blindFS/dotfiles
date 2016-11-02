@@ -1,20 +1,18 @@
-#min_peers = 40
-max_peers = 52
-
+#min_peers      = 40
+max_peers       = 52
 #min_peers_seed = 10
-max_peers_seed = 52
+max_peers_seed  = 52
+max_uploads     = 8
+download_rate   = 0
+upload_rate     = 0
 
-max_uploads = 8
-
-download_rate = 0
-upload_rate   = 0
-
-directory = /media/virtual/Downloads
-session = /media/virtual/Downloads/.rtorrent/session
+directory.default.set   = /media/virtual/Downloads
+session.path.set        = /media/virtual/Downloads/.rtorrent/session
+network.scgi.open_local = /media/virtual/Downloads/.rtorrent/rtorrent.sock
 
 schedule = bind_collapse,0,0,"ui.bind_key=download_list,c,view.collapsed.toggle="
 schedule = low_diskspace,5,60,close_low_diskspace=100M
-schedule = torrent,10,10,"load.start=/media/virtual/Downloads/*.torrent"
+schedule = watch_directory,5,5,"load.start=/media/virtual/Downloads/*.torrent"
 
 # Notify-send
 # method.set_key = event.download.finished,notify_me,"execute=notify-send,$d.get_name="
