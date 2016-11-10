@@ -131,8 +131,8 @@ end)
 naughty.config.presets.normal.opacity      = 0.7
 naughty.config.presets.low.opacity         = 0.7
 naughty.config.presets.critical.opacity    = 0.7
-naughty.config.defaults.font               = 'Monaco for powerline 9'
-couth.CONFIG.NOTIFIER_FONT                 = 'Monaco for powerline 10'
+naughty.config.defaults.font               = 'Monaco 9'
+couth.CONFIG.NOTIFIER_FONT                 = 'Monaco 10'
 
 -- localization
 os.setlocale(os.getenv("LANG"))

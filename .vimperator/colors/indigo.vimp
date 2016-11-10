@@ -59,7 +59,7 @@ hi Tag                  color: #a0a0d0;
 hi LineNr               color: #ffd0d0; background: #1c1c1c;
 hi Question             color: #a0a0d0; background: #1c1c1c; font-weight: bold;
 
-hi StatusLine           color: #7090d0; background: transparent; font-weight: normal; font-size: 14px; font-family: Monofur for Powerline;
+hi StatusLine           color: #7090d0; background: transparent; font-weight: normal; font-size: 14px; font-family: Monofur;
 
 hi TabNumber            font-weight: bold; margin: 0px; padding-right: .3ex;
 

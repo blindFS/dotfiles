@@ -118,9 +118,9 @@ function power_arrow(id, right, full) {
   pa.style.marginRight = '-2px';
   pa.style.marginTop = '-1px';
   if (right)
-    pa.textContent = (full ? '\ue0be' : '');
+    pa.textContent = (full ? '\ue0be' : '');
   else
-    pa.textContent = (full ? '\ue0bc' : '');
+    pa.textContent = (full ? '\ue0bc' : '');
   return pa;
 }
 
@@ -137,7 +137,7 @@ function power_status() {
       old_pa = document.getElementById('liberator-status-pa-'+widgets[i]);
       if (old_pa)
         statusline._statuslineWidget.removeChild(old_pa);
-      var pa = power_arrow(widgets[i], 1, 1);
+      var pa = power_arrow(widgets[i], 1, 0);
       pa.style.color = bcolors[cur];
       if (cur > 0)
         pa.style.background = bcolors[cur-1];
@@ -172,6 +172,67 @@ mappings.addUserMap([modes.NORMAL], ['[t'], 'move tab left',
   function(count) move_tab(count, 1), {count: true})
 mappings.addUserMap([modes.NORMAL], [']t'], 'move tab right',
   function(count) move_tab(count, 0), {count: true})
+
+function getMPDSongInfo() {
+    var host = liberator.globalVariables.mpd_currentsong_host || 'localhost';
+    var port = liberator.globalVariables.mpd_currentsong_port || 6600;
+    var socketService = Components.classes["@mozilla.org/network/socket-transport-service;1"]
+    .getService(Components.interfaces.nsISocketTransportService);
+    var transport = socketService.createTransport(null, 0, host, port, null);
+    var os = transport.openOutputStream(0, 0, 0);
+    var is = transport.openInputStream(0, 0, 0);
+    var cis = Cc["@mozilla.org/intl/converter-input-stream;1"].createInstance(Ci.nsIConverterInputStream);
+    cis.init(is, 'UTF-8', 1024, 0xFFFD);
+    cis.QueryInterface(Ci.nsIUnicharLineInputStream);
+
+    var buf = "currentsong\nping\n";
+    os.write(buf, buf.length);
+
+    var timeout = true;
+    var song = {};
+
+    buf = {};
+    outer: for (var i = 0; i < 100; i++) {
+      while (cis.readLine(buf) > 0) {
+        var line = buf.value;
+        var m = line.match(/^(\w+):\s*(.*)$/);
+        if (m)
+          song[m[1]] = m[2];
+        if (!/^OK MPD/.test(line) && /^OK/.test(line)) {
+          timeout = false;
+          break outer;
+        }
+      }
+      liberator.sleep(100);
+    }
+    os.close();
+    is.close();
+
+    if (timeout)
+      throw 'Timeout';
+
+    return song;
+}
+
+function search_current_MPD(source, info) {
+  var bases = {
+    'songfacts-song': 'http://www.songfacts.com/search-songs-1.php?',
+    'songfacts-artist': 'http://www.songfacts.com/search-artists-1.php?',
+    'netease-song': 'http://music.163.com/#/search/m/?s=',
+    'netease-artist': 'http://music.163.com/#/search/m/?type=100&s=',
+    'netease-lyric': 'http://music.163.com/#/search/m/?type=1006&s=',
+  }
+  var url_key = source + '-' + info
+  if (!(url_key in bases))
+    url_key = 'netease-song'
+  var song = getMPDSongInfo()
+  var content = song.Title + '-' + song.Artist
+  if (info == 'artist')
+    content = getMPDSongInfo().Artist
+  if (info == 'song' && source == 'songfacts')
+    content = getMPDSongInfo().Title
+  liberator.open(bases[url_key]+encodeURI(content), liberator.NEW_TAB)
+}
 EOM
 
 js proxy_status()
@@ -190,10 +251,12 @@ command! chrome :openwith chromium
 command! flashtoggle :js toggle_flash()
 command! ss :js toggle_proxy()
 command! sg :proxy manual -socks 127.0.0.1:6024
+command! mpdNetease :js search_current_MPD('netease', 'song')
+command! mpdSongfacts :js search_current_MPD('songfacts', 'song')
 nnoremap <C-F> :flashtoggle<CR>
 
 " fmaps -urls='feedly.com' j k <s-j> <s-k> n p o v r <s-m> gg ga
 " fmaps -urls='twitter.com' gh gn ga gr gd gp gf gl gm gs gu
 " ignorekeys add github\\.com -except=:,f,F,b,t,j,k,r,H,L,/,<Esc>
 " ignorekeys add inbox\\.google\\.com -except=:,f,F,b,t,r,/,<Esc>
-" vim:ts=4:sw=4:tw=0:ft=vim:fdm=marker:foldmarker={,}
+" vim:ts=2:sw=2:tw=0:ft=vim:fdm=marker:foldmarker={,}

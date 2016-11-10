@@ -7,6 +7,7 @@ source $HOME/.zplug/init.zsh
 
 DIRSTACKSIZE=99
 HISTORY_BASE=$HOME/tmp/.directory_history/
+[[ "$TERM" =~ "rxvt" ]] || POWERLEVEL9K_MODE='awesome-patched'
 
 zplug "lib/directory",                          from:oh-my-zsh
 zplug "lib/history",                            from:oh-my-zsh
@@ -25,6 +26,7 @@ zplug "zsh-users/zsh-history-substring-search", nice:19
 zplug "hlissner/zsh-autopair",                  nice:19
 zplug "b4b4r07/enhancd",                        use:init.sh
 zplug "jimmijj/chromatic-zsh",                  use:"{config.zsh,completion.zsh}", nice:19
+zplug "bhilburn/powerlevel9k",                  use:powerlevel9k.zsh-theme
 # zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then

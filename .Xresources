@@ -51,13 +51,13 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
-XTerm*faceName:    monaco for powerline
+XTerm*faceName:    sourcecodepro+powerline+awesome regular
 XTerm*faceSize:    10
 
 URxvt.depth:        32
 ! URxvt.background:   rgba:0000/0b00/1000/dddd
-URxvt.font:         xft:monaco for powerline:size=10:style=Regular:antialias=true,xft:Source Han Sans:size=10:style=Regular:antialias=true, xft:Symbola:pixelsize=10
-URxvt.boldfont:     xft:monaco for powerline bold:size=10:style=BOld:antialias=true,xft:Source Han Sans:size=10:style=Bold:antialias=true, xft:Symbola:pixelsize=10
+URxvt.font:         xft:sourcecodepro+powerline+awesome regular:size=10:style=Regular:antialias=true,xft:Source Han Sans:size=10:style=Regular:antialias=true, xft:Symbola:pixelsize=10
+URxvt.boldfont:     xft:sourcecodepro+powerline+awesome regular:size=10:style=Bold:antialias=true,xft:Source Han Sans:size=10:style=Bold:antialias=true, xft:Symbola:pixelsize=10
 URxvt.scrollBar:    false
 URxvt.urgentOnBell: false
 ! URxvt.letterSpace: -1
