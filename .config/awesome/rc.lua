@@ -143,9 +143,9 @@ beautiful.init(awful.util.getdir("config") .. "/themes/powerarrow-darker/theme.l
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "urxvt"
+terminal   = "termite"
 power      = "power.sh"
-terminalp  = "urxvt -e tmux -2"
+terminalp  = "termite -e 'tmux -2'"
 editor     = "vim"
 geditor    = "gvim"
 graphics   = "gimp"
@@ -810,7 +810,7 @@ awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr
 awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
 awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
 awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Firefox"       })        end ),
-awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "URxvt"         })        end ),
+awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "Termite"})        end ),
 
 -- Prompt
 awful.key({ modkey, "Shift" }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -902,8 +902,8 @@ awful.rules.rules = {
             size_hints_honor = false
         }
     },
-    { rule = { class = "URxvt" },
-        properties = { opacity = 0.90 } },
+    { rule = { class = "Termite" },
+        properties = { opacity = 0.85 } },
     { rule = { class = "Gvim" },
         properties = { opacity = 0.85 } },
     { rule = { class = "Emacs" },

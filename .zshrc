@@ -7,7 +7,18 @@ source $HOME/.zplug/init.zsh
 
 DIRSTACKSIZE=99
 HISTORY_BASE=$HOME/tmp/.directory_history/
-[[ "$TERM" =~ "rxvt" ]] || POWERLEVEL9K_MODE='awesome-patched'
+
+[[ "$TERM" =~ "screen" ]] && POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_OS_ICON_BACKGROUND='white'
+POWERLEVEL9K_OS_ICON_FOREGROUND='blue'
+POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='green'
+POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
+POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='yellow'
+POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
+POWERLEVEL9K_HOME_ICON=""
+POWERLEVEL9K_VI_INSERT_MODE_STRING="✎"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING=""
+
 
 zplug "lib/directory",                          from:oh-my-zsh
 zplug "lib/history",                            from:oh-my-zsh
