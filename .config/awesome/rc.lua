@@ -172,7 +172,7 @@ local layouts = {
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({'⌨  ', '⌬  ', '⌘  ', '♬  ', '☺  ', '✉  ', '⏍  ', '⚙  '}, s, layouts[1])
+    tags[s] = awful.tag({'   ', '   ', '   ', '   ', '   ', '   ', '   '}, s, layouts[1])
 end
 -- }}}
 
@@ -212,7 +212,7 @@ end
 markup = lain.util.markup
 
 -- Textclock
-mytextclock = awful.widget.textclock(" %a %d %b  %H:%M  ")
+mytextclock = awful.widget.textclock(" %a %d %b  %H:%M ")
 
 -- calendar
 --calendar = blingbling.calendar()
@@ -920,10 +920,14 @@ awful.rules.rules = {
         properties = { floating = false} },
     { rule = { class = "Firefox" },
         properties = { tag = tags[1][2] } },
+    { rule = { class = "Chromium" },
+        properties = { tag = tags[1][2] } },
+    { rule = { class = "electronic-wechat" },
+        properties = { tag = tags[1][6] } },
     { rule = { class = "Gimp" },
-        properties = { tag = tags[1][3] } },
-    { rule = { class = "Steam" },
         properties = { tag = tags[1][5] } },
+    { rule = { class = "Steam" },
+        properties = { tag = tags[1][7] } },
     { rule = { instance = "exe" },
         properties = { floating = true,
         fullscreen = true } },

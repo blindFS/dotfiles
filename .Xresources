@@ -51,32 +51,7 @@
 *color14:                 S_base1
 *color15:                 S_base3
 
-XTerm*faceName:    sourcecodepro+powerline+awesome regular
+XTerm*faceName:    monaco
 XTerm*faceSize:    10
-
-URxvt.depth:        32
-! URxvt.background:   rgba:0000/0b00/1000/dddd
-URxvt.font:         xft:sourcecodepro+powerline+awesome regular:size=10:style=Regular:antialias=true,xft:Source Han Sans:size=10:style=Regular:antialias=true, xft:Symbola:pixelsize=10
-URxvt.boldfont:     xft:sourcecodepro+powerline+awesome regular:size=10:style=Bold:antialias=true,xft:Source Han Sans:size=10:style=Bold:antialias=true, xft:Symbola:pixelsize=10
-URxvt.scrollBar:    false
-URxvt.urgentOnBell: false
-! URxvt.letterSpace: -1
-
-URxvt.perl-lib:     /usr/lib/urxvt/perl
-
-URxvt.perl-ext-common:        default,matcher,url-select,clipboard,font-size,vim-scrollback
-URxvt.keysym.M-Escape:        perl:vim-scrollback
-URxvt.keysym.M-u:             perl:url-select:select_next
-URxvt.url-select.underline:   true
-URxvt.url-select.launcher:    xdg-open
-URxvt.colorUL:                #86f2fe
-URxvt.underlineColor:         #24b5f4
-URxvt.keysym.M-c:             perl:clipboard:copy
-URxvt.keysym.M-v:             perl:clipboard:paste
-URxvt.keysym.M-C-v:           perl:clipboard:paste_escaped
-URxvt.keysym.C-Up:            perl:font-size:increase
-URxvt.keysym.C-Down:          perl:font-size:decrease
-URxvt.keysym.C-S-Up:          perl:font-size:incglobal
-URxvt.keysym.C-S-Down:        perl:font-size:decglobal
 
 Xcursor.theme:                ArchCursorTheme

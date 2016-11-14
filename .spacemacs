@@ -318,8 +318,8 @@ you should place your code here."
       (dolist (charset '(kana han cjk-misc bopomofo))
         (set-fontset-font (frame-parameter nil 'font)
                           charset
-                          (font-spec :family "Source Han Sans"))))
-  (setq face-font-rescale-alist '(("Source Han Sans" . 1.05) ("Source Han Sans" . 1.05)))
+                          (font-spec :family "Noto Sans Mono CJK SC Regular"))))
+  (setq face-font-rescale-alist '(("Noto Sans Mono CJK SC Regular" . 1.05) ("Noto Sans Mono CJK SC Regular" . 1.05)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
