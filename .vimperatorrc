@@ -115,12 +115,12 @@ function power_arrow(id, right, full) {
   var pa = document.createElement('label');
   pa.setAttribute('id', 'liberator-status-pa-'+id);
   pa.style.fontSize = '14px';
-  pa.style.marginRight = '-2px';
-  pa.style.marginTop = '-1px';
+//  pa.style.marginRight = '-2px';
+//  pa.style.marginTop = '-1px';
   if (right)
-    pa.textContent = (full ? '\ue0be' : '');
+    pa.textContent = (full ? '' : '');
   else
-    pa.textContent = (full ? '\ue0bc' : '');
+    pa.textContent = (full ? '' : '');
   return pa;
 }
 

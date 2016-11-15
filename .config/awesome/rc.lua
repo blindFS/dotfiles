@@ -5,14 +5,15 @@ require("eminent")
 require("revelation")
 require('couth.couth')
 require('couth.alsa')
-awful      = require("awful")
-awful.rules      = require("awful.rules")
-local gears      = require("gears")
-local wibox      = require("wibox")
-local beautiful  = require("beautiful")
-local naughty    = require("naughty")
-local lain       = require("lain")
-local blingbling = require("blingbling")
+awful             = require("awful")
+awful.rules       = require("awful.rules")
+local gears       = require("gears")
+local wibox       = require("wibox")
+local beautiful   = require("beautiful")
+local naughty     = require("naughty")
+local lain        = require("lain")
+local blingbling  = require("blingbling")
+local net_widgets = require("net_widgets")
 -- }}}
 
 -- {{{ Move the cursor
@@ -56,8 +57,7 @@ function run_once(cmd)
 end
 
 -- run_once("xmodmap ~/.Xmodmap")
-run_once("compton --config ~/.compton.conf -b")
-run_once("nm-applet")
+run_once("compton")
 run_once("goldendict")
 run_once("udiskie -s")
 
@@ -154,7 +154,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- user defined
 browser   = "firefox"
 mail      = terminal .. " -e mutt"
-fm        = terminal .. " -e vifm"
+fm        = "nautilus"
 chat      = terminal .. " -e weechat-curses"
 mixer     = terminal .. " -e alsamixer"
 musicplr  = terminal .. " -e ncmpcpp"
@@ -236,7 +236,7 @@ mailwidget = wibox.widget.background(lain.widgets.imap({
            mailicon:set_image(beautiful.widget_mail)
        end
    end
-}), "#313131")
+}), beautiful.bg_focus)
 
 -- MPD
 artist = ""
@@ -267,7 +267,7 @@ mpdwidget = lain.widgets.mpd({
         widget:set_markup(markup("#EA6F81", artist) .. title)
     end
 })
-mpdwidgetbg = wibox.widget.background(mpdwidget, "#313131")
+mpdwidgetbg = wibox.widget.background(mpdwidget, beautiful.bg_focus)
 
 -- MEM
 memicon = blingbling.task_warrior.new({
@@ -296,7 +296,7 @@ cpuwidget = wibox.widget.background(lain.widgets.cpu({
     settings = function()
         widget:set_markup(markup("#9abcde", string.format(" %02d%% ", cpu_now.usage)))
     end
-}), "#313131")
+}), beautiful.bg_focus)
 blingbling.popups.htop(cpuwidget,
 {
     title_color = beautiful.notify_font_color_1,
@@ -341,7 +341,7 @@ fswidget = lain.widgets.fs({
 --     tmp_color        = beautiful.notify_font_color_3
 -- })
 
-fswidgetbg = wibox.widget.background(fswidget, "#313131")
+fswidgetbg = wibox.widget.background(fswidget, beautiful.bg_focus)
 
 -- Battery
 baticon = wibox.widget.imagebox(beautiful.widget_battery)
@@ -390,7 +390,15 @@ volumewidget = lain.widgets.alsa({
 })
 
 -- Net
-neticon = wibox.widget.imagebox(beautiful.widget_net)
+wiredicon = wibox.widget.background(net_widgets.indicator({
+    interfaces = {"eth0"},
+    font       = naughty.config.defaults.font
+}), beautiful.bg_focus)
+wirelessicon = wibox.widget.background(net_widgets.wireless({
+    interface    = "wlan0",
+    popup_signal = true,
+    font         = naughty.config.defaults.font
+}), beautiful.bg_focus)
 netwidget = wibox.widget.background(lain.widgets.net({
     settings = function()
         widget:set_markup(markup.font("NovaMono 11",
@@ -398,12 +406,8 @@ netwidget = wibox.widget.background(lain.widgets.net({
         .. " " ..
         markup("#46A8C3", " " .. string.format("%05.1f", net_now.sent) .. " ")))
     end
-}), "#313131")
--- blingbling.popups.ipstat(neticon,
--- {
---     title_color = beautiful.notify_font_color_1,
---     ip_color    = beautiful.notify_font_color_2
--- })
+}), beautiful.bg_focus)
+
 blingbling.popups.netstat(netwidget,
 {
     title_color       = beautiful.notify_font_color_1,
@@ -427,12 +431,12 @@ mypromptbox = {}
 mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
-awful.button({}, 1, awful.tag.viewonly),
-awful.button({ modkey }, 1, awful.client.movetotag),
-awful.button({}, 3, awful.tag.viewtoggle),
-awful.button({ modkey }, 3, awful.client.toggletag),
-awful.button({}, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-awful.button({}, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
+    awful.button({}, 1, awful.tag.viewonly),
+    awful.button({ modkey }, 1, awful.client.movetotag),
+    awful.button({}, 3, awful.tag.viewtoggle),
+    awful.button({ modkey }, 3, awful.client.toggletag),
+    awful.button({}, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
+    awful.button({}, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
 )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
@@ -527,7 +531,8 @@ for s = 1, screen.count() do
     right_layout:add(baticon)
     right_layout:add(batwidget)
     right_layout:add(arrl_ld)
-    right_layout:add(neticon)
+    right_layout:add(wiredicon)
+    right_layout:add(wirelessicon)
     right_layout:add(netwidget)
     right_layout:add(arrl_dl)
     right_layout:add(mytextclock)
@@ -808,9 +813,9 @@ awful.key({ modkey }, "e",      function () awful.util.spawn_with_shell(fm)     
 awful.key({ modkey }, "a",      function () awful.util.spawn_with_shell("mess")                         end ),
 awful.key({ modkey }, "m",      function () awful.util.spawn_with_shell(musicplr)                       end ),
 awful.key({ modkey }, "v",      function () run_or_raise(geditor,   { name  = "GVIM"          })        end ),
-awful.key({ modkey }, "g",      function () run_or_raise(graphics,  { name  = "Gimp"          })        end ),
+awful.key({ modkey }, "g",      function () run_or_raise("emacs",   { class = "Emacs"         })        end ),
 awful.key({ modkey }, "n",      function () run_or_raise(browser,   { class = "Firefox"       })        end ),
-awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "Termite"})        end ),
+awful.key({ modkey }, "Return", function () run_or_raise(terminalp, { class = "Termite"       })        end ),
 
 -- Prompt
 awful.key({ modkey, "Shift" }, "r", function () mypromptbox[mouse.screen]:run() end),

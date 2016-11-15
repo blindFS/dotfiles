@@ -55,7 +55,7 @@ header_window_color = "magenta"
 # Progress bar
 # ------------
 progressbar_color = "cyan"
-progressbar_look = "◾◾◽"
+# progressbar_look = ""
 
 # ----
 # Misc
