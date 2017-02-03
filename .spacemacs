@@ -311,8 +311,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; (setq url-proxy-services '(("http" . "127.0.0.1:8123")
-  ;;                           ("https" . "127.0.0.1:8123")))
+  (setq url-proxy-services '(("http" . "127.0.0.1:8123")
+                            ("https" . "127.0.0.1:8123")))
   (setq powerline-default-separator 'slant)
   (if (display-graphic-p)
       (dolist (charset '(kana han cjk-misc bopomofo))

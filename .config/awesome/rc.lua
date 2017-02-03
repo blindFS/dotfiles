@@ -58,6 +58,7 @@ end
 
 -- run_once("xmodmap ~/.Xmodmap")
 run_once("compton")
+run_once("albert")
 run_once("goldendict")
 run_once("udiskie -s")
 
@@ -153,7 +154,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser   = "firefox"
-mail      = terminal .. " -e mutt"
+mailcmd   = terminal .. " -e mutt"
 fm        = "nautilus"
 chat      = terminal .. " -e weechat-curses"
 mixer     = terminal .. " -e alsamixer"
@@ -172,7 +173,7 @@ local layouts = {
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({'   ', '   ', '   ', '   ', '   ', '   ', '   '}, s, layouts[1])
+    tags[s] = awful.tag({'   ', '   ', '   ', '   ', '   ', '   ', '   '}, s, layouts[1])
 end
 -- }}}
 
@@ -211,17 +212,14 @@ end
 -- {{{ Wibox
 markup = lain.util.markup
 
--- Textclock
-mytextclock = awful.widget.textclock(" %a %d %b  %H:%M ")
+-- Calendar
 
--- calendar
---calendar = blingbling.calendar()
---calendar:set_link_to_external_calendar(true)
-lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
+mytextclock = awful.widget.textclock(" %a %d %b  %H:%M ")
+-- lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- Mail IMAP check
 mailicon = wibox.widget.imagebox(beautiful.widget_mail)
-mailicon:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn(mail) end)))
+mailicon:buttons(awful.util.table.join(awful.button({}, 1, function () awful.util.spawn(mailcmd) end)))
 mailwidget = wibox.widget.background(lain.widgets.imap({
    timeout  = 180,
    server   = "imap.gmail.com",
@@ -236,7 +234,7 @@ mailwidget = wibox.widget.background(lain.widgets.imap({
            mailicon:set_image(beautiful.widget_mail)
        end
    end
-}), beautiful.bg_focus)
+}).widget, beautiful.bg_focus)
 
 -- MPD
 artist = ""
@@ -249,7 +247,7 @@ awful.button({}, 4, function () awful.util.spawn_with_shell("mpc next") end),
 awful.button({}, 5, function () awful.util.spawn_with_shell("mpc prev") end)
 ))
 
-mpdwidget = lain.widgets.mpd({
+mpd = lain.widgets.mpd({
     settings = function()
         if mpd_now.state == "play" and mpd_now.artist ~= "N/A" then
             artist = " " .. mpd_now.artist .. " "
@@ -267,22 +265,16 @@ mpdwidget = lain.widgets.mpd({
         widget:set_markup(markup("#EA6F81", artist) .. title)
     end
 })
-mpdwidgetbg = wibox.widget.background(mpdwidget, beautiful.bg_focus)
+mpdwidgetbg = wibox.widget.background(mpd.widget, beautiful.bg_focus)
 
 -- MEM
-memicon = blingbling.task_warrior.new({
-    menu_icon    = beautiful.widget_mem,
-    project_icon = beautiful.project_icon,
-    task_icon    = beautiful.task_icon,
-    task_done    = beautiful.task_done_icon,
-    width        = 150
-})
-memwidget = lain.widgets.mem({
+memicon = wibox.widget.imagebox(beautiful.widget_mem)
+mem = lain.widgets.mem({
     settings = function()
         widget:set_text(" " .. mem_now.used .. "MB ")
     end
 })
-blingbling.popups.htop(memwidget,
+blingbling.popups.htop(mem.widget,
 {
     title_color = beautiful.notify_font_color_1,
     user_color  = beautiful.notify_font_color_2,
@@ -296,7 +288,7 @@ cpuwidget = wibox.widget.background(lain.widgets.cpu({
     settings = function()
         widget:set_markup(markup("#9abcde", string.format(" %02d%% ", cpu_now.usage)))
     end
-}), beautiful.bg_focus)
+}).widget, beautiful.bg_focus)
 blingbling.popups.htop(cpuwidget,
 {
     title_color = beautiful.notify_font_color_1,
@@ -313,12 +305,12 @@ blingbling.popups.cpufreq(cpuicon,
 
 -- Coretemp
 tempicon = wibox.widget.imagebox(beautiful.widget_temp)
-tempwidget = lain.widgets.temp({
+temp = lain.widgets.temp({
     settings = function()
         widget:set_text(" " .. coretemp_now .. "°C ")
     end
 })
-blingbling.popups.cpusensors(tempwidget,
+blingbling.popups.cpusensors(temp.widget,
 {
     cpu_color   = "#9fcfff",
     safe_color  = beautiful.notify_font_color_2,
@@ -332,20 +324,12 @@ fswidget = lain.widgets.fs({
     settings  = function()
         widget:set_text(" " .. fs_now.used .. "% ")
     end
-})
--- blingbling.popups.fstat(fswidget,
--- {
---     title_color      = "#9fcfff",
---     total_color      = beautiful.notify_font_color_1,
---     percentage_color = beautiful.notify_font_color_2,
---     tmp_color        = beautiful.notify_font_color_3
--- })
-
+}).widget
 fswidgetbg = wibox.widget.background(fswidget, beautiful.bg_focus)
 
 -- Battery
 baticon = wibox.widget.imagebox(beautiful.widget_battery)
-batwidget = lain.widgets.bat({
+bat = lain.widgets.bat({
     settings = function()
         if  bat_now.perc == "N/A" then
             bat_now.perc = "AC"
@@ -367,11 +351,11 @@ batwidget = lain.widgets.bat({
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volicon:buttons(awful.util.table.join(
 awful.button({}, 1, function () awful.util.spawn_with_shell(mixer) end),
-awful.button({}, 3, function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
-awful.button({}, 4, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB+')) volumewidget.update() end),
-awful.button({}, 5, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB-')) volumewidget.update() end)
+awful.button({}, 3, function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volume.widget.update() end),
+awful.button({}, 4, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB+')) volume.widget.update() end),
+awful.button({}, 5, function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','1dB-')) volume.widget.update() end)
 ))
-volumewidget = lain.widgets.alsa({
+volume = lain.widgets.alsa({
     settings = function()
         if volume_now.status == "off" then
             volicon:set_image(beautiful.widget_vol_mute)
@@ -406,7 +390,7 @@ netwidget = wibox.widget.background(lain.widgets.net({
         .. " " ..
         markup("#46A8C3", " " .. string.format("%05.1f", net_now.sent) .. " ")))
     end
-}), beautiful.bg_focus)
+}).widget, beautiful.bg_focus)
 
 blingbling.popups.netstat(netwidget,
 {
@@ -511,25 +495,25 @@ for s = 1, screen.count() do
     right_layout:add(mpdwidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(volicon)
-    right_layout:add(volumewidget)
+    right_layout:add(volume.widget)
     right_layout:add(arrl_ld)
     right_layout:add(mailicon)
     right_layout:add(mailwidget)
     right_layout:add(arrl_dl)
     right_layout:add(memicon)
-    right_layout:add(memwidget)
+    right_layout:add(mem.widget)
     right_layout:add(arrl_ld)
     right_layout:add(cpuicon)
     right_layout:add(cpuwidget)
     right_layout:add(arrl_dl)
     right_layout:add(tempicon)
-    right_layout:add(tempwidget)
+    right_layout:add(temp.widget)
     right_layout:add(arrl_ld)
     right_layout:add(diskicon)
     right_layout:add(fswidgetbg)
     right_layout:add(arrl_dl)
     right_layout:add(baticon)
-    right_layout:add(batwidget)
+    right_layout:add(bat.widget)
     right_layout:add(arrl_ld)
     right_layout:add(wiredicon)
     right_layout:add(wirelessicon)
@@ -781,9 +765,9 @@ awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 -- }}
 
 -- {{ ALSA volume control
-awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volumewidget.update() end),
-awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volumewidget.update() end),
-awful.key({ modkey }, "F7", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
+awful.key({ modkey }, "F9", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volume.widget.update() end),
+awful.key({ modkey }, "F8", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volume.widget.update() end),
+awful.key({ modkey }, "F7", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volume.widget.update() end),
 -- }}
 
 -- {{ MPD control
@@ -793,9 +777,9 @@ awful.key({ modkey }, "F12", function () awful.util.spawn_with_shell("mpc next")
 -- }}
 
 -- {{ XF86keys
-awful.key({}, "XF86AudioRaiseVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volumewidget.update() end),
-awful.key({}, "XF86AudioLowerVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volumewidget.update() end),
-awful.key({}, "XF86AudioMute", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volumewidget.update() end),
+awful.key({}, "XF86AudioRaiseVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB+')) volume.widget.update() end),
+awful.key({}, "XF86AudioLowerVolume", function () couth.notifier:notify( couth.alsa:setVolume('-c0 Master','2dB-')) volume.widget.update() end),
+awful.key({}, "XF86AudioMute", function () couth.notifier:notify( couth.alsa:setVolume('Master','toggle')) volume.widget.update() end),
 awful.key({}, "XF86AudioPlay", function () awful.util.spawn_with_shell("mpc toggle") end),
 awful.key({}, "XF86AudioPrev", function () awful.util.spawn_with_shell("mpc prev")   end),
 awful.key({}, "XF86AudioNext", function () awful.util.spawn_with_shell("mpc next")   end),
@@ -916,6 +900,8 @@ awful.rules.rules = {
     { rule = { class = "feh" },
         properties = { floating = true } },
     { rule = { class = "Synapse" },
+        properties = { border_width = 0 } },
+    { rule = { class = "albert" },
         properties = { border_width = 0 } },
     { rule = { class = "netease-cloud-music" },
         properties = { border_width = 0} },

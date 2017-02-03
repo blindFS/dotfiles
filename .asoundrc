@@ -3,10 +3,10 @@
 #   card DA300USB
 # }
 
-# pcm.!default {
-#   type hw
-#   card PCH
-# }
+pcm.!default {
+  type hw
+  card PCH
+}
 
 # Use PulseAudio by default
 pcm.!default {
@@ -23,15 +23,15 @@ pcm.!default {
 #   card DA300USB
 # }
 
-# ctl.!default {
-#   type hw
-#   card PCH
-# }
-
 ctl.!default {
-  type pulse
-  fallback "sysdefault"
+  type hw
+  card PCH
 }
+
+# ctl.!default {
+#   type pulse
+#   fallback "sysdefault"
+# }
 
 defaults.pcm.rate_converter "samplerate_best"
 

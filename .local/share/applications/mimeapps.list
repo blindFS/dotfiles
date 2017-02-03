@@ -89,7 +89,7 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 
 [Default Applications]
-text/html=firefox.desktop
+text/html=chromium.desktop
 video/x-ogm+ogg=totem.desktop
 video/3gp=totem.desktop
 video/3gpp=totem.desktop
@@ -154,8 +154,8 @@ image/svg+xml-compressed=eog.desktop
 image/vnd.wap.wbmp=eog.desktop
 application/pdf=zathura.desktop
 x-scheme-handler/mailto=firefox.desktop
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
 x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
 application/x-extension-htm=firefox.desktop
@@ -166,3 +166,5 @@ application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 application/ppdf=zathura.desktop
 application/octet-stream=zathura.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop

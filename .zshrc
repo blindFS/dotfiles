@@ -112,7 +112,7 @@ FZF_TMUX=-1
 bindkey '^T' fzf-file-widget
 bindkey '^Z' fzf-ds-widget
 bindkey '^H' fzf-history-widget
-bindkey '^I' fzf-completion
+# bindkey '^I' fzf-completion
 bindkey '^N' history-search-forward
 bindkey '^P' history-search-backward
 
