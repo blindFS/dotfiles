@@ -2,15 +2,18 @@
 Description=Window settings for emacs
 clientmachine=farseer-workstation
 clientmachinematch=0
-desktop=3
+desktop=2
 desktoprule=3
 maximizehoriz=true
-maximizehorizrule=3
+maximizehorizrule=2
 maximizevert=true
-maximizevertrule=3
+maximizevertrule=2
+opacityactive=85
+opacityactiverule=2
+opacityinactive=85
+opacityinactiverule=2
 title=emacs@farseer-workstation
-titlematch=1
-types=1
+titlematch=0
 wmclass=emacs
 wmclasscomplete=false
 wmclassmatch=1
@@ -36,38 +39,5 @@ wmclass=termite
 wmclasscomplete=false
 wmclassmatch=1
 
-[3]
-Description=Application settings for emacs
-clientmachine=farseer-workstation
-clientmachinematch=0
-opacityactive=85
-opacityactiverule=2
-opacityinactive=85
-opacityinactiverule=2
-wmclass=emacs
-wmclasscomplete=false
-wmclassmatch=1
-
-[4]
-Description=Window settings for termite
-clientmachine=farseer-workstation
-clientmachinematch=0
-maximizehoriz=true
-maximizehorizrule=2
-maximizevert=true
-maximizevertrule=2
-opacityactive=80
-opacityactiverule=2
-opacityinactive=80
-opacityinactiverule=2
-screen=0
-screenrule=2
-title=xterm-termite
-titlematch=1
-types=1
-wmclass=termite
-wmclasscomplete=false
-wmclassmatch=1
-
 [General]
-count=4
+count=2

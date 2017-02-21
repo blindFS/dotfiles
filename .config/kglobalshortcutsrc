@@ -22,12 +22,20 @@ PowerOff=Power Off,Power Off,Power Off
 Show System Activity=Ctrl+Esc,Ctrl+Esc,Show System Activity
 Sleep=Sleep,Sleep,Suspend
 Toggle Keyboard Backlight=Keyboard Light On/Off,Keyboard Light On/Off,Toggle Keyboard Backlight
-_k_friendly_name=KDE Daemon
+_k_friendly_name=Power Management
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
+{30089189-57df-4a71-b2ad-4b11d3a36351}=Meta+Return,none,tmux
+{3c90729a-6ab9-472a-a89c-bd4f3f36becb}=Meta+S,none,xscreensaver
+{5f203819-2d93-4ad2-975d-e06de1c177e8}=none,none,New Action
+{9e8830f0-2fbf-4020-8578-bb406d42c338}=Meta+F10,none,mpc prev
+{ab4eb9d7-ce55-4839-a4b4-32392e422498}=Meta+F11,none,mpc toggle
+{be44f73c-aca4-4bd4-ae73-c1e9d9c44941}=Meta+M,none,ncmpcpp
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
+{ec0cb476-8160-4959-a036-1f2bd8ac541b}=Meta+F12,none,mpc next
+{f0de68a8-5885-4aff-a9c6-acf28ecce07a}=Meta+E,none,nautilus
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -53,11 +61,11 @@ _k_friendly_name=ksmserver
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demanding Attention
-Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
+Decrease Opacity=Meta+-,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
-ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
+ExposeAll=Meta+W\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
-Increase Opacity=none,none,Increase Opacity of Active Window by 5 %
+Increase Opacity=Meta+=,none,Increase Opacity of Active Window by 5 %
 Invert Screen Colors=none,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
 MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
@@ -196,8 +204,8 @@ Window to Screen 6=none,none,Window to Screen 6
 Window to Screen 7=none,none,Window to Screen 7
 _k_friendly_name=KWin
 view_actual_size=,Meta+0,Actual Size
-view_zoom_in=Meta+=,Meta+=,Zoom In
-view_zoom_out=Meta+-,Meta+-,Zoom Out
+view_zoom_in=,Meta+=,Zoom In
+view_zoom_out=,Meta+-,Zoom Out
 
 [mediacontrol]
 _k_friendly_name=Media Controller
@@ -218,7 +226,9 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
+activate widget 22=,none,Activate Application Launcher Widget
 activate widget 3=Alt+F1,none,Activate Application Launcher Widget
+activate widget 42=none,none,Activate Digital Clock Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -231,4 +241,4 @@ repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position
-stop current activity=Meta+S,Meta+S,Stop Current Activity
+stop current activity=,Meta+S,Stop Current Activity

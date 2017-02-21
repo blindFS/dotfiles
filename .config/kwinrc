@@ -13,14 +13,101 @@ XRenderSmoothScale=false
 
 [Desktops]
 Number=4
+Rows=2
+
+[Effect-CoverSwitch]
+TabBox=false
+TabBoxAlternative=false
+
+[Effect-FlipSwitch]
+TabBox=false
+TabBoxAlternative=false
+
+[MouseBindings]
+CommandActiveTitlebar1=Raise
+CommandActiveTitlebar2=Start window tab drag
+CommandActiveTitlebar3=Operations menu
+CommandAll1=Move
+CommandAll2=Toggle raise and lower
+CommandAll3=Resize
+CommandAllKey=Alt
+CommandAllWheel=Nothing
+CommandInactiveTitlebar1=Activate and raise
+CommandInactiveTitlebar2=Start window tab drag
+CommandInactiveTitlebar3=Operations menu
+CommandTitlebarWheel=Switch to Window Tab to the Left/Right
+CommandWindow1=Activate, raise and pass click
+CommandWindow2=Activate and pass click
+CommandWindow3=Activate and pass click
+CommandWindowWheel=Scroll
+
+[Plugins]
+cubeslideEnabled=false
+desktopchangeosdEnabled=true
+diminactiveEnabled=true
+highlightwindowEnabled=true
+kwin4_effect_fadedesktopEnabled=false
+slideEnabled=true
+windowgeometryEnabled=false
+
+[Script-desktopchangeosd]
+PopupHideDelay=500
+TextOnly=false
 
 [TabBox]
+ActivitiesMode=1
+ApplicationsMode=0
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
+DesktopMode=1
+HighlightWindows=true
+LayoutName=org.kde.breezedark.desktop
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
+
+[TabBoxAlternative]
+ActivitiesMode=1
+ApplicationsMode=0
+DesktopMode=1
+HighlightWindows=true
 LayoutName=org.kde.breeze.desktop
+MinimizedMode=0
+MultiScreenMode=0
+ShowDesktopMode=0
+ShowTabBox=true
+SwitchingMode=0
 
 [Windows]
+ActiveMouseScreen=true
+AutoRaise=false
+AutoRaiseInterval=750
+AutogroupInForeground=true
+AutogroupSimilarWindows=true
+BorderSnapZone=10
 BorderlessMaximizedWindows=true
+CenterSnapZone=0
+ClickRaise=true
+DelayFocusInterval=100
+FocusPolicy=FocusFollowsMouse
+FocusStealingPreventionLevel=1
+GeometryTip=false
+HideUtilityWindowsForInactive=true
+InactiveTabsSkipTaskbar=false
+MaximizeButtonLeftClickCommand=Maximize
+MaximizeButtonMiddleClickCommand=Maximize (vertical only)
+MaximizeButtonRightClickCommand=Maximize (horizontal only)
+NextFocusPrefersMouse=true
+Placement=Smart
+RollOverDesktops=true
+SeparateScreenFocus=true
+ShadeHover=false
+ShadeHoverInterval=250
+SnapOnlyWhenOverlapping=false
+TitlebarDoubleClickCommand=Maximize
+WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=Tiny

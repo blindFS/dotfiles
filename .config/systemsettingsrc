@@ -1,0 +1,25 @@
+[ConfigDialog]
+Height 900=252
+Width 1600=385
+
+[HTML Settings]
+AutomaticDetectionLanguage=1
+
+[MainWindow]
+Height 1440=1411
+Height 768=709
+Height 900=835
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABKsAAAMdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1024=1195
+Width 1600=1195
+Width 900=1195
+
+[Open-with settings]
+CompletionMode=5
+History=nautilus --new-window %U,file,nautilus,termite -e tmux,termite
+
+[classic_mode]
+autoExpandOneLevel=false
+viewLayout=352,704
