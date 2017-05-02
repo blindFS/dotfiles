@@ -2,23 +2,45 @@
 Height 900=252
 Width 1600=385
 
+[DownloadDialog Settings]
+Height 900=509
+Width 1600=700
+
+[FileDialogSize]
+Height 900=480
+Width 1600=640
+
 [HTML Settings]
 AutomaticDetectionLanguage=1
 
+[KFileDialog Settings]
+Recent Files[$e]=42.jpg,file:$HOME/Pictures/marvin.png,file:$HOME/Pictures/background/42.jpg
+Recent URLs[$e]=file:$HOME/Pictures/background/,file:$HOME/Pictures/
+
+[KPropertiesDialog]
+Height 900=449
+Width 1600=409
+
 [MainWindow]
-Height 1440=1411
+Height 1024=709
+Height 1440=1386
 Height 768=709
-Height 900=835
+Height 900=1386
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAABKsAAAMdAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAABCYAAAVEAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
-Width 1024=1195
-Width 1600=1195
+Width 1024=1024
+Width 1600=1062
+Width 768=768
 Width 900=1195
+Window-Maximized 1440x900=true
 
 [Open-with settings]
 CompletionMode=5
-History=nautilus --new-window %U,file,nautilus,termite -e tmux,termite
+History=goldendict,nautilus --new-window %U,file,nautilus,termite -e tmux,termite
+
+[PlasmaRunnerManager]
+LaunchCounts=
 
 [classic_mode]
 autoExpandOneLevel=false

@@ -1,9 +1,24 @@
 [1]
+Description=Window settings for zathura
+clientmachine=farseer-workstation
+clientmachinematch=0
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+title=zathura
+titlematch=1
+types=1
+wmclass=zathura
+wmclasscomplete=false
+wmclassmatch=1
+
+[2]
 Description=Window settings for emacs
 clientmachine=farseer-workstation
 clientmachinematch=0
-desktop=2
-desktoprule=3
+desktop=-1
+desktoprule=2
 maximizehoriz=true
 maximizehorizrule=2
 maximizevert=true
@@ -18,11 +33,11 @@ wmclass=emacs
 wmclasscomplete=false
 wmclassmatch=1
 
-[2]
+[3]
 Description=Window settings for termite
 clientmachine=farseer-workstation
 clientmachinematch=0
-desktop=1
+desktop=-1
 desktoprule=3
 maximizehoriz=true
 maximizehorizrule=3
@@ -40,4 +55,4 @@ wmclasscomplete=false
 wmclassmatch=1
 
 [General]
-count=2
+count=3

@@ -19,9 +19,32 @@ Rows=2
 TabBox=false
 TabBoxAlternative=false
 
+[Effect-Cube]
+BorderActivate=9
+BorderActivateCylinder=9
+BorderActivateSphere=9
+
+[Effect-DesktopGrid]
+BorderActivate=9
+
 [Effect-FlipSwitch]
 TabBox=false
 TabBoxAlternative=false
+
+[Effect-PresentWindows]
+BorderActivate=9
+BorderActivateAll=9
+BorderActivateClass=9
+
+[ElectricBorders]
+Bottom=None
+BottomLeft=None
+BottomRight=None
+Left=None
+Right=None
+Top=None
+TopLeft=None
+TopRight=None
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -47,8 +70,11 @@ desktopchangeosdEnabled=true
 diminactiveEnabled=true
 highlightwindowEnabled=true
 kwin4_effect_fadedesktopEnabled=false
+magiclampEnabled=true
+minimizeanimationEnabled=false
 slideEnabled=true
 windowgeometryEnabled=false
+wobblywindowsEnabled=true
 
 [Script-desktopchangeosd]
 PopupHideDelay=500
@@ -57,6 +83,8 @@ TextOnly=false
 [TabBox]
 ActivitiesMode=1
 ApplicationsMode=0
+BorderActivate=9
+BorderAlternativeActivate=9
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
@@ -91,6 +119,12 @@ BorderlessMaximizedWindows=true
 CenterSnapZone=0
 ClickRaise=true
 DelayFocusInterval=100
+ElectricBorderCooldown=350
+ElectricBorderCornerRatio=0.25
+ElectricBorderDelay=150
+ElectricBorderMaximize=true
+ElectricBorderTiling=true
+ElectricBorders=0
 FocusPolicy=FocusFollowsMouse
 FocusStealingPreventionLevel=1
 GeometryTip=false
@@ -112,7 +146,6 @@ WindowSnapZone=10
 [org.kde.kdecoration2]
 BorderSize=Tiny
 ButtonsOnLeft=MS
-ButtonsOnRight=HIAX
+ButtonsOnRight=IAX
 CloseOnDoubleClickOnMenu=false
 library=org.kde.breeze
-theme=

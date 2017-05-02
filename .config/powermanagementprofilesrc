@@ -1,9 +1,6 @@
 [AC]
 icon=battery-charging
 
-[AC][DimDisplay]
-idleTime=300000
-
 [AC][HandleButtonEvents]
 lidAction=1
 powerButtonAction=16

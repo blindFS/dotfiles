@@ -1,5 +1,6 @@
 [KDE Keyboard Layout Switcher]
-Switch to Next Keyboard Layout=Ctrl+Alt+K,none,Switch to Next Keyboard Layout
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
+Switch to Next Keyboard Layout=Ctrl+Alt+K,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=KDE Daemon
 
 [kaccess]
@@ -29,13 +30,23 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 _k_friendly_name=KDE Daemon
 {30089189-57df-4a71-b2ad-4b11d3a36351}=Meta+Return,none,tmux
 {3c90729a-6ab9-472a-a89c-bd4f3f36becb}=Meta+S,none,xscreensaver
-{5f203819-2d93-4ad2-975d-e06de1c177e8}=none,none,New Action
 {9e8830f0-2fbf-4020-8578-bb406d42c338}=Meta+F10,none,mpc prev
 {ab4eb9d7-ce55-4839-a4b4-32392e422498}=Meta+F11,none,mpc toggle
 {be44f73c-aca4-4bd4-ae73-c1e9d9c44941}=Meta+M,none,ncmpcpp
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=Search,none,Search
 {ec0cb476-8160-4959-a036-1f2bd8ac541b}=Meta+F12,none,mpc next
 {f0de68a8-5885-4aff-a9c6-acf28ecce07a}=Meta+E,none,nautilus
+
+[klipper]
+_k_friendly_name=Klipper
+clear-history=none,none,Clear Clipboard History
+clipboard_action=,Ctrl+Alt+X,Enable Clipboard Actions
+cycleNextAction=none,none,Next History Item
+cyclePrevAction=none,none,Previous History Item
+edit_clipboard=none,none,Edit Contents...
+repeat_action=,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
+show-barcode=none,none,Show Barcode...
+show-on-mouse-pos=none,none,Open Klipper at Mouse Position
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -65,11 +76,13 @@ Decrease Opacity=Meta+-,none,Decrease Opacity of Active Window by 5 %
 Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Meta+W\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
+FlipSwitchAll=none,none,Toggle Flip Switch (All desktops)
+FlipSwitchCurrent=none,none,Toggle Flip Switch (Current desktop)
 Increase Opacity=Meta+=,none,Increase Opacity of Active Window by 5 %
-Invert Screen Colors=none,none,Invert Screen Colors
+Invert Screen Colors=Meta+I,none,Invert Screen Colors
 Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
-MoveMouseToCenter=Meta+F6,Meta+F6,Move Mouse to Center
-MoveMouseToFocus=Meta+F5,Meta+F5,Move Mouse to Focus
+MoveMouseToCenter=Meta+Ctrl+K,Meta+F6,Move Mouse to Center
+MoveMouseToFocus=Meta+Ctrl+J,Meta+F5,Move Mouse to Focus
 MoveZoomDown=Meta+Down,Meta+Down,Move Zoomed Area Downwards
 MoveZoomLeft=Meta+Left,Meta+Left,Move Zoomed Area to Left
 MoveZoomRight=Meta+Right,Meta+Right,Move Zoomed Area to Right
@@ -84,8 +97,8 @@ Switch One Desktop Up=none,none,Switch One Desktop Up
 Switch One Desktop to the Left=none,none,Switch One Desktop to the Left
 Switch One Desktop to the Right=none,none,Switch One Desktop to the Right
 Switch Window Down=Meta+J,Meta+Alt+Down,Switch to Window Below
-Switch Window Left=Meta+Alt+Left,Meta+Alt+Left,Switch to Window to the Left
-Switch Window Right=Meta+Alt+Right,Meta+Alt+Right,Switch to Window to the Right
+Switch Window Left=Meta+H,Meta+Alt+Left,Switch to Window to the Left
+Switch Window Right=Meta+L,Meta+Alt+Right,Switch to Window to the Right
 Switch Window Up=Meta+K,Meta+Alt+Up,Switch to Window Above
 Switch to Desktop 1=Meta+1,Ctrl+F1,Switch to Desktop 1
 Switch to Desktop 10=none,none,Switch to Desktop 10
@@ -108,9 +121,9 @@ Switch to Desktop 7=none,none,Switch to Desktop 7
 Switch to Desktop 8=none,none,Switch to Desktop 8
 Switch to Desktop 9=none,none,Switch to Desktop 9
 Switch to Next Desktop=none,none,Switch to Next Desktop
-Switch to Next Screen=Meta+Ctrl+K,none,Switch to Next Screen
+Switch to Next Screen=,none,Switch to Next Screen
 Switch to Previous Desktop=none,none,Switch to Previous Desktop
-Switch to Previous Screen=Meta+Ctrl+J,none,Switch to Previous Screen
+Switch to Previous Screen=,none,Switch to Previous Screen
 Switch to Screen 0=none,none,Switch to Screen 0
 Switch to Screen 1=none,none,Switch to Screen 1
 Switch to Screen 2=none,none,Switch to Screen 2
@@ -226,17 +239,17 @@ activate task manager entry 6=Meta+6,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=Meta+7,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=Meta+8,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=Meta+9,Meta+9,Activate Task Manager Entry 9
-activate widget 22=,none,Activate Application Launcher Widget
-activate widget 3=Alt+F1,none,Activate Application Launcher Widget
+activate widget 22=Alt+F1,none,Activate Application Launcher Widget
 activate widget 42=none,none,Activate Digital Clock Widget
+activate widget 54=,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=Ctrl+Alt+X,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
 cyclePrevAction=none,none,Previous History Item
 edit_clipboard=none,none,Edit Contents...
 manage activities=Meta+Q,Meta+Q,Activities...
-next activity=,none,Walk through activities
-previous activity=,none,Walk through activities (Reverse)
+next activity=Alt+Tab,none,Walk through activities
+previous activity=Alt+Shift+Tab,none,Walk through activities (Reverse)
 repeat_action=Ctrl+Alt+R,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
